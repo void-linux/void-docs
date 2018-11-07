@@ -18,7 +18,9 @@ $ xbps-query --regex -Rs 'linux[34]' | grep -Ev '(dbg|headers)'
 [-] linux4.9-4.9.37_1             The Linux kernel and modules (4.9 series)
 ```
 
-The `linux` meta package which is installed by default depends on one of the kernel packages, usually the latest mainline kernel that works with all dkms modules.
+The `linux` meta package which is installed by default depends on one of the
+kernel packages, usually the latest mainline kernel that works with all dkms
+modules.
 
 ## Removing old kernels
 
@@ -27,7 +29,9 @@ $ vkpurge list
 3.8.2_1
 ```
 
-You can now remove a specific kernel version like `3.8.2_1` or `all` which removes all kernels  expect the latest kernel of each series and the kernel that is currently booted.
+You can now remove a specific kernel version like `3.8.2_1` or `all` which
+removes all kernels  expect the latest kernel of each series and the kernel that
+is currently booted.
 
 ```
 # vkpurge rm 3.8.2_1
@@ -37,7 +41,8 @@ You can now remove a specific kernel version like `3.8.2_1` or `all` which remov
 ## Kernel modules
 ### Loading kernel modules at boot
 
-To load kernel modules at boot time, a `.conf` file like `/etc/modules-load.d/virtio.conf` can be created.
+To load kernel modules at boot time, a `.conf` file like
+`/etc/modules-load.d/virtio.conf` can be created.
 
 ```
 # load virtio-net
@@ -46,10 +51,12 @@ virtio-net
 
 ### Blacklisting kernel modules
 
-There are two different methods to blacklist kernel modules, for the initramfs and for the booted system.
-Some modules are loaded by the initramfs very early in the boot process, those have to be blacklisted in the initramfs.
+There are two different methods to blacklist kernel modules, for the initramfs
+and for the booted system.  Some modules are loaded by the initramfs very early
+in the boot process, those have to be blacklisted in the initramfs.
 
-You can blacklist modules with a `.conf` file like `/etc/modprobe.d/radeon.conf`.
+You can blacklist modules with a `.conf` file like
+`/etc/modprobe.d/radeon.conf`.
 
 ```
 blacklist radeon
@@ -57,13 +64,15 @@ blacklist radeon
 
 #### dracut
 
-To blacklist modules from being included in a dracut initramfs you need to create a `.conf` file like `/etc/dracut.conf.d/radeon.conf`.
+To blacklist modules from being included in a dracut initramfs you need to
+create a `.conf` file like `/etc/dracut.conf.d/radeon.conf`.
 
 ```
 omit_drivers+=" radeon "
 ```
 
-Now you need to regenerate the initramfs to make the changes take effect on the next reboot.
+Now you need to regenerate the initramfs to make the changes take effect on the
+next reboot.
 
 ```
 # dracut --force
@@ -75,13 +84,17 @@ XXX: add example of blacklisting kernel modules for mkinitcpio
 
 ## Kernel hooks
 
-Void Linux provides directories for kernel hooks in `/etc/kernel.d/{pre-install,post-install,pre-remove,post-remove}`.
+Void Linux provides directories for kernel hooks in
+`/etc/kernel.d/{pre-install,post-install,pre-remove,post-remove}`.
 
-Bootloaders like `grub`, `gummiboot` and `lilo` use those hooks to update the bootmenu. Initramfs tools like `dracut` and `mkinitcpio` use the hooks to generate initramfs files for newly installed kernels.
+Bootloaders like `grub`, `gummiboot` and `lilo` use those hooks to update the
+bootmenu. Initramfs tools like `dracut` and `mkinitcpio` use the hooks to
+generate initramfs files for newly installed kernels.
 
 ## Dynamic Kernel Module Support (dkms)
 
-There are kernel modules that are not part of the linux source tree that are build at install time using dkms and [kernel hooks](#kernel-hooks).
+There are kernel modules that are not part of the linux source tree that are
+build at install time using dkms and [kernel hooks](#kernel-hooks).
 
 ```
 $ xbps-query -Rs dkms
@@ -105,7 +118,9 @@ $ xbps-query -Rs dkms
 
 ### grub
 
-Kernel command line arguments can be added through the grub bootloader by editing `/etc/default/grub` and changing the `GRUB_CMDLINE_LINUX_DEFAULT` variable and then regenerating the grub configuration.
+Kernel command line arguments can be added through the grub bootloader by
+editing `/etc/default/grub` and changing the `GRUB_CMDLINE_LINUX_DEFAULT`
+variable and then regenerating the grub configuration.
 
 ```
 # vi /etc/default/grub
@@ -114,7 +129,9 @@ Kernel command line arguments can be added through the grub bootloader by editin
 
 ### dracut
 
-Dracut can be configured to add additional cmdline arguments to the kernel by creating a configuration file and regenerating the initramfs, make sure to reconfigure the right kernel version like `linux4.12` as example.
+Dracut can be configured to add additional cmdline arguments to the kernel by
+creating a configuration file and regenerating the initramfs, make sure to
+reconfigure the right kernel version like `linux4.12` as example.
 
 ```
 # mkdir -p /etc/dracut.conf.d
