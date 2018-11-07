@@ -2,15 +2,18 @@
 
 ## Changing users default shell
 
-The default shell for users can be changed with the [chsh(1)](https://man.voidlinux.eu/chsh.1) tool.
+The default shell for users can be changed with the
+[chsh(1)](https://man.voidlinux.eu/chsh.1) tool.
 
 ```
 $ chsh -s /bin/bash <user name>
 ```
 
-Make sure to use the same path to the shell as its in `/etc/shells` or listed by the [chsh(1)](https://man.voidlinux.eu/chsh.1) list command.
+Make sure to use the same path to the shell as its in `/etc/shells` or listed by
+the [chsh(1)](https://man.voidlinux.eu/chsh.1) list command.
 
-A list of available installed shells can be retrieved with the [chsh(1)](https://man.voidlinux.eu/chsh.1) list command.
+A list of available installed shells can be retrieved with the
+[chsh(1)](https://man.voidlinux.eu/chsh.1) list command.
 
 ```
 $ chsh -l
@@ -24,7 +27,8 @@ $ chsh -l
 /bin/yash
 ```
 
-Following packages are available in the package repository and provide usable shells.
+Following packages are available in the package repository and provide usable
+shells.
 
 * bash
 * dash
