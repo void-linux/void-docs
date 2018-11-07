@@ -14,6 +14,8 @@
   - [Shell](./config/shell.md)
   - [Kernel](./config/kernel.md)
   - [Network](./config/network/index.md)
+    - [Interface names](./config/network/interfacenames.md)
+    - [Static configuration](./config/network/static.md)
     - [dhcpcd](./config/network/dhcpcd.md)
     - [wpa_supplicant](./config/network/wpa_supplicant.md)
     - [NetworkManager](./config/network/networkmanager.md)
