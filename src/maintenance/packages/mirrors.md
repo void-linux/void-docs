@@ -27,7 +27,8 @@
 
 ## Changing mirrors
 
-Copy all repository configuration files from `/usr/share/xbps.d` to `/etc/xbps.d` and then change the repository urls in `/etc/xbps.d`.
+Copy all repository configuration files from `/usr/share/xbps.d` to
+`/etc/xbps.d` and then change the repository urls in `/etc/xbps.d`.
 
 ```
 # mkdir -p /etc/xbps.d
@@ -35,7 +36,8 @@ Copy all repository configuration files from `/usr/share/xbps.d` to `/etc/xbps.d
 # sed -i 's|https://repo.voidlinux.eu/current|<repository>|g' /etc/xbps.d/*-repository-*.conf
 ```
 
-You can use `xbps-query` to verify that all repositories are changed to the mirror you prefer.
+You can use `xbps-query` to verify that all repositories are changed
+to the mirror you prefer.
 
 ```
 $ xbps-query -L
