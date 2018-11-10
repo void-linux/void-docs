@@ -1,9 +1,7 @@
 # Preparing installation media
 
-All supported installation images are available on the Void Linux
-[download page](https://voidlinux.org/download/). After obtaining an
-image, it must be written to a storage device, such as a USB drive, SD
-card, or CD/DVD.
+After [obtaining an image](./downloading.md), it must be written to a storage
+device, such as a USB drive, SD card, or CD/DVD.
 
 ## Create a bootable USB drive or SD card on Linux or UNIX
 
