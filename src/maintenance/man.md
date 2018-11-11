@@ -3,7 +3,7 @@
 Void packages come with manual pages and the default installation
 includes the [mandoc](http://mandoc.bsd.lv/) manpage toolset.
 
-The [man(1)](https://man.voidlinux.eu/man.1) command can be used to
+The [man(1)](https://man.voidlinux.org/man.1) command can be used to
 show manual pages.
 
 ```
@@ -11,10 +11,10 @@ $ man 1 chroot
 ```
 
 The [mandoc](http://mandoc.bsd.lv/) toolset contains
-[apropos(1)](https://man.voidlinux.eu/apropos.1) to search for manual
-pages, [apropos(1)](https://man.voidlinux.eu/apropos.1) uses a
+[apropos(1)](https://man.voidlinux.org/apropos.1) to search for manual
+pages, [apropos(1)](https://man.voidlinux.org/apropos.1) uses a
 database that can be updated and generated with the
-[makewhatis(1)](https://man.voidlinux.eu/makewhatis.1) command.
+[makewhatis(1)](https://man.voidlinux.org/makewhatis.1) command.
 
 ```
 # makewhatis -a

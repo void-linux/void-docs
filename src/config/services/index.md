@@ -1,7 +1,7 @@
 # Services and daemons
 
-Void uses the [runit](/usage/runit/) supervision suite to run system
-services and daemons.
+Void uses the [runit(8)](https://man.voidlinux.org/runit.8) supervision suite
+to run system services and daemons.
 
 Services are enabled by simply linking them into the `/var/service`
 service directory.
@@ -17,7 +17,7 @@ To disable them again you just remove the link.
 ```
 
 Activated services can be controlled with the
-[sv(8)](https://man.voidlinux.eu/sv.8) command, following commands are
+[sv(8)](https://man.voidlinux.org/sv.8) command, following commands are
 available and can be used like `sv <command> <services...>`.
 
 * `up` to start, `down` to stop and `once` to start services once.  *
@@ -25,7 +25,7 @@ available and can be used like `sv <command> <services...>`.
 and `kill` to send the corresponding signal.  * `start`, `stop`,
 `reload` and `restart` for LSB init compatibility.
 
-See the [sv(8)](https://man.voidlinux.eu/sv.8) manual page for further
+See the [sv(8)](https://man.voidlinux.org/sv.8) manual page for further
 informations.
 
 The `status` command can be used to retrieve the current status of one

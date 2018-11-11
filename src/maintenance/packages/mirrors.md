@@ -33,7 +33,7 @@ Copy all repository configuration files from `/usr/share/xbps.d` to
 ```
 # mkdir -p /etc/xbps.d
 # cp /usr/share/xbps.d/*-repository-*.conf /etc/xbps.d/
-# sed -i 's|https://repo.voidlinux.eu/current|<repository>|g' /etc/xbps.d/*-repository-*.conf
+# sed -i 's|https://repo.voidlinux.org/current|<repository>|g' /etc/xbps.d/*-repository-*.conf
 ```
 
 You can use `xbps-query` to verify that all repositories are changed

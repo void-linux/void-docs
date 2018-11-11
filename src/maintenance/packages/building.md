@@ -1,7 +1,7 @@
 # Package building
 
 The first step is to building xbps packages from source is to clone
-the `void-packages` [git(1)](https://man.voidlinux.eu/git.1)
+the `void-packages` [git(1)](https://man.voidlinux.org/git.1)
 repository.
 
 ```
