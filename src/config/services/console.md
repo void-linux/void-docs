@@ -2,7 +2,7 @@
 
 ## Disabling default ttys
 
-Void Linux enables [agetty(8)](https://man.voidlinux.eu/agetty.8)
+Void Linux enables [agetty(8)](https://man.voidlinux.org/agetty.8)
 services for the ttys 1 to 6 by default.
 
 To disable agetty services remove the service symlink and create a

@@ -1,6 +1,7 @@
 # dhcpcd
 
-To run `dhcpcd` on all interfaces you can enable the `dhcpcd` service.
+To run [dhcpcd(8)](https://man.voidlinux.org/dhcpcd.8) on all interfaces you
+can enable the `dhcpcd` service.
 
 ```
 # ln -s /etc/sv/dhcpcd /var/service
@@ -20,3 +21,6 @@ $ ip link show
 # sed -i 's/eth0/enp3s0/' /etc/sv/dhcpcd-enp3s0/run
 # ln -s /etc/sv/dhcpcd-enp3s0 /var/service
 ```
+
+For more information on configuring dhcpcd see
+[dhcpcd.conf(5)](https://man.voidlinux.org/dhcpcd.conf.5)
