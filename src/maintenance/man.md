@@ -18,6 +18,8 @@ database that can be updated and generated with the
 
 ```
 # makewhatis -a
+```
+```
 $ apropos chroot
 chroot(1) - run command or interactive shell with special root directory
 xbps-uchroot(1) - XBPS utility to chroot and bind mount with Linux namespaces
@@ -35,5 +37,7 @@ $ xbps-query -Rs man-pages
 [*] man-pages-4.11_1        Linux Documentation Project (LDP) manual pages
 [-] man-pages-devel-4.11_1  Linux Documentation Project (LDP) manual pages - development pages
 [-] man-pages-posix-2013a_3 Manual pages about POSIX systems
+```
+```
 # xbps-install -S man-pages-devel man-pages-posix
 ```

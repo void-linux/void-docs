@@ -32,7 +32,11 @@ Copy all repository configuration files from `/usr/share/xbps.d` to
 
 ```
 # mkdir -p /etc/xbps.d
+```
+```
 # cp /usr/share/xbps.d/*-repository-*.conf /etc/xbps.d/
+```
+```
 # sed -i 's|https://repo.voidlinux.org/current|<repository>|g' /etc/xbps.d/*-repository-*.conf
 ```
 
@@ -47,4 +51,3 @@ $ xbps-query -L
    47 https://alpha.de.repo.voidlinux.org/current/nonfree (RSA signed)
  5368 https://alpha.de.repo.voidlinux.org/current/debug (RSA signed)
 ```
-

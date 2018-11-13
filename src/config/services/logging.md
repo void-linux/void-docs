@@ -10,9 +10,18 @@ different implementations available.
 provides a package with some basic configuration for it, this makes it
 a good choice if you don't know which one to choose.
 
-``` # xbps-install -S socklog-void # usermod -aG socklog <your
-username> # ln -s /etc/sv/socklog-unix /var/service/ # ln -s
-/etc/sv/nanoklogd /var/service/ ```
+```
+# xbps-install -S socklog-void
+```
+```
+# usermod -aG socklog <username>
+```
+```
+# ln -s /etc/sv/socklog-unix /var/service/
+```
+```
+# ln -s /etc/sv/nanoklogd /var/service/
+```
 
 Other syslog implementations like `rsyslog` and `metalog` are
 available in the package repository too.

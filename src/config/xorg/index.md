@@ -19,8 +19,14 @@ and the cgmanager services are activated too.
 
 ```
 # xbps-install -S ConsoleKit2
+```
+```
 # ln -s /etc/sv/dbus /var/service/
+```
+```
 # ln -s /etc/sv/cgmanager /var/service/
+```
+```
 # ln -s /etc/sv/consolekit /var/service/
 ```
 

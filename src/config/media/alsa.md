@@ -5,6 +5,8 @@ Install the `alsa-utils` package make sure your user is part of the
 
 ```
 # xbps-install -S alsa-utils
+```
+```
 # usermod -a -G audio <username>
 ```
 

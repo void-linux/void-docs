@@ -19,6 +19,8 @@ the void package repository.
 
 ```
 # xbps-install -Su xtools
+```
+```
 $ xlocate -S
 From https://repo.voidlinux.org/xlocate/xlocate
  + 16d97bfe86...2ad1a4a8d1 master -> master (forced update) $ xlocate
@@ -27,4 +29,5 @@ fizz nim-0.17.0_1 /usr/lib/nim/examples/fizzbuzz.nim ponysay-3.0.2_1
 /usr/share/ponysay/ponies/cherrycola.pony ponysay-3.0.2_1
 /usr/share/ponysay/ttyponies/cherryfizzy.pony ->
 /usr/share/ponysay/ttyponies/cherrycola.pony supertux2-data-0.5.1_1
-/usr/share/supertux2/sounds/fizz.wav ```
+/usr/share/supertux2/sounds/fizz.wav
+```

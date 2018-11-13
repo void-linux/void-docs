@@ -8,6 +8,8 @@ with the `-dbg` suffix.
 
 ```
 $ xbps-install -S void-repo-debug
+```
+```
 $ xbps-install -S <package name>-dbg
 ```
 
@@ -18,5 +20,7 @@ debug packages including dependencies for a package.
 $ xdbg bash
 bash-dbg
 glibc-dbg
+```
+```
 # xbps-install -S $(xdbg bash)
 ```

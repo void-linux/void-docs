@@ -36,6 +36,8 @@ retrieve the status for all activated services.
 ```
 # sv status dhcpcd
 run: /var/service/dhcpcd: (pid 659) 561392s
+```
+```
 # sv status /var/service/*
 run: /var/service/agetty-tty1: (pid 658) 561392s
 run: /var/service/agetty-tty2: (pid 639) 561392s
@@ -60,6 +62,8 @@ $ cat /etc/sv/sshd/run
 ssh-keygen -A >/dev/null 2>&1 # Will generate host keys if they don't already exist
 [ -r conf ] && . ./conf
 exec /usr/bin/sshd -D $OPTS
+```
+```
 # echo 'OPTS="-p 2222"' >>/etc/sv/sshd/conf
 ```
 
@@ -72,5 +76,7 @@ available variables.
 [ -r ./conf ] && . ./conf
 exec 2>&1
 exec wpa_supplicant -c ${CONF_FILE:=/etc/wpa_supplicant/wpa_supplicant.conf} -i ${WPA_INTERFACE:=wlan0} ${OPTS:=-s}
+```
+```
 # echo WPA_INTERFACE=wlp3s0 >>/etc/sv/wpa_supplicant/conf
 ```

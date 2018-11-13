@@ -4,6 +4,8 @@ PulseAudio depends on a `dbus` system daemon, make sure its enabled.
 
 ```
 # xbps-install -S alsa-utils pulseaudio
+```
+```
 # ln -s /etc/sv/dbus /var/service/
 ```
 
