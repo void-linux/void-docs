@@ -1,1 +1,1 @@
-# wicd
+# wpa_supplicant
