@@ -44,3 +44,6 @@
 - [Troubleshooting](./troubleshooting/index.md)
   - [XBPS](./troubleshooting/xbps/index.md)
 - [Contributing](./contributing/index.md)
+  - [Void Docs](./contributing/void-docs/index.md)
+    - [Style Guide](./contributing/void-docs/styleguide.md)
+
