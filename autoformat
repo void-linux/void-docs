@@ -1,0 +1,15 @@
+#!/bin/sh
+
+mdfmt () {
+	#pandoc -t markdown+pipe_tables-simple_tables-multiline_tables-grid_tables --atx-headers "$1" > "$1.fmt"
+	pandoc -f markdown-smart -t gfm-smart --atx-headers "$1" > "$1.fmt"
+	mv "$1.fmt" "$1"
+}
+
+FMTPATH="$1"
+if [ -z "$FMTPATH" ]; then
+	FMTPATH="."
+fi
+
+
+find "$FMTPATH" -regex ".*..md$" | while read file; do mdfmt "$file"; done
