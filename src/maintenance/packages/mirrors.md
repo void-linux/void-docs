@@ -6,22 +6,22 @@
 
 | Repository | Location |
 |:--------|:-------:|
-| [http://alpha.de.repo.voidlinux.org](http://alpha.de.repo.voidlinux.org) | EU: Germany |
-| [http://beta.de.repo.voidlinux.org](http://beta.de.repo.voidlinux.org) | EU: Germany |
-| [http://alpha.us.repo.voidlinux.org](http://alpha.us.repo.voidlinux.org) | USA: Kansas City |
-| [http://mirror.clarkson.edu/voidlinux/](http://mirror.clarkson.edu/voidlinux/) | USA: New York |
-| [http://mirrors.servercentral.com/voidlinux/](http://mirror.clarkson.edu/voidlinux/) | USA: Chicago |
+| <http://alpha.de.repo.voidlinux.org> | EU: Germany |
+| <http://beta.de.repo.voidlinux.org> | EU: Germany |
+| <http://alpha.us.repo.voidlinux.org> | USA: Kansas City |
+| <http://mirror.clarkson.edu/voidlinux/> | USA: New York |
+| <http://mirrors.servercentral.com/voidlinux/> | USA: Chicago |
 
 ### Tier 2 Mirrors
 
 
 | Repository | Location |
 |:--------|:-------:|
-| [http://mirror.aarnet.edu.au/pub/voidlinux/](http://mirror.aarnet.edu.au/pub/voidlinux/) | AU: Canberra |
-| [http://ftp.swin.edu.au/voidlinux/](http://ftp.swin.edu.au/voidlinux/) | AU: Melbourne |
-| [http://ftp.acc.umu.se/mirror/voidlinux.eu/](http://ftp.acc.umu.se/mirror/voidlinux.eu/) | EU: Sweden |
-| [https://mirrors.dotsrc.org/voidlinux/](https://mirrors.dotsrc.org/voidlinux/) | EU: Denmark |
-| [http://www.gtlib.gatech.edu/pub/VoidLinux/](http://www.gtlib.gatech.edu/pub/VoidLinux/) | USA: Atlanta |
+| <http://mirror.aarnet.edu.au/pub/voidlinux/> | AU: Canberra |
+| <http://ftp.swin.edu.au/voidlinux/> | AU: Melbourne |
+| <http://ftp.acc.umu.se/mirror/voidlinux.eu/> | EU: Sweden |
+| <https://mirrors.dotsrc.org/voidlinux/> | EU: Denmark |
+| <http://www.gtlib.gatech.edu/pub/VoidLinux/> | USA: Atlanta |
 
 
 

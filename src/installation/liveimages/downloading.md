@@ -1,7 +1,7 @@
 # Downloading Images
 
 Live images can be downloaded from
-[https://alpha.de.repo.voidlinux.org/live/current/](https://alpha.de.repo.voidlinux.org/live/current/).
+<https://alpha.de.repo.voidlinux.org/live/current/>
 
 ### Verifying integrity
 
@@ -34,7 +34,7 @@ The file is signed with the Void Images key:
 
 You can use [gpg(1)](https://man.voidlinux.org/gpg.1) to receive the
 key from a keyserver using the following command or download it from
-[https://alpha.de.repo.voidlinux.eu/live/current/void_images.asc](https://alpha.de.repo.voidlinux.org/live/current/void_images.asc).
+<https://alpha.de.repo.voidlinux.eu/live/current/void_images.asc>.
 
 ```
 $ gpg --recv-keys B48282A4
