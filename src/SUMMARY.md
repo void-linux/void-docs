@@ -8,6 +8,7 @@
     - [Downloading Images](./installation/liveimages/downloading.md)
     - [Preparing Installation Media](./installation/liveimages/prep.md)
     - [Installation Guide](./installation/liveimages/guide.md)
+    - [Installation Guide (chroot)](./installation/liveimages/guide-chroot.md)
   - [Guides](./installation/guides/index.md)
 - [Configuration](./config/index.md)
   - [Services and daemons](./config/services/index.md)
