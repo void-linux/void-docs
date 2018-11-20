@@ -315,11 +315,7 @@ Then, force a reconfiguration of the `glibc-locales` package:
 
 ### Boot loader
 
-Install grub onto the EFI partition:
-
-```
-# grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=void-grub --boot-directory=/boot --recheck
-```
+See the [bootloader](./installation/liveimages/bootloader.md) page for how to install and configure a bootloader.
 
 ### Generate initramfs
 
