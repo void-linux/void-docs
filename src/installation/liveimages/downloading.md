@@ -34,7 +34,7 @@ The file is signed with the Void Images key:
 
 You can use [gpg(1)](https://man.voidlinux.org/gpg.1) to receive the key from a
 keyserver using the following command or download it from
-[https://alpha.de.repo.voidlinux.eu/live/current/void_images.asc](https://alpha.de.repo.voidlinux.org/live/current/void_images.asc).
+<https://alpha.de.repo.voidlinux.org/live/current/void_images.asc>.
 
 ```
 $ gpg --recv-keys B48282A4
@@ -47,7 +47,7 @@ gpg:               imported: 1  (RSA: 1)
 ```
 
 You can now verify the signature of the `sha256sums.txt` file with
-[gpg(1)](https://man.voidlinux.eu/gpg.1).
+[gpg(1)](https://man.voidlinux.org/gpg.1).
 
 ```
 $ gpg --verify sha256sums.txt.sig 
