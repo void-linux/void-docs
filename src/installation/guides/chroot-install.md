@@ -34,62 +34,13 @@ $ ls /sys/firmware/efi
 
 If you know your system supports booting into UEFI mode, but does not appear to
 have done so, check your UEFI/BIOS settings (can usually be accessed by pressing
-a key like `F12` early in the boot process. Look for settings like *UEFI-mode*
+a key like `F12` early in the boot process). Look for settings like *UEFI-mode*
 or *Disable Legacy BIOS mode*.
 
 ### Connect to the Internet
 
-The following steps are a high-level overview for connecting to a wireless
-network. For more information, you should consult the
-[Network](./config/network/index.md) page.
-
-Check the available network interfaces and take note of the interface name. In
-this case, it is `wlan0`.
-
-```
-$ ip link
-1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT group default qlen 1000
-	link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
-2: wlan0: <BROADCAST,MULTICAST> mtu 1500 qdisc mq state DOWN mode DEFAULT group default qlen 1000
-	link/ether 1c:4d:70:e0:5d:a3 brd ff:ff:ff:ff:ff:ff
-```
-
-Enable the network interface:
-
-```
-# ip link set <interface> up
-```
-
-Start the DHCP server:
-
-```
-# dhcpcd <interface>
-```
-
-Use [`wpa_passphrase(8)`](https://man.voidlinux.org/wpa_passphrase.8) to create
-a network configuration, and append it's output to the file
-`/etc/wpa_supplicant.conf`. See
-[`wpa_supplicant.conf(5)`](https://man.voidlinux.org/wpa_supplicant.conf.5) for
-more options.
-
-```
-# wpa_passphrase "SSID" "passphrase" >> /etc/wpa_supplicant.conf
-```
-
-Start [`wpa_supplicant(8)](https://man.voidlinux.org/wpa_supplicant.8):
-
-```
-# wpa_supplicant -B -i <interface>
-```
-
-Verify that you are connected to the internet:
-
-```
-ping voidlinux.org
-```
-
-Note that you can terminate a running command by sending a `SIGINT` signal with
-`ctrl-c`.
+Consult the [Network](./config/network/index.md) page for information on how to
+connect to a network.
 
 ### <a name="partition-disks"></a>Partition the disks
 
@@ -108,7 +59,7 @@ to your disk. Otherwise, if you are using a system that does not support booting
 UEFI mode you should write a MBR to your disk.
 
 This guide will assume a UEFI-based system, and will follow suit in creating a
-GPT to hold our partitions. For more information, see the
+GPT to hold our partitions. For more information, consult the
 [Arch Linux wiki](https://wiki.archlinux.org/index.php/Partitioning).
 
 You will also have to decide on partition sizes and mountpoints for your
@@ -125,6 +76,7 @@ disk partition tables:
 - [`fdisk(8)`](https://man.voidlinux.org/fdisk.8) is dialog-driven. It is powerful, however can be cumbersome for new users.
 - [`sfdisk(8)`](https://man.voidlinux.org/sfdisk.8) is script-based. It is useful for integrating with scripts as all the options are available as command-line flags.
 - [`cfdisk(8)`](https://man.voidlinux.org/cfdisk.8) is curses-based. It does not have as many options as [`fdisk(8)`](https://man.voidlinux.org/fdisk.8) or [`sfdisk(8)`](https://man.voidlinux.org/sfdisk.8), such as lacking the capability to wipe the old partition table, but this can be overcome by using the [`wipefs(8)`](https://man.voidlinux.org/wipefs.8) utility, also provided by `util-linux`.
+
 First, we'll wipe all filesystem, raid or partition-table signatures from the
 device:
 
@@ -171,7 +123,7 @@ The EFI System partition should be formatted as FAT32.
 
 The partitions that will be mounted as `/` and `/home` will be formatted as
 `ext4`, but you may choose a different filesystem. If you're unsure, or don't
-know what this means, it's recommended to choose ext4.
+know what this means, it's recommended to choose `ext4`.
 
 ```
 # mkfs.ext4 /dev/sd3
@@ -180,7 +132,7 @@ know what this means, it's recommended to choose ext4.
 
 ### Mount the file systems
 
-First, mount the root partition to `/mnt`:
+First, mount the root partition to `/mnt`.
 
 ```
 # mount /dev/sda3 /mnt
@@ -216,10 +168,12 @@ sda      8:0    1  238.5G  0 disk
 ## Installation
 
 Now, it's time to install the base system! If you'd like to perform an
-installation of an architecture different to the one you are running on right
-now, you must export the `XBPS_ARCH` environment variable accordingy, for
+installation of an architecture different to the one you are running on the live
+media, you must export the `XBPS_ARCH` environment variable accordingy, for
 example if you booted via *glibc* media and want to install a *musl-libc* system
-or vice-versa.
+or vice-versa. If you're unsure if you booted from *glibc* or *musl-libc*-based
+live media, it's better to be explicit and export the `XBPS_ARCH` variable
+anyways.
 
 To install a *musl-libc* system:
 
@@ -273,8 +227,8 @@ the chroot jail.
 
 ```
 # chroot /mnt /bin/bash
-# . /etc/profile
-# export PS1="(chroot) \w \\$ "
+$ . /etc/profile
+$ export PS1="(chroot) \w \\$ "
 ```
 
 ## Configure the system
