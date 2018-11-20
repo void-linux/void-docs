@@ -321,6 +321,21 @@ Install grub onto the EFI partition:
 # grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=void-grub --boot-directory=/boot --recheck
 ```
 
+### Generate initramfs
+
+Find out which version of the Linux kernel you have packaged.
+
+```
+# xbps-query linux | grep pkgver
+pkgver: linux-4.18_1
+```
+
+Force a reconfiguration of the package: `linux4.18` in this example.
+
+```
+# xbps-reconfigure --force linux4.XX`
+```
+
 ## Reboot
 
 Exit the chroot jail.
