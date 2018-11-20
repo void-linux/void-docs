@@ -20,7 +20,7 @@ To configure the printer using the CUPS web interface, navigate to
 
 ## Command line
 
-The [lpadmin(8)](https://man.voidlinux.eu/lpadmin.8) tool may be used to
+The [lpadmin(8)](https://man.voidlinux.org/lpadmin.8) tool may be used to
 configure a printer using the command line.
 
 ## Graphical interface
