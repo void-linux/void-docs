@@ -9,9 +9,9 @@ The CUPS daemon can be installed by running:
 ## Drivers
 
 If the printer is being accessed over the network, CUPS alone should be
-sufficient. However, additional driver packages are necessary for local
-printer support. The `cups-filters` package provides driver support for CUPS;
-it can be installed by running:
+sufficient. However, additional driver packages are necessary for local printer
+support. The `cups-filters` package provides driver support for CUPS; it can be
+installed by running:
 
 ```
 # xbps-install -S cups-filters
@@ -21,8 +21,8 @@ Depending on the hardware in question, additional drivers may be necessary.
 
 ### Gutenprint drivers
 
-Gutenprint provides support for a considerable amount of printers. These
-drivers can be installed by running:
+Gutenprint provides support for a considerable amount of printers. These drivers
+can be installed by running:
 
 ```
 # xbps-install -S gutenprint
@@ -68,9 +68,10 @@ by running:
 ```
 
 Normally this tool would require root priveleges to configure printers, but
-unprivileged access through PolicyKit can be achieved with a helper. This
-helper can be installed by running:
+unprivileged access through PolicyKit can be achieved with a helper. This helper
+can be installed by running:
 
 ```
 # xbps-install -S cups-pk-helper
 ```
+

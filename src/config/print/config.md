@@ -15,8 +15,8 @@ connected, it is time to configure the printer using CUPS.
 ## Web interface
 
 To configure the printer using the CUPS web interface, navigate to
-[http://localhost:631](http://localhost:631) in a browser. Under the
-"Administration" tab, select "Printers > Add Printer".
+<http://localhost:631> in a browser. Under the "Administration" tab, select
+"Printers > Add Printer".
 
 ## Command line
 
@@ -34,5 +34,6 @@ To configure the printer using a native GUI interface, run the following:
 This command does not need to be run as root if PolicyKit is in use and
 `cups-pk-helper` is installed.
 
-Other graphical printer configuration tools are typically shipped as part of
-a desktop environment, such as KDE, GNOME, or XFCE.
+Other graphical printer configuration tools are typically shipped as part of a
+desktop environment, such as KDE, GNOME, or XFCE.
+
