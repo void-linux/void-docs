@@ -32,6 +32,7 @@ git diff --name-status FETCH_HEAD...HEAD | cut -f2 | grep '.md' | tee /tmp/chang
 
 # Format them
 while read -r file ; do
+    printf 'Formatting %s\n' "$file"
     vmdfmt "$file" > "$file.1"
     mv "$file.1" "$file"
 done < /tmp/changed_files
