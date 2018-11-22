@@ -3,9 +3,8 @@
 - [About](./about/index.md)
    - [History](./about/history/index.md)
 - [Installation](./installation/index.md)
+   - [Base System Requirements](./installation/base-requirements.md)
    - [Live Installers](./installation/liveimages/index.md)
-      - [Base System
-         Requirements](./installation/liveimages/baserequirements.md)
       - [Downloading Images](./installation/liveimages/downloading.md)
       - [Preparing Installation Media](./installation/liveimages/prep.md)
       - [Partitioning Notes](./installation/liveimages/partitions.md)
