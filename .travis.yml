@@ -1,0 +1,11 @@
+---
+language: bash
+
+before_script:
+  - ci/tools.sh
+
+script:
+  - ci/format.sh
+
+notifications:
+  email: false

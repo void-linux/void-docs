@@ -1,0 +1,35 @@
+#!/bin/sh
+
+echo "Checking formatting"
+
+PATH=$PATH:$(go env GOPATH)/bin/
+
+if ! command -v git ; then
+    echo "You need git to run the CI scripts"
+    exit 1
+fi
+
+if ! command -v vmdfmt ; then
+    echo "You need go to run the CI scripts"
+    exit 1
+fi
+
+# Fetch upstream
+git fetch git://github.com/void-linux/void-docs.git master
+
+# Compute changed files
+git diff --name-status FETCH_HEAD...HEAD | grep '.md' | tee /tmp/changed_files
+
+# Format them
+while read -r file ; do
+    vmdfmt "$file" > "$file.1"
+    mv "$file.1" "$file"
+done < /tmp/changed_files
+
+
+# Check Status
+if [ ! -z "$(git status --porcelain)" ] ; then
+    git status
+    echo "Working directory not clean, see above for files to be formatted"
+    exit 2
+fi
