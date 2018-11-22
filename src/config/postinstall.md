@@ -12,10 +12,9 @@ of date. To update your repository information and update all installed
 packages, run the command:
 
 ```
-xbps-install -Suv
+# xbps-install -Su
 ```
 
-> Note: if the xbps package has been updated it will only update that package
-> and the dependencies. You may need to run the update command twice to get all
-> updates.
-
+> Note: XBPS must use a seperate transaction to update itself.  If
+> your first update includes the package `xbps`, you will need to run
+> an additional update for the rest of the system.
