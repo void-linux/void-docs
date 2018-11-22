@@ -1,5 +1,13 @@
 #!/bin/sh
 
+echo "Installing Go"
+
+curl -sL -o ~/bin/gimme https://raw.githubusercontent.com/travis-ci/gimme/master/gimme
+chmod +x ~/bin/gimme
+
+eval "$(gimme stable)"
+go version
+
 echo "Checking formatting"
 
 PATH=$PATH:$(go env GOPATH)/bin/
