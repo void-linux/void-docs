@@ -8,6 +8,8 @@ chmod +x ~/bin/gimme
 eval "$(gimme stable)"
 go version
 
+go get github.com/bobertlo/vmd/cmd/vmdfmt
+
 echo "Checking formatting"
 
 PATH=$PATH:$(go env GOPATH)/bin/
@@ -18,7 +20,7 @@ if ! command -v git ; then
 fi
 
 if ! command -v vmdfmt ; then
-    echo "You need go to run the CI scripts"
+    echo "You need vmdfmt to run the CI scripts"
     exit 1
 fi
 
