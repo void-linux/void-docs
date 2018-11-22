@@ -28,7 +28,7 @@ fi
 git fetch git://github.com/void-linux/void-docs.git master
 
 # Compute changed files
-git diff --name-status FETCH_HEAD...HEAD | grep '.md' | tee /tmp/changed_files
+git diff --name-status FETCH_HEAD...HEAD | cut -f2 | grep '.md' | tee /tmp/changed_files
 
 # Format them
 while read -r file ; do
