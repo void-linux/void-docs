@@ -3,7 +3,7 @@
 After [obtaining an image](./downloading.md), it must be written to a storage
 device, such as a USB drive, SD card, or CD/DVD.
 
-## Create a bootable USB drive or SD card on Linux or UNIX
+## Create a bootable USB drive or SD card on Linux
 
 The `dd` command can be used to copy a live image to a storage device.
 
