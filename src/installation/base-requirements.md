@@ -9,12 +9,11 @@ following minimums for most installations:
 | x86_64-musl  | EM64T            | 96MB | 350MB   |
 | i686-glibc   | Pentium 4 (SSE2) | 96MB | 350MB   |
 
-> Note: ''Flavor'' installations do require more resources, depending on which
-> environment you choose.
+> Note: Flavor installations require more resources. How much more depends on
+> the flavor.
 
 Void is not available for i386, i486, or i586 architectures.
 
 It is highly recommended to have a network connection available during install
 to download updates, but this is not required. ISO images contain installation
 data on-disc and can be installed without network connectivity.
-

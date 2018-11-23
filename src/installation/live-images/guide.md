@@ -1,11 +1,11 @@
 # Installation Guide
 
-Once you have [downloaded](./downloading.md) your selected install image and
+Once you have [downloaded](./downloading.md) a Void image to install and
 [prepared](./prep.md) your install media, you are ready to install Void Linux.
 
-> Note: before you begin installation, you should make sure you understand which
-> type of boot process your system will use (BIOS or UEFI) and plan your
-> partitioning appropriately. (See the [partitioning notes](./partitions.md).
+> Note: before you begin installation, you should determine whether your machine
+> boots using BIOS or UEFI. This will affect how you plan partitions. See
+> [Partitioning Notes](./partitions.md) for more detail.
 
 ## Booting
 
@@ -93,7 +93,7 @@ the drive before you exit the partition editor.
 > BIOS users are recommended to choose MBR. Advanced users may use GPT but will
 > need to create a special BIOS partition for `grub` to boot.
 
-See the [partitioning notes](./partitions.md) for more details about
+See the [Partitioning Notes](./partitions.md) for more details about
 partitioning your disk.
 
 ## Filesystems
@@ -126,4 +126,3 @@ successfully, you can reboot into your new Void Linux install!
 
 See the [Post Installation](../../config/postinstall.md) guide for some tips on
 setting up your new system.
-

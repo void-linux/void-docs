@@ -1,40 +1,53 @@
 # Downloading Images
 
-Live images can be downloaded from
-<https://alpha.de.repo.voidlinux.org/live/current/>.
+The most recent live images can be downloaded from
+<https://alpha.de.repo.voidlinux.org/live/current/>. Previous releases can be
+found under <https://alpha.de.repo.voidlinux.org/live/>, organized by date.
 
-### Verifying integrity
+## Verify Images
 
-The image release directories contain a `sha256sums.txt` and a
-`sha256sums.txt.asc` file to verify the integrity of the downloaded images.
+Each image releases's directory contains two files used to verify the image(s)
+you download. First, there is a `sha256sums.txt` file containing image checksums
+to verify the integrity of the downloaded images. Second is the
+`sha256sums.txt.sig` file, used to verify the authenticity of the checksums.
+
+We want to verify both the image's integrity and authenticity, so for this, we
+want to download both files:
 
 ```
 $ wget http://alpha.de.repo.voidlinux.org/live/current/sha256sums.txt{,.sig}
 ```
 
-You can now verify the integrity of downloaded file using
-[sha256sum(1)](https://man.voidlinux.org/sha256sum.1).
+### Verify Image Integrity
+
+You can verify the integrity of a downloaded file using
+[sha256sum(1)](https://man.voidlinux.org/sha256sum.1) with the `sha256sums.txt`
+file we downloaded above. The following sha256sum command will check (`-c`) the
+integrity of only the image(s) you've downloaded:
 
 ```
 $ sha256sum -c --ignore-missing sha256sums.txt
 void-live-x86_64-musl-20170220.iso: OK
 ```
 
-This just makes sure that the file was not corrupted while downloading.
+This verifies that the image is not corrupt.
 
-To verify that the downloaded files are the ones that the Void Linux maintainers
-published and signed you can use pgp.
+### Verify Image Authenticity
+
+To verify that the downloaded `sha256sums.txt` file is the one that the Void
+Linux maintainers published and signed, we use PGP. For this, we need the
+`sha256sums.txt.sig` downloaded above.
 
 The file is signed with the Void Images key:
 
-- Signer: Void Linux Image Signing Key
+- **Signer:** Void Linux Image Signing Key
    <[images@voidlinux.eu](mailto:images@voidlinux.eu)>
-- KeyID: `B48282A4`
-- Fingerprint: `CF24 B9C0 3809 7D8A 4495 8E2C 8DEB DA68 B482 82A4`
+- **KeyID:** `B48282A4`
+- **Fingerprint:** `CF24 B9C0 3809 7D8A 4495 8E2C 8DEB DA68 B482 82A4`
 
 You can use [gpg(1)](https://man.voidlinux.org/gpg.1) to receive the key from a
-keyserver using the following command or download it from
-<https://alpha.de.repo.voidlinux.org/live/current/void_images.asc>.
+keyserver using the command in the following example. You can also download it
+from <https://alpha.de.repo.voidlinux.org/live/current/void_images.asc>.
 
 ```
 $ gpg --recv-keys B48282A4
@@ -43,11 +56,11 @@ gpg: key B48282A4: public key "Void Linux Image Signing Key <images@voidlinux.eu
 gpg: no ultimately trusted keys found
 gpg: Total number processed: 1
 gpg:               imported: 1  (RSA: 1)
-
 ```
 
-You can now verify the signature of the `sha256sums.txt` file with
-[gpg(1)](https://man.voidlinux.org/gpg.1).
+With the key stored locally, you can use
+[gpg(1)](https://man.voidlinux.org/gpg.1) verify the signature of
+`sha256sums.txt` using the `sha256sums.txt.sig` file:
 
 ```
 $ gpg --verify sha256sums.txt.sig 
@@ -59,3 +72,5 @@ gpg:          There is no indication that the signature belongs to the owner.
 Primary key fingerprint: CF24 B9C0 3809 7D8A 4495  8E2C 8DEB DA68 B482 82A4
 ```
 
+This verifies that the signature for the checksums is authentic. In turn, we can
+assert that the downloaded images are also authentic if their checksums match.
