@@ -2,11 +2,12 @@
 
 - [About](./about/index.md)
    - [History](./about/history/index.md)
+- [How to Read the Handbook](./howtoread/index.md)
 - [Installation](./installation/index.md)
    - [Base System Requirements](./installation/base-requirements.md)
    - [Live Installers](./installation/live-images/index.md)
       - [Downloading Images](./installation/live-images/downloading.md)
-      - [Preparing Installation Media](./installation/live-images/prep.md)
+      - [Prepare Installation Media](./installation/live-images/prep.md)
       - [Partitioning Notes](./installation/live-images/partitions.md)
       - [Installation Guide](./installation/live-images/guide.md)
    - [Guides](./installation/guides/index.md)
@@ -48,4 +49,3 @@
 - [Contributing](./contributing/index.md)
    - [Void Docs](./contributing/void-docs/index.md)
       - [Style Guide](./contributing/void-docs/styleguide.md)
-
