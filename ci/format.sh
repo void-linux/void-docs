@@ -40,7 +40,8 @@ done < /tmp/changed_files
 
 # Check Status
 if [ ! -z "$(git status --porcelain)" ] ; then
+    git diff
+    echo "Working directory not clean, files to be formatted:"
     git status
-    echo "Working directory not clean, see above for files to be formatted"
     exit 2
 fi
