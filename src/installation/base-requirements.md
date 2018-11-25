@@ -1,9 +1,7 @@
 # Base System Requirements
 
-These are the minimum system requirements for a base Void installation.
-Networking is required to download any additional packages while installing, as
-well as to perform a network based install. However, the images are capable of
-installing a system without network connection.
+Void can be installed on very minimalist hardware, though we recommend
+the following minimums for most installations:
 
 | Architecture | CPU              | RAM  | Storage |
 |--------------|------------------|------|---------|
@@ -14,3 +12,9 @@ installing a system without network connection.
 > Note: ''Flavor'' installations do require more resources, depending on which
 > environment you choose.
 
+Void is not available for i386, i486, or i586 architectures.
+
+It is highly recommended to have a network connection available during
+install to download updates, but this is not required.  ISO images
+contain installation data on-disc and can be installed without network
+connectivity.
