@@ -1,19 +1,21 @@
 # Post Installation
 
-This page provides a list of basic functions to perform after installing a Void
-system.
+This page contains a common set of tasks to take after installing Void
+on a new machine.
 
-### Updates
+## Updates
 
-The first thing you should do on a new system is check for and install updates.
-This is especially important if you installed from the `Local` packages on a
-live install image as it is highly likely that some of your packages will be out
-of date. To update your repository information and update all installed
-packages, run the command:
+Installation media contains a snapshot of packages from the day it was
+made.  After installing and connecting the the network, new systems
+should be updated:
 
 ```
 # xbps-install -Su
 ```
+
+This will ensure that your system has applicable security patches and
+software upgrades that happened after the installation media was
+created.
 
 > Note: XBPS must use a seperate transaction to update itself.  If
 > your first update includes the package `xbps`, you will need to run
