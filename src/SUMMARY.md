@@ -44,6 +44,7 @@
    - [Manual pages](./maintenance/man.md)
 - [Troubleshooting](./troubleshooting/index.md)
    - [XBPS](./troubleshooting/xbps/index.md)
+     - [Static XBPS](./troubleshooting/xbps/static.md)
 - [Contributing](./contributing/index.md)
    - [Void Docs](./contributing/void-docs/index.md)
       - [Style Guide](./contributing/void-docs/styleguide.md)
