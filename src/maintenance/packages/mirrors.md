@@ -28,7 +28,7 @@ are free to sync only specific architectures and exclude sub-repositories
 | <http://beta.de.repo.voidlinux.org>                                                  | EU: Germany      |
 | <http://alpha.us.repo.voidlinux.org>                                                 | USA: Kansas City |
 | <http://mirror.clarkson.edu/voidlinux/>                                              | USA: New York    |
-| [http://mirrors.servercentral.com/voidlinux/](http://mirror.clarkson.edu/voidlinux/) | USA: Chicago     |
+| <http://mirrors.servercentral.com/voidlinux/> | USA: Chicago     |
 
 ### Tier 2 Mirrors
 
@@ -62,4 +62,3 @@ $ xbps-query -L
    47 https://alpha.de.repo.voidlinux.org/current/nonfree (RSA signed)
  5368 https://alpha.de.repo.voidlinux.org/current/debug (RSA signed)
 ```
-
