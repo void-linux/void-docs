@@ -1,7 +1,7 @@
 # Base System Requirements
 
-Void can be installed on very minimalist hardware, though we recommend
-the following minimums for most installations:
+Void can be installed on very minimalist hardware, though we recommend the
+following minimums for most installations:
 
 | Architecture | CPU              | RAM  | Storage |
 |--------------|------------------|------|---------|
@@ -14,7 +14,7 @@ the following minimums for most installations:
 
 Void is not available for i386, i486, or i586 architectures.
 
-It is highly recommended to have a network connection available during
-install to download updates, but this is not required.  ISO images
-contain installation data on-disc and can be installed without network
-connectivity.
+It is highly recommended to have a network connection available during install
+to download updates, but this is not required. ISO images contain installation
+data on-disc and can be installed without network connectivity.
+

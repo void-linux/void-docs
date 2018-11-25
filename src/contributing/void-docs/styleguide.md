@@ -62,27 +62,26 @@ They should not be formatted like this:
 
 ## Case
 
-Filenames and directories should use kabob case when splitting words.
-For example the filename should be `post-install.md` not
-`postinstall.md`.
+Filenames and directories should use kabob case when splitting words. For
+example the filename should be `post-install.md` not `postinstall.md`.
 
-Words that are part of trademarks or well known package names are
-exempt from this rule, examples of these exemptions include
-`pulseaudio` and `networkmanager` which are well known by their
-squashed names.
+Words that are part of trademarks or well known package names are exempt from
+this rule, examples of these exemptions include `pulseaudio` and
+`networkmanager` which are well known by their squashed names.
 
 ## Voice
 
-Prefer the active imperative voice when writing documentation.
-Consider the following examples:
+Prefer the active imperative voice when writing documentation. Consider the
+following examples:
 
 > Now we need to install the CUPS drivers and configure them.
 
-This version is conversational and is friendlier, but contains
-unnecessary language that may not read as clearly to an ESL consumer.
+This version is conversational and is friendlier, but contains unnecessary
+language that may not read as clearly to an ESL consumer.
 
 > Install and configure the CUPS drivers, then configure them as shown.
 
-This version contains a clear command to act, and a follow up that
-shows what will be done next.  It is clear both to native English
-speakers, ESL consumers, and to translators.
+This version contains a clear command to act, and a follow up that shows what
+will be done next. It is clear both to native English speakers, ESL consumers,
+and to translators.
+

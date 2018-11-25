@@ -9,12 +9,12 @@ set this manually. This can also be handy if you are on a different continent
 than the primary mirror, or if you are not on the same continent as any
 officially managed mirrors.
 
-Mirrors are separated into two categories. Tier 1 mirrors sync directly from
-the build-master and will always have the latest packages available. These
+Mirrors are separated into two categories. Tier 1 mirrors sync directly from the
+build-master and will always have the latest packages available. These
 repositories are maintained by the Void Linux Infrastructure Team. In rare
-occasions we may permit a mirror that we don’t manage to sync directly from our
-primary servers if there are extenuating circumstances. Tier 2 mirrors sync from
-a nearby tier 1 mirror when possible, but there is no guarantee of a mirror
+occasions we may permit a mirror that we don’t manage to sync directly from
+our primary servers if there are extenuating circumstances. Tier 2 mirrors sync
+from a nearby tier 1 mirror when possible, but there is no guarantee of a mirror
 being nearby. These mirrors are not managed by Void nor do they have any
 specific guarantees for staleness or completeness of packages. Tier 2 mirrors
 are free to sync only specific architectures and exclude sub-repositories
@@ -22,12 +22,12 @@ are free to sync only specific architectures and exclude sub-repositories
 
 ### Tier 1 Mirrors
 
-| Repository                                                                           | Location         |
-|--------------------------------------------------------------------------------------|------------------|
-| <http://alpha.de.repo.voidlinux.org>                                                 | EU: Germany      |
-| <http://beta.de.repo.voidlinux.org>                                                  | EU: Germany      |
-| <http://alpha.us.repo.voidlinux.org>                                                 | USA: Kansas City |
-| <http://mirror.clarkson.edu/voidlinux/>                                              | USA: New York    |
+| Repository                                    | Location         |
+|-----------------------------------------------|------------------|
+| <http://alpha.de.repo.voidlinux.org>          | EU: Germany      |
+| <http://beta.de.repo.voidlinux.org>           | EU: Germany      |
+| <http://alpha.us.repo.voidlinux.org>          | USA: Kansas City |
+| <http://mirror.clarkson.edu/voidlinux/>       | USA: New York    |
 | <http://mirrors.servercentral.com/voidlinux/> | USA: Chicago     |
 
 ### Tier 2 Mirrors
@@ -62,3 +62,4 @@ $ xbps-query -L
    47 https://alpha.de.repo.voidlinux.org/current/nonfree (RSA signed)
  5368 https://alpha.de.repo.voidlinux.org/current/debug (RSA signed)
 ```
+

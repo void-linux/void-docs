@@ -14,8 +14,8 @@ Wait until the service is marked available:
 
 Then, power the printer on and connect it.
 
-There are multiple ways to configure a CUPS printer.  The standard is
-to use the web interface, but other mechanisms exist as well.
+There are multiple ways to configure a CUPS printer. The standard is to use the
+web interface, but other mechanisms exist as well.
 
 ## Web interface
 
@@ -40,6 +40,7 @@ To configure the printer using a native GUI interface, run the following:
 This command does not need to be run as root if PolicyKit is in use and
 `cups-pk-helper` is installed.
 
-While `system-config-printer` is shown here, your desktop environment
-may have a native printer dialog which may be found by consulting the
-documentation for your DE.
+While `system-config-printer` is shown here, your desktop environment may have a
+native printer dialog which may be found by consulting the documentation for
+your DE.
+
