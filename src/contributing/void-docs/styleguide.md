@@ -60,3 +60,13 @@ They should not be formatted like this:
 [https://www.example.com/](https://www.example.com/)
 ```
 
+## Case
+
+Filenames and directories should use kabob case when splitting words.
+For example the filename should be `post-install.md` not
+`postinstall.md`.
+
+Words that are part of trademarks or well known package names are
+exempt from this rule, examples of these exemptions include
+`pulseaudio` and `networkmanager` which are well known by their
+squashed names.
