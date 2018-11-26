@@ -69,11 +69,10 @@ by running:
 # xbps-install -S system-config-printer
 ```
 
-Normally this tool would require root priveleges to configure printers, but
+Normally this tool would require root privileges to configure printers, but
 unprivileged access through PolicyKit can be achieved with a helper. This helper
 can be installed by running:
 
 ```
 # xbps-install -S cups-pk-helper
 ```
-

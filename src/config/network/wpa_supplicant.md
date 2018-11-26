@@ -22,7 +22,7 @@ $ cp /etc/wpa_supplicant/wpa_supplicant.conf /etc/wpa_supplicant/wpa_supplicant-
 
 ### WEP Configuration
 
-For WEP configuratoin, you can just add the following lines to your device's
+For WEP configuration, you can just add the following lines to your device's
 `wpa-supplicant.conf` :
 
 ```
@@ -52,13 +52,13 @@ For `WPA-PSK` encryption, we must generate a `pre shared key` with
 the following command:
 
 ```
-wpa_passphrase <MYSSID> <key>
+$ wpa_passphrase <MYSSID> <key>
 ```
 
 You must append the output to your `wpa_supplicant.conf` file like so:
 
 ```
-wpa_passphrase <MYSSID> <key> >> /etc/wpa_supplicant/wpa_supplicant-<device_name>.conf
+$ wpa_passphrase <MYSSID> <key> >> /etc/wpa_supplicant/wpa_supplicant-<device_name>.conf
 ```
 
 The resulting file should look something like this:
@@ -89,7 +89,7 @@ may simply run [dhcpcd(8)](https://man.voidlinux.org/dhcpcd.8), which will start
 processes automatically for your wireless interfaces, or you can run
 `wpa_supplicant` manually.
 
-### Starting throught dhcpcd hooks
+### Starting through dhcpcd hooks
 
 You may run [dhcpcd(8)](https://man.voidlinux.org/dhcpcd.8), which has hooks to
 start [wpa_supplicant(8)](https://man.voidlinux.org/wpa_supplicant.8)
@@ -114,4 +114,3 @@ Now you can test the connection:
 ```
 $ ping google.com
 ```
-

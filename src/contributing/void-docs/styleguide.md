@@ -20,7 +20,7 @@ that requires a longer line. Exceptions may include:
 
 Headers shall only be in the [ATX
 heading](https://github.github.com/gfm/#atx-headings) format, and are only to be
-used heirarchically (i.e do not skip from `#` to `###`.)
+used hierarchically (i.e do not skip from `#` to `###`.)
 
 ## Commands
 
@@ -47,7 +47,7 @@ xbps-install -Su
 
 ## Links
 
-Auto links (links with the same title as url) shold be use the following
+Auto links (links with the same title as url) should be use the following
 notation:
 
 ```
@@ -84,4 +84,3 @@ language that may not read as clearly to an ESL consumer.
 This version contains a clear command to act, and a follow up that shows what
 will be done next. It is clear both to native English speakers, ESL consumers,
 and to translators.
-

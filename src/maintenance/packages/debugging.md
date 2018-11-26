@@ -4,7 +4,7 @@ Void Linux packages come without debugging symbols, if you want to debug
 software or look at a coredump you will need the debugging symbols.
 
 To get debugging symbols for packages, activate the debug repo. Once enabled,
-symbols may be obtained for by installing -dbg.
+symbols may be obtained for `package` by installing `package-dbg`.
 
 ```
 $ xbps-install -S void-repo-debug
@@ -25,4 +25,3 @@ bash-dbg
 glibc-dbg
 # xbps-install -S $(xdbg bash)
 ```
-
