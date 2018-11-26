@@ -5,11 +5,13 @@
 - [Installation](./installation/index.md)
    - [Base System Requirements](./installation/base-requirements.md)
    - [Live Installers](./installation/live-images/index.md)
+      - [Boot Loaders](./installation/live-images/boot-loaders.md)
       - [Downloading Images](./installation/live-images/downloading.md)
       - [Preparing Installation Media](./installation/live-images/prep.md)
       - [Partitioning Notes](./installation/live-images/partitions.md)
       - [Installation Guide](./installation/live-images/guide.md)
    - [Guides](./installation/guides/index.md)
+      - [Installation Guide (chroot)](./installation/guides/chroot-guide.md)
 - [Configuration](./config/index.md)
    - [Post Installation](./config/post-install.md)
    - [Services and daemons](./config/services/index.md)
@@ -48,4 +50,3 @@
 - [Contributing](./contributing/index.md)
    - [Void Docs](./contributing/void-docs/index.md)
       - [Style Guide](./contributing/void-docs/styleguide.md)
-
