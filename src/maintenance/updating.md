@@ -24,7 +24,7 @@ To find processes running different versions than are present on disk, use the
 `xcheckrestart` tool provided by the `xtools` package:
 
 ```
-# xbps-install xtools
+# xbps-install -S xtools
 ```
 
 ```
@@ -44,5 +44,4 @@ requests that hooks such as DKMS and Dracut be run, but it doesn't remove
 kernels that are obsolete. This is left as a task for the administrator to
 permit the retention of obsolete but still booted or known working kernels.
 
-Remove kernels with the [](https://man.voidlinux.org/vkpurge).
-
+Remove kernels with [vkpurge(8)](https://man.voidlinux.org/vkpurge.8).

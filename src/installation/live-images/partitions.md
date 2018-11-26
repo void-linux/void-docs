@@ -26,7 +26,7 @@ automatically.
 
 ## Swap Partitions
 
-A swap partition is not stricly required, but recommended for systems with low
+A swap partition is not strictly required, but recommended for systems with low
 RAM. If you want to use hibernation, you will need a swap partition. The
 following table has recommendations for swap partition size.
 
@@ -39,7 +39,7 @@ following table has recommendations for swap partition size.
 
 ## Boot Partition (Optional)
 
-On most modern systems, a seperate `/boot` partition is no longer necessary to
+On most modern systems, a separate `/boot` partition is no longer necessary to
 boot properly. If you choose to use one, remember that Void does not remove old
 kernels after updates by default and each image will take at least 20MB, so plan
 accordingly.
@@ -47,8 +47,7 @@ accordingly.
 ## Other Partitions
 
 It is fine to install your system with only a large root partition, but you may
-create other partitions if you want. One helpful addition could be a seperate
+create other partitions if you want. One helpful addition could be a separate
 partition for your `/home` directory. This way if you need to reinstall Void (or
 another distribution) you can save the data and configuration files in your home
 directory for your new system.
-

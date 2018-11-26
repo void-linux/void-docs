@@ -26,7 +26,7 @@ available and can be used like `sv <command> <services...>`.
 - `start`, `stop`, `reload` and `restart` for LSB init compatibility.
 
 See the [sv(8)](https://man.voidlinux.org/sv.8) manual page for further
-informations.
+information.
 
 The `status` command can be used to retrieve the current status of one or more
 services. It accepts either service names or service directories, which makes it
@@ -74,4 +74,3 @@ exec 2>&1
 exec wpa_supplicant -c ${CONF_FILE:=/etc/wpa_supplicant/wpa_supplicant.conf} -i ${WPA_INTERFACE:=wlan0} ${OPTS:=-s}
 # echo WPA_INTERFACE=wlp3s0 >>/etc/sv/wpa_supplicant/conf
 ```
-

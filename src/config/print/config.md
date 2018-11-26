@@ -33,7 +33,7 @@ configure a printer using the command line.
 To configure the printer using a native GUI interface, run the following:
 
 ```
-# xbps-install system-config-printer
+# xbps-install -S system-config-printer
 # system-config-printer
 ```
 
@@ -43,4 +43,3 @@ This command does not need to be run as root if PolicyKit is in use and
 While `system-config-printer` is shown here, your desktop environment may have a
 native printer dialog which may be found by consulting the documentation for
 your DE.
-
