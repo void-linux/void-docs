@@ -1,11 +1,11 @@
 # Style Guide
 
-This style guide is a work in progress to outline the standards for contributing
-to the [void-docs](https://github.com/void-linux/void-docs/) project. These
-guidelines are a work in progress.
+This style guide outlines the standards for contributing to the
+[void-docs](https://github.com/void-linux/void-docs/) project. It is a work in
+progress.
 
-This section will detail the specific format of the markdown files to be used in
-the void-docs mdbook.
+This section details the specific format of the markdown files to use in the
+*void-docs* [mdBook](https://rust-lang-nursery.github.io/mdBook/).
 
 ## Formatting
 
@@ -47,8 +47,7 @@ xbps-install -Su
 
 ## Links
 
-Auto links (links with the same title as url) should be use the following
-notation:
+Auto links (links with the same title as url) should use the following notation:
 
 ```
 <https://www.example.com/>
@@ -62,12 +61,13 @@ They should not be formatted like this:
 
 ## Case
 
-Filenames and directories should use kabob case when splitting words. For
+Filenames and directories should use [kebab
+case](https://en.wikipedia.org/wiki/Kebab_case) when splitting words. For
 example the filename should be `post-install.md` not `postinstall.md`.
 
 Words that are part of trademarks or well known package names are exempt from
-this rule, examples of these exemptions include `pulseaudio` and
-`networkmanager` which are well known by their squashed names.
+this rule. Examples include `pulseaudio` and `networkmanager` which are well
+known by their squashed names.
 
 ## Voice
 
@@ -76,11 +76,11 @@ following examples:
 
 > Now we need to install the CUPS drivers and configure them.
 
-This version is conversational and is friendlier, but contains unnecessary
-language that may not read as clearly to an ESL consumer.
+This version is conversational and friendlier, but contains unnecessary language
+that may not be as clear to an ESL reader.
 
 > Install and configure the CUPS drivers, then configure them as shown.
 
 This version contains a clear command to act, and a follow up that shows what
-will be done next. It is clear both to native English speakers, ESL consumers,
-and to translators.
+will be done next. It is clear both to native English speakers, ESL readers, and
+to translators.
