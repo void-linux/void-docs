@@ -9,9 +9,10 @@ package repository.
 ```
 # xbps-install -Su xtools
 
-$ xlocate -S 
+$ xlocate -S
 From https://repo.voidlinux.org/xlocate/xlocate +
-16d97bfe86...2ad1a4a8d1 master -> master (forced update) $ xlocate fizz
+16d97bfe86...2ad1a4a8d1 master -> master (forced update)
+$ xlocate fizz
 nim-0.17.0_1 /usr/lib/nim/examples/fizzbuzz.nim ponysay-3.0.2_1
 /usr/share/ponysay/ponies/cherryfizzy.pony ->
 /usr/share/ponysay/ponies/cherrycola.pony ponysay-3.0.2_1
@@ -29,4 +30,3 @@ cached index of all files, so no network is required to query for files.
 $ xbps-query -Ro /usr/bin/xlocate
 xtools-0.46_1: /usr/bin/xlocate (regular file)
 ```
-
