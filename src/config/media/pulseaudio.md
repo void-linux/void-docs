@@ -16,4 +16,3 @@ There are different methods that work with PulseAudio to allow access to the
 audio devices, the simplest one is to just the `audio` group alternatively you
 can use a session manager, like [elogind](#elogind) or
 [ConsoleKit2](#consolekit2).
-

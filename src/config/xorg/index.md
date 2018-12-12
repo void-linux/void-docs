@@ -55,4 +55,3 @@ exec $STARTUP <window manager>
 ```
 # xbps-install -S elogind
 ```
-

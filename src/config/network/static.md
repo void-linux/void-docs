@@ -12,4 +12,3 @@ ip link set dev eth0 up
 ip addr add 192.168.1.2/24 brd + dev eth0
 ip route add default via 192.168.1.1
 ```
-

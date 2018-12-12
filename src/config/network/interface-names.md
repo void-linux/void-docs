@@ -5,4 +5,3 @@ In newer versions udev changed the well known traditional linux naming scheme
 
 This behaviour can be reverted by adding `net.ifnames=0` to the [kernel
 cmdline](/config/kernel.html#cmdline).
-

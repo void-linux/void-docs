@@ -26,4 +26,3 @@ One important caveat: if any services you have need group permissions instead of
 just your user permissions, you will want to append those groups in a colon
 separated list to your username, such as `/etc/sv/anon:void1:void2:void3/run`
 instead of just `/etc/sv/anon/run`.
-

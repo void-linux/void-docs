@@ -24,4 +24,3 @@ $ ip link show
 
 For more information on configuring dhcpcd see
 [dhcpcd.conf(5)](https://man.voidlinux.org/dhcpcd.conf.5)
-

@@ -18,4 +18,3 @@ don't know which one to choose.
 
 Other syslog implementations like `rsyslog` and `metalog` are available in the
 package repository too.
-
