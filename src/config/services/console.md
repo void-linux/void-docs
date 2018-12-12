@@ -13,4 +13,3 @@ package re-enable the service.
 # rm /var/service/agetty-tty6
 # touch /etc/sv/agetty-tty6/down
 ```
-

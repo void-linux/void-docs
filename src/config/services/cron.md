@@ -11,4 +11,3 @@ As alternative to the standard cron implementations you can use something like
 [snooze](https://github.com/chneukirchen/snooze) or
 [runwhen](http://code.dogmap.org/runwhen/) which go hand in hand with service
 supervision.
-

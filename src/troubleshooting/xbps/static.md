@@ -27,4 +27,3 @@ musl C library, and should work on systems where nothing else does. In systems
 where the platform can no longer boot, it is recommended to chroot in with Void
 installation media and use the static tools from there, as it is unlikely that
 even a shell will work correctly on the target system.
-

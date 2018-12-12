@@ -139,4 +139,3 @@ reconfigure the right kernel version like `linux4.12` as example.
 # echo 'kernel_cmdline+="<extra cmdline arguments>"' >> /etc/dracut.conf.d/cmdline.sh
 # xbps-reconfigure -f linux4.12
 ```
-

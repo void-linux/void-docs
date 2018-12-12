@@ -37,4 +37,3 @@ $ xbps-query -Rs man-pages
 [-] man-pages-posix-2013a_3 Manual pages about POSIX systems
 # xbps-install -S man-pages-devel man-pages-posix
 ```
-

@@ -27,16 +27,9 @@ fi
 # Fetch upstream
 git fetch git://github.com/void-linux/void-docs.git master
 
-# Compute changed files
-git diff --name-status FETCH_HEAD...HEAD | cut -f2 | grep '.md' | tee /tmp/changed_files
-
 # Format them
-while read -r file ; do
-    printf 'Formatting %s\n' "$file"
-    vmdfmt "$file" > "$file.1"
-    mv "$file.1" "$file"
-done < /tmp/changed_files
-
+printf "Formatting tree"
+vmdfmt -l -w src/
 
 # Check Status
 if [ ! -z "$(git status --porcelain)" ] ; then
