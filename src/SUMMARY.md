@@ -57,5 +57,6 @@
    - [XBPS](./troubleshooting/xbps/index.md)
       - [Static XBPS](./troubleshooting/xbps/static.md)
 - [Contributing](./contributing/index.md)
+   - [Usage Statistics](./contributing/usage-statistics.md)
    - [Void Docs](./contributing/void-docs/index.md)
       - [Style Guide](./contributing/void-docs/styleguide.md)
