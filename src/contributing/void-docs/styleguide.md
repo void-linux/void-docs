@@ -22,6 +22,19 @@ Headers shall only be in the [ATX
 heading](https://github.github.com/gfm/#atx-headings) format, and are only to be
 used hierarchically (i.e do not skip from `#` to `###`.)
 
+First-level headers should be written in title case, meaning all words should be
+capitalized except for certain subsets. All other headers and should be written
+in sentence case, in which only the first word is capitalized. Proper nouns such
+as package names should have their case respected, regardless of the position in
+the header.
+
+For example:
+
+```
+# The Quick Brown Fox Jumps Over The Lazy Dog
+## The quick brown fox jumps over the lazy dog
+```
+
 ## Commands
 
 Command code-blocks should start with a `#` or `$` character, indicating whether

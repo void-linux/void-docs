@@ -1,4 +1,4 @@
-# Per user services
+# Per-User Services
 
 Sometimes it would be nice to have user-specific runit services. Services that,
 for example, open an ssh tunnel as your current user, run a virtual machine, or

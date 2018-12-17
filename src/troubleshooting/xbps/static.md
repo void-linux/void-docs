@@ -8,7 +8,7 @@ otherwise fails to unpack and configure fully.
 In these cases it is possible to recover your system with a separate, statically
 compiled copy of XBPS.
 
-## Obtaining Static XBPS
+## Obtaining static XBPS
 
 Statically compiled versions of XBPS are available in all mirrors in the static/
 directory. The link below points to the static copies on the primary mirror in
@@ -19,7 +19,7 @@ Germany:
 Download and unpack the latest version, or the version that matches the broken
 copy on your system (with a preference for the latest copy).
 
-## Using Static XBPS
+## Using static XBPS
 
 The tools in the static set are identical to the normal ones found on most
 systems. The only distinction is that these tools are statically linked to the

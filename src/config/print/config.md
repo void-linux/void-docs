@@ -1,4 +1,4 @@
-# Configuring a New Printer
+# Configuring A New Printer
 
 Enable the CUPS service:
 

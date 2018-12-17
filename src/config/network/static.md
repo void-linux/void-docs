@@ -1,4 +1,4 @@
-# Static configuration
+# Static Configuration
 
 A static network in Void Linux can be configured with
 [ip(8)](https://man.voidlinux.org/ip.8).

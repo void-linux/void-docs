@@ -1,4 +1,4 @@
-# Manual pages
+# Manual Pages
 
 Void packages come with manual pages and the default installation includes the
 [mandoc](http://mandoc.bsd.lv/) manpage toolset.

@@ -3,14 +3,14 @@
 Void releases include two types of images: base images and "flavor" images. Both
 types of image, and the different flavor images, are described below.
 
-## Base Images
+## Base images
 
 Void provides installer images containing a base set of utilities, an installer
 program, and package files to install a Void base system. Images are provided
 for glibc based systems on both i686 and x86_64 processors, as well as musl
 based systems on x86_64-compatible processors.
 
-## Flavor Images
+## Flavor images
 
 In addition to the base image, Void provides additional "flavors" which each
 include a full desktop environment and web browser, and are pre-configured with
@@ -22,7 +22,7 @@ by which packages are included and installed.
 > comfortable with a more advanced setup may prefer to install Void from a base
 > image.
 
-### Comparison of Flavor Images
+### Comparison of flavor images
 
 Here's a quick overview of the main components and applications included with
 each flavor:

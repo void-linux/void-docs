@@ -58,12 +58,12 @@ not currently support locales.
 
 Select your timezone based on standard timezone options.
 
-## Root Password
+## Root password
 
 Enter and confirm your `root` password for the new installation. The password
 will not be shown on screen.
 
-## User Account
+## User account
 
 Choose a login (default `void`) and a descriptive name for that login. Then
 enter and confirm the password for the new user. You will then be prompted to
@@ -106,7 +106,7 @@ finished, select `Done` to return to the main menu.
 > UEFI users will need to create a `vfat` filesystem, and mount it at
 > `/boot/efi`.
 
-## Review Settings
+## Review settings
 
 It is a good idea to review your settings before proceeding. Use the right arrow
 key to select the settings button and hit `<enter>`. All your selections will be
@@ -122,7 +122,7 @@ partition.
 These steps will all run automatically, and after the installation is completed
 successfully, you can reboot into your new Void Linux install!
 
-## Post Installation
+## Post installation
 
 See the [Post Installation](../../config/postinstall.md) guide for some tips on
 setting up your new system.
