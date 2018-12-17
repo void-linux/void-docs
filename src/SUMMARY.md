@@ -26,7 +26,6 @@
       - [dhcpcd](./config/network/dhcpcd.md)
       - [wpa_supplicant](./config/network/wpa_supplicant.md)
       - [NetworkManager](./config/network/networkmanager.md)
-      - [wicd](./config/network/wicd.md)
    - [Xorg](./config/xorg/index.md)
    - [Multimedia](./config/media/index.md)
       - [ALSA](./config/media/alsa.md)
