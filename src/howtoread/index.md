@@ -1,4 +1,4 @@
-# How to Read the Handbook
+# How To Read The Handbook
 
 ## Examples
 

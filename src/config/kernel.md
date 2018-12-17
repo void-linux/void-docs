@@ -117,7 +117,7 @@ $ xbps-query -Rs dkms
 
 ## cmdline
 
-### grub
+### GRUB
 
 Kernel command line arguments can be added through the grub bootloader by
 editing `/etc/default/grub` and changing the `GRUB_CMDLINE_LINUX_DEFAULT`

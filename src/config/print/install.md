@@ -57,7 +57,7 @@ For Brother printer support, install the foomatic drivers by running:
 # xbps-install -S foomatic-db foomatic-db-nonfree
 ```
 
-## Configuration Software
+## Configuration software
 
 CUPS has a built-in web interface that can be used to configure printers, but
 native GUI options exist and may be better suited depending on the use case.

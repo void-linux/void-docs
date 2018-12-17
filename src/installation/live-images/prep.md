@@ -3,7 +3,7 @@
 After [downloading a live image](./downloading.md), it must be written to
 bootable media, such as a USB drive, SD card, or CD/DVD.
 
-## Create a Bootable USB Drive or SD Card on Linux
+## Create a bootable usb drive or SD card on Linux
 
 ### Identify the Device
 
@@ -34,7 +34,7 @@ unmounting it with [umount(8)](https://man.voidlinux.org/man8/umount.8):
 umount: /dev/sdX: not mounted.
 ```
 
-### Write the Live Image
+### Write the live image
 
 The [dd(1)](https://man.voidlinux.org/man1/dd.1) command can be used to copy a
 live image to a storage device. Using dd, write the live image to the device:

@@ -1,4 +1,4 @@
-# Finding files
+# Finding Files
 
 To search a file in packages you can use one of two methods
 

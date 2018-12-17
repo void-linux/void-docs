@@ -1,4 +1,4 @@
-# Building from Source
+# Building From Source
 
 Building packages from source is an advanced topic that is best left to the
 documentation in the void-packages repository.

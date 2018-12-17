@@ -1,4 +1,4 @@
-# Partitioning Notes
+# Partitioning notes
 
 Partitioning for a modern Linux distribution is generally very simple, however
 the introduction of GPT and UEFI booting does bring new complexity to the
@@ -8,14 +8,14 @@ or two to facilitate booting, if required.
 
 The following sections will detail the options for partition configuration.
 
-## BIOS System Notes
+## BIOS system notes
 
 It is recommended that you create an MBR partition table if you are using a BIOS
 boot system. This will limit the number of partitions you create to four. It is
 possible to install a GPT partition table on a BIOS system, but grub will need a
 special partition to boot properly.
 
-## UEFI System Notes
+## UEFI system notes
 
 UEFI users are recommended to create a GPT partition table. UEFI booting with
 grub also requires a special partition of the type `EFI System` with a `vfat`
@@ -24,7 +24,7 @@ between 200MB and 1GB. With this partition setup during the live image
 installation, the installer should successfully set up the bootloader
 automatically.
 
-## Swap Partitions
+## Swap partitions
 
 A swap partition is not strictly required, but recommended for systems with low
 RAM. If you want to use hibernation, you will need a swap partition. The
@@ -37,14 +37,14 @@ following table has recommendations for swap partition size.
 | 8-64GB     | At least 4GB           | 1.5x the amount of RAM          |
 | 64GB       | At least 4GB           | Hibernation not recommended     |
 
-## Boot Partition (Optional)
+## Boot partition (optional)
 
 On most modern systems, a separate `/boot` partition is no longer necessary to
 boot properly. If you choose to use one, remember that Void does not remove old
 kernels after updates by default and each image will take at least 20MB, so plan
 accordingly.
 
-## Other Partitions
+## Other partitions
 
 It is fine to install your system with only a large root partition, but you may
 create other partitions if you want. One helpful addition could be a separate

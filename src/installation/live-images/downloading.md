@@ -4,7 +4,7 @@ The most recent live images can be downloaded from
 <https://alpha.de.repo.voidlinux.org/live/current/>. Previous releases can be
 found under <https://alpha.de.repo.voidlinux.org/live/>, organized by date.
 
-## Verify Images
+## Verify images
 
 Each image releases's directory contains two files used to verify the image(s)
 you download. First, there is a `sha256sums.txt` file containing image checksums
@@ -18,7 +18,7 @@ want to download both files:
 $ wget http://alpha.de.repo.voidlinux.org/live/current/sha256sums.txt{,.sig}
 ```
 
-### Verify Image Integrity
+### Verify image integrity
 
 You can verify the integrity of a downloaded file using
 [sha256sum(1)](https://man.voidlinux.org/sha256sum.1) with the `sha256sums.txt`
@@ -32,7 +32,7 @@ void-live-x86_64-musl-20170220.iso: OK
 
 This verifies that the image is not corrupt.
 
-### Verify Image Authenticity
+### Verify image authenticity
 
 To verify that the downloaded `sha256sums.txt` file is the one that the Void
 Linux maintainers published and signed, we use PGP. For this, we need the

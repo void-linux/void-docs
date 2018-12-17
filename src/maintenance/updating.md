@@ -12,7 +12,7 @@ In general Void should be updated with an XBPS invocation:
 > update includes the package `xbps`, you will need to run an additional update
 > for the rest of the system.
 
-## Restarting Services
+## Restarting services
 
 If you are installing Void in production or otherwise have long lived services,
 its important to note that XBPS does not restart services when they are updated.
@@ -37,7 +37,7 @@ path that was launched (almost always deleted) and the process name.
 
 `xcheckrestart` can and should be run as an unprivileged user.
 
-## Kernel Panic after Update
+## Kernel Panic After Update
 
 Your system likely ran out of space in `/boot`. XBPS installs kernels and
 requests that hooks such as DKMS and Dracut be run, but it doesn't remove

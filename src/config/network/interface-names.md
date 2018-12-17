@@ -1,4 +1,4 @@
-# Interface names
+# Interface Names
 
 In newer versions udev changed the well known traditional linux naming scheme
 (`eth0`, `eth0`, `wlan0`, ...).

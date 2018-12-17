@@ -20,7 +20,7 @@ First, you must create a configuration file for your interface:
 $ cp /etc/wpa_supplicant/wpa_supplicant.conf /etc/wpa_supplicant/wpa_supplicant-<device>.conf
 ```
 
-### WEP Configuration
+### WEP configuration
 
 For WEP configuration, you can just add the following lines to your device's
 `wpa-supplicant.conf` :
