@@ -1,38 +1,37 @@
 # Style Guide
 
 This style guide outlines the standards for contributing to the
-[void-docs](https://github.com/void-linux/void-docs/) project. It is a work in
-progress.
-
-This section details the specific format of the markdown files to use in the
-*void-docs* [mdBook](https://rust-lang-nursery.github.io/mdBook/).
+[void-docs](https://github.com/void-linux/void-docs/) project. The manual on
+<https://docs.voidlinux.org> is generated from an
+[mdBook](https://rust-lang-nursery.github.io/mdBook/) stored in the
+[void-docs](https://github.com/void-linux/void-docs/) repository.
 
 ## Formatting
 
-Each line should be less than 80 characters, unless there is special formatting
-that requires a longer line. Exceptions may include:
+For markdown formatting, the
+[void-docs](https://github.com/void-linux/void-docs/) project uses the
+[Versioned Markdown](https://github.com/bobertlo/vmd) format, and enforces use
+of the auto-formatter `vmdfmt`, which works very similarly to `gofmt`. Most
+valid markdown is accepted by the formatter. The output format is described in
+the project's [README](https://github.com/bobertlo/vmd/blob/master/README.md).
 
-- links which start at the beginning of a new line
-- tables
-- code blocks
-
-## Headers
-
-Headers shall only be in the [ATX
-heading](https://github.github.com/gfm/#atx-headings) format, and are only to be
-used hierarchically (i.e do not skip from `#` to `###`.)
-
-First-level headers should be written in title case, meaning all words should be
-capitalized except for certain subsets. All other headers and should be written
-in sentence case, in which only the first word is capitalized. Proper nouns such
-as package names should have their case respected, regardless of the position in
-the header.
-
-For example:
+Void provides the package `vmdfmt`. Otherwise you may `go get` from the repo:
 
 ```
-# The Quick Brown Fox Jumps Over The Lazy Dog
-## The quick brown fox jumps over the lazy dog
+$ go get https://github.com/bobertlo/vmd/cmd/vmdfmt
+```
+
+To format a file you have edited, run:
+
+```
+vmdfmt -w <filepath>
+```
+
+To format the entire *mdbook* from the repository root, outputting a list of
+files modified, run:
+
+```
+vmdfmt -w -l <filepath>
 ```
 
 ## Commands
@@ -60,7 +59,7 @@ xbps-install -Su
 
 ## Links
 
-Auto links (links with the same title as url) should use the following notation:
+Auto links (links with the same title as URL) should use the following notation:
 
 ```
 <https://www.example.com/>
@@ -79,7 +78,7 @@ case](https://en.wikipedia.org/wiki/Kebab_case) when splitting words. For
 example the filename should be `post-install.md` not `postinstall.md`.
 
 Words that are part of trademarks or well known package names are exempt from
-this rule. Examples include `pulseaudio` and `networkmanager` which are well
+this rule. Examples include `PulseAudio` and `NetworkManager` which are well
 known by their squashed names.
 
 ## Voice

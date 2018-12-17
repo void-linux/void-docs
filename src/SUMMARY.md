@@ -59,4 +59,4 @@
 - [Contributing](./contributing/index.md)
    - [Usage Statistics](./contributing/usage-statistics.md)
    - [Void Docs](./contributing/void-docs/index.md)
-      - [Style Guide](./contributing/void-docs/styleguide.md)
+      - [Style Guide](./contributing/void-docs/style-guide.md)
