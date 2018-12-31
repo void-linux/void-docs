@@ -1,57 +1,53 @@
 # Xorg
 
+This section details the manual installation and configuration of the Xorg
+display server and common related services and utilities. If you would just like
+to install a full desktop environment, it is recommended to try one of the
+[flavor images](../../installation/live-images/index.md#flavor-images)
+
+## Installation
+
+Void provides a comprehensive `xorg` package which installs the server and all
+of the free video drivers, fonts, and base applications. This package is a safe
+option, and should be adequate for most systems which don't require proprietary
+video drivers.
+
+If you would like to select only the packages you need, the `xorg-minimal`
+package contains the base xorg server *only*. If you install only
+`xorg-minimal`, you will likely need to install a font package (like
+`xorg-fonts`), a terminal emulator (like `xterm`), and a window manager to have
+a usable graphics system.
+
 ## Drivers
 
-## Display managers
+Void provides both open-source and proprietary (non-free) video drivers.
 
-## Session and seat management
+### Open Source Drivers
 
-Session and seat management is not necessary for every setup, it is used to
-provide device access on the fly for the currently active user session.
+The open source drivers are installed with the `xorg` package by default, or may
+be installed individually if the `xorg-minimal` was installed. Below is a table
+of device brands and their driver packages.
 
-For desktop environments like Gnome [elogind](#elogind) is necessary.
+| Brand  | Type        | Driver Package       |
+|--------|-------------|----------------------|
+| AMD    | Open Source | `xf86-video-amdgpu`  |
+| ATI    | Open Source | `xf86-video-ati`     |
+| Intel  | Open Source | `xf86-video-intel`   |
+| NVIDIA | Open Source | `xf86-video-nouveau` |
 
-### ConsoleKit2
+> Note: Fourth generation intel users may want to use the default xorg driver,
+> rather than installing `xf86-video-intel` driver package. For more
+> information, see the [Arch wiki
+> page](https://wiki.archlinux.org/index.php/Intel_graphics#Installation).
 
-Install ConsoleKit2 and activate its service and make sure the dbus and the
-cgmanager services are activated too.
+### Proprietary Drivers
 
-```
-# xbps-install -S ConsoleKit2
-# ln -s /etc/sv/dbus /var/service/
-# ln -s /etc/sv/cgmanager /var/service/
-# ln -s /etc/sv/consolekit /var/service/
-```
+Void also provides proprietary video drivers, which are available in the
+[non-free](../../maintenance/repositories/official/nonfree.md) repository.
 
-If you don't use a display manager or your display manager doesn't start a
-ConsoleKit2 session on its own you need to start a ConsoleKit2 session from your
-`.xinitrc`. ConsoleKit2 comes with a `xinitrc.d` script
-(`/etc/X11/xinit/xinitrc.d/90-consolekit`) which sets the `STARTUP` variable to
-the appropriate way to start the session.
-
-The following `.xinitrc` script sources all scripts in
-`/etc/X11/xinit/xinitrc.d` and starts the window manager of your choice with a
-session.
-
-```
-#!/bin/sh
-#
-# ~/.xinitrc
-#
-# Executed by startx (run your window manager from here)
-
-if [ -d /etc/X11/xinit/xinitrc.d ]; then
-  for f in /etc/X11/xinit/xinitrc.d/*; do
-    [ -x "$f" ] && . "$f"
-  done
-  unset f
-fi
-
-exec $STARTUP <window manager>
-```
-
-### elogind
-
-```
-# xbps-install -S elogind
-```
+| Brand      | Type        | Model                           | Driver Package |
+|------------|-------------|---------------------------------|----------------|
+| ATI/Radeon | Proprietary |                                 | `catalyst`     |
+| NVIDIA     | Proprietary | 500+                            | `nvidia`       |
+| NVIDIA     | Proprietary | 300/400 Series                  | `nvidia390`    |
+| NVIDIA     | Proprietary | GeForce8/9 + 100/200/300 Series | `nvidia340`    |

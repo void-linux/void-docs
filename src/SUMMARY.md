@@ -27,6 +27,7 @@
       - [wpa_supplicant](./config/network/wpa_supplicant.md)
       - [NetworkManager](./config/network/networkmanager.md)
    - [Xorg](./config/xorg/index.md)
+      - [Session Management](./config/xorg/session-management.md)
    - [Multimedia](./config/media/index.md)
       - [ALSA](./config/media/alsa.md)
       - [PulseAudio](./config/media/pulseaudio.md)
