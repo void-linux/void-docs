@@ -24,8 +24,8 @@ and time again that they are dedicated to the security, quality, and
 maintainability of this critical library.
 
 A final distinguishing characteristic of Void is our choice of program for
-`init(8)`. Void Linux boots with smarden runit, a very small service supervision
-system. The small codebase of runit allows us to support a second libc without
-significant effort, something that would not have been possible with other
-options available today. You can learn more about runit on its website
-<http://smarden.org/runit/>.
+[`init(8)`](https://man.voidlinux.org/init.8). Void Linux boots with smarden
+runit, a very small service supervision system. The small codebase of runit
+allows us to support a second libc without significant effort, something that
+would not have been possible with other options available today. You can learn
+more about runit on its website <http://smarden.org/runit/>.
