@@ -1,9 +1,15 @@
 # Installing Printing Packages
 
-The CUPS daemon can be installed by running:
+Install the CUPS daemon.
 
 ```
 # xbps-install -S cups
+```
+
+Configure as an auto-start service.
+
+```
+# ln -s /etc/sv/cupsd /var/service/
 ```
 
 ## Drivers
