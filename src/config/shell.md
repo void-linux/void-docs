@@ -23,7 +23,7 @@ $ chsh -l
 /bin/zsh
 /bin/rc
 /bin/ksh
-/bin/oksh
+/bin/loksh
 /bin/yash
 ```
 
@@ -38,7 +38,7 @@ shells.
 - heirloom-sh
 - ksh
 - mksh
-- oksh
+- loksh
 - posh
 - rc
 - tcsh
