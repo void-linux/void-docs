@@ -77,9 +77,18 @@ network={
 
 The runit scripts checks the following options in `/etc/sv/wpa_supplicant/conf`.
 
+- `OPTS`: Options to be passed to the service. (Overrides any other options!)
 - `CONF_FILE`: Path to file to be used for configuration.
-- `WPA_INTERFACE`: Interface to be matched, defaults to all interfaces.
-- `OPTS`: Options to be passed to the service. Defaults to -s.
+- `WPA_INTERFACE`: Interface to be matched (May contain a wildcard; Defaults to
+   all interfaces.)
+
+If no `conf` file is found, the service searches for the following files in
+`/etc/wpa_supplicant`:
+
+- `wpa_supplicant-<interface>.conf`: if found, these files are bound to the
+   named interface.
+- `wpa_supplicant.conf`: if found, this file is loaded and binds to all other
+   interfaces found.
 
 To enable the [wpa_supplicant(8)](https://man.voidlinux.org/wpa_supplicant.8)
 service.
