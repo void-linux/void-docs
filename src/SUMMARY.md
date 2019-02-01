@@ -50,6 +50,7 @@
       - [Mirrors](./maintenance/repositories/mirrors/index.md)
          - [Mirror List](./maintenance/repositories/mirrors/list.md)
          - [Changing Mirrors](./maintenance/repositories/mirrors/changing.md)
+         - [Using Tor Mirrors](./maintenance/repositories/mirrors/tor.md)
       - [Restricted Packages](./maintenance/repositories/restricted.md)
       - [Custom Repositories](./maintenance/repositories/custom.md)
    - [Manual Pages](./maintenance/man.md)
