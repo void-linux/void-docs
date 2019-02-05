@@ -54,6 +54,7 @@
          - [Using Tor Mirrors](./maintenance/repositories/mirrors/tor.md)
       - [Restricted Packages](./maintenance/repositories/restricted.md)
       - [Custom Repositories](./maintenance/repositories/custom.md)
+      - [Signing Repositories](./maintenance/repositories/signing.md)
    - [Manual Pages](./maintenance/man.md)
 - [Troubleshooting](./troubleshooting/index.md)
    - [XBPS](./troubleshooting/xbps/index.md)
