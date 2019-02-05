@@ -1,0 +1,288 @@
+body {
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 1rem;
+	line-height: 1.5;
+	color: #333;
+	margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 { color: #333; }
+
+a {
+	color: #478061;
+	text-decoration: none;
+}
+a:hover {
+	color: #333;
+	text-decoration: underline;
+}
+
+code {
+	background: #fdf6e3;
+	padding: 2px 4px;
+	border-radius: 4px;
+}
+pre code {
+	padding: 0;
+	border-radius: 0;
+}
+pre {
+	padding: .5em;
+	margin: 1em 0;
+	background: #fdf6e3;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+}
+
+blockquote {
+	margin: 20px 0;
+	padding: 0 20px;
+	padding-left: 1em;
+	background: #ebf4ef;
+	border: 1px solid #d1e6da;
+	border-left: none;
+	border-right: none;
+}
+
+table {
+	border-collapse: collapse;
+}
+table td {
+	padding: 3px 20px;
+	border: 1px #fafafa solid;
+}
+table thead {
+	background: #fafafa;
+}
+table thead td {
+	font-weight: 700;
+	border: none;
+}
+table thead tr {
+}
+/* Alternate background colors for rows */
+table tbody tr:nth-child(2n) {
+	background: #fafafa;
+}
+
+.hidden {
+	display: none;
+}
+
+.icon-button {
+	border: none;
+	background: none;
+	padding: 1em;
+}
+
+.right {
+	float: right;
+}
+
+/* void navigation */
+
+#void-nav {
+	width: 100%;
+	height: 50px;
+	background: #478061;
+	font-size: 14px;
+}
+#void-nav button,
+#void-nav label {
+	color: #fff;
+	height: 50px;
+	display: block;
+	line-height: 50px;
+	padding: 0 15px;
+	font-size: 1.2em;
+}
+#void-nav ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+#void-nav ul li {
+	float: left;
+}
+#void-nav ul li a {
+	color: #fff;
+	display: block;
+	padding: 0 15px;
+	line-height: 50px;
+	font-size: 1.2em;
+	text-decoration: none
+}
+#void-nav ul li a:hover,
+#void-nav ul li a:focus,
+#void-nav button:hover,
+#void-nav button:focus,
+#void-nav label:hover,
+#void-nav label:focus {
+	background: #000;
+}
+
+/* sidebar  */
+
+.sidebar-hidden #sidebar {
+	display: none;
+}
+#sidebar {
+	padding: .5em;
+	background: #fafafa;
+}
+#sidebar ol {
+	list-style: none;
+	margin: 0;
+}
+#sidebar ol.chapter {
+	padding: 0;
+	line-height: 2.2em;
+}
+#sidebar ol.section {
+	padding-left: 20px;
+	line-height: 1.9em;
+}
+#sidebar a {
+	color: #000;
+	display: block;
+}
+#sidebar a:hover {
+	color: #478061;
+	text-decoration: none;
+}
+#sidebar a.active {
+	color: #478061;
+}
+
+#sidebar-toggle {
+	display: none;
+}
+#sidebar-toggle:checked + .chapter {
+	display: none;
+}
+
+/* search */
+
+#searchbar {
+	width: 100%;
+	padding: 10px 16px;
+	margin: 5px 0;
+	border-radius: 3px;
+	border: 1px solid #aaa;
+}
+#searchresults-header {
+	font-weight: bold;
+	font-size: 1em;
+	padding: 18px 0 0 5px;
+}
+ul#searchresults {
+	list-style: none;
+	padding-left: 20px;
+}
+ul#searchresults li {
+	margin: 10px 0px;
+	padding: 2px;
+	border-radius: 2px;
+}
+ul#searchresults span.teaser {
+	display: block;
+	clear: both;
+	margin: 5px 0 0 20px;
+	font-size: 0.8em;
+}
+
+/* chapter navigation */
+
+#nav-wide-wrapper {
+	max-width: 800px;
+	margin: 0 auto;
+	margin-top: 50px;
+}
+.previous {
+	float: left;
+}
+.next {
+	float: right;
+	right: 15px;
+}
+.nav-chapters {
+	background: #fafafa;
+	color: #ccc;
+	font-size: 2.5em;
+	text-align: center;
+	text-decoration: none;
+	display: block;
+	max-width: 150px;
+	min-width: 90px;
+}
+.nav-chapters:hover {
+	text-decoration: none;
+}
+
+/* layout */
+
+body {
+	box-sizing: border-box;
+}
+#content {
+	display: flex;
+	flex-direction: row;
+}
+#page-wrapper {
+	width: 100%;
+	padding: 0 10px;
+}
+#search-wrapper,
+#page-wrapper main {
+	width: 100%;
+	max-width: 800px;
+	margin: 0 auto;
+}
+#sidebar {
+	max-width: 300px;
+	flex-shrink: 0;
+}
+
+/* 300px + 800px + 2*90px + 15px */
+@media only screen and (min-width: 1295px) {
+	.sidebar-visible #nav-wide-wrapper {
+		max-width: auto;
+		margin: 0;
+	}
+	.sidebar-visible .nav-chapters {
+		background: none;
+		position: fixed;
+		top: 50px;
+		bottom: 0;
+		margin: 0;
+		justify-content: center;
+		align-content: center;
+		display: flex;
+		flex-direction: column;
+	}
+}
+/* 800px + 2*90px + 15px */
+@media only screen and (min-width: 995px) {
+	.sidebar-hidden #nav-wide-wrapper {
+		max-width: auto;
+		margin: 0;
+	}
+	.sidebar-hidden .nav-chapters {
+		background: none;
+		position: fixed;
+		top: 50px;
+		bottom: 0;
+		margin: 0;
+		justify-content: center;
+		align-content: center;
+		display: flex;
+		flex-direction: column;
+	}
+}
+
+/* whatever, just hide the nav */
+@media only screen and (max-width: 700px) {
+	#void-nav ul.right {
+		display: none;
+	}
+}
