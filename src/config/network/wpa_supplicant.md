@@ -5,7 +5,7 @@ includes utilities to configure wireless interfaces and, more specifically, to
 handle wireless security protocols.
 
 [wpa_supplicant(8)](https://man.voidlinux.org/wpa_supplicant.8) is a daemon that
-manages wireless interfaces based on a
+manages wireless interfaces based on
 [wpa_supplicant.conf(5)](https://man.voidlinux.org/wpa_supplicant.conf.5)
 configuration files.
 [wpa_passphrase(8)](https://man.voidlinux.org/wpa_passphrase.8) and
