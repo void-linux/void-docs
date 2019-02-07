@@ -129,6 +129,7 @@ table tbody tr:nth-child(2n) {
 #sidebar {
 	padding: .5em;
 	background: #fafafa;
+	font-size: 0.875em;
 }
 #sidebar ol {
 	list-style: none;
