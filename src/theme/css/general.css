@@ -121,6 +121,19 @@ table tbody tr:nth-child(2n) {
 	background: #000;
 }
 
+#skip-to-content {
+	position: absolute;
+	left: -999px;
+	top: -999px;
+}
+
+#skip-to-content:active,
+#skip-to-content:focus {
+	position: relative;
+	left: 0;
+	top: 0;
+}
+
 /* sidebar  */
 
 .sidebar-hidden #sidebar {
