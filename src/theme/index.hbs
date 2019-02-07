@@ -35,6 +35,7 @@
 		<header>
 			<nav id="void-nav">
 				<ul>
+					<li><a id="skip-to-content" tabindex="1" href="#content">Skip to content</a></li>
 					<li>
 						<button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
 							<i class="fa fa-bars"></i>
@@ -105,6 +106,7 @@
 				<main>
 					{{{ content }}}
 				</main>
+
 				<nav id="nav-wide-wrapper" aria-label="Page navigation">
 					{{#previous}}
 						<a href="{{ path_to_root }}{{link}}" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
