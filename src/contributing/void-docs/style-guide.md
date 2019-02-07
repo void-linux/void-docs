@@ -59,6 +59,16 @@ xbps-install -Su
 
 ## Links
 
+### Man Page Links
+
+Including links to man page is encouraged. These links should point to their man
+page on `https://docs.voidlinux.org`, have their title section number in
+parenthesis, and contain no formatting in their bodies. For example:
+[man(1)](https://man.voidlinux.org/man.1), and not
+[`man(1)`](https://man.voidlinux.org/man.1).
+
+### Auto Links
+
 Auto links (links with the same title as URL) should use the following notation:
 
 ```
