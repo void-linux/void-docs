@@ -29,8 +29,8 @@ Finally, enable the
 ## Configuring NetworkManager
 
 The `NetworkManager` package includes a command line tool,
-[nmcli(8)](https://docs.voidlinux.org/nmcli.8), and a Text User Interface,
-[nmtui(8)](https://docs.voidlinux.org/nmtui.8) to control network settings.
+[nmcli(1)](https://man.voidlinux.org/nmcli.1), and a Text User Interface,
+[nmtui(1)](https://man.voidlinux.org/nmtui.1) to control network settings.
 
 There are many other front-ends to
 [NetworkManager(8)](https://man.voidlinux.org/NetworkManager.8), including
