@@ -36,11 +36,13 @@ shells.
 - es
 - fish-shell
 - heirloom-sh
+- ion
 - ksh
-- mksh
 - loksh
+- mksh
 - posh
 - rc
 - tcsh
+- xonsh
 - yash
 - zsh
