@@ -19,6 +19,8 @@ code {
 	background: #fdf6e3;
 	padding: 2px 4px;
 	border-radius: 4px;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
 }
 pre code {
 	padding: 0;
