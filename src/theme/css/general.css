@@ -5,9 +5,7 @@ body {
 	color: #333;
 	margin: 0;
 }
-
 h1, h2, h3, h4, h5, h6 { color: #333; }
-
 a {
 	color: #478061;
 	text-decoration: none;
@@ -169,9 +167,6 @@ table tbody tr:nth-child(2n) {
 }
 
 #sidebar-toggle {
-	display: none;
-}
-#sidebar-toggle:checked + .chapter {
 	display: none;
 }
 
