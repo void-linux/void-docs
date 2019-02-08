@@ -1,21 +1,8 @@
-# Configuring A New Printer
+# Configuring a New Printer
 
-Enable the CUPS service:
-
-```
-# ln -s /etc/sv/cupsd /var/service/
-```
-
-Wait until the service is marked available:
-
-```
-# sv status cupsd
-```
-
-Then, power the printer on and connect it.
-
-There are multiple ways to configure a CUPS printer. The standard is to use the
-web interface, but other mechanisms exist as well.
+CUPS provides a web interface and command line tools that can be used to
+configure printers. Additionally, various native GUI options are available and
+may be better suited depending on the use case.
 
 ## Web interface
 
@@ -30,15 +17,17 @@ configure a printer using the command line.
 
 ## Graphical interface
 
-To configure the printer using a native GUI interface, run the following:
+The `system-config-printer` package offers simple and robust configuration of
+new printers. Install and invoke it:
 
 ```
 # xbps-install -S system-config-printer
 # system-config-printer
 ```
 
-This command does not need to be run as root if PolicyKit is in use and
-`cups-pk-helper` is installed.
+Normally this tool requires root privileges. However if you are using PolicyKit,
+you can install the `cups-pk-helper` package to allow unprivileged users to use
+`system-config-printer`.
 
 While `system-config-printer` is shown here, your desktop environment may have a
 native printer dialog which may be found by consulting the documentation for
