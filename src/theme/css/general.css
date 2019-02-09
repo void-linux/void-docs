@@ -317,3 +317,9 @@ body {
 .fa-navicon:before,.fa-reorder:before,.fa-bars:before {
 	content: "\f0c9"
 }
+.fa-angle-left:before {
+	content:"\f104"
+}
+.fa-angle-right:before {
+	content:"\f105"
+}
