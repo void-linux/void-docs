@@ -32,6 +32,7 @@
       - [ALSA](./config/media/alsa.md)
       - [PulseAudio](./config/media/pulseaudio.md)
       - [sndio](./config/media/sndio.md)
+   - [Bluetooth](./config/bluetooth.md)
    - [Printing](./config/print/index.md)
       - [Installing Printing Packages](./config/print/install.md)
       - [Configuring A New Printer](./config/print/config.md)
