@@ -1,4 +1,3 @@
 # Configuration
 
-Everything from basic network config to where to find tuning constants and basic
-ricing.
+Everything from basic network config to where to find tuning constants.
