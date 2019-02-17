@@ -43,7 +43,7 @@ of device brands and their driver packages.
 ### Proprietary Drivers
 
 Void also provides proprietary video drivers, which are available in the
-[non-free](../../maintenance/repositories/official/nonfree.md) repository.
+[non-free](../../xbps/repositories/official/nonfree.md) repository.
 
 | Brand      | Type        | Model                           | Driver Package |
 |------------|-------------|---------------------------------|----------------|
