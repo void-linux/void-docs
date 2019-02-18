@@ -1,28 +1,43 @@
-# Live Installer Images
+# Live Installers
 
-Void releases include two types of images: base images and "flavor" images. Both
-types of image, and the different flavor images, are described below.
+Void provides live installer images containing a base set of utilities, an
+installer program, and package files to install a new Void system. These live
+images are also useful for repairing a system that is not able to boot or
+function properly.
 
-## Base images
+There are `x86_64` images for both `glibc` and `musl` based systems. There are
+also images for `i686`, but only `glibc` is supported for this architecture.
+Live installers are not provided for other architectures. Users of other
+architectures will need to use rootfs tarballs, or perform an installation
+manually.
 
-Void provides installer images containing a base set of utilities, an installer
-program, and package files to install a Void base system. Images are provided
-for glibc based systems on both i686 and x86_64 processors, as well as musl
-based systems on x86_64-compatible processors.
+## Installer images
 
-## Flavor images
+Void releases two types of images: base images and "flavor" images. Linux
+beginners are encouraged to try one of the more full-featured flavor images, but
+more advanced users may often prefer to start from a base image to install only
+the packages they need.
 
-In addition to the base image, Void provides additional "flavors" which each
-include a full desktop environment and web browser, and are pre-configured with
-basic applications for that system. The install process for each of these images
-is the same as the base image. The flavor images only differ from the base image
-by which packages are included and installed.
+### Base images
 
-> Note: we encourage Linux beginners to try one of the flavor images. Users
-> comfortable with a more advanced setup may prefer to install Void from a base
-> image.
+The base images provide only a minimal set of packages to install a usable Void
+system. These base packages are only those needed to configure a new machine,
+update the system, and install additional packages from repositories.
 
-### Comparison of flavor images
+### Flavor images
+
+Each of the Void "flavor" images includes a full desktop environment, web
+browser, and basic applications configured for that environment. The only
+difference from the base images is the additional packages and services
+installed.
+
+The install process for each of the flavor images is the same as the base
+images, except that you **must** select the `Local` source when installing. If
+you select `Network` instead, the installer will download and install the latest
+version of the base system, without any additional packages included on the live
+image.
+
+#### Comparison of flavor images
 
 Here's a quick overview of the main components and applications included with
 each flavor:
