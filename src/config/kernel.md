@@ -5,17 +5,14 @@
 Void Linux provides many kernel series in the default repository,
 
 ```
-$ xbps-query --regex -Rs 'linux[34]' | grep -Ev '(dbg|headers)'
-[-] linux3.14-3.14.79_1           The Linux kernel and modules (3.14 series)
-[-] linux3.18-3.18.60_1           The Linux kernel and modules (3.18 series)
-[-] linux4.1-4.1.41_1             The Linux kernel and modules (4.1 series)
-[-] linux4.10-4.10.17_1           The Linux kernel and modules (4.10 series)
-[*] linux4.11-4.11.11_1           The Linux kernel and modules (4.11 series)
-[-] linux4.12-4.12.3_1            The Linux kernel and modules (4.12 series)
-[-] linux4.13-4.13.0rc1_1         The Linux kernel and modules (4.13 series)
-[-] linux4.4-4.4.76_1             The Linux kernel and modules (4.4 series)
-[-] linux4.8-4.8.17_1             The Linux kernel and modules (4.8 series)
-[-] linux4.9-4.9.37_1             The Linux kernel and modules (4.9 series)
+$ xbps-query --regex -Rs '^linux[0-9.]+-[0-9._]+'
+[-] linux3.16-3.16.63_1          The Linux kernel and modules (3.16 series)
+[-] linux3.18-3.18.124_1         The Linux kernel and modules (3.18 series)
+[-] linux4.14-4.14.98_1          The Linux kernel and modules (4.14 series)
+[*] linux4.19-4.19.25_1          The Linux kernel and modules (4.19 series)
+[-] linux4.20-4.20.12_1          The Linux kernel and modules (4.20 series)
+[-] linux4.4-4.4.176_1           The Linux kernel and modules (4.4 series)
+[-] linux4.9-4.9.160_1           The Linux kernel and modules (4.9 series)
 ```
 
 The `linux` meta package which is installed by default depends on one of the
