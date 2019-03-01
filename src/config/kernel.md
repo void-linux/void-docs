@@ -40,7 +40,7 @@ is currently booted.
 ### Loading kernel modules at boot
 
 To load kernel modules at boot time, a `.conf` file like
-`/etc/modules-load.d/virtio.conf` can be created.
+`/etc/modules-load.d/virtio.conf` can be created with the contents.
 
 ```
 # load virtio-net
@@ -53,8 +53,8 @@ There are two different methods to blacklist kernel modules, for the initramfs
 and for the booted system. Some modules are loaded by the initramfs very early
 in the boot process, those have to be blacklisted in the initramfs.
 
-You can blacklist modules with a `.conf` file like
-`/etc/modprobe.d/radeon.conf`.
+You can blacklist modules with a `.conf` file like `/etc/modprobe.d/radeon.conf`
+with the contents.
 
 ```
 blacklist radeon
@@ -63,7 +63,7 @@ blacklist radeon
 #### dracut
 
 To blacklist modules from being included in a dracut initramfs you need to
-create a `.conf` file like `/etc/dracut.conf.d/radeon.conf`.
+create a `.conf` file like `/etc/dracut.conf.d/radeon.conf` with the contents.
 
 ```
 omit_drivers+=" radeon "

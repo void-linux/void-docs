@@ -6,7 +6,7 @@ operates as an all-in-one solution to network management. The `NetworkManager`
 package contains the basic utilities to run
 [NetworkManager(8)](https://man.voidlinux.org/NetworkManager.8).
 
-## Starting NetworkManager
+## Enabling NetworkManager
 
 To enable the [NetworkManager(8)](https://man.voidlinux.org/NetworkManager.8)
 daemon, first [disable](../services/index.md) any other network managing
