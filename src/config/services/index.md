@@ -3,6 +3,8 @@
 Void uses the [runit(8)](https://man.voidlinux.org/runit.8) supervision suite to
 run system services and daemons.
 
+## Enabling Services
+
 Services are enabled by simply linking them into the `/var/service` service
 directory.
 
@@ -10,11 +12,22 @@ directory.
 # ln -s /etc/sv/<service name> /var/service/
 ```
 
+## Disabling Services
+
 To disable them again you just remove the link.
 
 ```
 # rm /var/service/<service name>
 ```
+
+To prevent a service from starting at boot while allowing runit to manage it,
+create a file named 'down' in its service directory.
+
+```
+# touch /var/service/<service name>/down
+```
+
+## Starting and Stopping
 
 Activated services can be controlled with the
 [sv(8)](https://man.voidlinux.org/sv.8) command, following commands are
@@ -27,6 +40,8 @@ available and can be used like `sv <command> <services...>`.
 
 See the [sv(8)](https://man.voidlinux.org/sv.8) manual page for further
 information.
+
+## Service Status
 
 The `status` command can be used to retrieve the current status of one or more
 services. It accepts either service names or service directories, which makes it
@@ -50,6 +65,8 @@ run: /var/service/sshd: (pid 674) 561391s
 run: /var/service/udevd: (pid 660) 561392s
 run: /var/service/uuidd: (pid 640) 561392s
 ```
+
+## Options and Configuration
 
 Extra options can be passed to most services using a `conf` file in the service
 directory.
