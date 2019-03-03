@@ -8,9 +8,9 @@ to install a full desktop environment, it is recommended to try one of the
 ## Installation
 
 Void provides a comprehensive `xorg` package which installs the server and all
-of the free video drivers, fonts, and base applications. This package is a safe
-option, and should be adequate for most systems which don't require proprietary
-video drivers.
+of the free video drivers, input drivers, fonts, and base applications. This
+package is a safe option, and should be adequate for most systems which don't
+require proprietary video drivers.
 
 If you would like to select only the packages you need, the `xorg-minimal`
 package contains the base xorg server *only*. If you install only
@@ -18,7 +18,7 @@ package contains the base xorg server *only*. If you install only
 `xorg-fonts`), a terminal emulator (like `xterm`), and a window manager to have
 a usable graphics system.
 
-## Drivers
+## Video Drivers
 
 Void provides both open-source and proprietary (non-free) video drivers.
 
@@ -40,7 +40,7 @@ of device brands and their driver packages.
 > information, see the [Arch wiki
 > page](https://wiki.archlinux.org/index.php/Intel_graphics#Installation).
 
-### Proprietary Drivers
+### Proprietary Video Drivers
 
 Void also provides proprietary video drivers, which are available in the
 [non-free](../../xbps/repositories/official/nonfree.md) repository.
@@ -51,3 +51,35 @@ Void also provides proprietary video drivers, which are available in the
 | NVIDIA     | Proprietary | 500+                            | `nvidia`       |
 | NVIDIA     | Proprietary | 300/400 Series                  | `nvidia390`    |
 | NVIDIA     | Proprietary | GeForce8/9 + 100/200/300 Series | `nvidia340`    |
+
+## Input Drivers
+
+A number of input drivers are available for Xorg. If `xorg-minimal` was installed
+and a device is not responding, or behaving unexpectedly, a different driver may
+correct the issue. These drivers can grab everything from power buttons to
+mice and keyboards.
+
+| Driver                |
+|-----------------------|
+| `xf86-input-evdev`    |
+| `xf86-input-joystick` |
+| `xf86-input-libinput` |
+| `xf86-input-mtrack`   |
+| `xf86-input-synaptics`|
+| `xf86-input-vmmouse`  |
+| `xf86-input-wacom`    |
+
+## Xorg config
+
+An Xorg config for a keyboard may look something like a file
+`/etc/X11/xorg.conf.d/30-keyboard.conf` with the contents.
+
+```
+Section "InputClass"
+  Identifier "keyboard-all"
+  Driver "evdev"
+  MatchIsKeyboard "on"
+EndSection
+```
+
+> Note: For more in depth configurations, please seek other documentation.
