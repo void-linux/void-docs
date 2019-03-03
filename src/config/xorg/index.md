@@ -54,10 +54,10 @@ Void also provides proprietary video drivers, which are available in the
 
 ## Input Drivers
 
-A number of input drivers are available for Xorg. If `xorg-minimal` was
-installed and a device is not responding, or behaving unexpectedly, a different
-driver may correct the issue. These drivers can grab everything from power
-buttons to mice and keyboards.
+A number of input drivers are available for Xorg. If `xorg-minimal` was installed
+and a device is not responding, or behaving unexpectedly, a different driver may
+correct the issue. These drivers can grab everything from power buttons to
+mice and keyboards.
 
 | Driver                 |
 |------------------------|

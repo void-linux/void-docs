@@ -53,8 +53,8 @@ There are two different methods to blacklist kernel modules, for the initramfs
 and for the booted system. Some modules are loaded by the initramfs very early
 in the boot process, those have to be blacklisted in the initramfs.
 
-You can blacklist modules with a `.conf` file like `/etc/modprobe.d/radeon.conf`
-with the contents.
+You can blacklist modules with a `.conf` file like
+`/etc/modprobe.d/radeon.conf` with the contents.
 
 ```
 blacklist radeon
