@@ -21,17 +21,23 @@ modules.
 
 ## Removing old kernels
 
+To list kernels that can be purged
+
 ```
 $ vkpurge list
 3.8.2_1
 ```
 
-You can now remove a specific kernel version like `3.8.2_1` or `all` which
-removes all kernels expect the latest kernel of each series and the kernel that
-is currently booted.
+To remove a specific kernel version like `3.8.2_1`
 
 ```
 # vkpurge rm 3.8.2_1
+```
+
+To remove `all` kernels expect the latest kernel of each series and the kernel
+that is currently booted
+
+```
 # vkpurge rm all
 ```
 
@@ -40,7 +46,7 @@ is currently booted.
 ### Loading kernel modules at boot
 
 To load kernel modules at boot time, a `.conf` file like
-`/etc/modules-load.d/virtio.conf` can be created.
+`/etc/modules-load.d/virtio.conf` needs to be created with the contents:
 
 ```
 # load virtio-net
@@ -53,8 +59,8 @@ There are two different methods to blacklist kernel modules, for the initramfs
 and for the booted system. Some modules are loaded by the initramfs very early
 in the boot process, those have to be blacklisted in the initramfs.
 
-You can blacklist modules with a `.conf` file like
-`/etc/modprobe.d/radeon.conf`.
+To blacklist modules, create a `.conf` file like `/etc/modprobe.d/radeon.conf`
+with the contents:
 
 ```
 blacklist radeon
@@ -62,14 +68,14 @@ blacklist radeon
 
 #### dracut
 
-To blacklist modules from being included in a dracut initramfs you need to
-create a `.conf` file like `/etc/dracut.conf.d/radeon.conf`.
+To blacklist modules from being included in a dracut initramfs a `.conf` file
+needs to be created like `/etc/dracut.conf.d/radeon.conf` with the contents:
 
 ```
 omit_drivers+=" radeon "
 ```
 
-Now you need to regenerate the initramfs to make the changes take effect on the
+Now initramfs needs to be regenerated to make the changes take effect on the
 next reboot.
 
 ```
