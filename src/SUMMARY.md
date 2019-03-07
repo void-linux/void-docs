@@ -25,6 +25,7 @@
       - [Static Configuration](./config/network/static.md)
       - [dhcpcd](./config/network/dhcpcd.md)
       - [wpa_supplicant](./config/network/wpa_supplicant.md)
+      - [iwd](./config/network/iwd.md)
       - [NetworkManager](./config/network/networkmanager.md)
    - [Xorg](./config/xorg/index.md)
       - [Session Management](./config/xorg/session-management.md)
