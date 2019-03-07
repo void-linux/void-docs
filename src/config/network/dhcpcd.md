@@ -4,7 +4,7 @@ To run [dhcpcd(8)](https://man.voidlinux.org/dhcpcd.8) on all interfaces you can
 enable the `dhcpcd` service.
 
 ```
-# ln -s /etc/sv/dhcpcd /var/service
+# ln -s /etc/sv/dhcpcd /var/service/
 ```
 
 If you want to run dhcpcd just on a specific interface you can use the
