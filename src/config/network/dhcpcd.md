@@ -19,7 +19,7 @@ $ ip link show
         link/ether ff:ff:ff:ff:ff:ff brd ff:ff:ff:f
 # cp -R /etc/sv/dhcpcd-eth0 /etc/sv/dhcpcd-enp3s0
 # sed -i 's/eth0/enp3s0/' /etc/sv/dhcpcd-enp3s0/run
-# ln -s /etc/sv/dhcpcd-enp3s0 /var/service
+# ln -s /etc/sv/dhcpcd-enp3s0 /var/service/
 ```
 
 For more information on configuring dhcpcd see

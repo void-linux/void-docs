@@ -26,5 +26,5 @@ To run *PopCorn* automatically as a service, enable the sv script, which will
 attempt to report statistics once per day:
 
 ```
-# ln -s /etc/sv/popcorn /var/service
+# ln -s /etc/sv/popcorn /var/service/
 ```

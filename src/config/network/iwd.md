@@ -14,8 +14,8 @@ Install the `iwd` package.
 Enable the `dbus` and `iwd` services.
 
 ```
-# ln -s /etc/sv/dbus /var/service
-# ln -s /etc/sv/iwd /var/service
+# ln -s /etc/sv/dbus /var/service/
+# ln -s /etc/sv/iwd /var/service/
 ```
 
 > Note: To use EAP-TLS, EAP-TTLS, and EAP-PEAP based configurations, version

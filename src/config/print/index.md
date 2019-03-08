@@ -12,7 +12,7 @@ Install the CUPS package:
 Enable the CUPS service:
 
 ```
-# ln -s /etc/sv/cupsd /var/service
+# ln -s /etc/sv/cupsd /var/service/
 ```
 
 Wait until the service is marked available:

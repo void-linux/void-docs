@@ -85,5 +85,5 @@ To enable the [wpa_supplicant(8)](https://man.voidlinux.org/wpa_supplicant.8)
 service.
 
 ```
-# ln -s /etc/sv/wpa_supplicant /var/service
+# ln -s /etc/sv/wpa_supplicant /var/service/
 ```

@@ -5,7 +5,7 @@ Install the `sndio` package and enable the
 
 ```
 # xbps-install -S sndio
-# ln -s /etc/sv/sndiod /var/service
+# ln -s /etc/sv/sndiod /var/service/
 ```
 
 ## Configuration

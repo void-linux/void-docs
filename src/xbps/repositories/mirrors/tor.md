@@ -30,7 +30,7 @@ $ tor
 or as a system service:
 
 ```
-# ln -s /etc/sv/tor /var/service
+# ln -s /etc/sv/tor /var/service/
 ```
 
 By default, Tor will act as a client and open a SOCKS5 proxy on TCP port 9050 on

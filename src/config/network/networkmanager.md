@@ -23,7 +23,7 @@ Finally, enable the
 [NetworkManager(8)](https://man.voidlinux.org/NetworkManager.8) service:
 
 ```
-# ln -s /etc/sv/NetworkManager /var/service
+# ln -s /etc/sv/NetworkManager /var/service/
 ```
 
 ## Configuring NetworkManager

@@ -25,8 +25,8 @@ Install the `bluez` package.
 Enable the `bluetoothd` and `dbus` services.
 
 ```
-# ln -s /etc/sv/dbus /var/service
-# ln -s /etc/sv/bluetoothd /var/service
+# ln -s /etc/sv/dbus /var/service/
+# ln -s /etc/sv/bluetoothd /var/service/
 ```
 
 Add your user to the `bluetooth` group and restart the `dbus` service, or simply
