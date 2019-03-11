@@ -2,16 +2,6 @@
 
 The `iptables` package is installed by default on the base system, but not activated.
 
-Check for the `iptables` and `ip6tables` directories:
-
-```
-$ ls /etc/sv
-...
-ip6tables
-iptables
-...
-```
-
 ## Firewall rules
 
 Two rulesets are already installed in the `/etc/iptables` directory:
@@ -24,20 +14,9 @@ simple_firewall.rules
 ...
 ```
 
-The path to the ruleset is defined in the `run` file of the service directory:
+### Adjusting the rules
 
-```
-$ cat /etc/sv/iptables/run
-
-#!/bin/sh
-[ ! -e /etc/iptables/iptables.rules ] && exit 0
-iptables-restore -w 3 /etc/iptables/iptables.rules || exit 1
-exec chpst -b iptables pause
-```
-
-## Adjusting the rules
-
-You can take the `simple_firewall.rules` file as a basis, copy it so its name matches the one given in the `run` file, then modify the copy according to your needs.
+You can take the `simple_firewall.rules` file as a basis, copy it, then modify the copy according to your needs.
 
 ```
 $ cd /etc/iptables
@@ -45,15 +24,19 @@ $ cd /etc/iptables
 # vi iptables.rules
 ```
 
-## Activating the service
+## Applying the rules
 
-Activate the service:
+`iptables` should not be activated as a runit service. The runit services start in parallel, so the web service might start before the iptables rules are loaded.
+
+Instead, add a line to `/etc/rc.local`:
 
 ```
-# ln -s /etc/sv/iptables /var/service/
+/etc/rc.local
+-------------
+/sbin/iptables-restore < /etc/iptables/iptables.rules
 ```
 
-Then check the active firewall rules:
+Reboot, and check the active firewall rules:
 
 ```
 # iptables -L
@@ -61,4 +44,4 @@ Then check the active firewall rules:
 
 ## IP6 firewall rules
 
-Do something similar as desribed above, but work with the `/etc/sv/ip6tables` directory.
+As described above, but work with `/sbin/ip6tables-restore` instead.
