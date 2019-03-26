@@ -19,6 +19,8 @@
       - [Logging](./config/services/logging.md)
       - [Console](./config/services/console.md)
    - [Shell](./config/shell.md)
+   - [Security](./config/security/index.md)
+      - [hashboot](./config/security/hashboot.md)
    - [Kernel](./config/kernel.md)
    - [Network](./config/network/index.md)
       - [Interface Names](./config/network/interface-names.md)
