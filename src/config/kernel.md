@@ -34,7 +34,7 @@ To remove a specific kernel version like `3.8.2_1`
 # vkpurge rm 3.8.2_1
 ```
 
-To remove `all` kernels expect the latest kernel of each series and the kernel
+To remove `all` kernels except the latest kernel of each series and the kernel
 that is currently booted
 
 ```
