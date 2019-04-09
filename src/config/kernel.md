@@ -41,6 +41,16 @@ that is currently booted
 # vkpurge rm all
 ```
 
+Kernels can also be removed by matching with wildcards `*`. To remove all
+kernels from 4.19.x series
+
+```
+# vkpurge rm 4.19.*
+```
+
+Note that the glob won't expand to include the latest kernel from 4.19.x or the
+kernel currently booted
+
 ## Kernel modules
 
 ### Loading kernel modules at boot
