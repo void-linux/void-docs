@@ -124,5 +124,5 @@ successfully, you can reboot into your new Void Linux install!
 
 ## Post installation
 
-See the [Post Installation](../../config/postinstall.md) guide for some tips on
+See the [Post Installation](../../config/post-install.md) guide for some tips on
 setting up your new system.
