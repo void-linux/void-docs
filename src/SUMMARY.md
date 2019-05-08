@@ -11,6 +11,7 @@
       - [Partitioning Notes](./installation/live-images/partitions.md)
       - [Installation Guide](./installation/live-images/guide.md)
    - [Guides](./installation/guides/index.md)
+      - [Full Disk Encryption](./installation/guides/fde.md)
 - [Configuration](./config/index.md)
    - [Post Installation](./config/post-install.md)
    - [Services And Daemons](./config/services/index.md)
