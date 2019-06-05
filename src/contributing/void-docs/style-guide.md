@@ -101,7 +101,7 @@ following examples:
 This version is conversational and friendlier, but contains unnecessary language
 that may not be as clear to an ESL reader.
 
-> Install and configure the CUPS drivers, then configure them as shown.
+> Install and configure the CUPS drivers, as shown.
 
 This version contains a clear command to act, and a follow up that shows what
 will be done next. It is clear both to native English speakers, ESL readers, and
