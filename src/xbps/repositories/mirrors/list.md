@@ -16,7 +16,7 @@
 |----------------------------------------------------------------------------------------|-------------------|
 | <http://mirror.aarnet.edu.au/pub/voidlinux/>                                           | AU: Canberra      |
 | <http://ftp.swin.edu.au/voidlinux/>                                                    | AU: Melbourne     |
-| <http://ftp.acc.umu.se/mirror/voidlinux.eu/>                                           | EU: Sweden        |
+| <http://ftp.acc.umu.se/mirror/voidlinux/>                                              | EU: Sweden        |
 | <https://mirrors.dotsrc.org/voidlinux/>                                                | EU: Denmark       |
 | <http://www.gtlib.gatech.edu/pub/VoidLinux/>                                           | USA: Atlanta      |
 | <https://void.webconverger.org>                                                        | APAN: Singapore   |
