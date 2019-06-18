@@ -39,3 +39,10 @@ default.
 defaults.ctl.card 2;
 defaults.pcm.card 2;
 ```
+
+The `apulse` package acts as a compatibility layer for ALSA to allow 
+ALSA-only setups to get sound in applications that require pulseaudio.
+
+```
+# xbps-install -S apulse
+```
