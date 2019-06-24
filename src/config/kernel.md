@@ -46,7 +46,7 @@ that is currently booted
 To remove default kernel series execute
 
 ```
-# echo "ignorepkg=linux4.19" | sudo tee -a /etc/xbps.d/10-ignore.conf; xbps-remove linux4.19
+# echo "ignorepkg=linux4.19" | tee -a /etc/xbps.d/10-ignore.conf; xbps-remove linux4.19
 ```
 Make sure you have installed and tested desired kernel series.
 
