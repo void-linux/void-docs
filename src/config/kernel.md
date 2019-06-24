@@ -41,6 +41,15 @@ that is currently booted
 # vkpurge rm all
 ```
 
+## Completely remove kernel series marked as default
+
+To remove default kernel series execute
+
+```
+# echo "ignorepkg=linux4.19" | sudo tee -a /etc/xbps.d/10-ignore.conf; xbps-remove linux4.19
+```
+Make sure you have installed and tested desired kernel series.
+
 ## Kernel modules
 
 ### Loading kernel modules at boot
