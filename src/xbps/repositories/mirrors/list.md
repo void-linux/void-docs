@@ -4,8 +4,7 @@
 
 | Repository                                    | Location         |
 |-----------------------------------------------|------------------|
-| <http://alpha.de.repo.voidlinux.org>          | EU: Germany      |
-| <http://beta.de.repo.voidlinux.org>           | EU: Germany      |
+| <http://alpha.de.repo.voidlinux.org>          | EU: Finland      |
 | <http://alpha.us.repo.voidlinux.org>          | USA: Kansas City |
 | <http://mirror.clarkson.edu/voidlinux/>       | USA: New York    |
 | <http://mirrors.servercentral.com/voidlinux/> | USA: Chicago     |
