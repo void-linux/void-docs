@@ -39,10 +39,19 @@ default.
 defaults.ctl.card 2;
 defaults.pcm.card 2;
 ```
-
-The `apulse` package acts as a compatibility layer for ALSA to allow 
-ALSA-only setups to get sound in applications that require pulseaudio.
-
+## Apulse
+The `apulse` package is a compatibility layer that allows ALSA to play
+sound in applications that require pulseaudio using ALSA only. Install 
+the apulse package by running the command below.
 ```
 # xbps-install -S apulse
 ```
+Once installed you can use the apulse wrapper script with this command.
+```
+$ apulse <program-name>
+```
+Environment variables such as `APULSE_CAPTURE_DEVICE` and `APULSE_PLAYBACK_DEVICE` can be used to set which capture and playback device you want apulse to use.
+```
+APULSE_CAPTURE_DEVICE=default APULSE_PLAYBACK_DEVICE=default apulse firefox
+```
+The above example would run firefox with apulse using the default alsa capture and playback devices.
