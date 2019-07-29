@@ -14,7 +14,7 @@ $ xbps-rindex --sign --signedby "I'm Groot" /path/to/repository/dir
 Afterwards sign one or more packages with the following command:
 
 ```
-$ xbps-rindex --signedby "I'm Groot" --sign-pkg /path/to/repository/dir/*.xbps
+$ xbps-rindex --sign-pkg /path/to/repository/dir/*.xbps
 ```
 
 > Note: Future packages will not be automatically signed.
