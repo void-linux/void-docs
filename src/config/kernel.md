@@ -96,7 +96,19 @@ next reboot.
 
 #### mkinitcpio
 
-XXX: add example of blacklisting kernel modules for mkinitcpio
+To blacklist modules from being included in a mkinitcpio initramfs 
+a `.conf` file needs to be created like `/etc/modprobe.d/radeon.conf` with the contents:
+
+```
+blacklist radeon
+```
+
+Now initramfs needs to be regenerated to make the changes take effect on the
+next reboot.
+
+```
+# mkinitcpio -p linux
+```
 
 ## Kernel hooks
 
