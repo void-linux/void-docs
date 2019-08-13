@@ -1,13 +1,26 @@
 # Official Repositories
 
 Void provides other official repositories, which are maintained by the Void
-project, but not installed in the default configuration:
+project, but not installed in the default configuration. The following table
+describes XBPS packages you can install to enable additional repositories and
+what those repositories contain.
 
-- [debug](./debug.md): contains debugging symbols for packages
-- [multilib](./multilib.md): contains 32-bit libraries for 64-bit systems (glibc
-   only)
-- [multilib/nonfree](./multilib.md): contains non-free multilib packages
-- [nonfree](./nonfree.md): contains software packages with non-free licenses
+| Package			                    | Description						                                     | Link					                          |
+|-------------------------------|-------------------------------------------------------|------------------------------------|
+| `void-repo-multilib`		        | 32-bit compatibility packages 			                     | [multilib](./multilib.md)		        |
+| `void-repo-mulitlib-nonfree`	 | 32-bit compatibility packages with nonfree components | [multilib-nonfree](./multilib.md)	 |
+| `void-repo-nonfree`		         | packages with non-free licenses 			                   | [nonfree](./nonfree.md)			         |
+| `void-repo-debug`		           | debug symbols for packages 				                       | [debug](./debug.md)			             |
 
-The next sections provide information on installing repositories, and summaries
-of the different repositories offered.
+## Installing
+
+These repositories can be installed from the packages named in the table above.
+For example, to install the `nonfree` repository, install the package
+`void-repo-nonfree`:
+
+```
+# xbps-install -S void-repo-nonfree
+```
+
+> Note: These packages only install a repository configuration file in
+> `/usr/share/xbps.d`.
