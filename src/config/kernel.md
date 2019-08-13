@@ -51,6 +51,10 @@ that is currently booted
 
 ## Kernel modules
 
+The Linux kernel has modular components which are called modules.
+Kernel modules are typically drivers for devices or filesystems.
+Normally the kernel automatically loads required modules, but sometimes it may be neccessary to explicitly load modules at boot.
+
 ### Loading kernel modules at boot
 
 To load kernel modules at boot time, a `.conf` file like
