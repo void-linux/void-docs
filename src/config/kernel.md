@@ -36,14 +36,14 @@ $ vkpurge list
 3.8.2_1
 ```
 
-To remove a specific kernel version like `3.8.2_1`
+To remove a specific kernel version like `3.8.2_1`:
 
 ```
 # vkpurge rm 3.8.2_1
 ```
 
 To remove `all` kernels except the latest kernel of each series and the kernel
-that is currently booted
+that is currently booted:
 
 ```
 # vkpurge rm all
@@ -88,7 +88,7 @@ omit_drivers+=" radeon "
 ```
 
 Now initramfs needs to be regenerated to make the changes take effect on the
-next reboot.
+next reboot:
 
 ```
 # dracut --force
@@ -104,7 +104,7 @@ blacklist radeon
 ```
 
 Now initramfs needs to be regenerated to make the changes take effect on the
-next reboot.
+next reboot:
 
 ```
 # mkinitcpio -p linux
