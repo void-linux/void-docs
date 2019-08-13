@@ -115,19 +115,24 @@ build at install time using dkms and [kernel hooks](#kernel-hooks).
 ```
 $ xbps-query -Rs dkms
 [-] acpi_call-dkms-1.2.0_2             Kernel module allowing calls to ACPI methods through /proc/acpi/call
-[-] dkms-2.4.0_2                       Dynamic Kernel Modules System
-[-] exfat-dkms-1.2.8_2                 Exfat kernel driver (nofuse)
-[-] spl-0.6.5.10_1                     Solaris Porting Layer -- userland and kernel modules (using DKMS)
-[-] tp_smapi-dkms-0.42_2               IBM ThinkPad hardware functions driver
-[-] virtualbox-ose-dkms-5.1.24_1       General-purpose full virtualizer for x86 hardware - kernel module sources for dkms
-[-] virtualbox-ose-guest-dkms-5.1.24_1 General-purpose full virtualizer for x86 hardware - guest addition module source for dkms
-[-] zfs-0.6.5.10_1                     Z File System -- userland and kernel modules (using DKMS)
-[-] zfs-32bit-0.6.5.10_1               Z File System -- userland and kernel modules (using DKMS) (32bit)
-[-] broadcom-wl-dkms-6.30.223.271_6    Broadcom proprietary wireless drivers for Linux - DKMS kernel module
+[-] dkms-2.7.1_1                       Dynamic Kernel Modules System
+[-] exfat-dkms-1.2.8_5                 Exfat kernel driver (nofuse)
+[-] lttng-modules-dkms-2.10.9_2        LTTng modules provide Linux kernel tracing capability
+[-] openrazer-driver-dkms-2.5.0_1      Kernel driver for Razer devices (DKMS-variant)
+[-] rtl8812au-dkms-20190731_1          Realtek 8812AU/8821AU USB WiFi driver (DKMS)
+[-] rtl8822bu-dkms-20190427_1          Realtek 8822BU USB WiFi driver (DKMS)
+[-] spl-0.7.13_1                       Solaris Porting Layer -- userland and kernel modules (using DKMS)
+[-] tp_smapi-dkms-0.43_1               IBM ThinkPad hardware functions driver
+[-] vhba-module-dkms-20190410_1        Virtual (SCSI) HBA module used by cdemu
+[-] virtualbox-ose-dkms-6.0.10_1       General-purpose full virtualizer for x86 hardware - kernel module sources for dkms
+[-] virtualbox-ose-guest-dkms-6.0.10_1 General-purpose full virtualizer for x86 hardware - guest addition module source for dkms
+[-] zfs-0.8.1_1                        Z File System -- userland, pyzfs, and kernel modules (using DKMS)
+[-] zfs-32bit-0.8.1_1                  Z File System -- userland, pyzfs, and kernel modules (using DKMS) (32bit)
+[-] broadcom-wl-dkms-6.30.223.271_8    Broadcom proprietary wireless drivers for Linux - DKMS kernel module
 [-] catalyst-dkms-15.302_2             AMD catalyst driver 15.12 for Linux - DKMS kernel module
-[-] nvidia-dkms-381.22_2               NVIDIA drivers for linux (long-lived series) - DKMS kernel module
-[-] nvidia304-dkms-304.135_4           NVIDIA drivers (For GeForce 5 FX, 6, 7, 8 series) - DKMS kernel module
-[-] nvidia340-dkms-340.102_5           NVIDIA drivers (GeForce 8, 9, 9M, 100, 100M, 200, 300 series) - DKMS kernel module
+[-] nvidia-dkms-430.14_2               NVIDIA drivers for linux - DKMS kernel module
+[-] nvidia340-dkms-340.107_3           NVIDIA drivers (GeForce 8, 9, 9M, 100, 100M, 200, 300 series) - DKMS kernel module
+[-] nvidia390-dkms-390.116_3           NVIDIA drivers (GeForce 400, 500 series) - DKMS kernel module
 ```
 
 ## cmdline
