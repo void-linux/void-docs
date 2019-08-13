@@ -21,7 +21,15 @@ modules.
 
 ## Removing old kernels
 
-To list kernels that can be purged
+When updating the kernel, old versions are left behind in case it is neccessary to roll back to an older version.
+Over time, many old kernel version accumulate and make updating dmks modules take a long time.
+Thus, it may be advisable to clean old kernels from time to time.
+
+Removing old kernels is done using the [vkpurge(8)](https://man.voidlinux.org/vkpurge.8) utility.
+`vkuprge` comes pre-installed on every Void Linux system.
+This utility runs the necessary hooks when removing old kernels.
+
+To list kernels that can be purged:
 
 ```
 $ vkpurge list
