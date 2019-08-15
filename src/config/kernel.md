@@ -21,13 +21,15 @@ modules.
 
 ## Removing old kernels
 
-When updating the kernel, old versions are left behind in case it is neccessary to roll back to an older version.
-Over time, many old kernel version accumulate and make updating dmks modules take a long time.
-Thus, it may be advisable to clean old kernels from time to time.
+When updating the kernel, old versions are left behind in case it is neccessary
+to roll back to an older version. Over time, many old kernel version accumulate
+and make updating dmks modules take a long time. Thus, it may be advisable to
+clean old kernels from time to time.
 
-Removing old kernels is done using the [vkpurge(8)](https://man.voidlinux.org/vkpurge.8) utility.
-`vkuprge` comes pre-installed on every Void Linux system.
-This utility runs the necessary hooks when removing old kernels.
+Removing old kernels is done using the
+[vkpurge(8)](https://man.voidlinux.org/vkpurge.8) utility. `vkuprge` comes
+pre-installed on every Void Linux system. This utility runs the necessary hooks
+when removing old kernels.
 
 To list kernels that can be purged:
 
@@ -51,9 +53,9 @@ that is currently booted:
 
 ## Kernel modules
 
-The Linux kernel has modular components which are called modules.
-Kernel modules are typically drivers for devices or filesystems.
-Normally the kernel automatically loads required modules, but sometimes it may be neccessary to explicitly load modules at boot.
+Kernel modules are typically drivers for devices or filesystems. Normally the
+kernel automatically loads required modules, but sometimes it may be neccessary
+to explicitly load modules at boot.
 
 ### Loading kernel modules at boot
 
@@ -96,8 +98,8 @@ next reboot:
 
 #### mkinitcpio
 
-To blacklist modules from being included in a mkinitcpio initramfs 
-a `.conf` file needs to be created like `/etc/modprobe.d/radeon.conf` with the contents:
+To blacklist modules from being included in a mkinitcpio initramfs a `.conf`
+file needs to be created like `/etc/modprobe.d/radeon.conf` with the contents:
 
 ```
 blacklist radeon
