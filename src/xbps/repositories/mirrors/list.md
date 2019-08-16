@@ -22,3 +22,4 @@
 | <https://youngjin.io/voidlinux/>                                                       | APAN: South Korea |
 | <http://ftp.lysator.liu.se/pub/voidlinux/>                                             | EU: Sweden        |
 | <http://lysator7eknrfl47rlyxvgeamrv7ucefgrrlhk7rouv3sna25asetwid.onion/pub/voidlinux/> | EU: Sweden        |
+| <https://mirror.yandex.ru/mirrors/voidlinux/>                                          | RU: Russia        |
