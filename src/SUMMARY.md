@@ -62,6 +62,7 @@
       - [Signing Repositories](./xbps/repositories/signing.md)
    - [Troubleshooting](./xbps/troubleshooting/index.md)
       - [Static XBPS](./xbps/troubleshooting/static.md)
+   - [Rosetta Stone](./xbps/rosetta-stone.md)
 - [Contributing](./contributing/index.md)
    - [Usage Statistics](./contributing/usage-statistics.md)
    - [Void Docs](./contributing/void-docs/index.md)
