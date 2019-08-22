@@ -67,3 +67,4 @@
    - [Usage Statistics](./contributing/usage-statistics.md)
    - [Void Docs](./contributing/void-docs/index.md)
       - [Style Guide](./contributing/void-docs/style-guide.md)
+      - [Submitting Changes](./contributing/void-docs/submitting.md)
