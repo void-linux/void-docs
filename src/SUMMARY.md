@@ -29,6 +29,7 @@
       - [wpa_supplicant](./config/network/wpa_supplicant.md)
       - [iwd](./config/network/iwd.md)
       - [NetworkManager](./config/network/networkmanager.md)
+      - [ConnMan](./config/network/connman.md)
    - [Xorg](./config/xorg/index.md)
       - [Session Management](./config/xorg/session-management.md)
    - [Multimedia](./config/media/index.md)
