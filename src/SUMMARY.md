@@ -37,6 +37,7 @@
       - [PulseAudio](./config/media/pulseaudio.md)
       - [sndio](./config/media/sndio.md)
    - [Bluetooth](./config/bluetooth.md)
+   - [TeX Live](./config/texlive.md)
    - [Printing](./config/print/index.md)
       - [Installing Printing Drivers](./config/print/drivers.md)
       - [Configuring a New Printer](./config/print/config.md)
