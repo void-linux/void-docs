@@ -13,13 +13,13 @@ breaking your system. XBPS is developed at
 <https://github.com/void-linux/xbps/>.
 
 Void is also set apart from other projects by our first class support of the
-musl C library, which focuses on standards compliance and correctness. The musl
-C project allows us to also build very resilient systems as it is practical to
-statically link certain components on our musl flavors whereas it would not be
-practical to do so with glibc.
+musl libc, which focuses on standards compliance and correctness. The musl libc
+allows us to also build very resilient systems as it is practical to statically
+link certain components on our musl flavors whereas it would not be practical to
+do so with glibc.
 
-Along with our support of musl C, we also use the LibreSSL libraries instead of
-the more traditional OpenSSL counterpart. LibreSSL developers have shown time
+Along with our support of musl libc, we also use the LibreSSL libraries instead
+of the more traditional OpenSSL counterpart. LibreSSL developers have shown time
 and time again that they are dedicated to the security, quality, and
 maintainability of this critical library.
 
