@@ -66,6 +66,13 @@ table tbody tr:nth-child(2n) {
 	background: #fafafa;
 }
 
+svg {
+	position: relative;
+	top: .125em;
+	width: 1em;
+	height: auto;
+}
+
 .hidden {
 	display: none;
 }
@@ -91,7 +98,7 @@ table tbody tr:nth-child(2n) {
 }
 #void-nav button,
 #void-nav label {
-	color: #fff;
+	fill: #fff;
 	height: 50px;
 	display: block;
 	line-height: 50px;
@@ -219,9 +226,7 @@ ul#searchresults span.teaser {
 	right: 15px;
 }
 .nav-chapters {
-	background: #fafafa;
-	color: #ccc;
-	font-size: 2.5em;
+	fill: #ccc;
 	text-align: center;
 	text-decoration: none;
 	display: block;
@@ -230,6 +235,12 @@ ul#searchresults span.teaser {
 }
 .nav-chapters:hover {
 	text-decoration: none;
+	fill: #333
+}
+
+.nav-chapters svg {
+	margin: 0 auto;
+	width: 1.5em;
 }
 
 /* layout */
@@ -298,30 +309,4 @@ body {
 	#void-nav ul.right {
 		display: none;
 	}
-}
-
-@font-face {
-	font-family: 'FontAwesome';
-	src: url('/FontAwesome/fonts/fontawesome-webfont.eot?v=4.4.0');
-	src: url('/FontAwesome/fonts/fontawesome-webfont.eot?#iefix&v=4.4.0') format('embedded-opentype'),url('/FontAwesome/fonts/fontawesome-webfont.woff2?v=4.4.0') format('woff2'),url('/FontAwesome/fonts/fontawesome-webfont.woff?v=4.4.0') format('woff'),url('../fonts/fontawesome-webfont.ttf?v=4.4.0') format('truetype'),url('/FontAwesome/fonts/fontawesome-webfont.svg?v=4.4.0#fontawesomeregular') format('svg');
-	font-weight: normal;
-	font-style: normal
-}
-.fa {
-	display: inline-block;
-	font: normal normal normal 14px/1 FontAwesome;
-	font-size: inherit;
-	text-rendering: auto;
-}
-.fa-search:before {
-	content: "\f002"
-}
-.fa-navicon:before,.fa-reorder:before,.fa-bars:before {
-	content: "\f0c9"
-}
-.fa-angle-left:before {
-	content:"\f104"
-}
-.fa-angle-right:before {
-	content:"\f105"
 }

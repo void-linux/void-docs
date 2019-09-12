@@ -49,6 +49,6 @@ pre, code {
     white-space: pre-wrap;
 }
 
-.fa {
+svg {
     display: none !important;
 }
