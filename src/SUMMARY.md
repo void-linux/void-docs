@@ -10,7 +10,6 @@
       - [Prepare Installation Media](./installation/live-images/prep.md)
       - [Partitioning Notes](./installation/live-images/partitions.md)
       - [Installation Guide](./installation/live-images/guide.md)
-   - [Guides](./installation/guides/index.md)
 - [Configuration](./config/index.md)
    - [Post Installation](./config/post-install.md)
    - [Services And Daemons](./config/services/index.md)
