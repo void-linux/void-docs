@@ -55,7 +55,6 @@
          - [multilib](./xbps/repositories/official/multilib.md)
          - [nonfree](./xbps/repositories/official/nonfree.md)
       - [Mirrors](./xbps/repositories/mirrors/index.md)
-         - [Mirror List](./xbps/repositories/mirrors/list.md)
          - [Changing Mirrors](./xbps/repositories/mirrors/changing.md)
          - [Using Tor Mirrors](./xbps/repositories/mirrors/tor.md)
       - [Restricted Packages](./xbps/repositories/restricted.md)
