@@ -4,6 +4,12 @@ Tor is an anonymising software that bounces traffic via computers all around the
 world. It can provide access to regular sites on the internet or to hidden sites
 only available on the network.
 
+The following Void Linux Mirrors are available on the Tor Network:
+
+| Repository                                                                             | Location   |
+|----------------------------------------------------------------------------------------|------------|
+| <http://lysator7eknrfl47rlyxvgeamrv7ucefgrrlhk7rouv3sna25asetwid.onion/pub/voidlinux/> | EU: Sweden |
+
 ## Using XBPS with Tor
 
 XBPS can be made to connect to mirrors using Tor. These mirrors can be normal

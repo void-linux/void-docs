@@ -1,11 +1,12 @@
 # Changing Mirrors
 
-Repository files define URLs for the repository mirror used. These files are
-installed by the package manager in `/usr/share/xbps.d`, but if duplicate files
-are found in `/etc/xbps.d`, those values are used instead.
+Each repository has a file defining the URL for the mirror used. For official
+repositories, these files are installed by the package manager in
+`/usr/share/xbps.d`, but if duplicate files are found in `/etc/xbps.d`, those
+values are used instead.
 
 To modify mirror URLs cleanly, copy all the repository configuration files to to
-`/etc/xbps.d` and change the URLs in each repository file in `/etc/xbps.d`.
+`/etc/xbps.d` and change the URLs in each copied repository file.
 
 ```
 # mkdir -p /etc/xbps.d
@@ -31,3 +32,6 @@ $ xbps-query -L
    47 https://alpha.de.repo.voidlinux.org/current/nonfree (RSA signed)
  5368 https://alpha.de.repo.voidlinux.org/current/debug (RSA signed)
 ```
+
+Remember that repositories added afterwards will also need to be changed, or
+they will use the default mirror.
