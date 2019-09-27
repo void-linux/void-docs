@@ -73,6 +73,7 @@ table tbody tr:nth-child(2n) {
 .icon-button {
 	border: none;
 	background: none;
+	cursor: pointer;
 	padding: 1em;
 }
 
