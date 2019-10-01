@@ -25,6 +25,7 @@
       - [Interface Names](./config/network/interface-names.md)
       - [Static Configuration](./config/network/static.md)
       - [dhcpcd](./config/network/dhcpcd.md)
+      - [iptables](./config/network/iptables.md)
       - [wpa_supplicant](./config/network/wpa_supplicant.md)
       - [iwd](./config/network/iwd.md)
       - [NetworkManager](./config/network/networkmanager.md)
