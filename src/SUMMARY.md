@@ -46,6 +46,7 @@
    - [Updating](./xbps/updating.md)
    - [Packages](./xbps/packages/index.md)
       - [General](./xbps/packages/management.md)
+      - [Downgrading](./xbps/packages/downgrading.md)
       - [Building](./xbps/packages/building.md)
       - [Finding Files](./xbps/packages/files.md)
    - [Repositories](./xbps/repositories/index.md)
