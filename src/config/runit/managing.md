@@ -2,67 +2,94 @@
 
 ## Basic usage
 
-To start, stop or restart a service:
+To start, stop, restart or get the status of a service:
 
 ```
-# sv up service_name
-# sv down service_name
-# sv restart service_name
+# sv up <services>
+# sv down <services>
+# sv restart <services>
+# sv status <services>
 ```
 
-To get the current status of a service:
+The `<services>` placeholder can be:
+
+- Service names (service directory names) inside of the `/var/service`
+   directory.
+- The full path to the services.
+
+As example the following commands show the status of a specific service and of
+all enabled services:
 
 ```
-# sv status service_name
-```
-
-To get the current status of all enabled services:
-
-```
+# sv status dhcpcd
 # sv status /var/service/*
 ```
 
-## Enabling services
+See [sv(8)](https://man.voidlinux.org/sv.8) for further informations.
 
-Void Linux provides service directories for most daemons in `/etc/sv/`. To
-enable a service, create a symlink to the service directory in `/var/service`:
+### Enabling services
+
+Void Linux provides service directories for most daemons in `/etc/sv/`.
+
+To enable a service on a booted system, create a symlink to the service
+directory in `/var/service`:
 
 ```
-# ln -s /etc/sv/service_name /var/service/
+# ln -s /etc/sv/<service> /var/service/
+```
+
+If the system is not currently running, the service can be linked directly into
+the `default` [runsvdir](#runsvdirs):
+
+```
+# ln -s /etc/sv/<service> /etc/runit/runsvdir/default
 ```
 
 This will automatically start the service. Once a service is linked it will
 always start on boot and restart if it stops, unless administratively downed.
 
 To prevent a service from starting at boot while allowing runit to manage it,
-create a file named 'down' in its service directory:
+create a file named `down` in its service directory:
 
 ```
-# touch /etc/sv/service_name/down
+# touch /etc/sv/<service>/down
 ```
 
-## Disabling services
+### Disabling services
 
-To disable a service, remove the symlink to its service directory from
-/var/service:
+To disable a service, remove the symlink from the running runsvdir:
 
 ```
-# rm /var/service/service_name
+# rm /var/service/<service>
 ```
 
-## Runlevels
+Or from the `default` runsvdir if the system or the specific runsvdir is not
+currently running:
 
-The `runit-void` package currently supports two runlevels: `single` and
+```
+# rm /etc/runit/runsvdir/default/<service>
+```
+
+## Runsvdirs
+
+A `runsvdir` is a directory in `/etc/runit/runsvdir` containing enabled
+services. The currently running `runsvdir` will be linked to `/var/service` when
+the system is booted.
+
+The `runit-void` package comes with two runsvdir directories; `single` and
 `default`.
 
 - `single` just runs sulogin(8) and the necessary steps to rescue your system.
-- `default`, the default run level, runs all services linked in `/var/service/`.
+- `default` the default runsvdir.
 
-## Void runit directories
+Additional runsvdirs can be created in `/etc/runit/runsvdir/`.
 
-- `/var/service`: always linked to the currently active runlevel. All entries in
-   `/var/service` are considered 'active' services (and by default, are started
-   upon linking).
-- `/etc/sv`: contains subdirectories for available services (usually added by
-   XBPS).
-- `/etc/runit/runsvdir`: contains all available runlevels.
+See [runsvdir(8)](https://man.voidlinux.org/runsvdir.8) and
+[runsvchdir(8)](https://man.voidlinux.org/runsvchdir.8) for further
+informations.
+
+### Booting a different runsvdir
+
+To boot a different runsvdir, the name of the runsvdir can be added to the
+[kernel commandline](../kernel.html#cmdline). As example adding `single` to the
+[kernel commandline](../kernel.html#cmdline) will boot the `single` runsvdir.
