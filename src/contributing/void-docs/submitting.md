@@ -1,6 +1,13 @@
-## Submitting Changes
+# Submitting Changes
 
-### Requirements
+Proposed changes should be submitted as pull-requests to the
+[void-docs](https://github.com/void-linux/void-docs) repository on
+[GitHub](https://github.com/). Please note that, unlike a wiki, submissions will
+be reviewed before they are merged. If any changes are required they will need
+to be made before a pull-request is accepted. This process is in place to ensure
+the quality and standards of the handbook are sustained.
+
+## Requirements
 
 To clone the repository and push changes
 [git(1)](https://man.voidlinux.org/git.1) is required, which is available as the
@@ -11,7 +18,7 @@ Building the Void Handbook locally requires
 with the `mdBook` package on Void. At the root of the void-docs repository
 `mdbook serve` can be run to serve the docs on your localhost.
 
-### Forking
+## Forking
 
 To fork the repository a [github account](https://github.com/join) is needed.
 After the account is created follow github's
