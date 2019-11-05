@@ -1,31 +1,29 @@
 # About
 
-Void is an independent Linux distribution developed in the spare time of a
-handful of developers. We do this for fun and hope that our work will be useful
-to others. Void is generally considered stable enough for daily use, and
-breaking changes are few and far between.
+Void is an independent, [rolling
+release](https://en.wikipedia.org/wiki/Rolling_release) Linux distribution,
+developed from scratch and not as a fork of any other distribution. There are a
+few features that make Void unique:
 
-Some things that make Void unique in the crowded world of Linux distributions
-include our package manager, XBPS, which is developed in-house and is extremely
-fast. XBPS performs checks when installing updates to ensure that libraries
-aren't moved to incompatible versions, thus preventing a random update from
-breaking your system. XBPS is developed at
-<https://github.com/void-linux/xbps/>.
+- The [XBPS](https://github.com/void-linux/xbps) package manager, which is
+   extremely fast, developed in-house, and performs checks when installing
+   updates to ensure that libraries are not changed to incompatible versions
+   which can break dependencies.
+- The [musl libc](https://www.musl-libc.org/), which focuses on standards
+   compliance and correctness, has first class support. This allows us to build
+   certain components for musl systems statically, which would not be practical
+   on glibc systems.
+- The [LibreSSL](https://www.libressl.org/) fork is used instead of the mainline
+   OpenSSL library. Developed as part of the OpenBSD project, LibreSSL is
+   dedicated to the security, quality, and maintainability of this critical
+   library.
+- [runit](../config/runit/) is used for
+   [init(8)](https://man.voidlinux.org/init.8). This allows Void to support musl
+   as a second libc choice, which would not be possible with
+   [systemd](https://www.freedesktop.org/wiki/Software/systemd/). A side effect
+   of this decision is an init system with clean and efficient operation, and a
+   small code base.
 
-Void is also set apart from other projects by our first class support of the
-musl libc, which focuses on standards compliance and correctness. The musl libc
-allows us to also build very resilient systems as it is practical to statically
-link certain components on our musl flavors whereas it would not be practical to
-do so with glibc.
-
-Along with our support of musl libc, we also use the LibreSSL libraries instead
-of the more traditional OpenSSL counterpart. LibreSSL developers have shown time
-and time again that they are dedicated to the security, quality, and
-maintainability of this critical library.
-
-A final distinguishing characteristic of Void is our choice of program for
-[init(8)](https://man.voidlinux.org/init.8). Void Linux boots with smarden
-runit, a very small service supervision system. The small codebase of runit
-allows us to support a second libc without significant effort, something that
-would not have been possible with other options available today. You can learn
-more about runit on its website <http://smarden.org/runit/>.
+Void is developed in the spare time of a handful of developers, and is generally
+considered stable enough for daily use. We do this for fun and hope that our
+work will be useful to others.
