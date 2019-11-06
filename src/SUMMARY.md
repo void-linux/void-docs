@@ -20,6 +20,7 @@
       - [Cron](./config/services/cron.md)
       - [Logging](./config/services/logging.md)
       - [Console](./config/services/console.md)
+      - [Date and Time](./config/services/date-time.md)
    - [Shell](./config/shell.md)
    - [Security](./config/security/index.md)
       - [hashboot](./config/security/hashboot.md)
