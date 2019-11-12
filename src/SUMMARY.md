@@ -33,6 +33,7 @@
       - [iwd](./config/network/iwd.md)
       - [NetworkManager](./config/network/networkmanager.md)
       - [ConnMan](./config/network/connman.md)
+      - [Eduroam](./config/network/eduroam.md)
    - [Xorg](./config/xorg/index.md)
       - [Session Management](./config/xorg/session-management.md)
    - [Multimedia](./config/media/index.md)
