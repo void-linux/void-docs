@@ -1,29 +1,11 @@
 # Eduroam
 
-## Using NetworkManager
+Eduroam is a roaming service providing international, secure Ad-Hoc internet access at universities and other academic institutions. More information can be found [here](https://www.eduroam.org/)
 
-1. Download the correct eduroam_cat installer for your university from [here](https://cat.eduroam.org/)
+## Dependencies
 
-2. Install the following packages:
+Make sure the [NetworkManager](./networkmanager.md) and D-Bus services are running and enabled. Then install the `python3-dbus` package.
 
-```
-xbps-install -S NetworkManager dbus python3 python3-dbus
-```
+## Installation
 
-3. Make sure the NetworkManager and D-Bus services are running and enabled.
-
-```
-sudo ln -s /etc/sv/NetworkManager /var/service
-sudo ln -s /etc/sv/dbus /var/service
-```
-
-```
-sudo sv up NetworkManager
-sudo sv up dbus
-```
-
-4. Execute the eduroam_cat installer with root permissions and follow the instructions.
-
-```
-sudo python3 /path/to/eduroam-linux-XXXXX-eduroam.py
-```
+Download the correct eduroam_cat installer for your university from [here](https://cat.eduroam.org/) and execute it. It'll provide a user interface guiding you through the process.
