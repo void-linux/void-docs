@@ -42,20 +42,25 @@ the command should be run as `root` or a regular user, respectively.
 For example:
 
 ```
-# xbps-install -Su
+# vi /etc/fstab
 ```
 
 And not:
 
 ```
-$ sudo xbps-install -Su
+$ sudo vi /etc/fstab
 ```
 
 And also not:
 
 ```
-xbps-install -Su
+vi /etc/fstab
 ```
+
+Command code-blocks should not be used to describe routine tasks documented
+elsewhere in this Handbook. For example, when writing documentation for the
+`foo` package, do not provide a command code-block stating that one should
+install it via `xbps-install foo`.
 
 ## Links
 
