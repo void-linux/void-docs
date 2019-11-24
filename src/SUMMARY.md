@@ -48,6 +48,7 @@
       - [Installing Printing Drivers](./config/print/drivers.md)
       - [Configuring a New Printer](./config/print/config.md)
    - [Manual Pages](./config/man.md)
+   - [Microcode](./config/microcode.md)
 - [XBPS Package Manager](./xbps/index.md)
    - [Updating](./xbps/updating.md)
    - [Packages](./xbps/packages/index.md)
