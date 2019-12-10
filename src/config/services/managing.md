@@ -42,7 +42,7 @@ If the system is not currently running, the service can be linked directly into
 the `default` [runsvdir](#runsvdirs):
 
 ```
-# ln -s /etc/sv/<service> /etc/runit/runsvdir/default
+# ln -s /etc/sv/<service> /etc/runit/runsvdir/default/
 ```
 
 This will automatically start the service. Once a service is linked it will
