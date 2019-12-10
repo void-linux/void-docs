@@ -44,18 +44,15 @@ to send MIDI control messages to the
 
 ### Firefox
 
-Firefox is build with sndio support, but to use it its required to set the
-following `about:config` options to use it.
+Firefox is build with sndio support and should work out of the box since version
+71 if libsndio is and the `snd/0` device is available.
+
+The following `about:config` changes are required for versions prior to 71 and
+should be removed when using version 71 or later:
 
 ```
 media.cubeb.backend;sndio
 media.cubeb.sandbox;false
-```
-
-To have firefox and other applications use sndio simultaneously you also have to
-whitelist the sndio cookie file with the following `about:config` options.
-
-```
 security.sandbox.content.read_path_whitelist;/home/<username>/.sndio/cookie
 security.sandbox.content.write_path_whitelist;/home/<username>/.sndio/cookie
 ```
