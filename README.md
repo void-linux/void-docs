@@ -6,4 +6,6 @@ the same protocol as the packages tree.
 
 ## Contributing
 
-See the [Submitting Changes](https://docs.voidlinux.org/contributing/void-docs/submitting.html) page on the docs.
+See the [Submitting
+Changes](https://docs.voidlinux.org/contributing/void-docs/submitting.html) page
+on the docs.

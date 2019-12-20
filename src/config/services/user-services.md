@@ -6,23 +6,23 @@ regularly run daemons on your behalf. The most common way to do this to ask a
 system-level runsv daemon to start a runsvdir daemon as your user for your
 personal service directory.
 
-Create a service as `/etc/sv/$username/run` with the below contents:
+As example create a service `/etc/sv/runsvdir-<username>` with the `run` script as shown
+below:
 
 ```
 #!/bin/sh
 
-UID=$(pwd -P)
-UID=${UID##*/}
-
-if [ -d "/home/${UID}/service" ]; then
-	chpst -u"${UID}" runsvdir /home/${UID}/service
-fi
+chpst -u "<username>:$(id -Gn <username> | tr ' ' ':')" runsvdir /home/<username>/service
 ```
 
-Then you can create runit services and symlink them under ${HOME}/service and
-then runit will take care of starting and restarting those services for you.
+Then you can create runit services and symlink them under
+`/home/<username>/service`. The `chpst` command will run `runsvdir` as your
+specified user and the `runsvdir` process can then start, monitor your user
+services as the user specified.
 
-One important caveat: if any services you have need group permissions instead of
-just your user permissions, you will want to append those groups in a colon
-separated list to your username, such as `/etc/sv/anon:void1:void2:void3/run`
-instead of just `/etc/sv/anon/run`.
+The part following the `:` (colon) in the `-u` flag specify the groups the user
+is part of, `chpst` itself doesn't initialize secondary groups, the example
+`run` script uses the `id`/`tr` pipe to make a list of all the groups the
+specified user is part of that `chpst` understands. You can leave this out and
+just specify the username but in general initializing all groups is more
+desirable.
