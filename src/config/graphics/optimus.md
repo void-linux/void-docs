@@ -25,7 +25,7 @@ which means you have to uninstall `nvidia` and install the legacy `nvidia390`.
 
 A summary of the methods supported by Void:
 
-[PRIME Render Offload](#PRIME Render Offload)
+[PRIME Render Offload](#prime-render-offload)
 
 - only available on `nvidia`
 - allows to switch to the NVIDIA GPU on a per-application basis
