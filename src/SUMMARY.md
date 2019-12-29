@@ -34,6 +34,7 @@
       - [NetworkManager](./config/network/networkmanager.md)
       - [ConnMan](./config/network/connman.md)
    - [Graphics](./config/graphics/index.md)
+      - [Intel GPU](./config/graphics/intel.md)
       - [NVIDIA Optimus](./config/graphics/optimus.md)
    - [Xorg](./config/xorg/index.md)
       - [Session Management](./config/xorg/session-management.md)
