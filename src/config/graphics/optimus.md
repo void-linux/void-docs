@@ -39,11 +39,19 @@ Offloading Graphics Display with RandR 1.4
 - less flexible but allows to shut down completely the NVIDIA GPU when not in
    use, thus saving power
 
-Nouveau PRIME
+[Bumblebee](#bumblebee)
+
+- available on `nvidia` and `nvidia390`
+- allows to switch to the NVIDIA GPU on a per-application basis
+- unofficial method, offers poor performance
+
+[Nouveau PRIME](#nouveau-prime)
 
 - uses the open source driver `nouveau`
 - allows to switch to the NVIDIA GPU on a per-application basis
 - `nouveau` is a reverse-engineered driver and offers poor performance
+
+> Note: different methods are mutually exclusive.
 
 ## PRIME Render Offload
 
@@ -71,3 +79,49 @@ $ glxinfo | grep "renderer string"
 
 For more information, see NVIDIA's
 [README](https://download.nvidia.com/XFree86/Linux-x86_64/440.44/README/primerenderoffload.html)
+
+## Bumblebee
+
+Enable the `bumblebeed` service:
+
+```
+# ln -s /etc/sv/bumblebeed /var/service
+```
+
+Add the user to the `bumblebee` group:
+
+```
+# usermod -a -G bumblebee <username>
+```
+
+> Note: This requires a relogin to be effective.
+
+Run the application to be renderered on the NVIDIA GPU with `optirun`:
+
+```
+$ optirun <application>
+```
+
+For example (install the package `glxinfo`):
+
+```
+$ optirun glxinfo | grep "renderer string"
+```
+
+## Nouveau PRIME
+
+> Note: This method uses the open source `nouveau` driver, which is blacklisted
+> by NVIDIA drivers. Uninstall any NVIDIA driver present on your system and
+> reboot.
+
+Set `DRI_PRIME=1` to run an application on the NVIDIA GPU:
+
+```
+$ DRI_PRIME=1 <application>
+```
+
+For example (install the package `glxinfo`):
+
+```
+$ DRI_PRIME=1 glxinfo | grep "renderer string"
+```
