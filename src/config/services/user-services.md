@@ -13,7 +13,13 @@ As an example, create a service `/etc/sv/runsvdir-<username>` with the following
 ```
 #!/bin/sh
 
-exec chpst -u "<username>:$(id -Gn <username> | tr ' ' ':')" runsvdir /home/<username>/service
+export USER="${PWD##*-}"
+export HOME="$(getent passwd "$USER" | cut -d: -f6)"
+
+groups="$(id -Gn "$USER" | tr ' ' ':')"
+svdir="$HOME/service"
+
+exec chpst -u "$USER:$groups" runsvdir "$svdir"
 ```
 
 In this example [chpst(8)](https://man.voidlinux.org/chpst.8) is used to start a
