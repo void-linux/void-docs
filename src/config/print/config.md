@@ -31,3 +31,13 @@ you can install the `cups-pk-helper` package to allow unprivileged users to use
 While `system-config-printer` is shown here, your desktop environment may have a
 native printer dialog which may be found by consulting the documentation for
 your DE.
+
+## Troubleshooting
+
+### USB printer not shown
+
+The device URI can be found manually by running:
+
+```
+# /usr/lib/cups/backend/usb
+```
