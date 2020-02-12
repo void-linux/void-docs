@@ -22,7 +22,7 @@ in order to run Wayland compositors based on `wlroots`.
 If your graphics card is fairly new, install the drivers:
 
 ```
-# xbps-install -S nvidia nvidia-libs
+# xbps-install -S nvidia
 ```
 
 If you don't already know what graphics card you have, run:
@@ -33,10 +33,18 @@ If you don't already know what graphics card you have, run:
 
 Check if your graphics card belongs to the legacy branch. If you find it on 
 [this](https://www.nvidia.com/en-us/drivers/unix/legacy-gpu/) list, you should
-install either the 390 or 340 <version>:
+install the appropriate driver.
+
+For version 390:
 
 ```
-# xbps-install -S nvidia<version> nvidia<version>-libs
+# xbps-install -S nvidia390
+```
+
+For Version 340:
+
+```
+# xbps-install -S nvidia340
 ```
 
 In order to run 32-bit programs, install the `nvidia-libs-32bit` package,
@@ -52,5 +60,5 @@ In order to revert to nouveau, install the nouveau drivers, then remove the nvid
 ones:
 
 ```
-# xbps-remove nvidia nvidia-libs
+# xbps-remove -R nvidia
 ```
