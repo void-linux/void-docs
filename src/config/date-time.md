@@ -33,7 +33,7 @@ Protocol](https://en.wikipedia.org/wiki/Network_Time_Protocol) (NTP).
 Void provides packages for three NTP daemons: NTP, OpenNTPD and Chrony.
 
 Once you have installed an NTP daemon, you can [enable the
-service](../runit/managing.md).
+service](../config/services/managing.md).
 
 ### NTP
 
