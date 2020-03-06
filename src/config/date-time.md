@@ -10,7 +10,7 @@ The default system timezone can be set by linking the timezone file to
 ```
 
 To change the timezone on a per user basis, the `TZ` variable can be exported
-from your shells profile:
+from your shell's profile:
 
 ```
 export TZ=<timezone>
@@ -18,12 +18,16 @@ export TZ=<timezone>
 
 ## Hardware clock
 
-By default the hardware clock is stored as UTC in Void Linux, Windows does not
-use UTC by default and conflicts with Void Linux, you can either change windows
-to use UTC or Void Linux to use `localtime`.
+By default, the hardware clock in Void is stored as UTC. Windows does not use
+UTC by default, and if you are dual-booting, this will conflict with Void. You
+can either change Windows to use UTC, or change Void Linux to use `localtime` by
+setting the `HARDWARECLOCK` variable in `/etc/rc.conf`:
 
-To change how the hardware clock is read and written, change the `HARDWARECLOCK`
-variable in `/etc/rc.conf`.
+```
+export HARDWARECLOCK=localtime
+```
+
+For more details, see [hwclock(8)](https://man.voidlinux.org/hwclock.8).
 
 ## NTP
 
