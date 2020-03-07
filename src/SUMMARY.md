@@ -19,6 +19,7 @@
       - [Per-User Services](./config/services/user-services.md)
       - [Logging](./config/services/logging.md)
       - [Console](./config/services/console.md)
+   - [rc files](./config/rc-files.md)
    - [Cron](./config/cron.md)
    - [Shell](./config/shell.md)
    - [Security](./config/security/index.md)
