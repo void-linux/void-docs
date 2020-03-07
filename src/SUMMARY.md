@@ -15,6 +15,7 @@
    - [musl](./config/musl.md)
    - [Post Installation](./config/post-install.md)
    - [Locales](./config/locales.md)
+   - [Users and groups](./config/users-and-groups.md)
    - [Services And Daemons](./config/services/index.md)
       - [Managing Services](./config/services/managing.md)
       - [Configuring Services](./config/services/configuring.md)
