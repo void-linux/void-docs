@@ -26,4 +26,5 @@ systems. The only distinction is that these tools are statically linked to the
 musl C library, and should work on systems where nothing else does. In systems
 where the platform can no longer boot, it is recommended to chroot in with Void
 installation media and use the static tools from there, as it is unlikely that
-even a shell will work correctly on the target system.
+even a shell will work correctly on the target system. When using static XBPS
+with glibc installation, environmental variable `XBPS_ARCH` need to be set.
