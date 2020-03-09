@@ -48,6 +48,11 @@
       - [Installing Printing Drivers](./config/print/drivers.md)
       - [Configuring a New Printer](./config/print/config.md)
    - [Manual Pages](./config/man.md)
+<<<<<<< HEAD
+=======
+   - [Microcode](./config/microcode.md)
+   - [Steam](./config/steam.md)
+>>>>>>> 16d3699... Steam: ported text from wiki with minor edits. amended to keep out seperate docker doc.
 - [XBPS Package Manager](./xbps/index.md)
    - [Updating](./xbps/updating.md)
    - [Packages](./xbps/packages/index.md)
