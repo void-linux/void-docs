@@ -12,6 +12,7 @@
       - [Partitioning Notes](./installation/live-images/partitions.md)
       - [Installation Guide](./installation/live-images/guide.md)
 - [Configuration](./config/index.md)
+   - [musl](./config/musl.md)
    - [Post Installation](./config/post-install.md)
    - [Locales](./config/locales.md)
    - [Services And Daemons](./config/services/index.md)
