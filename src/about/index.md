@@ -9,10 +9,10 @@ few features that make Void unique:
    extremely fast, developed in-house, and performs checks when installing
    updates to ensure that libraries are not changed to incompatible versions
    which can break dependencies.
-- The [musl libc](https://www.musl-libc.org/), which focuses on standards
-   compliance and correctness, has first class support. This allows us to build
-   certain components for musl systems statically, which would not be practical
-   on glibc systems.
+- The [musl libc](https://musl.libc.org/), which focuses on standards compliance
+   and correctness, has first class support. This allows us to build certain
+   components for musl systems statically, which would not be practical on glibc
+   systems.
 - The [LibreSSL](https://www.libressl.org/) fork is used instead of the mainline
    OpenSSL library. Developed as part of the OpenBSD project, LibreSSL is
    dedicated to the security, quality, and maintainability of this critical
