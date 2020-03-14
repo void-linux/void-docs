@@ -50,6 +50,7 @@
       - [Configuring a New Printer](./config/print/config.md)
    - [Manual Pages](./config/man.md)
    - [Microcode](./config/microcode.md)
+   - [Steam](./config/steam.md)
 - [XBPS Package Manager](./xbps/index.md)
    - [Updating](./xbps/updating.md)
    - [Packages](./xbps/packages/index.md)
