@@ -2,32 +2,21 @@
 
 ## Syslog
 
-The default installation comes with no syslog daemon, there are different
-implementations available.
+The default installation comes with no syslog daemon. However, there are syslog
+implementations available in the Void repositories.
 
 ### Socklog
 
-[socklog](http://smarden.org/socklog/) is the implementation from the
-[runit(8)](https://man.voidlinux.org/runit.8) author and Void Linux provides a
-package with some basic configuration for it, this makes it a good choice if you
-don't know which one to choose.
+[socklog](http://smarden.org/socklog/) is a syslog implementation from the
+author of [runit(8)](https://man.voidlinux.org/runit.8). Use socklog if you're
+not sure which syslog implementation to use. To use it, install the
+`socklog-void` package, and enable the `socklog-unix` and `nanoklogd` services.
 
-```
-# xbps-install -S socklog-void
-# ln -s /etc/sv/socklog-unix /var/service/
-# ln -s /etc/sv/nanoklogd /var/service/
-```
+The logs are saved in subdirectories of `/var/log/socklog/`.
 
-The logs are saved to `/var/log/socklog/` into different subdirectories.
-
-Reading logs limited to root and users part of the `socklog` group. Users can be
-added to the group to be able to read logs:
-
-```
-# usermod -aG socklog <your username>
-```
+The ability to reading logs is limited to `root` and users who are part of the
+`socklog` group.
 
 ### Other syslog daemons
 
-Other syslog implementations like `rsyslog` and `metalog` are available in the
-package repository too.
+The Void repositories also include packages for `rsyslog` and `metalog`.
