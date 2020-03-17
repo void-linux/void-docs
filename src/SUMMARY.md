@@ -20,6 +20,7 @@
       - [Logging](./config/services/logging.md)
       - [Console](./config/services/console.md)
    - [Cron](./config/cron.md)
+   - [Solid State Drives](./config/ssd.md)
    - [Shell](./config/shell.md)
    - [Security](./config/security/index.md)
       - [hashboot](./config/security/hashboot.md)
