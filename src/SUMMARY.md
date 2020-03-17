@@ -25,6 +25,7 @@
       - [Console](./config/services/console.md)
    - [rc files](./config/rc-files.md)
    - [Cron](./config/cron.md)
+   - [Solid State Drives](./config/ssd.md)
    - [Shell](./config/shell.md)
    - [Security](./config/security/index.md)
       - [hashboot](./config/security/hashboot.md)
