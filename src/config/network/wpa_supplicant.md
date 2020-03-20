@@ -96,3 +96,15 @@ service.
 ```
 # ln -s /etc/sv/wpa_supplicant /var/service/
 ```
+
+### Using wpa_cli
+
+When using `wpa_cli` to manage `wpa_supplicant` from the command line, be sure
+to specify which network interface to use via the `-i` option, e.g.:
+
+```
+# wpa_cli -i wlp2s0
+```
+
+Not doing so can result in various `wpa_cli` commands (for example, `scan` and
+`scan_results`) not producing the expected output.
