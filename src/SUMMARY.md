@@ -39,6 +39,7 @@
       - [NVIDIA Optimus](./config/graphics/optimus.md)
    - [Xorg](./config/xorg/index.md)
       - [Session Management](./config/xorg/session-management.md)
+   - [Wayland](./config/wayland.md)
    - [Multimedia](./config/media/index.md)
       - [ALSA](./config/media/alsa.md)
       - [PulseAudio](./config/media/pulseaudio.md)
