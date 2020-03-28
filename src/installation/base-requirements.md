@@ -5,8 +5,8 @@ following minimums for most installations:
 
 | Architecture | CPU              | RAM  | Storage |
 |--------------|------------------|------|---------|
-| x86_64-glibc | EM64T            | 96MB | 700MB   |
-| x86_64-musl  | EM64T            | 96MB | 600MB   |
+| x86_64-glibc | x86_64           | 96MB | 700MB   |
+| x86_64-musl  | x86_64           | 96MB | 600MB   |
 | i686-glibc   | Pentium 4 (SSE2) | 96MB | 700MB   |
 
 > Note: Flavor installations require more resources. How much more depends on
