@@ -50,7 +50,7 @@ $ wpa_passphrase <MYSSID> <key>
 You must append the output to your `wpa_supplicant.conf` file like so:
 
 ```
-$ wpa_passphrase <MYSSID> <key> >> /etc/wpa_supplicant/wpa_supplicant-<device_name>.conf
+# wpa_passphrase <MYSSID> <key> >> /etc/wpa_supplicant/wpa_supplicant-<device_name>.conf
 ```
 
 The resulting file should look something like this:
