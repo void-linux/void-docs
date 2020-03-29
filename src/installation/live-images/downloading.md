@@ -7,26 +7,26 @@ found under <https://alpha.de.repo.voidlinux.org/live/>, organized by date.
 ## Verify images
 
 Each image releases's directory contains two files used to verify the image(s)
-you download. First, there is a `sha256sums.txt` file containing image checksums
-to verify the integrity of the downloaded images. Second is the
-`sha256sums.txt.sig` file, used to verify the authenticity of the checksums.
+you download. First, there is a `sha256.txt` file containing image checksums to
+verify the integrity of the downloaded images. Second is the `sha256.sig` file,
+used to verify the authenticity of the checksums.
 
 We want to verify both the image's integrity and authenticity, so for this, we
 want to download both files:
 
 ```
-$ wget http://alpha.de.repo.voidlinux.org/live/current/sha256sums.txt{,.sig}
+$ wget http://alpha.de.repo.voidlinux.org/live/current/sha256.{txt,sig}
 ```
 
 ### Verify image integrity
 
 You can verify the integrity of a downloaded file using
-[sha256sum(1)](https://man.voidlinux.org/sha256sum.1) with the `sha256sums.txt`
-file we downloaded above. The following sha256sum command will check (`-c`) the
+[sha256sum(1)](https://man.voidlinux.org/sha256sum.1) with the `sha256.txt` file
+we downloaded above. The following sha256sum command will check (`-c`) the
 integrity of only the image(s) you've downloaded:
 
 ```
-$ sha256sum -c --ignore-missing sha256sums.txt
+$ sha256sum -c --ignore-missing sha256.txt
 void-live-x86_64-musl-20170220.iso: OK
 ```
 
@@ -34,9 +34,9 @@ This verifies that the image is not corrupt.
 
 ### Verify image authenticity
 
-To verify that the downloaded `sha256sums.txt` file is the one that the Void
-Linux maintainers published and signed, we use PGP. For this, we need the
-`sha256sums.txt.sig` downloaded above.
+To verify that the downloaded `sha256.txt` file is the one that the Void Linux
+maintainers published and signed, we use PGP. For this, we need the `sha256.sig`
+downloaded above.
 
 The file is signed with the Void Images key:
 
@@ -59,12 +59,12 @@ gpg:               imported: 1  (RSA: 1)
 ```
 
 With the key stored locally, you can use
-[gpg(1)](https://man.voidlinux.org/gpg.1) verify the signature of
-`sha256sums.txt` using the `sha256sums.txt.sig` file:
+[gpg(1)](https://man.voidlinux.org/gpg.1) verify the signature of `sha256.txt`
+using the `sha256.sig` file:
 
 ```
-$ gpg --verify sha256sums.txt.sig 
-gpg: assuming signed data in `sha256sums.txt'
+$ gpg --verify sha256.sig
+gpg: assuming signed data in `sha256.txt'
 gpg: Signature made Sat Oct  7 17:18:35 2017 CDT using RSA key ID B48282A4
 gpg: Good signature from "Void Linux Image Signing Key <images@voidlinux.eu>"
 gpg: WARNING: This key is not certified with a trusted signature!
