@@ -48,9 +48,10 @@ following table has recommendations for swap partition size.
 ## Boot partition (optional)
 
 On most modern systems, a separate `/boot` partition is no longer necessary to
-boot properly. If you choose to use one, remember that Void does not remove old
-kernels after updates by default and each image will take at least 20-40MB, so plan
-accordingly (e.g. `/boot` with one Linux 5.4 kernel and grub consumes almost 60MB).
+boot properly. If you choose to use one, note that Void does not remove old
+kernels after updates by default and also that the kernel tends to increase in
+size with each new version, so plan accordingly (e.g. `/boot` with one Linux 5.x
+`x86_64` kernel and grub occupies about 60MB).
 
 ## Other partitions
 
