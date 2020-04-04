@@ -11,6 +11,9 @@
       - [Prepare Installation Media](./installation/live-images/prep.md)
       - [Partitioning Notes](./installation/live-images/partitions.md)
       - [Installation Guide](./installation/live-images/guide.md)
+=======
+   - [Advanced Installation](./installation/guides/index.md)
+      - [Full Disk Encryption](./installation/guides/fde.md)
 - [Configuration](./config/index.md)
    - [musl](./config/musl.md)
    - [Post Installation](./config/post-install.md)
