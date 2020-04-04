@@ -121,13 +121,13 @@ On a UEFI system, the EFI system partition also needs to be mounted.
 Before we enter the chroot to finish up configuration, we do the actual install.
 
 ```
-# xbps-install -Sy -R http://auto.voidlinux.org/current -r /mnt base-system lvm2 cryptsetup grub
-[*] Updating `http://auto.voidlinux.org/current/x86_64-repodata' ...
-x86_64-repodata: 1516KB [avg rate: 83KB/s]
-`http://auto.voidlinux.org/current' repository has been RSA signed by "Void Linux"
+# xbps-install -Sy -R https://alpha.de.repo.voidlinux.org/current -r /mnt base-system lvm2 cryptsetup grub
+[*] Updating `https://alpha.de.repo.voidlinux.org/current/x86_64-repodata' ...
+x86_64-repodata: 1661KB [avg rate: 2257KB/s]
+`https://alpha.de.repo.voidlinux.org/current' repository has been RSA signed by "Void Linux"
 Fingerprint: 60:ae:0c:d6:f0:95:17:80:bc:93:46:7a:89:af:a3:2d
 Do you want to import this public key? [Y/n] y
-123 packages will be downloaded:
+130 packages will be downloaded:
 ...
 ```
 
@@ -135,7 +135,7 @@ UEFI systems will have a slightly different package selection. The installation
 command for a UEFI system will be as follows.
 
 ```
-# xbps-install -Sy -R http://auto.voidlinux.org/current -r /mnt base-system cryptsetup grub-x86_64-efi lvm2
+# xbps-install -Sy -R https://alpha.de.repo.voidlinux.org/current -r /mnt base-system cryptsetup grub-x86_64-efi lvm2
 ```
 
 When it's done, we can enter the `chroot` and finish up the configuration.
