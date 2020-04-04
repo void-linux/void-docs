@@ -13,5 +13,5 @@ using a system-wide setup. Instead, PulseAudio will automatically start when
 needed.
 
 There are several methods of allowing PulseAudio to access to audio devices. The
-simplest one is to make use of the `audio` group. Alternatively, you can use a
-session manager, like `elogind`.
+simplest one is to add your user to the `audio` group. Alternatively, you can
+use a session manager, like `elogind`.
