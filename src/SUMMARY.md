@@ -12,6 +12,8 @@
       - [Partitioning Notes](./installation/live-images/partitions.md)
       - [Installation Guide](./installation/live-images/guide.md)
    - [Advanced Installation](./installation/guides/index.md)
+      - [Installation via chroot (x86 or
+         x86_64)](./installation/guides/chroot.md)
       - [Full Disk Encryption](./installation/guides/fde.md)
    - [musl](./installation/musl.md)
 - [Configuration](./config/index.md)
