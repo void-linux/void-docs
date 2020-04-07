@@ -124,5 +124,5 @@ successfully, you can reboot into your new Void Linux install!
 
 ## Post installation
 
-After booting into your Void installation for the first time, be sure to do a
-system [update](../../xbps/updating.md).
+After booting into your Void installation for the first time, [perform a system
+update](../../xbps/updating.md).
