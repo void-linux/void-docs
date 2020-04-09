@@ -58,7 +58,7 @@ For further information, visit [the OpenNTPD site](http://www.openntpd.org/).
 
 ### Chrony
 
-Chrony is designed to work well in a variety of conditions; it can synchronise
+Chrony is designed to work well in a variety of conditions; it can synchronize
 faster and with greater accuracy than NTP.
 
 The `chrony` package provides Chrony and the `chronyd` service.

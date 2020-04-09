@@ -8,8 +8,8 @@ platforms (although binary packages are not available for i686). Additionally,
 all compatible packages in our official repositories are available with
 musl-linked binaries in addition to their glibc counterparts.
 
-Currently, there are nonfree and debug subrepositories for musl, but no multilib
-subrepo.
+Currently, there are nonfree and debug sub-repositories for musl, but no
+multilib sub-repo.
 
 ## Incompatible software
 
@@ -48,5 +48,5 @@ chroot using [umount(8)](https://man.voidlinux.org/umount.8).
 
 An alternative to the above is [proot(1)](https://man.voidlinux.org/proot.1), a
 user-space implementation of chroot, mount --bind, and binfmt_misc. By
-installing the `proot` package, unprivileged users can utilise a chroot
+installing the `proot` package, unprivileged users can utilize a chroot
 environment.

@@ -1,6 +1,6 @@
 # Using Tor mirrors
 
-Tor is an anonymising software that bounces traffic via computers all around the
+Tor is an anonymizing software that bounces traffic via computers all around the
 world. It can provide access to regular sites on the internet or to hidden sites
 only available on the network.
 
@@ -73,10 +73,10 @@ example):
 # sed -i 's|https://alpha.de.repo.voidlinux.org|http://lysator7eknrfl47rlyxvgeamrv7ucefgrrlhk7rouv3sna25asetwid.onion/pub/voidlinux|g' /etc/xbps.d/*-repository-*.conf
 ```
 
-Tor provides layered end-to-end encryption so https is not necessary.
+Tor provides layered end-to-end encryption so HTTPS is not necessary.
 
 When installing packages, with `SOCKS_PROXY` set like the earlier example, XBPS
-should indicate that it is synchronising the repositories from the onion address
+should indicate that it is synchronizing the repositories from the onion address
 specified in the override:
 
 ```

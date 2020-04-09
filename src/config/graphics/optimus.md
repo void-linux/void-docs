@@ -56,8 +56,8 @@ Offloading Graphics Display with RandR 1.4
 ## PRIME Render Offload
 
 In this method, GPU switching is done via setting environment variables when
-executing the application to be renderered on the NVIDIA GPU. Thus one can
-easily write a small wrapper script `prime-run` with the following contents:
+executing the application to be rendered on the NVIDIA GPU. Thus one can easily
+write a small wrapper script `prime-run` with the following contents:
 
 ```
 #!/bin/sh
@@ -94,9 +94,9 @@ Add the user to the `bumblebee` group:
 # usermod -a -G bumblebee <username>
 ```
 
-> Note: This requires a relogin to be effective.
+> Note: This requires a re-login to be effective.
 
-Run the application to be renderered on the NVIDIA GPU with `optirun`:
+Run the application to be rendered on the NVIDIA GPU with `optirun`:
 
 ```
 $ optirun <application>

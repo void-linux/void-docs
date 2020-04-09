@@ -21,7 +21,7 @@ Device     Boot Start       End   Sectors Size Id Type
 /dev/sda1  *     2048 100663295 100661248  48G 83 Linux
 ```
 
-UEFI systems will need the disk to have a GTP disklabel and an EFI system
+UEFI systems will need the disk to have a GPT disklabel and an EFI system
 partition. The required size for this may vary depending on needs, but 100M
 should be enough for most cases. For an EFI system, the partition layout should
 look the following.

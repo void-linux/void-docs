@@ -1,9 +1,9 @@
 # Bluetooth
 
-Ensure the bluetooth controller is not blocked. Use `rfkill` to check whether
+Ensure the Bluetooth controller is not blocked. Use `rfkill` to check whether
 there are any blocks and to remove soft blocks. If there is a hard block, there
 is likely either a physical hardware switch or an option in the BIOS to enable
-the bluetooth controller.
+the Bluetooth controller.
 
 ```
 $ rfkill
@@ -44,7 +44,7 @@ making use of it.
 
 ## Usage
 
-Manage bluetooth connections and controllers using `bluetoothctl`. It uses a
+Manage Bluetooth connections and controllers using `bluetoothctl`. It uses a
 command line interface; to find out what commands are available, enter `help`.
 To exit, enter `exit` or `quit`.
 

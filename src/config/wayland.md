@@ -13,7 +13,7 @@ server, the window manager and the compositor in a single application.
 Both GNOME and KDE Plasma have Wayland sessions. For GNOME, Wayland is already
 the default session, while Plasma still has a few issues to iron out, so their
 default remains a Xorg session. While running these desktop environments,
-applications built with Gtk+ will automatically choose the Wayland backend, but
+applications built with GTK+ will automatically choose the Wayland backend, but
 Qt applications might require the proper environment variable in GNOME. This is
 explained [below](#native-applications).
 
@@ -39,7 +39,7 @@ setting up graphics in different systems.
 Qt5 based applications require the installation of the `qt5-wayland` package and
 setting the environment variable `QT_QPA_PLATFORM=wayland-egl` to enable their
 Wayland backend. Some KDE specific applications might also require the
-installation of the `kwayland` package. Gtk+ applications should do it
+installation of the `kwayland` package. GTK+ applications should do it
 automatically, but setting `GDK_BACKEND=wayland` can force the Wayland backend
 (however, this can break applications such as Chromium).
 
@@ -48,7 +48,7 @@ automatically, but setting `GDK_BACKEND=wayland` can force the Wayland backend
 Mozilla Firefox ships with a Wayland backend which is disabled by default.
 Launching Firefox with `MOZ_ENABLE_WAYLAND=1` is required to enable it.
 
-The Midori browser, which has a Gtk+ interface, should also work on Wayland.
+The Midori browser, which has a GTK+ interface, should also work on Wayland.
 
 Qt5 based browsers, such as qutebrowser, also work on Wayland.
 

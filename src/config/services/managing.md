@@ -25,7 +25,7 @@ all enabled services:
 # sv status /var/service/*
 ```
 
-See [sv(8)](https://man.voidlinux.org/sv.8) for further informations.
+See [sv(8)](https://man.voidlinux.org/sv.8) for further information.
 
 ### Enabling services
 
@@ -85,11 +85,10 @@ The `runit-void` package comes with two runsvdir directories; `single` and
 Additional runsvdirs can be created in `/etc/runit/runsvdir/`.
 
 See [runsvdir(8)](https://man.voidlinux.org/runsvdir.8) and
-[runsvchdir(8)](https://man.voidlinux.org/runsvchdir.8) for further
-informations.
+[runsvchdir(8)](https://man.voidlinux.org/runsvchdir.8) for further information.
 
 ### Booting a different runsvdir
 
 To boot a different runsvdir, the name of the runsvdir can be added to the
-[kernel commandline](../kernel.html#cmdline). As example adding `single` to the
-[kernel commandline](../kernel.html#cmdline) will boot the `single` runsvdir.
+[kernel command-line](../kernel.html#cmdline). As example adding `single` to the
+[kernel command line](../kernel.html#cmdline) will boot the `single` runsvdir.
