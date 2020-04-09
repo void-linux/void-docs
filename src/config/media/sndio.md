@@ -17,8 +17,8 @@ the service configuration file (`/etc/sv/sndiod/conf`).
 ### Default device
 
 [sndiod(8)](https://man.voidlinux.org/sndiod.8) uses the first alsa device by
-default. To use another alsa device for sndios default device `snd/0` add the
-flags to use use specific devices to the service configuration file.
+default. To use another alsa device for sndio's default device `snd/0` add the
+flags to use specific devices to the service configuration file.
 
 ```
 # echo 'OPTS="-f rsnd/Speaker"' >/etc/sv/sndiod/conf
@@ -44,8 +44,8 @@ to send MIDI control messages to the
 
 ### Firefox
 
-Firefox is build with sndio support and should work out of the box since version
-71 if libsndio is and the `snd/0` device is available.
+Firefox is built with sndio support and should work out of the box since version
+71 if libsndio is installed and the `snd/0` device is available.
 
 The following `about:config` changes are required for versions prior to 71 and
 should be removed when using version 71 or later:
@@ -61,7 +61,7 @@ security.sandbox.content.write_path_whitelist;/home/<username>/.sndio/cookie
 
 Mpv comes with sndio support, but to avoid it from using alsa over sndio if the
 device is available set the `--ao=sndio` command line option or add the option
-to mpvs configuration file.
+to mpv's configuration file.
 
 ```
 $ echo 'ao=sndio' >> ~/.config/mpv/mpv.conf

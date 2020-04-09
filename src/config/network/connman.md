@@ -32,7 +32,7 @@ There are many other front-ends to
 system trays, `connman-gtk` for GTK, `cmst` for QT and `connman-ncurses` for
 ncurses based UI.
 
-## Preventing DNS overides by ConnMan
+## Preventing DNS overrides by ConnMan
 
 Create `/etc/sv/connmand/conf` with the following content:
 
