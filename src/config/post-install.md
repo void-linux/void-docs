@@ -6,7 +6,7 @@ machine.
 ## Updates
 
 Installation media contains a snapshot of packages from the day it was made.
-After installing and connecting the the network, new systems should be updated:
+After installing and connecting the network, new systems should be updated:
 
 ```
 # xbps-install -Su

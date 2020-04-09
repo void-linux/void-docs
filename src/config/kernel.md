@@ -21,7 +21,7 @@ modules.
 
 ## Removing old kernels
 
-When updating the kernel, old versions are left behind in case it is neccessary
+When updating the kernel, old versions are left behind in case it is necessary
 to roll back to an older version. Over time, many old kernel version accumulate
 and make updating dmks modules take a long time. Thus, it may be advisable to
 clean old kernels from time to time.
@@ -54,7 +54,7 @@ that is currently booted:
 ## Kernel modules
 
 Kernel modules are typically drivers for devices or filesystems. Normally the
-kernel automatically loads required modules, but sometimes it may be neccessary
+kernel automatically loads required modules, but sometimes it may be necessary
 to explicitly load modules at boot.
 
 ### Loading kernel modules at boot

@@ -5,7 +5,7 @@ repositories, these files are installed by the package manager in
 `/usr/share/xbps.d`, but if duplicate files are found in `/etc/xbps.d`, those
 values are used instead.
 
-To modify mirror URLs cleanly, copy all the repository configuration files to to
+To modify mirror URLs cleanly, copy all the repository configuration files to
 `/etc/xbps.d` and change the URLs in each copied repository file.
 
 ```

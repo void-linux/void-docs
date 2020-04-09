@@ -7,7 +7,7 @@ For desktop environments like Gnome, [elogind](#elogind) is necessary.
 
 ## ConsoleKit2
 
-Install `ConsoleKit2` and activate its service. Ensure bothe the `dbus` and the
+Install `ConsoleKit2` and activate its service. Ensure both the `dbus` and the
 `cgmanager` services are activated too.
 
 ```
