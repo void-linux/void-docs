@@ -118,12 +118,12 @@ Void Linux provides directories for kernel hooks in
 `/etc/kernel.d/{pre-install,post-install,pre-remove,post-remove}`.
 
 Bootloaders like `grub`, `gummiboot` and `lilo` use those hooks to update the
-bootmenu. Initramfs tools like `dracut` and `mkinitcpio` use the hooks to
+boot menu. Initramfs tools like `dracut` and `mkinitcpio` use the hooks to
 generate initramfs files for newly installed kernels.
 
 ## Dynamic Kernel Module Support (dkms)
 
-There are kernel modules that are not part of the linux source tree that are
+There are kernel modules that are not part of the Linux source tree that are
 build at install time using dkms and [kernel hooks](#kernel-hooks).
 
 ```
@@ -164,8 +164,8 @@ variable and then regenerating the grub configuration.
 
 ### dracut
 
-Dracut can be configured to add additional cmdline arguments to the kernel by
-creating a configuration file and regenerating the initramfs, make sure to
+Dracut can be configured to add additional command line arguments to the kernel
+by creating a configuration file and regenerating the initramfs, make sure to
 reconfigure the right kernel version like `linux4.12` as example.
 
 ```

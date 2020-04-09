@@ -20,8 +20,8 @@ with the `mdBook` package on Void. At the root of the void-docs repository
 
 ## Forking
 
-To fork the repository a [github account](https://github.com/join) is needed.
-After the account is created follow github's
+To fork the repository a [GitHub account](https://github.com/join) is needed.
+After the account is created follow GitHub's
 [guide](https://help.github.com/en/articles/fork-a-repo) on setting up a fork.
 
 Clone the repository onto your computer, enter it, and create a new branch:

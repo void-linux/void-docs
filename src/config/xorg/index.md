@@ -35,7 +35,7 @@ of device brands and their driver packages.
 | Intel  | Open Source | `xf86-video-intel`   |
 | NVIDIA | Open Source | `xf86-video-nouveau` |
 
-> Note: Fourth generation intel users may want to use the default xorg driver,
+> Note: Fourth generation Intel users may want to use the default xorg driver,
 > rather than installing `xf86-video-intel` driver package. For more
 > information, see the [Arch wiki
 > page](https://wiki.archlinux.org/index.php/Intel_graphics#Installation).
@@ -69,7 +69,7 @@ buttons to mice and keyboards.
 | `xf86-input-vmmouse`   |
 | `xf86-input-wacom`     |
 
-## Xorg config
+## Xorg Configuration
 
 Although Xorg normally auto-detects drivers and configuration is not needed, a
 config for a specific keyboard driver may look something like a file

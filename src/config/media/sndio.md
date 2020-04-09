@@ -16,15 +16,15 @@ the service configuration file (`/etc/sv/sndiod/conf`).
 
 ### Default device
 
-[sndiod(8)](https://man.voidlinux.org/sndiod.8) uses the first alsa device by
-default. To use another alsa device for sndio's default device `snd/0` add the
+[sndiod(8)](https://man.voidlinux.org/sndiod.8) uses the first ALSA device by
+default. To use another ALSA device for sndio's default device `snd/0` add the
 flags to use specific devices to the service configuration file.
 
 ```
 # echo 'OPTS="-f rsnd/Speaker"' >/etc/sv/sndiod/conf
 ```
 
-Use the `-f` flag to chooses a device by its alsa device index or its alsa
+Use the `-f` flag to chooses a device by its ALSA device index or its ALSA
 device name.
 
 ## Volume control
@@ -59,7 +59,7 @@ security.sandbox.content.write_path_whitelist;/home/<username>/.sndio/cookie
 
 ### mpv
 
-Mpv comes with sndio support, but to avoid it from using alsa over sndio if the
+Mpv comes with sndio support, but to avoid it from using ALSA over sndio if the
 device is available set the `--ao=sndio` command line option or add the option
 to mpv's configuration file.
 

@@ -2,10 +2,10 @@
 
 Most services have `run` files which include options for configuration. These
 options can be set via a `conf` file in the service directory. This allows
-service customisation without modifying the service directory provided by the
+service customization without modifying the service directory provided by the
 relevant package.
 
-To make more complex customisations than provided by default, edit the service.
+To make more complex customizations than provided by default, edit the service.
 
 ## Editing services
 

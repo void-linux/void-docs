@@ -3,7 +3,7 @@
 After [downloading a live image](./downloading.md), it must be written to
 bootable media, such as a USB drive, SD card, or CD/DVD.
 
-## Create a bootable usb drive or SD card on Linux
+## Create a bootable USB drive or SD card on Linux
 
 ### Identify the Device
 

@@ -6,11 +6,11 @@ process. When creating your new partition table you will need a partition for
 the root filesystem, along with a swap partition and possibly another partition
 or two to facilitate booting, if required.
 
-Note that if the disk has already been initialised, the top of the `cfdisk`
+Note that if the disk has already been initialized, the top of the `cfdisk`
 screen will show the partition layout already present: `Label: dos` for the MBR
 scheme, `Label: gpt` for the GPT scheme. If you just want to erase the partition
 table before starting the installer, use `wipefs(8)`. Otherwise, you can run
-`cfdisk(8)` manually with the `-z` option to start with an uninitialised disk
+`cfdisk(8)` manually with the `-z` option to start with an uninitialized disk
 layout; `cfdisk` will prompt you for the label type before continuing to the
 main screen.
 

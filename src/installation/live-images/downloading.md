@@ -6,7 +6,7 @@ found under <https://alpha.de.repo.voidlinux.org/live/>, organized by date.
 
 ## Verify images
 
-Each image releases's directory contains two files used to verify the image(s)
+Each image release's directory contains two files used to verify the image(s)
 you download. First, there is a `sha256.txt` file containing image checksums to
 verify the integrity of the downloaded images. Second is the `sha256.sig` file,
 used to verify the authenticity of the checksums.

@@ -19,7 +19,7 @@ exec chpst -u "<username>:$(id -Gn <username> | tr ' ' ':')" runsvdir /home/<use
 In this example [chpst(8)](https://man.voidlinux.org/chpst.8) is used to start a
 new [runsvdir(8)](https://man.voidlinux.org/runsvdir.8) process as the specified
 user. [chpst(8)](https://man.voidlinux.org/chpst.8) does not read groups on its
-own but expects the user to list all required groups spearated by a `:` (colon).
+own but expects the user to list all required groups separated by a `:` (colon).
 In the previous example the `id` and `tr` pipe is used to create a list of all
 the users groups in a way [chpst(8)](https://man.voidlinux.org/chpst.8)
 understands it.

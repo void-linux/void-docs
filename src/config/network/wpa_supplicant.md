@@ -9,7 +9,7 @@ manages wireless interfaces based on
 [wpa_supplicant.conf(5)](https://man.voidlinux.org/wpa_supplicant.conf.5)
 configuration files.
 [wpa_passphrase(8)](https://man.voidlinux.org/wpa_passphrase.8) and
-[wpa_cli(8)](https://man.voidlinux.org/wpa_cli.8) are frontends to manage the
+[wpa_cli(8)](https://man.voidlinux.org/wpa_cli.8) are front ends to manage the
 configuration files and the running service.
 
 ## WEP configuration

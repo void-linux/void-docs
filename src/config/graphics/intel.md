@@ -8,7 +8,7 @@ Install the Mesa DRI drivers:
 # xbps-install -S mesa-dri
 ```
 
-> Note: This is already included in the `xorg` metapackage, but it is needed
+> Note: This is already included in the `xorg` meta-package, but it is needed
 > when installing xorg via `xorg-minimal` or for running a Wayland compositor.
 
 ## Vulkan
@@ -21,7 +21,7 @@ Install the Khronos Vulkan Loader and the Mesa Intel Vulkan driver:
 
 ## Video acceleration
 
-Install the `intel-video-accel` metapackage:
+Install the `intel-video-accel` meta-package:
 
 ```
 # xbps-install -S intel-video-accel

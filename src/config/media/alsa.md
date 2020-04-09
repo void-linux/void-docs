@@ -9,10 +9,10 @@ respectively.
 
 ## Configuration
 
-The default soundcard can be specified via ALSA configuration files or via
+The default sound card can be specified via ALSA configuration files or via
 kernel module options.
 
-To obtain information about the order of loaded soundcard modules:
+To obtain information about the order of loaded sound card modules:
 
 ```
 $ cat /proc/asound/modules
@@ -29,7 +29,7 @@ defaults.ctl.card 2;
 defaults.pcm.card 2;
 ```
 
-or specify soundcard module order in `/etc/modprobe.d/alsa.conf`:
+or specify sound card module order in `/etc/modprobe.d/alsa.conf`:
 
 ```
 options snd_usb_audio index=0

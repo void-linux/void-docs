@@ -31,5 +31,5 @@ Then downgrade with `xbps-install`:
 # xbps-install -R /var/cache/xbps/ -f pkg-1.0_1
 ```
 
-The `-f` flag is necessary to force downgrade/reinstallation of an already
+The `-f` flag is necessary to force downgrade/re-installation of an already
 installed package.

@@ -1,7 +1,7 @@
 # debug
 
 Void Linux packages come without debugging symbols, if you want to debug
-software or look at a coredump you will need the debugging symbols. These
+software or look at a core dump you will need the debugging symbols. These
 packages are contained in the debug repo. Install the `void-repo-debug` package
 to enable this repository.
 
