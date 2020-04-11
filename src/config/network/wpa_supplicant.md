@@ -46,6 +46,37 @@ network={
 }
 ```
 
+## WPA-EAP
+
+WPA-EAP is often used for institutional logins, notably eduroam. This does not
+use PSK, but a password hash can be generated like this:
+
+```
+$ echo -n <passphrase> | iconv -t utf16le | openssl md4
+```
+
+The config file should look something like:
+
+```
+# Default configuration file for wpa_supplicant.conf(5).
+
+ctrl_interface=/run/wpa_supplicant
+ctrl_interface_group=wheel
+eapol_version=1
+ap_scan=1
+fast_reauth=1
+update_config=1
+
+network={
+	key_mgmt=WPA-EAP
+	eap=PEAP
+	scan_ssid=1
+	ssid="eduroam"
+	identity="john.doe@void.edu"
+	password=hash:6b11b6d0bdfabd9dd342f8fffd66d4b5
+}
+```
+
 ## WEP
 
 For WEP configuration, add the following lines to your device's
