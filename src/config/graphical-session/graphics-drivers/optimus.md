@@ -82,17 +82,7 @@ For more information, see NVIDIA's
 
 ## Bumblebee
 
-Enable the `bumblebeed` service:
-
-```
-# ln -s /etc/sv/bumblebeed /var/service
-```
-
-Add the user to the `bumblebee` group:
-
-```
-# usermod -a -G bumblebee <username>
-```
+Enable the `bumblebeed` service and add the user to the `bumblebee` group.
 
 > Note: This requires a re-login to be effective.
 
