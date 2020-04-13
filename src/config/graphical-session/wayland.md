@@ -17,7 +17,7 @@ applications built with GTK+ will automatically choose the Wayland backend, but
 Qt applications might require the proper environment variable in GNOME. This is
 explained [below](#native-applications).
 
-### Stand-alone compositors
+### Standalone compositors
 
 Void Linux currently packages the following Wayland compositors:
 
@@ -31,8 +31,8 @@ Void Linux currently packages the following Wayland compositors:
 KDE Plasma has an implementation for the proprietary NVIDIA API used for
 Wayland. The other Wayland compositors require open source drivers that
 implement EGL. The main driver for this purpose is provided by the `mesa-dri`
-package. The [graphics section](./graphics/index.md) has more details for
-setting up graphics in different systems.
+package. The [graphics section](./graphics-drivers/index.md) has more details
+for setting up graphics in different systems.
 
 ### Native applications
 
@@ -86,7 +86,8 @@ compositors, and is installed as a dependency for most of them. Its package is
 
 The Wayland API uses the `XDG_RUNTIME_DIR` environment variable to determine the
 directory for the Wayland socket. In order to securely set this variable, you
-need the `elogind` service installed and enabled as your session manager.
+need the `elogind` service installed and enabled as your [session
+manager](./session-management.md).
 
 It is also possible that some applications use the `XDG_SESSION_TYPE`
 environment variable in some way, which requires that you set it to `wayland`.
