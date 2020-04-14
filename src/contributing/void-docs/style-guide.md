@@ -6,6 +6,24 @@ This style guide outlines the standards for contributing to the
 [mdBook](https://rust-lang-nursery.github.io/mdBook/) stored in the
 [void-docs](https://github.com/void-linux/void-docs/) repository.
 
+## General
+
+Although there will always be cases where command listings are appropriate, the
+contents of the Handbook should be written in English (or the relevant language
+in the case of translations of the Handbook).
+
+Outside of the 'installation' sections, step-by-step instructions containing
+'magic' commands for copying-and-pasting are strongly discouraged. Users are
+expected to read the canonical documentation (e.g. man pages) for individual
+programs to understand how to use them, rather than relying on
+copying-and-pasting.
+
+Command code-blocks should not be used to describe routine tasks documented
+elsewhere in this Handbook. For example, when writing documentation for the
+`foo` package, do not provide a command code-block stating that one should
+install it via `xbps-install foo`. Similarly, do not provide code blocks
+describing how to enable the `foo` service.
+
 ## Formatting
 
 For markdown formatting, the
@@ -56,11 +74,6 @@ And also not:
 ```
 vi /etc/fstab
 ```
-
-Command code-blocks should not be used to describe routine tasks documented
-elsewhere in this Handbook. For example, when writing documentation for the
-`foo` package, do not provide a command code-block stating that one should
-install it via `xbps-install foo`.
 
 ## Links
 
