@@ -108,9 +108,11 @@ The `wpa_supplicant` runit script checks the following options in
 `/etc/sv/wpa_supplicant/conf`:
 
 - `OPTS`: Options to be passed to the service. Overrides any other options.
-- `CONF_FILE`: Path to file to be used for configuration.
+- `CONF_FILE`: Path to file to be used for configuration. Defaults to
+   `/etc/wpa_supplicant/wpa_supplicant.conf`.
 - `WPA_INTERFACE`: Interface to be matched. May contain a wildcard; defaults to
    all interfaces.
+- `DRIVER`: Driver to use. See `wpa_supplicant -h` for available drivers.
 
 If no `conf` file is found, the service searches for the following files in
 `/etc/wpa_supplicant`:
