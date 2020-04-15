@@ -27,7 +27,7 @@ $ chsh -l
 /bin/yash
 ```
 
-Following packages are available in the package repository and provide usable
+The following packages are available in the package repository and provide usable
 shells.
 
 - bash
