@@ -2,8 +2,8 @@
 
 - [About](./about/index.md)
    - [History](./about/history/index.md)
+   - [About this Handbook](./about-handbook/index.md)
    - [InfraDocs](./about/meta/infradocs.md)
-- [How To Read The Handbook](./howtoread/index.md)
 - [Installation](./installation/index.md)
    - [Base System Requirements](./installation/base-requirements.md)
    - [Live Installers](./installation/live-images/index.md)
