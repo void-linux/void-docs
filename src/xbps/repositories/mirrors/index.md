@@ -35,6 +35,7 @@ sub-repository.
 | <https://ftp.lysator.liu.se/pub/voidlinux/>   | EU: Sweden        |
 | <https://mirror.yandex.ru/mirrors/voidlinux/> | RU: Russia        |
 | <https://void.cijber.net/>                    | EU: Amsterdam, NL |
+| <https://mirrors.hushan.tech:44300/voidlinux> | Asia: China       |
 
 ## Tor Mirrors
 
