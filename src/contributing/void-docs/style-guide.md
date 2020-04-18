@@ -9,8 +9,8 @@ This style guide outlines the standards for contributing to the
 ## General
 
 Although there will always be cases where command listings are appropriate, the
-contents of the Handbook should be written in English (or the relevant language
-in the case of translations of the Handbook).
+contents of the Handbook should be written in American English (or the relevant
+language in the case of translations of the Handbook).
 
 Outside of the 'installation' sections, step-by-step instructions containing
 'magic' commands for copying-and-pasting are strongly discouraged. Users are
