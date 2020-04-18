@@ -21,7 +21,6 @@ The `system-config-printer` package offers simple and robust configuration of
 new printers. Install and invoke it:
 
 ```
-# xbps-install -S system-config-printer
 # system-config-printer
 ```
 
