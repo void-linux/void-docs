@@ -7,8 +7,6 @@ The `xtools` package contains the `xlocate` utility that works like
 package repository.
 
 ```
-# xbps-install -Su xtools
-
 $ xlocate -S
 From https://repo.voidlinux.org/xlocate/xlocate +
 16d97bfe86...2ad1a4a8d1 master -> master (forced update)

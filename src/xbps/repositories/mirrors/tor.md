@@ -21,11 +21,7 @@ via Tor.
 
 ### Installing Tor
 
-Tor can be installed using XBPS:
-
-```
-# xbps-install -S tor
-```
+Tor is contained in the `tor` package.
 
 After having installed Tor, you can start it as your own user:
 
@@ -33,11 +29,7 @@ After having installed Tor, you can start it as your own user:
 $ tor
 ```
 
-or as a system service:
-
-```
-# ln -s /etc/sv/tor /var/service/
-```
+or enable its system service.
 
 By default, Tor will act as a client and open a SOCKS5 proxy on TCP port 9050 on
 localhost.

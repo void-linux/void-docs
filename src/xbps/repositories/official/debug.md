@@ -10,10 +10,6 @@ to enable this repository.
 To get debugging symbols for packages, activate the `void-repo-debug` repo. Once
 enabled, symbols may be obtained for `package` by installing `package-dbg`.
 
-```
-# xbps-install -S <package>-dbg
-```
-
 ## Finding debug dependencies
 
 The `xtools` package contains the `xdbg` utility to retrieve a list of debug
