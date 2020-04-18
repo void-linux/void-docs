@@ -21,15 +21,6 @@ KEYMAP=fr
 For further details, refer to
 [loadkeys(1)](https://man.voidlinux.org/loadkeys.1).
 
-### TIMEZONE
-
-Specifies which timezone to use. Available timezones are listed in
-`/usr/share/zoneinfo`. For example:
-
-```
-TIMEZONE=Europe/Berlin
-```
-
 ### HARDWARECLOCK
 
 Specifies whether the hardware clock is set to UTC or local time.
