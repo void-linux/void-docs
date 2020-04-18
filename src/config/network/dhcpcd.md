@@ -3,10 +3,6 @@
 To run [dhcpcd(8)](https://man.voidlinux.org/dhcpcd.8) on all interfaces you can
 enable the `dhcpcd` service.
 
-```
-# ln -s /etc/sv/dhcpcd /var/service/
-```
-
 If you want to run dhcpcd just on a specific interface you can use the
 `dhcpcd-eth0` service if this matches your interface name. Otherwise you can
 just copy `dhcpcd-eth0` and change it to match your interface.

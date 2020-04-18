@@ -5,18 +5,7 @@ for Linux that aims to replace [WPA supplicant](./wpa_supplicant.md).
 
 ## Installation
 
-Install the `iwd` package.
-
-```
-# xbps-install -S iwd
-```
-
-Enable the `dbus` and `iwd` services.
-
-```
-# ln -s /etc/sv/dbus /var/service/
-# ln -s /etc/sv/iwd /var/service/
-```
+Install the `iwd` package and enable the `dbus` and `iwd` services.
 
 > Note: To use EAP-TLS, EAP-TTLS, and EAP-PEAP based configurations, version
 > ≥4.20 of the kernel is required. Previous kernel versions do not include the
@@ -27,22 +16,6 @@ Enable the `dbus` and `iwd` services.
 IWD provides a command line client, `iwctl`. It can be used to add, remove, and
 configure network connections; running it produces an interactive prompt. To
 list available options, enter `help`.
-
-```
-$ iwctl
-
-[iwd]# help
-                               Available commands
---------------------------------------------------------------------------------
-  Commands                                          Description
---------------------------------------------------------------------------------
-
-Adapters:
-  adapter list                                      List adapters
-  adapter <phy> show                                Show adapter info
-  adapter <phy> set-property <name> <value>         Set property
-...
-```
 
 > Note: By default, only the root user and those in the `wheel` group have
 > permission to operate `iwctl`.

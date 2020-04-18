@@ -13,11 +13,7 @@ To enable the [ConnMan(8)](https://man.voidlinux.org/connman.8/) daemon, first
 services all control network interface configuration, and interfere with each
 other.
 
-Finally, enable the [ConnMan(8)](https://man.voidlinux.org/connman.8/) service:
-
-```
-# ln -s /etc/sv/connmand /var/service/
-```
+Finally, enable the `connmand` service.
 
 ## Configuring ConnMan
 

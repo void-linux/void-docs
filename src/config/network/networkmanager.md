@@ -19,12 +19,7 @@ running. [NetworkManager(8)](https://man.voidlinux.org/NetworkManager.8) uses
 `dbus` to expose networking information and a control interface to clients and
 will fail to start without it.
 
-Finally, enable the
-[NetworkManager(8)](https://man.voidlinux.org/NetworkManager.8) service:
-
-```
-# ln -s /etc/sv/NetworkManager /var/service/
-```
+Finally, enable the `NetworkManager` service.
 
 ## Configuring NetworkManager
 
