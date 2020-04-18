@@ -3,11 +3,6 @@
 Install the `sndio` package and enable the
 [sndiod(8)](https://man.voidlinux.org/sndiod.8) service.
 
-```
-# xbps-install -S sndio
-# ln -s /etc/sv/sndiod /var/service/
-```
-
 ## Configuration
 
 The service can be configured by adding
@@ -34,11 +29,8 @@ by hardware or software.
 
 [aucatctl(1)](https://man.voidlinux.org/aucatctl.1) is a tool specific to sndio
 to send MIDI control messages to the
-[sndiod(8)](https://man.voidlinux.org/sndiod.8) daemon.
-
-```
-# xbps-install -S aucatctl
-```
+[sndiod(8)](https://man.voidlinux.org/sndiod.8) daemon. It can be found in the
+`aucatctl` package.
 
 ## Application specific configurations
 
@@ -59,10 +51,7 @@ security.sandbox.content.write_path_whitelist;/home/<username>/.sndio/cookie
 
 ### mpv
 
-Mpv comes with sndio support, but to avoid it from using ALSA over sndio if the
-device is available set the `--ao=sndio` command line option or add the option
-to mpv's configuration file.
-
-```
-$ echo 'ao=sndio' >> ~/.config/mpv/mpv.conf
-```
+MPV comes with sndio support, but to prevent it from using ALSA over sndio if
+the ALSA device is available, set the `--ao=sndio` command line option. You can
+also add the option to mpv's configuration file: `~/.config/mpv/mpv.conf` should
+contain a line specifying `ao=sndio`.
