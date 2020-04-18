@@ -1,21 +1,18 @@
 # Hashboot
 
-**hashboot** hashes all files in `/boot` and the MBR to check them during early
+`hashboot` hashes all files in `/boot` and the MBR to check them during early
 boot. It is intended for when the root partition is encrypted but not the boot
 partition. The checksums and a backup of the contents of `/boot` are stored in
 `/var/lib/hashboot` by default. If a checksum doesn't match, there is the option
 to restore the file from backup.
 
-If there is a core- or libreboot bios, **hashboot** can check bios for
-modifications too.
+If there is a core- or libreboot BIOS, `hashboot` can also check the BIOS for
+modifications.
 
 ## Installation
 
-```
-# xbps-install -S hashboot
-```
-
-To verify BIOS, `flashrom` needs to be installed, too.
+Install the `hashboot` package. To verify the BIOS, `flashrom` needs to be
+installed as well.
 
 ## Configuration
 
@@ -41,7 +38,7 @@ Possible options as KEY=VALUE in `/etc/hashboot.cfg`:
 ### Flashrom
 
 For a special programmer for flashrom (e.g.
-"internal:laptop=force_I_want_a_brick"), the following must be set in
+`internal:laptop=force_I_want_a_brick`), the following must be set in
 `/etc/hashboot.cfg`:
 
 ```
