@@ -8,12 +8,9 @@ $ locale -a
 
 ## Enabling locales
 
-To enable a locale, un-comment or add the relevant line in
-`/etc/default/libc-locales` and run
-
-```
-# xbps-reconfigure -f glibc-locales
-```
+To enable a certain locale, un-comment or add the relevant lines in
+`/etc/default/libc-locales` and [reconfigure](../xbps/packages/management.md)
+the `glibc-locales` package.
 
 ## Setting the system locale
 
@@ -21,14 +18,7 @@ Set `LANG=xxxx` in `/etc/locale.conf`.
 
 ## Application locale
 
-Some programs have their translations in a separate package and must be
-installed in order to use them.
-
-```
-$ xbps-query -Rs german
-[-] aspell-de-20161207.7.0_1      German dictionary for aspell
-[-] firefox-esr-i18n-de-68.7.0_1  Firefox ESR German language pack
-[-] firefox-i18n-de-75.0_1        Firefox German language pack
-[-] fortune-mod-de-0.34_1         Collection of German fortune cookie files
-# xbps-install -S firefox-i18n-de
-```
+Some programs have their translations in a separate package that must be
+installed in order to use them. You can [search](../xbps/packages/management.md)
+for the desired language (e.g. "german" or "portuguese") in the package
+repositories and install the packages relevant to the applications you use.
