@@ -29,6 +29,7 @@
    - [Shell](./config/shell.md)
    - [Security](./config/security/index.md)
       - [hashboot](./config/security/hashboot.md)
+      - [AppArmor](./config/security/apparmor.md)
    - [Date and Time](./config/date-time.md)
    - [Kernel](./config/kernel.md)
    - [Network](./config/network/index.md)
