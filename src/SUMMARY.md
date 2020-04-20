@@ -42,8 +42,9 @@
       - [ConnMan](./config/network/connman.md)
    - [Graphical Session](./config/graphical-session/index.md)
       - [Graphics Drivers](./config/graphical-session/graphics-drivers/index.md)
-         - [Intel GPU](./config/graphical-session/graphics/intel.md)
-         - [NVIDIA Optimus](./config/graphical-session/graphics/optimus.md)
+         - [Intel GPU](./config/graphical-session/graphics-drivers/intel.md)
+         - [NVIDIA
+            Optimus](./config/graphical-session/graphics-drivers/optimus.md)
       - [Xorg](./config/graphical-session/xorg.md)
       - [Wayland](./config/graphical-session/wayland.md)
       - [Session Management](./config/graphical-session/session-management.md)
