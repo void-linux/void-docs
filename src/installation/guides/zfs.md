@@ -91,14 +91,14 @@ lrwxrwxrwx 1 root root 10 Apr 16 17:34 wwn-0x5000cca373e0f5d9-part2 -> ../../sda
 Create a pool named zroot specifying the previously created Solaris Root
 Partition from your disk
 
-`# zpool create -f -o ashift=12 -m none zroot <dev>`
+`# zpool create -f -o ashift=12 -m none zroot dev`
 
 | Command      | Action                                              |
 |--------------|-----------------------------------------------------|
 | -f           | Force the creation of the pool                      |
 | -o ashift=12 | Set sector size to 4k **(don't set this on SSD's)** |
 | -m none      | Set the mountpoint to none                          |
-| <dev>        | The device to be used in the creation of the pool   |
+| dev          | The device to be used in the creation of the pool   |
 |              | (ie. ata-XXXXX-partX or wwn-XXXX-partX)             |
 
 To ensure that the pool was created use:
@@ -295,7 +295,7 @@ As well check that the ZFS cache is recognized:
 
 ## Configuration
 
-For a general system configuration please consult the [Date and
+For general system configuration please consult the [Date and
 Time](./../../config/date-time.md), [Rc Files](./../../config/rc-files.md), and
 [Locales](./../../config/locales.md) pages of the handbook.
 
