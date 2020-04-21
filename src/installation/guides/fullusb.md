@@ -1,8 +1,8 @@
-# Live Install To Full Install
+# Live USB To Full Install
 
-This installation guide is to convert a Live USB Void Install into a Full
-Pervasive Void Install. It's recommended to use a machive with at least 4GB of
-RAM, and a USB with at least 4GB of storage.
+This installation guide converts a Live USB of Void Linux into a Full Pervasive
+Void Install. It's recommended to use a machine with at least 4GB of RAM, and a
+USB with at least 4GB of storage.
 
 > **Note:**
 > 
@@ -54,6 +54,11 @@ partitioning tool:
 
 `# cfdisk -z /dev/sdc`
 
+> **Important:**
+> 
+> *Before creating the partition tables it's essential to remove the existing
+> GRUB install, this can be done using one of the following commands.*
+> 
 > *For BIOS/MBR use:*
 > 
 > `# dd if=/dev/zero of=/dev/sdc seek=1 count=2047`
@@ -131,8 +136,6 @@ machine:
 
 `(chroot)# echo voidhost >/etc/hostname`
 
-> **Optional:**
-
 Install GRUB onto the USB stick specifying the path to the USB:
 
 ```
@@ -164,6 +167,12 @@ done
 linux5.4: configured successfully.
 ```
 
+## Configuration
+
+For a general system configuration please consult the [Date and
+Time](./../../config/date-time.md), [Rc Files](./../../config/rc-files.md), and
+[Locales](./../../config/locales.md) pages of the handbook.
+
 ## Cleanup
 
 Exit chroot:
@@ -182,20 +191,3 @@ Restart the system using [reboot(8)](https://man.voidlinux.org/reboot) and log
 in:
 
 `# reboot`
-
-## Configuration
-
-Configure the defaults in the new system's `/etc/rc.conf`. Below are some values
-most system's will want to set.
-
-`````````
-# see loadkeys(8)
-KEYMAP="us"
-# available timezones at /usr/share/zoneinfo
-TIMEZONE="America/Chicago"
-# set to UTC or localtime
-HARDWARECLOCK="UTC"
-`````````
-
-Finally configure the system's locales consulting the
-[Locales](./../../config/locales.md) page of the handbook.

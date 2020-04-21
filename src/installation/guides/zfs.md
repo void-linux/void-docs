@@ -1,11 +1,11 @@
 # ZFS On Root
 
-This installation guide is assuming that an already existing Full Void Linux
-Install is available. Not just a Live USB.
+This installation guide assumes that an already existing Full Void Linux Install
+is available. Not just a Live USB.
 
-If an existing Void Install doesn't exist please consult the [Live USB To Full
-Install](./fullusb.md) guide or the [General
-Instalation](./../live-images/index.md) guide. Then continue along with this
+If an existing Void Install does not exist please consult one of the [other
+installation guides](./index.md) or use a custom iso such as
+[hrmpf](https://github.com/leahneukirchen/hrmpf) then continue along with this
 guide.
 
 > **Note**:
@@ -16,7 +16,7 @@ guide.
 
 ## Setup
 
-From the permanent system install the `zfs` package.
+From the permanent system, install the `zfs` package.
 
 Then ensure the ZFS module is loaded with
 [modprobe(1)](https://man.voidlinux.org/modprobe):
@@ -111,7 +111,10 @@ zroot   928G   432K   928G        -         -     0%     0%  1.00x    ONLINE  -
 
 > **Optional:**
 > 
+> Add compression to the pool using lz4 or another alogorithm, see
+> [zfs(8)](https://man.voidlinux.org/zfs#Native_Properties).
 > 
+> `# zfs set compression lz4 zroot`
 
 Then create the following data sets, which are ZFS's equivalent to partitions:
 
@@ -206,9 +209,6 @@ Also ensure GRUB recognizes the ZFS module.
 zfs
 ```
 
-> **Optional:**
-> 
-
 Install GRUB onto the drive specifying the path to the drive:
 
 ```
@@ -293,6 +293,12 @@ As well check that the ZFS cache is recognized:
 -rw-r--r--   1 root     root         1376 Apr 17 01:30 etc/zfs/zpool.cache
 ```
 
+## Configuration
+
+For a general system configuration please consult the [Date and
+Time](./../../config/date-time.md), [Rc Files](./../../config/rc-files.md), and
+[Locales](./../../config/locales.md) pages of the handbook.
+
 ## Cleanup
 
 Exit chroot:
@@ -311,20 +317,3 @@ Restart the system using [reboot(8)](https://man.voidlinux.org/reboot) and log
 in:
 
 `# reboot`
-
-## Configuration
-
-Configure the defaults in the new system's `/etc/rc.conf`. Below are some values
-that most system's will want to set.
-
-````````
-# see loadkeys(8)
-KEYMAP="us"
-# available timezones at /usr/share/zoneinfo
-TIMEZONE="America/Chicago"
-# set to UTC or localtime
-HARDWARECLOCK="UTC"
-````````
-
-Finally configure the system's locales consulting the
-[Locales](./../../config/locales.md) page of the handbook.

@@ -15,7 +15,7 @@
       - [Installation via chroot (x86/x86_64)](./installation/guides/chroot.md)
       - [Full Disk Encryption](./installation/guides/fde.md)
       - [ZFS On Root](./installation/guides/zfs.md)
-      - [Live Install To Full Install](./installation/guides/fullusb.md)
+      - [Live USB To Full Install](./installation/guides/fullusb.md)
    - [musl](./installation/musl.md)
 - [Configuration](./config/index.md)
    - [Locales](./config/locales.md)
