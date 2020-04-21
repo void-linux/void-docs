@@ -3,13 +3,13 @@
 For a list of currently enabled locales, run
 
 ```
-locale -a
+$ locale -a
 ```
 
 ## Enabling locales
 
-To enable the locale `xxxx`, un-comment or add the relevant line in
-`/etc/default/libc-locale.conf` and run
+To enable a locale, un-comment or add the relevant line in
+`/etc/default/libc-locales` and run
 
 ```
 # xbps-reconfigure -f glibc-locales
