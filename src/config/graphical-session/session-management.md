@@ -10,4 +10,6 @@ devices, and control system shutdown.
 `systemd-logind`, a service to manage user logins. This service provides
 necessary features for most desktop environments and Wayland compositors. To
 make use of its features, install the `elogind` package and
-[enable](../services/index.md) its service.
+[enable](../services/index.md) its service and [disable](../services/index.md)
+the [acpid(8)](https://man.voidlinux.org/acpid) service as there is a suspend
+conflict.
