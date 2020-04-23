@@ -7,6 +7,10 @@ The `alsa-utils` package provides the `alsa` service. When enabled, this service
 saves and restores the state of ALSA (e.g. volume) at shutdown and boot,
 respectively.
 
+To allow use of software requiring PulseAudio, install the `apulse` package.
+`apulse` provides part of the PulseAudio interface expected by applications,
+translating calls to that interface into calls to ALSA.
+
 ## Configuration
 
 The default sound card can be specified via ALSA configuration files or via
