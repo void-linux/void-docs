@@ -24,7 +24,7 @@ Device     Boot Start       End   Sectors Size Id Type
 UEFI systems will need the disk to have a GPT disklabel and an EFI system
 partition. The required size for this may vary depending on needs, but 100M
 should be enough for most cases. For an EFI system, the partition layout should
-look the following.
+look like the following.
 
 ```
 # fdisk -l /dev/sda
@@ -40,7 +40,8 @@ Device      Start       End   Sectors  Size Type
 /dev/sda2  264192 100663262 100399071 47.9G Linux filesystem
 ```
 
-Configure the encrypted volume.
+Configure the encrypted volume. `cryptsetup` defaults to LUKS2, yet `grub`
+currently only has support for LUKS1, so it is critical to force LUKS1.
 
 ```
 # cryptsetup luksFormat --type luks1 /dev/sda1
@@ -84,14 +85,13 @@ I chose 10G for `/`, 2G for `swap`, and will assign the rest to `/home`.
   Logical volume "home" created.
 ```
 
-Next, create the filesystems.
-
-At the time of this writing, XFS enables sparse inodes by default, but grub does
-not yet support them. Until grub is fixed, disable sparse inodes for at least
-the boot volume.
+Next, create the filesystems. The example below uses XFS as a personal
+preference of the author. Any filesystem [supported by
+GRUB](https://www.gnu.org/software/grub/manual/grub/grub.html#Features) will
+work.
 
 ```
-# mkfs.xfs -i sparse=0 -L root /dev/voidvm/root       
+# mkfs.xfs -L root /dev/voidvm/root 
 meta-data=/dev/voidvm/root       isize=512    agcount=4, agsize=655360 blks
 ...
 # mkfs.xfs -L home /dev/voidvm/home
@@ -168,8 +168,8 @@ UEFI systems will also have an entry for the EFI system partition.
 /dev/sda1	/boot/efi	vfat	defaults	0	0
 ```
 
-Next, configure `grub` to be able to unlock the filesystem. Add the following
-line to `/etc/default/grub`:
+Next, configure GRUB to be able to unlock the filesystem. Add the following line
+to `/etc/default/grub`:
 
 ```
 GRUB_ENABLE_CRYPTODISK=y
