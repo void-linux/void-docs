@@ -40,16 +40,11 @@ of device brands and their driver packages.
 > information, see the [Arch wiki
 > page](https://wiki.archlinux.org/index.php/Intel_graphics#Installation).
 
-### Proprietary Video Drivers
+### Proprietary Drivers
 
-Void also provides proprietary video drivers, which are available in the
-[non-free](../../xbps/repositories/official/nonfree.md) repository.
-
-| Brand  | Type        | Model                           | Driver Package |
-|--------|-------------|---------------------------------|----------------|
-| NVIDIA | Proprietary | 500+                            | `nvidia`       |
-| NVIDIA | Proprietary | 300/400 Series                  | `nvidia390`    |
-| NVIDIA | Proprietary | GeForce8/9 + 100/200/300 Series | `nvidia340`    |
+Void also provides [proprietary NVIDIA drivers](./graphics-drivers/nvidia.md),
+which are available in the [non-free
+repository](../../xbps/repositories/official/nonfree.md).
 
 ## Input Drivers
 

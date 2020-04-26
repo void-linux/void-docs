@@ -7,3 +7,4 @@ of your system.
 
 - [Intel GPU](./intel.md)
 - [NVIDIA Optimus](./optimus.md)
+- [NVIDIA](./nvidia.md)

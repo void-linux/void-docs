@@ -46,6 +46,7 @@
          - [Intel GPU](./config/graphical-session/graphics-drivers/intel.md)
          - [NVIDIA
             Optimus](./config/graphical-session/graphics-drivers/optimus.md)
+         - [NVIDIA](./config/graphical-session/graphics-drivers/nvidia.md)
       - [Xorg](./config/graphical-session/xorg.md)
       - [Wayland](./config/graphical-session/wayland.md)
       - [GNOME](./config/graphical-session/gnome.md)
