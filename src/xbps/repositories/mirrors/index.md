@@ -31,7 +31,6 @@ sub-repository.
 | <https://ftp.acc.umu.se/mirror/voidlinux/>    | EU: Sweden        |
 | <https://mirrors.dotsrc.org/voidlinux/>       | EU: Denmark       |
 | <https://void.webconverger.org/>              | APAN: Singapore   |
-| <https://youngjin.io/voidlinux/>              | APAN: South Korea |
 | <https://ftp.lysator.liu.se/pub/voidlinux/>   | EU: Sweden        |
 | <https://mirror.yandex.ru/mirrors/voidlinux/> | RU: Russia        |
 | <https://void.cijber.net/>                    | EU: Amsterdam, NL |
