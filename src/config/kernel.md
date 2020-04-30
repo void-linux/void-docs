@@ -4,7 +4,7 @@
 
 Void Linux provides many kernel series in the default repository. These are
 named `linuxX.X`, for example `linux4.19`. You can query for all available
-kernel series by runnning:
+kernel series by running:
 
 ```
 $ xbps-query --regex -Rs '^linux[0-9.]+-[0-9._]+'
