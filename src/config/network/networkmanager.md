@@ -23,6 +23,8 @@ Finally, enable the `NetworkManager` service.
 
 ## Configuring NetworkManager
 
+Users of NetworkManager must belong to the `network` group.
+
 The `NetworkManager` package includes a command line tool,
 [nmcli(1)](https://man.voidlinux.org/nmcli.1), and a Text User Interface,
 [nmtui(1)](https://man.voidlinux.org/nmtui.1) to control network settings.
