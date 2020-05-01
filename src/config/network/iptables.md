@@ -26,14 +26,19 @@ $ cd /etc/iptables
 # vi iptables.rules
 ```
 
-## Applying the rules
+## Applying the rules at runtime
 
-`iptables` should not be activated as a runit service. The runit services start
-in parallel, so the web service might start before the iptables rules are
-loaded.
+`iptables` comes with a runit service which is handy to quickly flush or restore
+the rules on demand.
 
-Instead, add these lines to `/etc/rc.local` to import the rules from
-`/etc/iptables/iptables.rules`:
+## Applying the rules at boot
+
+The aforementioned service file is not suitable to ensure iptables rules are
+applied before network is up (due to the fact that runit starts services in
+parallel in stage 2).
+
+To apply the rules at stage 1, either install the `runit-iptables` package
+(which adds a core-service) or add these lines to `/etc/rc.local`:
 
 ```
 if [ -e /etc/iptables/iptables.rules ]; then
