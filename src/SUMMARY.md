@@ -52,6 +52,8 @@
       - [ALSA](./config/media/alsa.md)
       - [PulseAudio](./config/media/pulseaudio.md)
       - [sndio](./config/media/sndio.md)
+   - [Games](./config/games/index.md)
+      - [Requirements](./config/games/requirements.md)
    - [Bluetooth](./config/bluetooth.md)
    - [TeX Live](./config/texlive.md)
    - [Printing](./config/print/index.md)
