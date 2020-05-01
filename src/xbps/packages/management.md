@@ -14,6 +14,7 @@ Most general package management is done with the following commands:
    certain packages after changes in their configuration files. The latter
    usually requires the `--force` flag.
 
-Most questions can be answered by consulting the man pages for these tools. For
+Most questions can be answered by consulting the man pages for these tools,
+together with the [xbps.d(5)](https://man.voidlinux.org/xbps.d.5) man page. For
 a more detailed overview of the X Binary Package System (XBPS), see the
 documentation in the [xbps repository](https://github.com/void-linux/xbps).
