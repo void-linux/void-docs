@@ -5,8 +5,8 @@ compositors and related services and utilities.
 
 ## Installation
 
-Unlike [Xorg](./xorg/index.md), Wayland implementations combine the display
-server, the window manager and the compositor in a single application.
+Unlike [Xorg](./xorg.md), Wayland implementations combine the display server,
+the window manager and the compositor in a single application.
 
 ### Desktop Environments
 

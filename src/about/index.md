@@ -17,7 +17,7 @@ few features that make Void unique:
    OpenSSL library. Developed as part of the OpenBSD project, LibreSSL is
    dedicated to the security, quality, and maintainability of this critical
    library.
-- [runit](../config/runit/) is used for
+- [runit](../config/services/index.md) is used for
    [init(8)](https://man.voidlinux.org/init.8). This allows Void to support musl
    as a second libc choice, which would not be possible with
    [systemd](https://www.freedesktop.org/wiki/Software/systemd/). A side effect
