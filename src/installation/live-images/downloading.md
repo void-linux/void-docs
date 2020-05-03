@@ -22,7 +22,7 @@ $ wget http://alpha.de.repo.voidlinux.org/live/current/sha256.{txt,sig}
 
 You can verify the integrity of a downloaded file using
 [sha256sum(1)](https://man.voidlinux.org/sha256sum.1) with the `sha256.txt` file
-we downloaded above. The following sha256sum command will check (`-c`) the
+downloaded above. The following sha256sum command will check (`-c`) the
 integrity of only the image(s) you've downloaded:
 
 ```
@@ -32,45 +32,31 @@ void-live-x86_64-musl-20170220.iso: OK
 
 This verifies that the image is not corrupt.
 
-### Verify image authenticity
+### Verify digital signature
 
-To verify that the downloaded `sha256.txt` file is the one that the Void Linux
-maintainers published and signed, we use PGP. For this, we need the `sha256.sig`
-downloaded above.
+Prior to using any image you're strongly encouraged to validate the signatures
+on the image to ensure they haven't been tampered with.
 
-The file is signed with the Void Images key:
+Current images are signed using a signify key that is specific to the release.
+If you're on Void already, you can obtain the keys from the void-release-keys
+package, which will be downloaded using your existing XBPS trust relationship
+with your mirror. You will also need a copy of signify; on Void this is provided
+by the `outils` package.
 
-- **Signer:** Void Linux Image Signing Key
-   <[images@voidlinux.eu](mailto:images@voidlinux.eu)>
-- **KeyID:** `B48282A4`
-- **Fingerprint:** `CF24 B9C0 3809 7D8A 4495 8E2C 8DEB DA68 B482 82A4`
+If you are not currently using Void Linux you will need to obtain a copy of
+signify by other means, and the appropriate signing key from our git repository
+[here](https://github.com/void-linux/void-packages/tree/master/srcpkgs/void-release-keys/files/).
 
-You can use [gpg(1)](https://man.voidlinux.org/gpg.1) to receive the key from a
-keyserver using the command in the following example. You can also download it
-from <https://alpha.de.repo.voidlinux.org/live/current/void_images.asc>.
-
-```
-$ gpg --recv-keys B48282A4
-gpg: requesting key B48282A4 from hkp server keys.gnupg.net
-gpg: key B48282A4: public key "Void Linux Image Signing Key <images@voidlinux.eu>" imported
-gpg: no ultimately trusted keys found
-gpg: Total number processed: 1
-gpg:               imported: 1  (RSA: 1)
-```
-
-With the key stored locally, you can use
-[gpg(1)](https://man.voidlinux.org/gpg.1) verify the signature of `sha256.txt`
-using the `sha256.sig` file:
+Once you've obtained the key, you can verify your image with the sha256.sig
+file. An example is shown here verifying the GCP musl filesystem from the
+20191109 release:
 
 ```
-$ gpg --verify sha256.sig
-gpg: assuming signed data in `sha256.txt'
-gpg: Signature made Sat Oct  7 17:18:35 2017 CDT using RSA key ID B48282A4
-gpg: Good signature from "Void Linux Image Signing Key <images@voidlinux.eu>"
-gpg: WARNING: This key is not certified with a trusted signature!
-gpg:          There is no indication that the signature belongs to the owner.
-Primary key fingerprint: CF24 B9C0 3809 7D8A 4495  8E2C 8DEB DA68 B482 82A4
+$ signify -C -p /etc/signify/void-release-20191109.pub -x sha256.sig void-GCP-musl-PLATFORMFS-20191109.tar.xz
+Signature Verified
+void-GCP-musl-PLATFORMFS-20191109.tar.xz: OK
 ```
 
-This verifies that the signature for the checksums is authentic. In turn, we can
-assert that the downloaded images are also authentic if their checksums match.
+If the verification process does not spit out the expected "OK" status then do
+not use it! Please alert the Void Linux team of where you got the image and how
+you verified it and we will follow up.
