@@ -14,9 +14,9 @@ To clone the repository and push changes
 `git` package.
 
 Building the Void Handbook locally requires
-[mdBook](https://rust-lang-nursery.github.io/mdBook/), which can be installed
-with the `mdBook` package on Void. At the root of the void-docs repository
-`mdbook serve` can be run to serve the docs on your localhost.
+[mdBook](https://rust-lang.github.io/mdBook/), which can be installed with the
+`mdBook` package on Void. At the root of the void-docs repository `mdbook serve`
+can be run to serve the docs on your localhost.
 
 ## Forking
 
