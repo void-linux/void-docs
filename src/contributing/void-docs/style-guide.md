@@ -3,7 +3,7 @@
 This style guide outlines the standards for contributing to the
 [void-docs](https://github.com/void-linux/void-docs/) project. The manual on
 <https://docs.voidlinux.org> is generated from an
-[mdBook](https://rust-lang-nursery.github.io/mdBook/) stored in the
+[mdBook](https://rust-lang.github.io/mdBook/) stored in the
 [void-docs](https://github.com/void-linux/void-docs/) repository.
 
 ## General
