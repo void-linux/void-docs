@@ -191,7 +191,7 @@ sr0
 ```
 
 Edit the `GRUB_CMDLINE_LINUX_DEFAULT=` line in `/etc/default/grub` and add
-`rd.auto=1` and `cryptdevice=UUID=<UUID>:lvm`. Make sure the UUID matches from
+`rd.lvm.vg=voidvm` and `rd.luks.uuid=<UUID>`. Make sure the UUID matches from
 the output of your `lsblk` command from above.
 
 And now to avoid having to enter the password twice on boot, a key will be
