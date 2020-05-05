@@ -1,5 +1,16 @@
 #!/bin/sh
 
+echo "Installing mdbook-linkcheck"
+
+curl -sL -o ~/bin/linkcheck.tar.gz https://github.com/Michael-F-Bryan/mdbook-linkcheck/releases/download/v0.5.1/mdbook-linkcheck-v0.5.1-x86_64-unknown-linux-gnu.tar.gz
+
+tar xvf ~/bin/linkcheck.tar.gz -C ~/bin
+
+echo "Checking links"
+
+~/bin/mdbook-linkcheck -s
+LINKCHECK=$?
+
 echo "Installing Go"
 
 curl -sL -o ~/bin/gimme https://raw.githubusercontent.com/travis-ci/gimme/master/gimme
@@ -35,5 +46,10 @@ if [ ! -z "$(git status --porcelain)" ] ; then
     git diff
     echo "Working directory not clean, files to be formatted:"
     git status
+    VMDFMT=1
+fi
+
+# Generate exit value
+if [ ! -z $VMDFMT ] || [ ! $LINKCHECK -eq 0 ] ; then
     exit 2
 fi
