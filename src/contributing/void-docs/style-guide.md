@@ -99,6 +99,23 @@ They should not be formatted like this:
 [https://www.example.com/](https://www.example.com/)
 ```
 
+### Checking links
+
+If you're including new links (either internal or external) in the docs or
+changing the current file structure, you should install `mdbook-linkcheck`,
+which can be obtained from the Void repos or by using `cargo`. You can then
+build the mdBook locally, which will run a linkcheck as well, or run it in
+standalone mode:
+
+```
+$ mdbook-linkcheck -s
+```
+
+This way, linkcheck will verify all the references, and warn you if there are
+any issues. If any link you're using is correct but generating errors for some
+reason, you can add its domain to the exclude list in `book.toml`, under the
+`[mdbook.linkcheck]` key.
+
 ## Case
 
 Filenames and directories should use [kebab
