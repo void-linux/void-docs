@@ -52,8 +52,8 @@ Flatpak documentation](https://flatpak.org/setup/Void%20Linux/).
 ### Troubleshooting
 
 Some apps may not function properly (e.g. not being able to access the host
-system's files). This may be fixed by installing one or more of the
-`xdg-desktop-portal`, `xdg-desktop-portal-gtk`, `xdg-user-dirs`,
+system's files). Some of these issues can be fixed by installing one or more of
+the `xdg-desktop-portal`, `xdg-desktop-portal-gtk`, `xdg-user-dirs`,
 `xdg-user-dirs-gtk` or `xdg-utils` packages.
 
 Some Flatpaks require D-Bus. If you are using a window manager (e.g. i3wm), you
