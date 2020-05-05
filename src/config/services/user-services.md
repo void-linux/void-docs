@@ -2,13 +2,13 @@
 
 Sometimes it would be nice to have user-specific runit services. Services that,
 for example, open an ssh tunnel as your current user, run a virtual machine, or
-regularly run daemons on your behalf. The most common way to do this to ask a
+regularly run daemons on your behalf. The most common way to do this is to ask a
 system-level service to start a
 [runsvdir(8)](https://man.voidlinux.org/runsvdir.8) service as your user for
 your personal service directory.
 
-As example create a service `/etc/sv/runsvdir-<username>` service with the
-following `run` script:
+As an example, create a service `/etc/sv/runsvdir-<username>` with the following
+`run` script:
 
 ```
 #!/bin/sh
@@ -19,16 +19,15 @@ exec chpst -u "<username>:$(id -Gn <username> | tr ' ' ':')" runsvdir /home/<use
 In this example [chpst(8)](https://man.voidlinux.org/chpst.8) is used to start a
 new [runsvdir(8)](https://man.voidlinux.org/runsvdir.8) process as the specified
 user. [chpst(8)](https://man.voidlinux.org/chpst.8) does not read groups on its
-own but expects the user to list all required groups separated by a `:` (colon).
-In the previous example the `id` and `tr` pipe is used to create a list of all
-the users groups in a way [chpst(8)](https://man.voidlinux.org/chpst.8)
-understands it.
+own, but expects the user to list all required groups separated by a `:`. The
+`id` and `tr` pipe is used to create a list of all the user's groups in a way
+[chpst(8)](https://man.voidlinux.org/chpst.8) understands it.
 
-The user can then create new service or symlinks to them in the
-`/home/<username>/service` directory. To control the services using
-[sv(8)](https://man.voidlinux.org/sv.8) command the user can specify the
-services by path or by name if the `SVDIR` environment variable is set to the
-users service directory as shown in the following examples:
+The user can then create new services or symlinks to them in the
+`/home/<username>/service` directory. To control the services using the
+[sv(8)](https://man.voidlinux.org/sv.8) command, the user can specify the
+services by path, or by name if the `SVDIR` environment variable is set to the
+user's service directory. This is shown in the following examples:
 
 ```
 $ sv status ~/service/*
