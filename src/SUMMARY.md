@@ -49,6 +49,7 @@
       - [Xorg](./config/graphical-session/xorg.md)
       - [Wayland](./config/graphical-session/wayland.md)
       - [GNOME](./config/graphical-session/gnome.md)
+      - [KDE](./config/graphical-session/kde.md)
    - [Multimedia](./config/media/index.md)
       - [ALSA](./config/media/alsa.md)
       - [PulseAudio](./config/media/pulseaudio.md)
