@@ -30,7 +30,7 @@ be too large, or have another condition that makes it difficult for Void to
 distribute. These packages have build templates, but the packages themselves are
 not built or distributed. As such, they must be built locally. For more
 information see the page on [restricted
-packages](../repositories/restricted.md).
+packages](../xbps/repositories/restricted.md).
 
 ## Non-x86_64 Arch
 
@@ -38,7 +38,8 @@ The Void build system runs on x86_64 servers, both for compiling and cross
 compiling packages. However, some packages (e.g. `libreoffice`) do not support
 cross-compilation. These packages have to be built locally on a computer running
 the same architecture and libc as the system on which the package is to be used.
-For building packages, see the [building instructions](../packages/building.md).
+For building packages, see the [building
+instructions](../xbps/packages/building.md).
 
 ## Flatpak
 
