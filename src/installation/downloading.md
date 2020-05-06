@@ -1,10 +1,12 @@
-# Downloading Images
+# Downloading Installation Media
 
-The most recent live images can be downloaded from
-<https://alpha.de.repo.voidlinux.org/live/current/>. Previous releases can be
-found under <https://alpha.de.repo.voidlinux.org/live/>, organized by date.
+The most recent live images and rootfs tarballs can be downloaded from
+<https://alpha.de.repo.voidlinux.org/live/current/>. They can also be downloaded
+from [other mirrors](../xbps/repositories/mirrors/index.md). Previous releases
+can be found under <https://alpha.de.repo.voidlinux.org/live/>, organized by
+date.
 
-## Verify images
+## Verifying images
 
 Each image release's directory contains two files used to verify the image(s)
 you download. First, there is a `sha256.txt` file containing image checksums to
@@ -18,7 +20,7 @@ want to download both files:
 $ wget http://alpha.de.repo.voidlinux.org/live/current/sha256.{txt,sig}
 ```
 
-### Verify image integrity
+### Verifying image integrity
 
 You can verify the integrity of a downloaded file using
 [sha256sum(1)](https://man.voidlinux.org/sha256sum.1) with the `sha256.txt` file
@@ -32,16 +34,17 @@ void-live-x86_64-musl-20170220.iso: OK
 
 This verifies that the image is not corrupt.
 
-### Verify digital signature
+### Verifying digital signature
 
 Prior to using any image you're strongly encouraged to validate the signatures
 on the image to ensure they haven't been tampered with.
 
 Current images are signed using a signify key that is specific to the release.
-If you're on Void already, you can obtain the keys from the void-release-keys
+If you're on Void already, you can obtain the keys from the `void-release-keys`
 package, which will be downloaded using your existing XBPS trust relationship
-with your mirror. You will also need a copy of signify; on Void this is provided
-by the `outils` package.
+with your mirror. You will also need a copy of
+[signify(1)](https://man.voidlinux.org/signify.1); on Void this is provided by
+the `outils` package.
 
 If you are not currently using Void Linux you will need to obtain a copy of
 signify by other means, and the appropriate signing key from our git repository
