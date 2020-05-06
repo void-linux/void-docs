@@ -52,6 +52,10 @@ than Void Linux:
    distribution.
 - Install `signify-osx` with homebrew in macOS.
 
+If you can't obtain `signify` for some reason (e.g. you are on Windows and can't
+use WSL or MinGW), you can use
+[minisign(1)](https://man.voidlinux.org/minisign.1) to verify the file.
+
 If you are not currently using Void Linux, it will also be necessary to obtain
 the appropriate signing key from our Git repository
 [here](https://github.com/void-linux/void-packages/tree/master/srcpkgs/void-release-keys/files/).
@@ -69,3 +73,16 @@ void-GCP-musl-PLATFORMFS-20191109.tar.xz: OK
 If the verification process does not produce the expected "OK" status, do not
 use it! Please alert the Void Linux team of where you got the image and how you
 verified it, and we will follow up on it.
+
+For verification with `minisign`, it is necessary to rename the `sha56.sig` file
+to `sha256.txt.minisig` and remove the first line from the `.pub` release key.
+The following example demonstrates the verification of the `sha256.txt` file
+from the 20191109 release:
+
+```
+$ minisign -Vm sha256.txt -f -p void-release-20191109.pub
+void-release-20191109.pub: Success
+```
+
+The same warning as above applies. If the verification process isn't successful,
+do not use the file - warn the Void Linux team about it.
