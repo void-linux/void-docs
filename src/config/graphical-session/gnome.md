@@ -26,5 +26,5 @@ To use a graphical display manager for logging in to GNOME, enable the `gdm`
 service. Test the `gdm` service before enabling it:
 
 ```
-# sv once gdm
+# runsv /etc/sv/gdm
 ```
