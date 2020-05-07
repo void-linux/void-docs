@@ -77,12 +77,28 @@ vi /etc/fstab
 
 ## Links
 
+### Internal links
+
+Links to other sections of the Handbook must be relative. For example:
+
+```
+[example](./example.html#heading)
+
+```
+
+and not:
+
+```
+[example](example.html#heading)
+```
+
 ### Man Page Links
 
-Including links to man page is encouraged. These links should point to their man
-page on `https://docs.voidlinux.org`, have their title section number in
-parenthesis, and contain no formatting in their bodies. For example:
-[man(1)](https://man.voidlinux.org/man.1), and not
+The first reference to a command or man page must be a link to the relevant man
+page on `https://man.voidlinux.org/`.
+
+The link text must contain the title section number in parenthesis, and contain
+no formatting. For example: [man(1)](https://man.voidlinux.org/man.1), not
 [`man(1)`](https://man.voidlinux.org/man.1).
 
 ### Auto Links
