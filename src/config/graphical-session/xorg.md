@@ -82,3 +82,25 @@ Section "InputClass"
   MatchIsKeyboard "on"
 EndSection
 ```
+
+## Starting X Sessions
+
+### startx
+
+The `xinit` package provides the [startx(1)](https://man.voidlinux.org/startx.1)
+script as a frontend to [xinit(1)](https://man.voidlinux.org/xinit.1), which can
+be used to start X sessions from the console. For example, to use i3, edit
+`~/.xinitrc` to contain:
+
+```
+exec /bin/i3
+```
+
+Then call `startx` to start an i3 session.
+
+### Display Managers
+
+Display managers (DMs) provide a graphical login UI. A number of DMs are
+available in the Void repositories, including `gdm` (the GNOME DM), `sddm` (the
+KDE DM) and `lightdm`. When setting up a display manager, be sure to [test the
+service](../services/managing.html#testing-services) before enabling it.
