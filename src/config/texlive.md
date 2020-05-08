@@ -88,4 +88,4 @@ To update installed packages:
 
 For a full description, check:
 
-<http://www.tug.org/texlive/doc/tlmgr.html>
+<https://www.tug.org/texlive/doc/tlmgr.html>
