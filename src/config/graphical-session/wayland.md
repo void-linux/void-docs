@@ -28,11 +28,12 @@ Void Linux currently packages the following Wayland compositors:
 
 ### Video drivers
 
-KDE Plasma has an implementation for the proprietary NVIDIA API used for
-Wayland. The other Wayland compositors require open source drivers that
-implement EGL. The main driver for this purpose is provided by the `mesa-dri`
-package. The [graphics section](./graphics-drivers/index.md) has more details
-for setting up graphics in different systems.
+Both GNOME and KDE Plasma have EGLStreams backends for Wayland, which means they
+can use the proprietary NVIDIA drivers. Most other Wayland compositors require
+drivers that implement the GBM interface. The main driver for this purpose is
+provided by the `mesa-dri` package. The [graphics
+section](./graphics-drivers/index.md) has more details regarding setting up
+graphics in different systems.
 
 ### Native applications
 
