@@ -9,7 +9,9 @@ respectively.
 
 To allow use of software requiring PulseAudio, install the `apulse` package.
 `apulse` provides part of the PulseAudio interface expected by applications,
-translating calls to that interface into calls to ALSA.
+translating calls to that interface into calls to ALSA. For details about using
+`apulse`, consult [the project
+README](https://github.com/i-rinat/apulse/blob/master/README.md).
 
 ## Configuration
 
