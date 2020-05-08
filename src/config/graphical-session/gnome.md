@@ -15,7 +15,8 @@ A minimal GNOME environment can be created by installing the `gnome-session`,
 features may be present or functional.) `gdm` defaults to providing a Wayland
 session, via the `mutter` window manager. For an Xorg session, install the
 `xorg` package, then select 'GNOME on Xorg' at the GDM login screen, or start
-`gnome-session` via `~/.xinitrc`.
+`gnome-session` via `~/.xinitrc`. GNOME applications can be installed via the
+`gnome-apps` package.
 
 If you require [ZeroConf](http://www.zeroconf.org/) support, install the `avahi`
 package and enable the `avahi-daemon` service.
