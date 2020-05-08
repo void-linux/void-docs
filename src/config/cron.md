@@ -9,5 +9,5 @@ Available choices include [cronie](https://github.com/cronie-crond/cronie/),
 
 As alternative to the standard cron implementations you can use something like
 [snooze](https://github.com/leahneukirchen/snooze) or
-[runwhen](http://code.dogmap.org/runwhen/) which go hand in hand with service
+[runwhen](https://code.dogmap.org/runwhen/) which go hand in hand with service
 supervision.

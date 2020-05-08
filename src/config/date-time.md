@@ -45,7 +45,7 @@ NTP is the official reference implementation of the Network Time Protocol.
 
 The `ntp` package provides NTP and the `isc-ntpd` service.
 
-For further information, visit [the NTP site](http://www.ntp.org/).
+For further information, visit [the NTP site](https://www.ntp.org).
 
 ### OpenNTPD
 
