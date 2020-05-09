@@ -15,4 +15,5 @@ To make more complex customizations than provided by default, edit the service.
 To edit a service, first copy its service directory to a different directory
 name, otherwise [xbps-install(1)](https://man.voidlinux.org/xbps-install.1) will
 overwrite the service directory. Then, edit the new service file as needed.
-Finally, the old service should be stopped, and the new one should be started.
+Finally, the old service should be stopped and disabled, and the new one should
+be started.
