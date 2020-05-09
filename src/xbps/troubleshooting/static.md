@@ -5,6 +5,11 @@ longer function. This usually happens while trying to do unsupported things with
 libc, but can also happen when an update contains a corrupt glibc archive or
 otherwise fails to unpack and configure fully.
 
+Another issue that can present itself is in systems with a XBPS version before
+`0.54` (released June 2019). These systems will be impossible to update from the
+official repositories using the regular update procedure, due a change in the
+compression format used for repository data, which was made in March 2020.
+
 In these cases it is possible to recover your system with a separate, statically
 compiled copy of XBPS.
 
