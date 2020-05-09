@@ -97,13 +97,8 @@ exec /bin/i3
 
 Then call `startx` to start an i3 session.
 
-If a D-BUS session bus is required, use
-[dbus-run-session(1)](https://man.voidlinux.org/dbus-run-session.1). For
-example:
-
-```
-exec dbus-run-session /bin/i3
-```
+If a D-Bus session bus is required, you can [manually start
+one](../session-management.md#d-bus).
 
 ### Display Managers
 

@@ -8,4 +8,4 @@ In order to configure a graphical session, you need:
 
 You may also need:
 
-- [Session management tools](./session-management.md)
+- [Session management tools](../session-management.md)
