@@ -1,18 +1,12 @@
 # ZFS On Root
 
-This installation guide assumes that an already existing Full Void Linux Install
+This installation guide assumes that an already existing Full Void Linux install
 is available. Not just a Live USB.
 
-If an existing Void Install does not exist please consult one of the [other
+If an existing Void install does not exist please consult one of the [other
 installation guides](./index.md) or use a custom iso such as
 [hrmpf](https://github.com/leahneukirchen/hrmpf) then continue along with this
 guide.
-
-> **Note**:
-> 
-> All commands in this guide are utilizing the
-> [BASH(1)](https://man.voidlinux.org/bash) shell. Other shells may be used, but
-> results may vary.
 
 ## Setup
 
@@ -23,21 +17,10 @@ Then ensure the ZFS module is loaded with
 
 `# modprobe zfs`
 
-Locate the disk to format using [fdisk(8)](https://man.voidlinux.org/fdisk):
+Locate the disk to format using [fdisk(8)](https://man.voidlinux.org/fdisk) or
+[lsblk(8)](https://man.voidlinux.org/lsblk):
 
-```
-# fdisk -l
-Disk /dev/sda: 931.53 GiB, 1000204886016 bytes, 1953525168 sectors
-Disk model: Hitachi HDS72101
-Units: sectors of 1 * 512 = 512 bytes
-Sector size (logical/physical): 512 bytes / 512 bytes
-I/O size (minimum/optimal): 512 bytes / 512 bytes
-Disklabel type: gpt
-Disk identifier: 1AC1DE05-3145-DD4A-89F4-5B9C94C354BE
-
-Device     Start        End    Sectors   Size Type
-/dev/sda1   2048 1953525134 1953518991 931.5G Linux
-```
+`# fdisk -l`
 
 ## Partitioning
 
@@ -52,14 +35,14 @@ partitioning tool:
 > The disk being partitioned will be formatted and any existing data on the disk
 > will be destroyed.
 
-For a BIOS/MBR system using GRUB:
+For a BIOS/MBR system:
 
 ```
 Partition    Size       Type
 1             ?G     Solaris Root(bf00)
 ```
 
-For a BIOS/GPT system using GRUB:
+For a BIOS/GPT system:
 
 ```
 Partition    Size       Type
@@ -88,20 +71,22 @@ lrwxrwxrwx 1 root root 10 Apr 16 17:34 wwn-0x5000cca373e0f5d9-part1 -> ../../sda
 lrwxrwxrwx 1 root root 10 Apr 16 17:34 wwn-0x5000cca373e0f5d9-part2 -> ../../sda2
 ```
 
-Create a pool named zroot specifying the previously created Solaris Root
-Partition from your disk
+Create a pool specifying the previously created Solaris Root Partition from the
+disk
 
 `# zpool create -f -o ashift=12 -m none zroot dev`
 
-| Command      | Action                                              |
-|--------------|-----------------------------------------------------|
-| -f           | Force the creation of the pool                      |
-| -o ashift=12 | Set sector size to 4k **(don't set this on SSD's)** |
-| -m none      | Set the mountpoint to none                          |
-| dev          | The device to be used in the creation of the pool   |
-|              | (ie. ata-XXXXX-partX or wwn-XXXX-partX)             |
+| Command      | Action                                                                                                                                         |
+|--------------|------------------------------------------------------------------------------------------------------------------------------------------------|
+| -f           | Force the creation of the pool                                                                                                                 |
+| -o ashift=12 | Set sector size to 4k **(Ignore on SSD's due to their design lacking sectors)**                                                                |
+|              | (On some older hardrives this will not provide any benefit as they may have smaller sectors, at which point it's best to ignore this argument) |
+| -m none      | Set the mountpoint to none                                                                                                                     |
+| zroot        | The name of the pool                                                                                                                           |
+| dev          | The device to be used in the creation of the pool                                                                                              |
+|              | (ie. ata-XXXXX-partX or wwn-XXXX-partX)                                                                                                        |
 
-To ensure that the pool was created use:
+To ensure the pool's creation was successful use:
 
 ```
 $ zpool list
@@ -135,40 +120,18 @@ alternate mountpoint:
 # zpool import -R /mnt/void zroot
 ```
 
-Populate the new installation with the following directories, which will provide
-mountpointsto the current system's devices:
+> **Important:**
+> 
+> *To continue the installation process see the [chroot installation guide]() on
+> how to complete the base-installation, chroot into the new environment, and
+> setup a basic configuration.*
 
-```
-# mkdir /mnt/void/{dev,sys,proc}
-```
+Install `GRUB` and `ZFS` from the new system which will build the requirements
+to necessary to boot.
 
-Then mount the directories required for a successfull installation:
-
-```
-# mount -B /dev /mnt/void/dev
-# mount -t devpts pts /mnt/void/dev/pts
-# mount -t proc proc /mnt/void/proc
-# mount -t sysfs sys /mnt/void/sys
-```
-
-Install the base system onto the drive along with any other packages needed to
-assist in configuration: (ie. NetworkManager, Vim, Nano, etc.)
-
-`# xbps-install -S -R https://alpha.de.repo.voidlinux.org/current -r /mnt/void
-base-system grub zfs`
+`(chroot)# xbps-install -S -R $REPO grub zfs`
 
 ## GRUB Installation
-
-[Chroot(1)](https://man.voidlinux.org/chroot) into the new installation,
-invoking BASH to replace DASH as a more feature complete terminal, and
-specifying the terminal emulator to avoid errant behavior:
-
-`# TERM=linux chroot /mnt/void bash`
-
-Set the root password using [passwd(1)](https://man.voidlinux.org/passwd), which
-will prevent the user from being locked out at restart:
-
-`(chroot)# passwd root`
 
 Confirm the ZFS modules are loaded in the new system using
 [lsmod(8)](https://man.voidlinux.org/lsmod):
@@ -185,12 +148,8 @@ znvpair                69632  2 zfs,zcommon
 spl                   102400  5 zfs,icp,znvpair,zcommon,zavl
 ```
 
-Set the new machine's hostname, replacing zfshost with the name of the new
-machine:
-
-`(chroot)# echo zfshost >/etc/hostname`
-
-Setup the ZFS cachefile, to ensure the new machine recognizes the created pool.
+Setup the ZFS cachefile, to ensure the new machine recognizes the previously
+created pool.
 
 `(chroot)# zpool set cachefile=/etc/zfs/zpool.cache zroot`
 
@@ -198,7 +157,7 @@ Then notate the bootable system for GRUB's autoconfig:
 
 `(chroot)# zpool set bootfs=zroot/ROOT/void zroot`
 
-Also ensure GRUB recognizes the ZFS module.
+Ensure GRUB recognizes the ZFS module.
 
 > **Note:**
 > 
@@ -209,7 +168,7 @@ Also ensure GRUB recognizes the ZFS module.
 zfs
 ```
 
-Install GRUB onto the drive specifying the path to the drive:
+Install GRUB onto the drive specifying the path:
 
 ```
 (chroot)# ZPOOL_VDEV_NAME_PATH=1 grub-install /dev/sda
@@ -292,12 +251,6 @@ As well check that the ZFS cache is recognized:
 (chroot)# lsinitrd | grep zpool.cache
 -rw-r--r--   1 root     root         1376 Apr 17 01:30 etc/zfs/zpool.cache
 ```
-
-## Configuration
-
-For general system configuration please consult the [Date and
-Time](./../../config/date-time.md), [Rc Files](./../../config/rc-files.md), and
-[Locales](./../../config/locales.md) pages of the handbook.
 
 ## Cleanup
 
