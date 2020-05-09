@@ -88,7 +88,7 @@ compositors, and is installed as a dependency for most of them. Its package is
 The Wayland API uses the `XDG_RUNTIME_DIR` environment variable to determine the
 directory for the Wayland socket.
 
-Install `elogind` as your [session manager](./session-management.md) to
+Install `elogind` as your [session manager](../session-management.md) to
 automatically setup `XDG_RUNTIME_DIR`.
 
 Alternatively, manually set the environment variable through the shell. Make

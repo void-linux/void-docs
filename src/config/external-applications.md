@@ -57,10 +57,8 @@ system's files). Some of these issues can be fixed by installing one or more of
 the `xdg-desktop-portal`, `xdg-desktop-portal-gtk`, `xdg-user-dirs`,
 `xdg-user-dirs-gtk` or `xdg-utils` packages.
 
-Some Flatpaks require D-Bus. If you are using a window manager (e.g. i3wm), you
-can launch your window manager with
-[dbus-run-session(1)](https://man.voidlinux.org/dbus-run-session.1). Some
-Flatpaks can also require [Pulseaudio](./media/pulseaudio.md).
+Some Flatpaks require [D-Bus](./session-management.md#d-bus) and/or
+[Pulseaudio](./media/pulseaudio.md).
 
 ## Octave Packages
 
