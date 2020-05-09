@@ -76,15 +76,15 @@ disk
 
 `# zpool create -f -o ashift=12 -m none zroot dev`
 
-| Command      | Action                                                                                                                                         |
-|--------------|------------------------------------------------------------------------------------------------------------------------------------------------|
-| -f           | Force the creation of the pool                                                                                                                 |
-| -o ashift=12 | Set sector size to 4k **(Ignore on SSD's due to their design lacking sectors)**                                                                |
-|              | (On some older hardrives this will not provide any benefit as they may have smaller sectors, at which point it's best to ignore this argument) |
-| -m none      | Set the mountpoint to none                                                                                                                     |
-| zroot        | The name of the pool                                                                                                                           |
-| dev          | The device to be used in the creation of the pool                                                                                              |
-|              | (ie. ata-XXXXX-partX or wwn-XXXX-partX)                                                                                                        |
+| Command      | Action                                                                                       |
+|--------------|----------------------------------------------------------------------------------------------|
+| -f           | Force the creation of the pool                                                               |
+| -o ashift=12 | Set sector size to 4k **(Ignore on SSD's as their design lacks sectors)**                    |
+|              | (On some older hardrives this will not provide any benefit as they may have smaller sectors) |
+| -m none      | Set the mountpoint to none                                                                   |
+| zroot        | The name of the pool                                                                         |
+| dev          | The device to be used in the creation of the pool                                            |
+|              | (ie. ata-XXXXX-partX or wwn-XXXX-partX)                                                      |
 
 To ensure the pool's creation was successful use:
 
