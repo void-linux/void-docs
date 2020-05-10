@@ -45,12 +45,11 @@ of device brands and their driver packages.
 Void also provides proprietary video drivers, which are available in the
 [non-free](../../xbps/repositories/official/nonfree.md) repository.
 
-| Brand      | Type        | Model                           | Driver Package |
-|------------|-------------|---------------------------------|----------------|
-| ATI/Radeon | Proprietary |                                 | `catalyst`     |
-| NVIDIA     | Proprietary | 500+                            | `nvidia`       |
-| NVIDIA     | Proprietary | 300/400 Series                  | `nvidia390`    |
-| NVIDIA     | Proprietary | GeForce8/9 + 100/200/300 Series | `nvidia340`    |
+| Brand  | Type        | Model                           | Driver Package |
+|--------|-------------|---------------------------------|----------------|
+| NVIDIA | Proprietary | 500+                            | `nvidia`       |
+| NVIDIA | Proprietary | 300/400 Series                  | `nvidia390`    |
+| NVIDIA | Proprietary | GeForce8/9 + 100/200/300 Series | `nvidia340`    |
 
 ## Input Drivers
 
