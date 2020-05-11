@@ -24,8 +24,5 @@ package and enable the `avahi-daemon` service.
 ## Display Manager
 
 To use a graphical display manager for logging in to GNOME, enable the `gdm`
-service. Test the `gdm` service before enabling it:
-
-```
-# runsv /etc/sv/gdm
-```
+service. You should [test the
+service](../services/managing.html#testing-services) before enabling it.
