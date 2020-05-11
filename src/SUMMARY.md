@@ -15,7 +15,6 @@
       - [Full Disk Encryption](./installation/guides/fde.md)
 - [Configuration](./config/index.md)
    - [musl](./config/musl.md)
-   - [Post Installation](./config/post-install.md)
    - [Locales](./config/locales.md)
    - [Users and groups](./config/users-and-groups.md)
    - [Services And Daemons](./config/services/index.md)
