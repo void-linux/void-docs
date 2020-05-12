@@ -13,8 +13,8 @@ As an example, create a service `/etc/sv/runsvdir-<username>` with the following
 ```
 #!/bin/sh
 
-export USER="${PWD##*-}"
-export HOME="$(getent passwd "$USER" | cut -d: -f6)"
+export USER="<username>"
+export HOME="/home/<username>"
 
 groups="$(id -Gn "$USER" | tr ' ' ':')"
 svdir="$HOME/service"
@@ -27,7 +27,8 @@ new [runsvdir(8)](https://man.voidlinux.org/runsvdir.8) process as the specified
 user. [chpst(8)](https://man.voidlinux.org/chpst.8) does not read groups on its
 own, but expects the user to list all required groups separated by a `:`. The
 `id` and `tr` pipe is used to create a list of all the user's groups in a way
-[chpst(8)](https://man.voidlinux.org/chpst.8) understands it.
+[chpst(8)](https://man.voidlinux.org/chpst.8) understands it. Note that we
+export `$USER` and `$HOME` because some user services may not work without them.
 
 The user can then create new services or symlinks to them in the
 `/home/<username>/service` directory. To control the services using the
