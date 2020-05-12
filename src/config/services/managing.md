@@ -70,6 +70,19 @@ currently running:
 # rm /etc/runit/runsvdir/default/<service>
 ```
 
+### Testing services
+
+To check if a service is working correctly when started by the service
+supervisor, run it once before fully enabling it:
+
+```
+# touch /etc/sv/<service>/down
+# ln -s /etc/sv/<service> /var/service
+# sv once <service>
+```
+
+If everything works, remove the `down` file to enable the service.
+
 ## Runsvdirs
 
 A `runsvdir` is a directory in `/etc/runit/runsvdir` containing enabled
