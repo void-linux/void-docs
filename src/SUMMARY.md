@@ -16,7 +16,7 @@
 - [Configuration](./config/index.md)
    - [musl](./config/musl.md)
    - [Locales](./config/locales.md)
-   - [Users and groups](./config/users-and-groups.md)
+   - [Users and Groups](./config/users-and-groups.md)
    - [Services And Daemons](./config/services/index.md)
       - [Managing Services](./config/services/managing.md)
       - [Configuring Services](./config/services/configuring.md)
