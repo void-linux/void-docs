@@ -1,6 +1,37 @@
-# Users and groups
+# Users and Groups
 
-## Default groups
+The [useradd(8)](https://man.voidlinux.org/useradd.8),
+[userdel(8)](https://man.voidlinux.org/userdel.8) and
+[usermod(8)](https://man.voidlinux.org/usermod.8) commands are used to add,
+delete and modify users respectively. The
+[passwd(1)](https://man.voidlinux.org/passwd.1) command is used to change
+passwords.
+
+The [groupadd(8)](https://man.voidlinux.org/groupadd.8),
+[groupdel(8)](https://man.voidlinux.org/groupdel.8) and
+[groupmod(8)](https://man.voidlinux.org/groupmod.8) commands are used to add,
+delete and modify groups respectively. The
+[groups(1)](https://man.voidlinux.org/groups.1) command lists all groups a user
+belongs to.
+
+## sudo
+
+> Note: [sudo(8)](https://man.voidlinux.org/sudo.8) is installed by default but
+> may not be configured. It is only necessary to configure sudo if you wish to
+> use it.
+
+Use [visudo(8)](https://man.voidlinux.org/visudo.8) as root to edit the
+[sudoers(5)](https://man.voidlinux.org/sudoers.5) file.
+
+To create a superuser, uncomment the line
+
+```
+#%wheel ALL=(ALL) ALL
+```
+
+and add users to the `wheel` group.
+
+## Default Groups
 
 Void Linux defines a number of groups by default.
 
