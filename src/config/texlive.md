@@ -59,13 +59,13 @@ To install the collection:
 To install a standalone package, first check if the package exists:
 
 ```
-$ tlmgr search --global <package-name>
+$ tlmgr search --global <package>
 ```
 
 and then install it:
 
 ```
-# tlmgr install <package_name>
+# tlmgr install <package>
 ```
 
 To find the package providing a particular file (for example, a font):
@@ -77,7 +77,7 @@ $ tlmgr search --file <filename> --global
 To remove a package or a collection:
 
 ```
-# tlmgr remove <package_name>
+# tlmgr remove <package>
 ```
 
 To update installed packages:
