@@ -14,8 +14,8 @@ following minimums for most installations:
 
 Void is not available for i386, i486, or i586 architectures.
 
-Before installing musl Void, please read [the "musl" section](../config/musl.md)
-of this Handbook, so that you are aware of software incompatibilities.
+Before installing musl Void, please read [the "musl" section](./musl.md) of this
+Handbook, so that you are aware of software incompatibilities.
 
 It is highly recommended to have a network connection available during install
 to download updates, but this is not required. ISO images contain installation
