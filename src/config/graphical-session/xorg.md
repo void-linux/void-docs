@@ -97,6 +97,14 @@ exec /bin/i3
 
 Then call `startx` to start an i3 session.
 
+If a D-BUS session bus is required, use
+[dbus-run-session(1)](https://man.voidlinux.org/dbus-run-session.1). For
+example:
+
+```
+exec dbus-run-session /bin/i3
+```
+
 ### Display Managers
 
 Display managers (DMs) provide a graphical login UI. A number of DMs are
