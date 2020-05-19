@@ -2,14 +2,14 @@
 
 This installation guide shows how to convert a Live USB of Void Linux into a
 Full Pervasive Install. It's recommended to use a machine with at least 4GB of
-RAM, and a USB with at least 4GB of storage.
+RAM, and a USB with at least 4GB of storage to perform the installation.
 
 ## Setup
 
-If it has not been done so already, [download](./../live-images/downloading.md)
-a Void Live iso and [write it to a USB](./../live-images/prep.md).
+To begin [download](./../live-images/downloading.md) a Void Live ISO and [write it to a USB](./../live-images/prep.md).
 
-To begin, boot into the RAM option when prompted in GRUB.
+To modify the same device that the Operating System was booted from the root filesystem must first be placed elsewhere, in this case the RAM.
+This can be done from the Live USB by choosing the RAM option when prompted at boot:
 
 ```
 Void Linux
@@ -17,16 +17,12 @@ Void Linux
 Boot First HD Found by BIOS
 ```
 
-Then un-mount the USB from the system, which allows the machine to continue
-running even without the media (as root has been placed entirely in RAM), which
-in turn allows for modifications to be made to the USB.
+And un-mounting the remaining connection between the USB and the system:
 
-```
-# umount /run/initramfs/live
-```
+`# umount /run/initramfs/live`
 
-Locate the USB using [fdisk(8)](https://man.voidlinux.org/fdisk) or
-[lsblk(8)](https://man .voidlinux.org/lsblk):
+Then locate the USB using [fdisk(8)](https://man.voidlinux.org/fdisk) or
+[lsblk(8)](https://man.voidlinux.org/lsblk):
 
 `# fdisk -l`
 
@@ -45,5 +41,5 @@ Locate the USB using [fdisk(8)](https://man.voidlinux.org/fdisk) or
 
 ## Installation
 
-To continue, follow the [chroot installation guide](), which details the rest of
+To continue the installation, follow the [chroot install guide](./), which continues to detail the rest of
 the installation process.

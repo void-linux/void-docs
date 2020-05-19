@@ -72,15 +72,19 @@ lrwxrwxrwx 1 root root 10 Apr 16 17:34 wwn-0x5000cca373e0f5d9-part2 -> ../../sda
 ```
 
 Create a pool specifying the previously created Solaris Root Partition from the
-disk
+disk:
 
-`# zpool create -f -o ashift=12 -m none zroot dev`
+> **Note:**
+>
+> Many users with Advanced Format hard drives will want to also add the
+> `-o ahisft=12` argument. This sets the drive's logical sectors to 4k in size.
+
+
+`# zpool create -f -m none zroot dev`
 
 | Command      | Action                                                                                       |
 |--------------|----------------------------------------------------------------------------------------------|
 | -f           | Force the creation of the pool                                                               |
-| -o ashift=12 | Set sector size to 4k **(Ignore on SSD's as their design lacks sectors)**                    |
-|              | (On some older hardrives this will not provide any benefit as they may have smaller sectors) |
 | -m none      | Set the mountpoint to none                                                                   |
 | zroot        | The name of the pool                                                                         |
 | dev          | The device to be used in the creation of the pool                                            |
@@ -122,12 +126,12 @@ alternate mountpoint:
 
 > **Important:**
 > 
-> *To continue the installation process see the [chroot installation guide]() on
+> *To continue the installation process see the [chroot install guide](./) on
 > how to complete the base-installation, chroot into the new environment, and
 > setup a basic configuration.*
 
-Install `GRUB` and `ZFS` from the new system which will build the requirements
-to necessary to boot.
+Following the chroot guide, install `grub` and `zfs` from the new system which will build the requirements
+necessary to boot.
 
 `(chroot)# xbps-install -S -R $REPO grub zfs`
 
@@ -149,7 +153,7 @@ spl                   102400  5 zfs,icp,znvpair,zcommon,zavl
 ```
 
 Setup the ZFS cachefile, to ensure the new machine recognizes the previously
-created pool.
+created pool properly.
 
 `(chroot)# zpool set cachefile=/etc/zfs/zpool.cache zroot`
 
@@ -157,11 +161,11 @@ Then notate the bootable system for GRUB's autoconfig:
 
 `(chroot)# zpool set bootfs=zroot/ROOT/void zroot`
 
-Ensure GRUB recognizes the ZFS module.
+Finally ensure GRUB recognizes the ZFS module before being installed.
 
 > **Note:**
 > 
-> When using id's set the ZPOOL_VDEV_NAME_PATH variable to 1.
+> When using id's the ZPOOL_VDEV_NAME_PATH variable must be set to 1.
 
 ```
 (chroot)# ZPOOL_VDEV_NAME_PATH=1 grub-probe /
