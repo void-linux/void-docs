@@ -63,13 +63,13 @@ For example:
 # vi /etc/fstab
 ```
 
-And not:
+and not:
 
 ```
 $ sudo vi /etc/fstab
 ```
 
-And also not:
+and also not:
 
 ```
 vi /etc/fstab
@@ -77,20 +77,37 @@ vi /etc/fstab
 
 ## Links
 
-### Internal links
-
-Links to other sections of the Handbook must be relative. For example:
+Link text should not include sentence-level punctuation. For example:
 
 ```
-[example](./example.html#heading)
-
+[Visit this site](https://example.org).
 ```
 
 and not:
 
 ```
-[example](example.html#heading)
+[Visit this site.](https://example.org)
 ```
+
+### Internal links
+
+Links to other sections of the Handbook must be relative. For example:
+
+```
+[example](./example.md#heading-text)
+```
+
+and not:
+
+```
+[example](example.md#heading-text)
+```
+
+Command code-blocks should be introduced with a colon (':'), i.e.:
+
+> For example:
+> 
+> `$ ls -l`
 
 ### Man Page Links
 
@@ -157,3 +174,24 @@ that may not be as clear to an ESL reader.
 This version contains a clear command to act, and a follow up that shows what
 will be done next. It is clear both to native English speakers, ESL readers, and
 to translators.
+
+## Notes
+
+Notes should only be used sparingly, and for non-critical information. They
+should begin with "Note: ", and not be block-quoted with `>`. For example, the
+Markdown should look like:
+
+```
+Note: You can also use program X for this purpose.
+```
+
+and not:
+
+```
+> You can also use program X for this purpose.
+```
+
+## Block quotes
+
+Block quotes (i.e. `>`) should only be used to quote text from an external
+source.
