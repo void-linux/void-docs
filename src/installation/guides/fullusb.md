@@ -6,10 +6,12 @@ RAM, and a USB with at least 4GB of storage to perform the installation.
 
 ## Setup
 
-To begin [download](./../live-images/downloading.md) a Void Live ISO and [write it to a USB](./../live-images/prep.md).
+To begin [download](./../live-images/downloading.md) a Void Live ISO and [write
+it to a USB](./../live-images/prep.md).
 
-To modify the same device that the Operating System was booted from the root filesystem must first be placed elsewhere, in this case the RAM.
-This can be done from the Live USB by choosing the RAM option when prompted at boot:
+To modify the same device that the Operating System was booted from the root
+filesystem must first be placed elsewhere, in this case the RAM. This can be
+done from the Live USB by choosing the RAM option when prompted at boot:
 
 ```
 Void Linux
@@ -41,5 +43,5 @@ Then locate the USB using [fdisk(8)](https://man.voidlinux.org/fdisk) or
 
 ## Installation
 
-To continue the installation, follow the [chroot install guide](./), which continues to detail the rest of
-the installation process.
+To continue the installation, follow the [chroot install guide](./), which
+continues to detail the rest of the installation process.

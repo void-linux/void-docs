@@ -75,20 +75,19 @@ Create a pool specifying the previously created Solaris Root Partition from the
 disk:
 
 > **Note:**
->
-> Many users with Advanced Format hard drives will want to also add the
-> `-o ahisft=12` argument. This sets the drive's logical sectors to 4k in size.
-
+> 
+> Many users with Advanced Format hard drives will want to also add the `-o
+> ahisft=12` argument. This sets the drive's logical sectors to 4k in size.
 
 `# zpool create -f -m none zroot dev`
 
-| Command      | Action                                                                                       |
-|--------------|----------------------------------------------------------------------------------------------|
-| -f           | Force the creation of the pool                                                               |
-| -m none      | Set the mountpoint to none                                                                   |
-| zroot        | The name of the pool                                                                         |
-| dev          | The device to be used in the creation of the pool                                            |
-|              | (ie. ata-XXXXX-partX or wwn-XXXX-partX)                                                      |
+| Command | Action                                            |
+|---------|---------------------------------------------------|
+| -f      | Force the creation of the pool                    |
+| -m none | Set the mountpoint to none                        |
+| zroot   | The name of the pool                              |
+| dev     | The device to be used in the creation of the pool |
+|         | (ie. ata-XXXXX-partX or wwn-XXXX-partX)           |
 
 To ensure the pool's creation was successful use:
 
@@ -126,12 +125,9 @@ alternate mountpoint:
 
 > **Important:**
 > 
-> *To continue the installation process see the [chroot install guide](./) on
-> how to complete the base-installation, chroot into the new environment, and
-> setup a basic configuration.*
 
-Following the chroot guide, install `grub` and `zfs` from the new system which will build the requirements
-necessary to boot.
+Following the chroot guide, install `grub` and `zfs` from the new system which
+will build the requirements necessary to boot.
 
 `(chroot)# xbps-install -S -R $REPO grub zfs`
 
