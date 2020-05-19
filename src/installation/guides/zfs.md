@@ -124,7 +124,6 @@ alternate mountpoint:
 ```
 
 > **Important:**
-> 
 
 Following the chroot guide, install `grub` and `zfs` from the new system which
 will build the requirements necessary to boot.

@@ -6,8 +6,8 @@ RAM, and a USB with at least 4GB of storage to perform the installation.
 
 ## Setup
 
-To begin [download](./../live-images/downloading.md) a Void Live ISO and [write
-it to a USB](./../live-images/prep.md).
+To begin [download](./../downloading.md) a Void Live ISO and [write it to a
+USB](./../live-images/prep.md).
 
 To modify the same device that the Operating System was booted from the root
 filesystem must first be placed elsewhere, in this case the RAM. This can be
