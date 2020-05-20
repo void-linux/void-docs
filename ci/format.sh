@@ -49,7 +49,13 @@ if [ ! -z "$(git status --porcelain)" ] ; then
     VMDFMT=1
 fi
 
+# Check SUMMARY.md
+echo ""
+echo "Checking SUMMARY.md"
+./ci/check-summary.sh
+SUMMARY=$?
+
 # Generate exit value
-if [ ! -z $VMDFMT ] || [ ! $LINKCHECK -eq 0 ] ; then
+if [ ! -z $VMDFMT ] || [ ! $LINKCHECK -eq 0 ] || [ ! $SUMMARY -eq 0 ] ; then
     exit 2
 fi
