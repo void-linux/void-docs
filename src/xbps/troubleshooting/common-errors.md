@@ -45,7 +45,7 @@ this error is shown below.
 ```
 
 In this situation, it is necessary to follow the steps in
-(xbps-static)[./static.md].
+[xbps-static](./static.md).
 
 ## Broken systems
 
