@@ -81,6 +81,7 @@
       - [Custom Repositories](./xbps/repositories/custom.md)
       - [Signing Repositories](./xbps/repositories/signing.md)
    - [Troubleshooting](./xbps/troubleshooting/index.md)
+      - [Common Errors](./xbps/troubleshooting/common-errors.md)
       - [Static XBPS](./xbps/troubleshooting/static.md)
 - [Contributing](./contributing/index.md)
    - [Usage Statistics](./contributing/usage-statistics.md)
