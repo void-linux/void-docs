@@ -41,7 +41,8 @@ Device      Start       End   Sectors  Size Type
 ```
 
 Configure the encrypted volume. `cryptsetup` defaults to LUKS2, yet `grub`
-currently only has support for LUKS1, so it is critical to force LUKS1.
+currently only has support for LUKS1, so it is critical to force LUKS1. Keep in
+mind this will be `/dev/sda2` on EFI systems.
 
 ```
 # cryptsetup luksFormat --type luks1 /dev/sda1
@@ -56,7 +57,7 @@ Verify passphrase:
 ```
 
 Once the volume is created, it needs to be opened. Replace voidvm with an
-appropriate name.
+appropriate name. Again, this will be `/dev/sda2` on EFI systems.
 
 ```
 # cryptsetup luksOpen /dev/sda1 voidvm      
@@ -219,7 +220,8 @@ Change the permissions to protect generated the key.
 # chmod -R g-rwx,o-rwx /boot
 ```
 
-This keyfile also needs to be added to `/etc/crypttab`.
+This keyfile also needs to be added to `/etc/crypttab`. Again, this will be
+`/dev/sda2` on EFI systems.
 
 ```
 voidvm   /dev/sda1   /boot/volume.key   luks
