@@ -310,3 +310,74 @@ body {
 		display: none;
 	}
 }
+
+@media (prefers-color-scheme: dark) {
+	body {
+		color: #ccc;
+		background-color: #333;
+	}
+	h1, h2, h3, h4, h5, h6 { color: #ccc; }
+	a {
+		color: #62b086;
+	}
+	a:hover {
+		color: #ccc;
+	}
+
+	code {
+		background: #264434;
+	}
+	pre {
+		background: #264434;
+		border: 1px solid #192d22;
+	}
+
+	blockquote {
+		background: #514749;
+		border: 1px solid #222;
+	}
+	table td {
+		border: 1px #353535 solid;
+	}
+	table thead {
+		background: #353535;
+	}
+	table tbody tr:nth-child(2n) {
+		background: #353535;
+	}
+
+	/* nav */
+	#void-nav ul li a:hover,
+	#void-nav ul li a:focus,
+	#void-nav button:hover,
+	#void-nav button:focus,
+	#void-nav label:hover,
+	#void-nav label:focus {
+		background: #333;
+	}
+
+	/* sidebar  */
+	#sidebar {
+		background: #353535;
+	}
+	#sidebar a {
+		color: #ccc;
+	}
+	#sidebar a:hover {
+		color: #62b086;
+	}
+	#sidebar a.active {
+		color: #62b086;
+	}
+
+	/* search */
+	#searchbar {
+		background-color: #333;
+		color: #ccc;
+	}
+
+	/* chapter navigation */
+	.nav-chapters:hover {
+		fill: #fff
+	}
+}
