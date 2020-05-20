@@ -1,4 +1,4 @@
-# Common errors
+# Common Errors
 
 ## Errors while updating or installing packages
 
