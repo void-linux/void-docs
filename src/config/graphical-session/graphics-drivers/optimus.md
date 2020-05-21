@@ -51,7 +51,7 @@ Offloading Graphics Display with RandR 1.4
 - allows to switch to the NVIDIA GPU on a per-application basis
 - `nouveau` is a reverse-engineered driver and offers poor performance
 
-> Note: different methods are mutually exclusive.
+The above methods are mutually exclusive.
 
 ## PRIME Render Offload
 
@@ -84,7 +84,7 @@ For more information, see NVIDIA's
 
 Enable the `bumblebeed` service and add the user to the `bumblebee` group.
 
-> Note: This requires a re-login to be effective.
+Note: This requires a re-login to be effective.
 
 Run the application to be rendered on the NVIDIA GPU with `optirun`:
 
@@ -100,9 +100,8 @@ $ optirun glxinfo | grep "renderer string"
 
 ## Nouveau PRIME
 
-> Note: This method uses the open source `nouveau` driver, which is blacklisted
-> by NVIDIA drivers. Uninstall any NVIDIA driver present on your system and
-> reboot.
+Note: This method uses the open source `nouveau` driver, which is blacklisted by
+NVIDIA drivers. Uninstall any NVIDIA driver present on your system and reboot.
 
 Set `DRI_PRIME=1` to run an application on the NVIDIA GPU:
 

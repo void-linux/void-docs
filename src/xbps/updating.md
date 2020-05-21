@@ -7,9 +7,9 @@ Like any other system, it is important to keep Void up-to-date. Use
 # xbps-install -Su
 ```
 
-XBPS must use a separate transaction to update itself. If your update includes
-the `xbps` package, you will need to run the above command a second time to
-apply the rest of the updates.
+XBPS must use a separate transaction to update itself. If your first update
+includes the package `xbps`, you will need to run an additional update for the
+rest of the system.
 
 ## Restarting Services
 

@@ -21,9 +21,9 @@ Then, add your user to the `bluetooth` group and restart the `dbus` service, or
 simply reboot the system. Note that restarting the `dbus` service may kill
 processes making use of it.
 
-> Note: To use an audio device such as a wireless speaker or headset, ALSA users
-> need to install the `bluez-alsa` package, while
-> [PulseAudio](./media/pulseaudio.md) users do not need any additional software.
+To use an audio device such as a wireless speaker or headset, ALSA users need to
+install the `bluez-alsa` package, while [PulseAudio](./media/pulseaudio.md)
+users do not need any additional software.
 
 ## Usage
 

@@ -9,8 +9,8 @@ following minimums for most installations:
 | x86_64-musl  | x86_64           | 96MB | 600MB   |
 | i686-glibc   | Pentium 4 (SSE2) | 96MB | 700MB   |
 
-> Note: Flavor installations require more resources. How much more depends on
-> the flavor.
+Note: Flavor installations require more resources. How much more depends on the
+flavor.
 
 Void is not available for i386, i486, or i586 architectures.
 

@@ -47,8 +47,8 @@ Flatpak is another method for installing external proprietary applications on
 Linux. For information on using Flatpak with Void Linux, see the [official
 Flatpak documentation](https://flatpak.org/setup/Void%20Linux/).
 
-> Flatpak's sandboxing will not necessarily protect you from any security and/or
-> privacy-violating features of proprietary software.
+**Warning:** Flatpak's sandboxing will not necessarily protect you from any
+security and/or privacy-violating features of proprietary software.
 
 ### Troubleshooting
 

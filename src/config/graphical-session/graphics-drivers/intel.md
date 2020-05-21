@@ -9,8 +9,8 @@ dependency. If you installed a version-specific kernel package (e.g.,
 
 Install the Mesa DRI package, `mesa-dri`.
 
-> Note: This is already included in the `xorg` meta-package, but it is needed
-> when installing xorg via `xorg-minimal` or for running a Wayland compositor.
+Note: This is already included in the `xorg` meta-package, but it is needed when
+installing Xorg via `xorg-minimal` or for running a Wayland compositor.
 
 ## Vulkan
 

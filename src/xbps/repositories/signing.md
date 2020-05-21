@@ -33,4 +33,4 @@ Afterwards sign one or more packages with the following command:
 $ xbps-rindex --privkey private.pem --sign-pkg /path/to/repository/dir/*.xbps
 ```
 
-> Note: Future packages will not be automatically signed.
+Future packages will not be automatically signed.

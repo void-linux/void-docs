@@ -3,9 +3,9 @@
 Once you have [downloaded](../downloading.md) a Void image to install and
 [prepared](./prep.md) your install media, you are ready to install Void Linux.
 
-> Note: before you begin installation, you should determine whether your machine
-> boots using BIOS or UEFI. This will affect how you plan partitions. See
-> [Partitioning Notes](./partitions.md) for more detail.
+Note: before you begin installation, you should determine whether your machine
+boots using BIOS or UEFI. This will affect how you plan partitions. See
+[Partitioning Notes](./partitions.md) for more detail.
 
 ## Booting
 
@@ -42,8 +42,8 @@ To install packages provided on the install image, select `Local`. Otherwise,
 you may select `Network` to download the latest packages from the Void
 repository.
 
-> Note: if you are installing a desktop environment from a ''flavor'' image, you
-> MUST choose `Local` for the source!
+**Warning:** if you are installing a desktop environment from a "flavor" image,
+you must choose `Local` for the source!
 
 ## Hostname
 
@@ -86,12 +86,12 @@ list of disks. Select the disk you want to partition and the installer will
 launch `cfdisk` for that disk. Remember you must write the partition table to
 the drive before you exit the partition editor.
 
-> UEFI users are recommended to select GPT for the partition table and create a
-> partition (typically between 200MB-1GB) of type `EFI System` which will be
-> mounted at `/boot/efi`.
-> 
-> BIOS users are recommended to choose MBR. Advanced users may use GPT but will
-> need to create a special BIOS partition for `grub` to boot.
+UEFI users are recommended to select GPT for the partition table and create a
+partition (typically between 200MB-1GB) of type `EFI System` which will be
+mounted at `/boot/efi`.
+
+BIOS users are recommended to choose MBR. Advanced users may use GPT but will
+need to create a special BIOS partition for `grub` to boot.
 
 See the [Partitioning Notes](./partitions.md) for more details about
 partitioning your disk.
@@ -103,8 +103,7 @@ you will be prompted to choose a filesystem type, whether you want to create a
 new filesystem on the partition, and a mount point, if applicable. When you are
 finished, select `Done` to return to the main menu.
 
-> UEFI users will need to create a `vfat` filesystem, and mount it at
-> `/boot/efi`.
+UEFI users will need to create a `vfat` filesystem, and mount it at `/boot/efi`.
 
 ## Review settings
 

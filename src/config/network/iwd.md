@@ -7,9 +7,9 @@ for Linux that aims to replace [WPA supplicant](./wpa_supplicant.md).
 
 Install the `iwd` package and enable the `dbus` and `iwd` services.
 
-> Note: To use EAP-TLS, EAP-TTLS, and EAP-PEAP based configurations, version
-> ≥4.20 of the kernel is required. Previous kernel versions do not include the
-> necessary cryptographic authentication modules.
+Note: To use EAP-TLS, EAP-TTLS, and EAP-PEAP based configurations, version
+≥4.20 of the kernel is required. Previous kernel versions do not include the
+necessary cryptographic authentication modules.
 
 ## Usage
 
@@ -19,8 +19,8 @@ as arguments; when run without arguments, it provides an interactive session. To
 list available commands, run either `iwctl help` or enter `help` at the
 interactive prompt.
 
-> Note: By default, only the root user and those in the `wheel` group have
-> permission to operate `iwctl`.
+Note: By default, only the root user and those in the `wheel` group have
+permission to operate `iwctl`.
 
 ## Configuration
 

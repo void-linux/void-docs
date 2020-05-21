@@ -16,9 +16,9 @@ belongs to.
 
 ## sudo
 
-> Note: [sudo(8)](https://man.voidlinux.org/sudo.8) is installed by default but
-> may not be configured. It is only necessary to configure sudo if you wish to
-> use it.
+Note: [sudo(8)](https://man.voidlinux.org/sudo.8) is installed by default but
+may not be configured. It is only necessary to configure sudo if you wish to use
+it.
 
 Use [visudo(8)](https://man.voidlinux.org/visudo.8) as root to edit the
 [sudoers(5)](https://man.voidlinux.org/sudoers.5) file.
