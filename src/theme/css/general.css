@@ -325,11 +325,11 @@ body {
 	}
 
 	code {
-		background: #264434;
+		background: inherit;
 	}
 	pre {
-		background: #264434;
-		border: 1px solid #192d22;
+		background: #514749;
+		border: 1px solid #222;
 	}
 
 	blockquote {
@@ -337,13 +337,13 @@ body {
 		border: 1px solid #222;
 	}
 	table td {
-		border: 1px #353535 solid;
+		border: 1px #3c3c3c solid;
 	}
 	table thead {
-		background: #353535;
+		background: #3c3c3c;
 	}
 	table tbody tr:nth-child(2n) {
-		background: #353535;
+		background: #3c3c3c;
 	}
 
 	/* nav */
