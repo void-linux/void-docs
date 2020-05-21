@@ -314,7 +314,7 @@ body {
 @media (prefers-color-scheme: dark) {
 	body {
 		color: #ccc;
-		background-color: #333;
+		background-color: #222;
 	}
 	h1, h2, h3, h4, h5, h6 { color: #ccc; }
 	a {
@@ -328,22 +328,33 @@ body {
 		background: inherit;
 	}
 	pre {
-		background: #514749;
-		border: 1px solid #222;
+		background: #353535;
+		border: 1px solid #111;
 	}
 
 	blockquote {
-		background: #514749;
-		border: 1px solid #222;
+		background: inherit;
+		border-left: .2em solid #ccc;
+		border-right: none;
+		border-top: none;
+		border-bottom: none;
+		padding-top: .5em;
+		padding-bottom: .5em;
+		padding-left: 1em;
+		padding-right: 1em;
+		margin-left: 1em;
+	}
+	blockquote code {
+		color: #62b086;
 	}
 	table td {
-		border: 1px #3c3c3c solid;
+		border: 1px #2c2c2c solid;
 	}
 	table thead {
-		background: #3c3c3c;
+		background: #2c2c2c;
 	}
 	table tbody tr:nth-child(2n) {
-		background: #3c3c3c;
+		background: #2c2c2c;
 	}
 
 	/* nav */
@@ -353,12 +364,16 @@ body {
 	#void-nav button:focus,
 	#void-nav label:hover,
 	#void-nav label:focus {
-		background: #333;
+		background: #222;
+	}
+
+	#void-nav {
+		background: #295340;
 	}
 
 	/* sidebar  */
 	#sidebar {
-		background: #353535;
+		background: #252525;
 	}
 	#sidebar a {
 		color: #ccc;
@@ -372,7 +387,7 @@ body {
 
 	/* search */
 	#searchbar {
-		background-color: #333;
+		background-color: #222;
 		color: #ccc;
 	}
 
