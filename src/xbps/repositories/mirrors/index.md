@@ -2,7 +2,7 @@
 
 Void Linux maintains mirrors in several geographic regions for you to use. A
 fresh install will default to using the master mirror in Europe, but you may
-also [select a different mirror](changing.md) manually.
+also [select a different mirror](./changing.md) manually.
 
 ## Tier 1 mirrors
 
@@ -38,5 +38,5 @@ sub-repository.
 
 ## Tor Mirrors
 
-Void Linux is also mirrored on the Tor network. See [Using Tor Mirrors](tor.md)
-for more information.
+Void Linux is also mirrored on the Tor network. See [Using Tor
+Mirrors](./tor.md) for more information.
