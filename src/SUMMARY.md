@@ -58,6 +58,7 @@
    - [External Applications](./config/external-applications.md)
    - [Printing](./config/print/index.md)
    - [Manual Pages](./config/man.md)
+   - [chroot rootfs](./config/chroot-rootfs.md)
 - [XBPS Package Manager](./xbps/index.md)
    - [Advanced Usage](./xbps/advanced-usage.md)
    - [Repositories](./xbps/repositories/index.md)
