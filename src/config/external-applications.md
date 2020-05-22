@@ -65,3 +65,8 @@ Some Flatpaks require [D-Bus](./session-management.md#d-bus) and/or
 Some Octave packages require external dependencies to compile and run. For
 example, to build the control package, you must install the `openblas-devel`,
 `libgomp-devel`, `libgfortran-devel`, `gcc-fortran`, and `gcc` packages.
+
+## MATLAB
+
+To use MATLAB's help browser, live scripts, add-on installer, and simulink,
+install the `libselinux` package.
