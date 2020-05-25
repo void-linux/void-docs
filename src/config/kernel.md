@@ -18,8 +18,10 @@ modules.
 
 When updating the kernel, old versions are left behind in case it is necessary
 to roll back to an older version. Over time, old kernel versions can accumulate,
-consuming disk space and increasing the time taken by dkms module updates. Thus,
-it may be advisable to clean old kernels from time to time.
+consuming disk space and increasing the time taken by dkms module updates.
+Furthermore, if `/boot` is a separate partition and fills up with old kernels,
+it can cause a kernel panic. Thus, it may be advisable to clean old kernels from
+time to time.
 
 Removing old kernels is done using the
 [vkpurge(8)](https://man.voidlinux.org/vkpurge.8) utility. `vkpurge` comes
