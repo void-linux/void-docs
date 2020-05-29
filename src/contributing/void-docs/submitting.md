@@ -26,9 +26,9 @@ Once you have an account, follow GitHub's
 Clone the repository onto your computer, enter it, and create a new branch:
 
 ```
-$ git clone https://github.com/<YOUR_USERNAME>/void-docs.git
+$ git clone https://github.com/<your_username>/void-docs.git
 $ cd void-docs
-$ git checkout -b <BRANCH_NAME>
+$ git checkout -b <branch_name>
 ```
 
 You can then edit the repository files as appropriate. To serve the docs locally
@@ -38,12 +38,12 @@ Once you are satisfied with your changes, commit them and push them to the
 forked repository:
 
 ```
-$ git add <EDITED_FILE(S)>
-$ git commit -m "<COMMIT_MESSAGE>"
-$ git push --set-upstream origin <BRANCH_NAME>
+$ git add <edited_file(s)>
+$ git commit -m "<commit_message>"
+$ git push --set-upstream origin <branch_name>
 ```
 
-The commit message should be in the form `<FILENAME>: <DESCRIPTION_OF_CHANGES>`.
+The commit message should be in the form `<filename>: <description_of_changes>`.
 
 Pull requests should only contain a single commit. If a change is made after the
 initial commit, `git add` the changed files and then run `git commit --amend`.
