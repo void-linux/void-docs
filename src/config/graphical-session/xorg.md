@@ -24,21 +24,28 @@ Void provides both open-source and proprietary (non-free) video drivers.
 
 ### Open Source Drivers
 
-The open source drivers are installed with the `xorg` package by default, or may
-be installed individually if the `xorg-minimal` was installed. Below is a table
-of device brands and their driver packages.
+Xorg can use two categories of open source drivers: DDX or modesetting.
 
-| Brand  | Type        | Driver Package       |
-|--------|-------------|----------------------|
-| AMD    | Open Source | `xf86-video-amdgpu`  |
-| ATI    | Open Source | `xf86-video-ati`     |
-| Intel  | Open Source | `xf86-video-intel`   |
-| NVIDIA | Open Source | `xf86-video-nouveau` |
+#### DDX
 
-> Note: Fourth generation Intel users may want to use the default xorg driver,
-> rather than installing `xf86-video-intel` driver package. For more
-> information, see the [Arch wiki
-> page](https://wiki.archlinux.org/index.php/Intel_graphics#Installation).
+The DDX drivers are installed with the `xorg` package by default, or may be
+installed individually if the `xorg-minimal` package was installed. They are
+provided by the `xf86-video-*` packages.
+
+For advanced configuration, see the man page corresponding to the vendor name,
+like [intel(4)](https://man.voidlinux.org/intel.4).
+
+#### Modesetting
+
+Modesetting requires the `mesa-dri` package, and no additional vendor-specific
+driver package.
+
+Xorg defaults to DDX drivers if they are present, so in this case modesetting
+must be explicitly selected: see [Forcing the modesetting
+driver](#forcing-the-modesetting-driver).
+
+For advanced configuration, see
+[modesetting(4)](https://man.voidlinux.org/modesetting.4).
 
 ### Proprietary Drivers
 
@@ -76,6 +83,25 @@ Section "InputClass"
   MatchIsKeyboard "on"
 EndSection
 ```
+
+### Forcing the modesetting driver
+
+Create the file `/etc/X11/xorg.conf.d/10-modesetting.conf`:
+
+```
+Section "Device"
+    Identifier "GPU0"
+    Driver "modesetting"
+EndSection
+```
+
+and restart Xorg. Verify that the configuration has been picked up with:
+
+```
+$ grep -m1 '(II) modeset([0-9]\+):' /var/log/Xorg.0.log
+```
+
+If there is a match, modesetting is being used.
 
 ## Starting X Sessions
 
