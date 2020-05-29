@@ -24,3 +24,15 @@ Examples in this guide may have snippets of commands to be run in your shell.
 When you see these, any line beginning with `$` is run as your normal user.
 Lines beginning with `#` are run as `root`. After either of these lines, there
 may be example output from the command.
+
+### Placeholders
+
+Some examples include text with placeholders. Placeholders indicate where you
+should substitute the appropriate information. For example:
+
+> ```
+> # ln -s /etc/sv/<service_name> /var/service/
+> ```
+
+This means you need to substitute the text `<service_name>` with the actual
+service name.

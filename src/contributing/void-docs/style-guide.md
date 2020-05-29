@@ -75,6 +75,22 @@ and also not:
 vi /etc/fstab
 ```
 
+### Placeholders
+
+Placeholders indicate where the user should substitute the appropriate
+information. They should use angle brackets (`<` and `>`) and contain only
+lower-case text, with words separated by underscores. For example:
+
+```
+# ln -s /etc/sv/<service_name> /var/service/
+```
+
+and not:
+
+```
+# ln -s /etc/sv/[SERVICENAME] /var/service/
+```
+
 ## Links
 
 Link text should not include sentence-level punctuation. For example:
