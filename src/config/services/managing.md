@@ -60,14 +60,14 @@ create a file named `down` in its service directory:
 To disable a service, remove the symlink from the running runsvdir:
 
 ```
-# rm /var/service/<service>
+# unlink /var/service/<service>
 ```
 
 Or from the `default` runsvdir if the system or the specific runsvdir is not
 currently running:
 
 ```
-# rm /etc/runit/runsvdir/default/<service>
+# unlink /etc/runit/runsvdir/default/<service>
 ```
 
 ### Testing services
@@ -89,7 +89,7 @@ A `runsvdir` is a directory in `/etc/runit/runsvdir` containing enabled
 services. The currently running `runsvdir` will be linked to `/var/service` when
 the system is booted.
 
-The `runit-void` package comes with two runsvdir directories; `single` and
+The `runit-void` package comes with two runsvdir directories: `single` and
 `default`.
 
 - `single` just runs sulogin(8) and the necessary steps to rescue your system.
@@ -102,6 +102,7 @@ See [runsvdir(8)](https://man.voidlinux.org/runsvdir.8) and
 
 ### Booting a different runsvdir
 
-To boot a different runsvdir, the name of the runsvdir can be added to the
-[kernel command-line](../kernel.html#cmdline). As example adding `single` to the
-[kernel command line](../kernel.html#cmdline) will boot the `single` runsvdir.
+To boot a `runsvdir` other than `default`, the name of the desired `runsvdir`
+can be added to the [kernel command-line](../kernel.html#cmdline). As an
+example, adding `single` to the kernel command line will boot the `single`
+`runsvdir`.
