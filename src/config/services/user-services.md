@@ -1,11 +1,11 @@
 # Per-User Services
 
-Sometimes it would be nice to have user-specific runit services. Services that,
+Sometimes it can be nice to have user-specific runit services. Services that,
 for example, open an ssh tunnel as your current user, run a virtual machine, or
 regularly run daemons on your behalf. The most common way to do this is to ask a
 system-level service to start a
 [runsvdir(8)](https://man.voidlinux.org/runsvdir.8) service as your user for
-your personal service directory.
+your personal [runsvdir](./index.md#runsvdirs).
 
 As an example, create a service `/etc/sv/runsvdir-<username>` with the following
 `run` script:
@@ -40,7 +40,6 @@ user's service directory. This is shown in the following examples:
 $ sv status ~/service/*
 run: /home/duncan/service/gpg-agent: (pid 901) 33102s
 run: /home/duncan/service/ssh-agent: (pid 900) 33102s
-$ export SVDIR=~/service
-$ sv restart gpg-agent
+$ SVDIR=~/service sv restart gpg-agent
 ok: run: gpg-agent: (pid 19818) 0s
 ```
