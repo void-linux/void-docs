@@ -13,6 +13,7 @@
       - [Installation Guide](./installation/live-images/guide.md)
    - [Advanced Installation](./installation/guides/index.md)
       - [Full Disk Encryption](./installation/guides/fde.md)
+      - [EFI Boot Stub](./installation/guides/efi-stub.md)
    - [musl](./installation/musl.md)
 - [Configuration](./config/index.md)
    - [Locales](./config/locales.md)
