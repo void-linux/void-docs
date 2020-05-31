@@ -13,10 +13,11 @@ Install the `iwd` package and enable the `dbus` and `iwd` services.
 
 ## Usage
 
-The command-line client `iwctl(1)` can be used to add, remove, and configure
-network connections. Commands can be passed as arguments; when run without
-arguments, it provides an interactive session. To list available commands, run
-either `iwctl help` or enter `help` at the interactive prompt.
+The command-line client [iwctl(1)](https://man.voidlinux.org/iwctl.1) can be
+used to add, remove, and configure network connections. Commands can be passed
+as arguments; when run without arguments, it provides an interactive session. To
+list available commands, run either `iwctl help` or enter `help` at the
+interactive prompt.
 
 > Note: By default, only the root user and those in the `wheel` group have
 > permission to operate `iwctl`.
@@ -31,16 +32,18 @@ further information.
 ### Daemon configuration
 
 The main configuration file is located in `/etc/iwd/main.conf`. If it does not
-exist, you may create it. It is documented in `iwd.config(5)`.
+exist, you may create it. It is documented in
+[iwd.config(5)](https://man.voidlinux.org/iwd.config.5).
 
 ### Network configuration
 
-Network configuration, including examples, is documented in `iwd.network(5)`.
-IWD stores information on known networks, and reads information on
-pre-provisioned networks from network configuration files located in
-`/var/lib/iwd`; IWD monitors the directory for changes. Network configuration
-filenames consist of the encoding of the SSID followed by `.open`, `.psk`, or
-`.8021x` as determined by the security type.
+Network configuration, including examples, is documented in
+[iwd.network(5)](https://man.voidlinux.org/iwd.network.5). IWD stores
+information on known networks, and reads information on pre-provisioned networks
+from network configuration files located in `/var/lib/iwd`; IWD monitors the
+directory for changes. Network configuration filenames consist of the encoding
+of the SSID followed by `.open`, `.psk`, or `.8021x` as determined by the
+security type.
 
 As an example, a basic configuration file for a WPA2/PSK secured network would
 be called `<ssid>.psk`, and it would contain the plain text password:
