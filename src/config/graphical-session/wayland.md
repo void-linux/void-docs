@@ -24,6 +24,7 @@ Void Linux currently packages the following Wayland compositors:
 - Weston: reference compositor for Wayland
 - Sway: an i3-compatible Wayland compositor
 - Wayfire: 3D Wayland compositor
+- Hikari: a stacking compositor with some tiling features
 - Cage: a Wayland kiosk
 
 ### Video drivers
@@ -46,8 +47,10 @@ automatically, but setting `GDK_BACKEND=wayland` can force the Wayland backend
 
 #### Web browsers
 
-Mozilla Firefox ships with a Wayland backend which is disabled by default.
-Launching Firefox with `MOZ_ENABLE_WAYLAND=1` is required to enable it.
+Mozilla Firefox ships with a Wayland backend which is disabled by default. To
+enable the Wayland backend, either set the environment variable
+`MOZ_ENABLE_WAYLAND=1` before running `firefox` or use the provided
+`firefox-wayland` script.
 
 The Midori browser, which has a GTK+ interface, should also work on Wayland.
 
