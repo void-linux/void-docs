@@ -18,8 +18,6 @@
    - [Locales](./config/locales.md)
    - [Users and Groups](./config/users-and-groups.md)
    - [Services And Daemons](./config/services/index.md)
-      - [Managing Services](./config/services/managing.md)
-      - [Configuring Services](./config/services/configuring.md)
       - [Per-User Services](./config/services/user-services.md)
       - [Logging](./config/services/logging.md)
       - [Console](./config/services/console.md)

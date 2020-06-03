@@ -126,4 +126,4 @@ one](../session-management.md#d-bus).
 Display managers (DMs) provide a graphical login UI. A number of DMs are
 available in the Void repositories, including `gdm` (the GNOME DM), `sddm` (the
 KDE DM) and `lightdm`. When setting up a display manager, be sure to [test the
-service](../services/managing.html#testing-services) before enabling it.
+service](../services/index.md#testing-services) before enabling it.
