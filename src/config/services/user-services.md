@@ -1,14 +1,14 @@
 # Per-User Services
 
-Sometimes it would be nice to have user-specific runit services. Services that,
-for example, open an ssh tunnel as your current user, run a virtual machine, or
-regularly run daemons on your behalf. The most common way to do this is to ask a
-system-level service to start a
-[runsvdir(8)](https://man.voidlinux.org/runsvdir.8) service as your user for
-your personal service directory.
+Sometimes it can be nice to have user-specific runit services. For example, you
+might want to open an ssh tunnel as the current user, run a virtual machine, or
+regularly run daemons on your behalf. The most common way to do this is to
+create a system-level service that runs
+[runsvdir(8)](https://man.voidlinux.org/runsvdir.8) as your user, in order to
+start and monitor the services in a personal services directory.
 
-As an example, create a service `/etc/sv/runsvdir-<username>` with the following
-`run` script:
+For example, you could create a service called `/etc/sv/runsvdir-<username>`
+with the following `run` script:
 
 ```
 #!/bin/sh
@@ -34,13 +34,12 @@ The user can then create new services or symlinks to them in the
 `/home/<username>/service` directory. To control the services using the
 [sv(8)](https://man.voidlinux.org/sv.8) command, the user can specify the
 services by path, or by name if the `SVDIR` environment variable is set to the
-user's service directory. This is shown in the following examples:
+user's services directory. This is shown in the following examples:
 
 ```
 $ sv status ~/service/*
 run: /home/duncan/service/gpg-agent: (pid 901) 33102s
 run: /home/duncan/service/ssh-agent: (pid 900) 33102s
-$ export SVDIR=~/service
-$ sv restart gpg-agent
+$ SVDIR=~/service sv restart gpg-agent
 ok: run: gpg-agent: (pid 19818) 0s
 ```
