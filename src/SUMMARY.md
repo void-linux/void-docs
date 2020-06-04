@@ -20,7 +20,6 @@
    - [Services And Daemons](./config/services/index.md)
       - [Per-User Services](./config/services/user-services.md)
       - [Logging](./config/services/logging.md)
-      - [Console](./config/services/console.md)
    - [rc files](./config/rc-files.md)
    - [Cron](./config/cron.md)
    - [Solid State Drives](./config/ssd.md)

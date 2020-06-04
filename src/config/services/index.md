@@ -14,9 +14,8 @@ Some advantages of using runit include:
 
 ## Section Contents
 
-- [Console](./console.md)
-- [Logging](./logging.md)
 - [Per-User Services](./user-services.md)
+- [Logging](./logging.md)
 
 ## Service Directories
 
@@ -138,6 +137,11 @@ create a file named `down` in its service directory:
 ```
 # touch /etc/sv/<service>/down
 ```
+
+The `down` file mechanism also makes it possible to disable services that are
+enabled by default, such as the [agetty(8)](https://man.voidlinux.org/agetty.8)
+services for ttys 1 to 6. This way, package updates which affect these services
+- in this case, the `runit-void` package - won't re-enable them.
 
 #### Disabling Services
 
