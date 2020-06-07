@@ -36,7 +36,7 @@ the project's [README](https://github.com/bobertlo/vmd/blob/master/README.md).
 Void provides the package `vmdfmt`. Otherwise you may `go get` from the repo:
 
 ```
-$ go get https://github.com/bobertlo/vmd/cmd/vmdfmt
+$ go get github.com/bobertlo/vmd/cmd/vmdfmt
 ```
 
 To format a file you have edited, run:
