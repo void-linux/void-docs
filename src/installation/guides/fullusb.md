@@ -23,23 +23,21 @@ And un-mounting the remaining connection between the USB and the system:
 
 `# umount /run/initramfs/live`
 
-Then locate the USB using [fdisk(8)](https://man.voidlinux.org/fdisk) or
-[lsblk(8)](https://man.voidlinux.org/lsblk):
+Then locate the USB using [fdisk(8)](https://man.voidlinux.org/fdisk.8) or
+[lsblk(8)](https://man.voidlinux.org/lsblk.8):
 
 `# fdisk -l`
 
-> **Important:**
-> 
-> *Before creating the partition tables it's essential to remove the existing
-> GRUB install, this can be done using one of the following commands.*
-> 
-> *For BIOS/MBR use:*
-> 
-> `# dd if=/dev/zero of=/dev/sdc seek=1 count=2047`
-> 
-> *For BIOS/GPT use:*
-> 
-> `# dd if=/dev/zero of=/dev/sdc seek=1 count=6143`
+**Important:** Before creating the partition tables it's essential to remove the
+existing GRUB install, this can be done using one of the following commands.
+
+For BIOS/MBR use:
+
+`# dd if=/dev/zero of=/dev/sdc seek=1 count=2047`
+
+For BIOS/GPT use:
+
+`# dd if=/dev/zero of=/dev/sdc seek=1 count=6143`
 
 ## Installation
 

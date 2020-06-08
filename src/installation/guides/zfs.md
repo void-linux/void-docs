@@ -17,23 +17,21 @@ Then ensure the ZFS module is loaded with
 
 `# modprobe zfs`
 
-Locate the disk to format using [fdisk(8)](https://man.voidlinux.org/fdisk) or
-[lsblk(8)](https://man.voidlinux.org/lsblk):
+Locate the disk to format using [fdisk(8)](https://man.voidlinux.org/fdisk.8) or
+[lsblk(8)](https://man.voidlinux.org/lsblk.8):
 
 `# fdisk -l`
 
 ## Partitioning
 
 Prepare the drive for installation by creating one of the following partition
-schemes using [cfdisk(8)](https://man.voidlinux.org/cfdisk) or another
+schemes using [cfdisk(8)](https://man.voidlinux.org/cfdisk.8) or another
 partitioning tool:
 
 `# cfdisk -z /dev/sda`
 
-> **Warning:**
-> 
-> The disk being partitioned will be formatted and any existing data on the disk
-> will be destroyed.
+**Warning:** The disk being partitioned will be formatted and any existing data
+on the disk will be destroyed.
 
 For a BIOS/MBR system:
 
@@ -55,39 +53,35 @@ and to prevent the misrecognition of drives.
 
 Id's can be located in the `/dev/disk/by-id` folder:
 
-> **Note:**
-> 
-> `wwn-` entries and `ata-` entries are referencing equivalent drvies and either
-> can be used.
+Note: `wwn-` entries and `ata-` entries are referencing equivalent drives and
+either can be used.
 
 ```
 $ ls -l /dev/disk/by-id
 total 0
-lrwxrwxrwx 1 root root  9 Apr 16 17:34 ata-Hitachi_HDS721010CLA332_JP6911HD2AHS9F -> ../../sda
 lrwxrwxrwx 1 root root 10 Apr 16 17:34 ata-Hitachi_HDS721010CLA332_JP6911HD2AHS9F-part1 -> ../../sda1
-lrwxrwxrwx 1 root root 10 Apr 16 17:34 ata-Hitachi_HDS721010CLA332_JP6911HD2AHS9F-part2 -> ../../sda2
-lrwxrwxrwx 1 root root  9 Apr 16 17:34 wwn-0x5000cca373e0f5d9 -> ../../sda
 lrwxrwxrwx 1 root root 10 Apr 16 17:34 wwn-0x5000cca373e0f5d9-part1 -> ../../sda1
-lrwxrwxrwx 1 root root 10 Apr 16 17:34 wwn-0x5000cca373e0f5d9-part2 -> ../../sda2
 ```
 
 Create a pool specifying the previously created Solaris Root Partition from the
 disk:
 
-> **Note:**
-> 
-> Many users with Advanced Format hard drives will want to also add the `-o
-> ahisft=12` argument. This sets the drive's logical sectors to 4k in size.
+Note: Many users with Advanced Format hard drives will want to also add the `-o
+ahisft=12` argument. This sets the drive's logical sectors to 4k in size.
+Additionally many may want to utilize compression with their pools using either
+lz4 or another alogorithm, see
+[zfs(8)](https://man.voidlinux.org/zfs.8#Native_Properties). This can be done
+after the creation of the pool using: `# zfs set compression lz4 zroot`
 
 `# zpool create -f -m none zroot dev`
 
-| Command | Action                                            |
-|---------|---------------------------------------------------|
-| -f      | Force the creation of the pool                    |
-| -m none | Set the mountpoint to none                        |
-| zroot   | The name of the pool                              |
-| dev     | The device to be used in the creation of the pool |
-|         | (ie. ata-XXXXX-partX or wwn-XXXX-partX)           |
+| Argument | Action                                            |
+|----------|---------------------------------------------------|
+| -f       | Force the creation of the pool                    |
+| -m none  | Set the mountpoint to none                        |
+| zroot    | The name of the pool                              |
+| dev      | The device to be used in the creation of the pool |
+|          | (ie. ata-XXXXX-partX or wwn-XXXX-partX)           |
 
 To ensure the pool's creation was successful use:
 
@@ -96,13 +90,6 @@ $ zpool list
 NAME    SIZE  ALLOC   FREE  CKPOINT  EXPANDSZ   FRAG    CAP  DEDUP    HEALTH  ALTROOT
 zroot   928G   432K   928G        -         -     0%     0%  1.00x    ONLINE  -
 ```
-
-> **Optional:**
-> 
-> Add compression to the pool using lz4 or another alogorithm, see
-> [zfs(8)](https://man.voidlinux.org/zfs#Native_Properties).
-> 
-> `# zfs set compression lz4 zroot`
 
 Then create the following data sets, which are ZFS's equivalent to partitions:
 
@@ -123,17 +110,17 @@ alternate mountpoint:
 # zpool import -R /mnt/void zroot
 ```
 
-> **Important:**
+Then consult the [chroot guide](./) with the installation of the base system and
+its configuration.
 
-Following the chroot guide, install `grub` and `zfs` from the new system which
-will build the requirements necessary to boot.
-
-`(chroot)# xbps-install -S -R $REPO grub zfs`
+**Important:** After consulting the guide, install `grub` and `zfs` from the new
+system which will build the requirements necessary to boot: `(chroot)#
+xbps-install -S -R $REPO grub zfs`
 
 ## GRUB Installation
 
 Confirm the ZFS modules are loaded in the new system using
-[lsmod(8)](https://man.voidlinux.org/lsmod):
+[lsmod(8)](https://man.voidlinux.org/lsmod.8):
 
 ```
 (chroot)$ lsmod | grep zfs
@@ -158,9 +145,7 @@ Then notate the bootable system for GRUB's autoconfig:
 
 Finally ensure GRUB recognizes the ZFS module before being installed.
 
-> **Note:**
-> 
-> When using id's the ZPOOL_VDEV_NAME_PATH variable must be set to 1.
+Note: When using id's the ZPOOL_VDEV_NAME_PATH variable must be set to 1.
 
 ```
 (chroot)# ZPOOL_VDEV_NAME_PATH=1 grub-probe /
@@ -186,12 +171,8 @@ add_dracutmodules+=" zfs "
 
 Reconfigure Linux to update GRUB's and Dracut's configurations:
 
-> **Note:**
-> 
-> If the Linux version on the system is unknown use a query to find the
-> installed version on the new system:
-> 
-> `xbps-query -s linux | grep modules`
+Note: If the Linux version on the system is unknown use a query to find the
+installed version on the new system: `xbps-query -s linux | grep modules`
 
 ```
 (chroot)# xbps-reconfigure -f linux5.4
@@ -211,38 +192,13 @@ linux5.4: configured successfully.
 
 ## Sanity Checks
 
-Ensure that the Dracut configuration took with
+Ensure that the Dracut configuration took and the zfs module is listed with
 [lsinitrd(1)](https://man.voidlinux.org/lsinitrd):
 
-> **Note:**
-> 
-> It may be necessary to specify the path to the img if the kernel version has
-> changed, see [lsinitrd(1)](https://man.voidlinux.org/lsinitrd).
+Note: It may be necessary to specify the path to the img if the kernel version
+has changed, see [lsinitrd(1)](https://man.voidlinux.org/lsinitrd).
 
-```
-(chroot)# lsinitrd -m
-initrd in UEFI: : 13M
-========================================================================
-Version: 
-
-dracut modules:
-bash
-dash
-i18n
-drm
-kernel-modules
-kernel-modules-extra
-zfs
-resume
-rootfs-block
-terminfo
-udev-rules
-usrmount
-base
-fs-lib
-shutdown
-========================================================================
-```
+`(chroot)# lsinitrd -m`
 
 As well check that the ZFS cache is recognized:
 
@@ -265,7 +221,7 @@ And un-mount the chroot environment:
 # zpool export zroot
 ```
 
-Restart the system using [reboot(8)](https://man.voidlinux.org/reboot) and log
+Restart the system using [reboot(8)](https://man.voidlinux.org/reboot.8) and log
 in:
 
 `# reboot`
