@@ -20,11 +20,11 @@ formats.
 */usr/share/doc/void/html* - can be viewed with any browser, such as Mozilla
 Firefox or Chromium. Recommended when a GUI session is available, because it
 allows easy navigation between the documentation pages and has the same format
-as the official website. Can be accessed by pointing the browser to the
+as the official website. Can be accessed by pointing a browser to the
 `/usr/share/doc/void/html/index.html` file.
 
 */usr/share/doc/void/markdown* - can be viewed as text files, using **cat(1)**
-or **less(1)**, or as a formatted markdown file, with applications such as
+or **less(1)**, or as formatted markdown files, with applications such as
 **mdcat** or **glow**. The table of contents can be accessed in the
 `/usr/share/doc/void/markdown/SUMMARY.md` file.
 
