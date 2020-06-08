@@ -192,8 +192,8 @@ sr0
 ```
 
 Edit the `GRUB_CMDLINE_LINUX_DEFAULT=` line in `/etc/default/grub` and add
-`rd.lvm.vg=voidvm` and `rd.luks.uuid=<UUID>`. Make sure the UUID matches from
-the output of your `lsblk` command from above.
+`rd.lvm.vg=voidvm rd.luks.uuid=<UUID>` to it. Make sure the UUID matches the one
+for the `sda1` device found in the output of the `lsblk` command above.
 
 And now to avoid having to enter the password twice on boot, a key will be
 configured to automatically unlock the encrypted volume on boot. First, generate
