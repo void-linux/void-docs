@@ -1,7 +1,8 @@
 # PulseAudio
 
-PulseAudio depends on a `dbus` system daemon. Make sure the `dbus` service is
-enabled.
+Depending on which applications you use, you might need to provide PulseAudio
+with a D-BUS session bus (e.g. via `dbus-run-session`) or a D-BUS system bus
+(via the `dbus` service).
 
 For applications which use ALSA directly and don't support PulseAudio, the
 `alsa-plugins-pulseaudio` package can make them use PulseAudio through ALSA.
