@@ -1,12 +1,10 @@
 # ZFS On Root
 
-This installation guide assumes that an already existing Full Void Linux install
-is available. Not just a Live USB.
-
-If an existing Void install does not exist please consult one of the [other
-installation guides](./index.md) or use a custom iso such as
-[hrmpf](https://github.com/leahneukirchen/hrmpf) then continue along with this
-guide.
+This installation guide assumes that an already existing Void Linux install is
+available. Not a Live USB. If an existing Void install does not exist, please
+consult one of the [other installation guides](./index.md) or use a custom iso
+such as [hrmpf](https://github.com/leahneukirchen/hrmpf) before continuing with
+this guide.
 
 ## Setup
 
@@ -63,15 +61,12 @@ lrwxrwxrwx 1 root root 10 Apr 16 17:34 ata-Hitachi_HDS721010CLA332_JP6911HD2AHS9
 lrwxrwxrwx 1 root root 10 Apr 16 17:34 wwn-0x5000cca373e0f5d9-part1 -> ../../sda1
 ```
 
+Note: Many users with Advanced Format hard drives will want to also add the `-o
+ahisft=12` argument during the creation of the pool. A value of 12 will set the
+drive's logical sectors to 4k in size.
+
 Create a pool specifying the previously created Solaris Root Partition from the
 disk:
-
-Note: Many users with Advanced Format hard drives will want to also add the `-o
-ahisft=12` argument. This sets the drive's logical sectors to 4k in size.
-Additionally many may want to utilize compression with their pools using either
-lz4 or another alogorithm, see
-[zfs(8)](https://man.voidlinux.org/zfs.8#Native_Properties). This can be done
-after the creation of the pool using: `# zfs set compression lz4 zroot`
 
 `# zpool create -f -m none zroot dev`
 
@@ -99,6 +94,11 @@ Then create the following data sets, which are ZFS's equivalent to partitions:
 cannot mount '/': directory is not empty
 property may be set but unable to remount filesystem
 ```
+
+At this point users may additionally want to set additional options to their
+datasets. An explanation of the available options is avaiable under the Native
+Properties section of
+[zfs(8)](https://man.voidlinux.org/zfs.8#Native_Properties).
 
 ## Base Installation
 
@@ -192,7 +192,7 @@ linux5.4: configured successfully.
 
 ## Sanity Checks
 
-Ensure that the Dracut configuration took and the zfs module is listed with
+Ensure that the Dracut configuration took and the zfs module is listed in
 [lsinitrd(1)](https://man.voidlinux.org/lsinitrd):
 
 Note: It may be necessary to specify the path to the img if the kernel version
@@ -222,6 +222,4 @@ And un-mount the chroot environment:
 ```
 
 Restart the system using [reboot(8)](https://man.voidlinux.org/reboot.8) and log
-in:
-
-`# reboot`
+in.
