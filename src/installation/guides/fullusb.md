@@ -29,8 +29,7 @@ Then locate the USB using [fdisk(8)](https://man.voidlinux.org/fdisk.8), with
 the `-l` argument, or [lsblk(8)](https://man.voidlinux.org/lsblk.8):
 
 **Important:** Before creating the partition tables it is essential to remove
-the existing GRUB install, which can be done using one of the following
-commands.
+the existing GRUB install. This can be done using one of the following commands.
 
 For BIOS/MBR use:
 
@@ -43,4 +42,4 @@ For BIOS/GPT use:
 ## Installation
 
 To continue the installation, follow the [chroot install guide](./), which
-details the rest of the installation process.
+details the rest of the process.

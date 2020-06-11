@@ -1,24 +1,22 @@
 # ZFS On Root
 
-This installation guide assumes that an already existing Void Linux install is
-available. Not a Live USB. If an existing Void install does not exist, please
+This installation guide assumes that an already existing install of Void Linux
+is available. Not a Live USB. If Void Linux has yet to be installed, please
 consult one of the [other installation guides](./index.md) or use a custom iso
 such as [hrmpf](https://github.com/leahneukirchen/hrmpf) before continuing with
 this guide.
 
 ## Setup
 
-From the permanent system, install the `zfs` package.
+From the existing system, install the `zfs` package.
 
 Then ensure the ZFS module is loaded with
 [modprobe(1)](https://man.voidlinux.org/modprobe):
 
 `# modprobe zfs`
 
-Locate the disk to format using [fdisk(8)](https://man.voidlinux.org/fdisk.8) or
-[lsblk(8)](https://man.voidlinux.org/lsblk.8):
-
-`# fdisk -l`
+Locate the drive to format using [fdisk(8)](https://man.voidlinux.org/fdisk.8),
+with the -l argument, or [lsblk(8)](https://man.voidlinux.org/lsblk.8):
 
 ## Partitioning
 
@@ -29,7 +27,7 @@ partitioning tool:
 `# cfdisk -z /dev/sda`
 
 **Warning:** The disk being partitioned will be formatted and any existing data
-on the disk will be destroyed.
+on it will be destroyed.
 
 For a BIOS/MBR system:
 
@@ -46,10 +44,10 @@ Partition    Size       Type
 2             ?G     Solaris Root
 ```
 
-ZFS pools should use id's to maintain universal functionality across computers
+ZFS pools should use IDs to maintain universal functionality across computers
 and to prevent the misrecognition of drives.
 
-Id's can be located in the `/dev/disk/by-id` folder:
+IDs can be located in the `/dev/disk/by-id` directory:
 
 Note: `wwn-` entries and `ata-` entries are referencing equivalent drives and
 either can be used.
@@ -62,8 +60,8 @@ lrwxrwxrwx 1 root root 10 Apr 16 17:34 wwn-0x5000cca373e0f5d9-part1 -> ../../sda
 ```
 
 Note: Many users with Advanced Format hard drives will want to also add the `-o
-ahisft=12` argument during the creation of the pool. A value of 12 will set the
-drive's logical sectors to 4k in size.
+ahisft=12` argument. A value of 12 will set the drive's logical sectors to 4k in
+size.
 
 Create a pool specifying the previously created Solaris Root Partition from the
 disk:
@@ -86,7 +84,7 @@ NAME    SIZE  ALLOC   FREE  CKPOINT  EXPANDSZ   FRAG    CAP  DEDUP    HEALTH  AL
 zroot   928G   432K   928G        -         -     0%     0%  1.00x    ONLINE  -
 ```
 
-Then create the following data sets, which are ZFS's equivalent to partitions:
+Then create the following data sets, which are ZFS' equivalent to partitions:
 
 ```
 # zfs create -o mountpoint=none zroot/ROOT
@@ -95,14 +93,13 @@ cannot mount '/': directory is not empty
 property may be set but unable to remount filesystem
 ```
 
-At this point users may additionally want to set additional options to their
-datasets. An explanation of the available options is avaiable under the Native
-Properties section of
-[zfs(8)](https://man.voidlinux.org/zfs.8#Native_Properties).
+At this point users may want to set additional options to their datasets. An
+explanation of the available options is avaiable under the Native Properties
+section of [zfs(8)](https://man.voidlinux.org/zfs.8#Native_Properties).
 
 ## Base Installation
 
-To mount the system for installation export then re-import the pool at an
+To mount the system for installation, export then re-import the pool at an
 alternate mountpoint:
 
 ```
@@ -110,12 +107,14 @@ alternate mountpoint:
 # zpool import -R /mnt/void zroot
 ```
 
-Then consult the [chroot guide](./) with the installation of the base system and
-its configuration.
+**Important:** Please consult the Base Installation & Configuration sections,
+ignoring the configuration of a fstab, of the [chroot guide](./). These provide
+an in depth guide of a general configuration that is required before continuing.
 
-**Important:** After consulting the guide, install `grub` and `zfs` from the new
-system which will build the requirements necessary to boot: `(chroot)#
-xbps-install -S -R $REPO grub zfs`
+After consulting the guide, install `grub` and `zfs` from the new system which
+will build the requirements necessary to boot:
+
+`(chroot)# xbps-install -S -R $REPO grub zfs`
 
 ## GRUB Installation
 
@@ -166,6 +165,7 @@ at least the following values:
 ```
 hostonly="yes"
 nofsck="yes"
+persistent_policy="by-id"
 add_dracutmodules+=" zfs "
 ```
 
