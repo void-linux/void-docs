@@ -5,6 +5,9 @@ software. The purpose of this document is to explain how to install, configure,
 and maintain Void Linux systems, and to highlight the differences between common
 Linux distributions and Void.
 
+To search for a particular term within the Handbook, select the 'magnifying
+glass' icon, or press 's'.
+
 Those looking for tips and tricks on how to configure a Linux system in general
 should consult upstream software documentation. Additionally, the [Arch
 Wiki](https://wiki.archlinux.org/) provides a fairly comprehensive outline of
