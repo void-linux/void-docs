@@ -1,5 +1,9 @@
 # About
 
+Welcome to the Void Handbook! Please be sure to read the
+"[../about-handbook/index.md](About this Handbook)" section to learn how to use
+this documentation effectively.
+
 Void is an independent, [rolling
 release](https://en.wikipedia.org/wiki/Rolling_release) Linux distribution,
 developed from scratch and not as a fork of any other distribution. There are a
