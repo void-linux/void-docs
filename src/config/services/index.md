@@ -1,4 +1,4 @@
-# Services and Daemons
+# Services and Daemons - runit
 
 Void uses the [runit(8)](https://man.voidlinux.org/runit.8) supervision suite to
 run system services and daemons.

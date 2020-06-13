@@ -17,7 +17,7 @@
 - [Configuration](./config/index.md)
    - [Locales](./config/locales.md)
    - [Users and Groups](./config/users-and-groups.md)
-   - [Services And Daemons](./config/services/index.md)
+   - [Services And Daemons - runit](./config/services/index.md)
       - [Per-User Services](./config/services/user-services.md)
       - [Logging](./config/services/logging.md)
    - [rc files](./config/rc-files.md)
