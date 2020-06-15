@@ -10,9 +10,9 @@ package contains the basic utilities to run
 
 To enable the [NetworkManager(8)](https://man.voidlinux.org/NetworkManager.8)
 daemon, first [disable](../services/index.md) any other network managing
-services like [dhcpcd](./dhcpcd.md), [wpa_supplicant](./wpa_supplicant.md), or
-`wicd`. These services all control network interface configuration, and
-interfere with each other.
+services like [dhcpcd](./index.md#dhcpcd),
+[wpa_supplicant](./wpa_supplicant.md), or `wicd`. These services all control
+network interface configuration, and interfere with each other.
 
 Also, ensure that the `dbus` service is [enabled](../services/index.md) and
 running. [NetworkManager(8)](https://man.voidlinux.org/NetworkManager.8) uses

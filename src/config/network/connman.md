@@ -7,7 +7,7 @@ possible. The `connman` package contains the basic utilities to run ConnMan.
 ## Starting ConnMan
 
 To enable the ConnMan daemon, first [disable](../services/index.md) any other
-network managing services like [dhcpcd](./dhcpcd.md),
+network managing services like [dhcpcd](./index.md#dhcpcd),
 [wpa_supplicant](./wpa_supplicant.md), or `wicd`. These services all control
 network interface configuration, and interfere with each other.
 
