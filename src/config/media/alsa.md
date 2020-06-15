@@ -40,3 +40,16 @@ or specify sound card module order in `/etc/modprobe.d/alsa.conf`:
 ```
 options snd_usb_audio index=0
 ```
+
+## Dmix
+
+The `dmix` ALSA plugin allows playing sound from multiple sources. `dmix` is
+enabled by default for soundcards which do not support hardware mixing. To
+enable it for digital output, edit `/etc/asound.conf`:
+
+```
+pcm.dsp {
+    type plug
+    slave.pcm "dmix"
+}
+```
