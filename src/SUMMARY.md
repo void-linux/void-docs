@@ -57,8 +57,6 @@
    - [TeX Live](./config/texlive.md)
    - [External Applications](./config/external-applications.md)
    - [Printing](./config/print/index.md)
-      - [Installing Printing Drivers](./config/print/drivers.md)
-      - [Configuring a New Printer](./config/print/config.md)
    - [Manual Pages](./config/man.md)
    - [Microcode](./config/microcode.md)
 - [XBPS Package Manager](./xbps/index.md)
