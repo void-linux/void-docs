@@ -13,9 +13,9 @@ packages available.
 | Repository                                     | Location         |
 |------------------------------------------------|------------------|
 | <https://alpha.de.repo.voidlinux.org/>         | EU: Finland      |
+| <https://mirrors.servercentral.com/voidlinux/> | USA: Chicago     |
 | <https://alpha.us.repo.voidlinux.org/>         | USA: Kansas City |
 | <https://mirror.clarkson.edu/voidlinux/>       | USA: New York    |
-| <https://mirrors.servercentral.com/voidlinux/> | USA: Chicago     |
 
 ## Tier 2 mirrors
 
@@ -28,13 +28,14 @@ sub-repository.
 |-----------------------------------------------|-------------------|
 | <https://mirror.aarnet.edu.au/pub/voidlinux/> | AU: Canberra      |
 | <https://ftp.swin.edu.au/voidlinux/>          | AU: Melbourne     |
-| <https://ftp.acc.umu.se/mirror/voidlinux/>    | EU: Sweden        |
+| <https://mirrors.hushan.tech:44300/voidlinux> | Asia: China       |
+| <https://mirror.maakpain.kro.kr/void/>        | Asia: Seoul, SK   |
+| <https://void.webconverger.org/>              | Asia: Singapore   |
+| <https://void.cijber.net/>                    | EU: Amsterdam, NL |
 | <https://mirrors.dotsrc.org/voidlinux/>       | EU: Denmark       |
-| <https://void.webconverger.org/>              | APAN: Singapore   |
+| <https://ftp.acc.umu.se/mirror/voidlinux/>    | EU: Sweden        |
 | <https://ftp.lysator.liu.se/pub/voidlinux/>   | EU: Sweden        |
 | <https://mirror.yandex.ru/mirrors/voidlinux/> | RU: Russia        |
-| <https://void.cijber.net/>                    | EU: Amsterdam, NL |
-| <https://mirrors.hushan.tech:44300/voidlinux> | Asia: China       |
 
 ## Tor Mirrors
 
