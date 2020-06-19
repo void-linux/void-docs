@@ -17,9 +17,9 @@ not all GNOME features may be present or functional.)
 The `gdm` package provides the `gdm` service for the GNOME Display Manager;
 [test the service](../services/index.md#testing-services) before enabling it.
 GDM defaults to providing a Wayland session via the `mutter` window manager, but
-an Xorg session can be chosen instead.
+an X session can be chosen instead.
 
-If you wish to start an Xorg-based GNOME session from the console, use
+If you wish to start an X-based GNOME session from the console, use
 [startx](./xorg.html#startx) to run `gnome-session`.
 
 GNOME applications can be installed via the `gnome-apps` package.
