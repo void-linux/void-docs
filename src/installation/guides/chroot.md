@@ -1,4 +1,4 @@
-# Installation via chroot (x86 or x86_64)
+# Installation via chroot (x86/x86_64)
 
 This guide details the process of manually installing Void via a chroot on an
 x86 or x86_64 PC architecture. It is assumed that you have a familiarity with
@@ -14,11 +14,11 @@ base system by unpacking a ROOTFS tarball.
 
 The **XBPS method** requires that the host operating system have XBPS installed.
 This may be an existing installation of Void, an official [live
-image](../live-images/prep.md) or any Linux installation running a [statically
+image](../live-images/prep.md), or any Linux installation running a [statically
 linked XBPS](../../xbps/troubleshooting/static.md).
 
 The **ROOTFS method** requires only a host operating system that can enter a
-Linux chroot and that has [tar(1)](https://man.voidlinux.org/tar.1) and
+Linux chroot and that has both [tar(1)](https://man.voidlinux.org/tar.1) and
 [xz(1)](https://man.voidlinux.org/xz.1) installed. This method may be preferable
 if you wish to install Void using a different Linux distribution.
 
@@ -45,11 +45,11 @@ For a UEFI booting system, make sure to create an EFI System Partition (ESP).
 The ESP should have the partition type "EFI System" (code `EF00`) and be
 formatted as FAT32 using [mkfs.vfat(8)](https://man.voidlinux.org/mkfs.vfat.8).
 
-If you're unsure what partitions to create, create a 1GB partition of type `EFI
-System` (code `EF00`), then create a second partition of type `Linux Filesystem`
+If you're unsure what partitions to create, create a 1GB partition of type "EFI
+System" (code `EF00`), then create a second partition of type "Linux Filesystem"
 (code `8300`) using the remainder of the drive.
 
-Format these partitions as FAT32 and ext4, respectively.
+Format these partitions as FAT32 and ext4, respectively:
 
 ```
 # mkfs.vfat /dev/sda1
@@ -107,7 +107,7 @@ does not need to be the same. If your host is running an x86_64 operating
 system, any of the three architectures can be installed (whether the host is
 musl or glibc), but an i686 host can only install i686 distributions.
 
-Use [xbps-install](https://man.voidlinux.org/xbps-install.1) to bootstrap the
+Use [xbps-install(1)](https://man.voidlinux.org/xbps-install.1) to bootstrap the
 installation by installing the `base-system` metapackage:
 
 ```
