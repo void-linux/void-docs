@@ -276,7 +276,7 @@ body {
 /* 300px + 800px + 2*90px + 15px */
 @media only screen and (min-width: 1295px) {
 	.sidebar-visible #nav-wide-wrapper {
-		max-width: auto;
+		max-width: none;
 		margin: 0;
 	}
 	.sidebar-visible .nav-chapters {
@@ -294,7 +294,7 @@ body {
 /* 800px + 2*90px + 15px */
 @media only screen and (min-width: 995px) {
 	.sidebar-hidden #nav-wide-wrapper {
-		max-width: auto;
+		max-width: none;
 		margin: 0;
 	}
 	.sidebar-hidden .nav-chapters {
