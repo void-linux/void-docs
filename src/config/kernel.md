@@ -3,15 +3,21 @@
 ## Kernel series
 
 Void Linux provides many kernel series in the default repository. These are
-named `linuxX.X`, for example `linux4.19`. You can query for all available
+named `linuxX.Y`: for example, `linux4.19`. You can query for all available
 kernel series by running:
 
 ```
 $ xbps-query --regex -Rs '^linux[0-9.]+-[0-9._]+'
 ```
 
-The `linux` meta package which is installed by default depends on one of the
-kernel packages, usually the latest mainline kernel that works with all dkms
+The `linux` meta package, installed by default, depends on one of the kernel
+packages, usually the latest mainline kernel that works with all DKMS modules.
+Newer kernels might be available in the repository, but are not necessarily
+considered stable enough to be the default; use these at your own risk. If you
+wish to use a more recent kernel and have DKMS modules that you need to build,
+install the relevant `linuxX.Y-headers` package, then use
+[xbps-reconfigure(1)](https://man.voidlinux.org/xbps-reconfigure.1) to
+reconfigure the `linuxX.Y` package you installed. This will build the DKMS
 modules.
 
 ## Removing old kernels
@@ -102,7 +108,7 @@ kernel series is installed for the first time or updated, but can also be run
 manually:
 
 ```
-# xbps-reconfigure --force linuxX.X
+# xbps-reconfigure --force linuxX.Y
 ```
 
 If run manually, they serve to apply initramfs configuration changes to the next
@@ -126,7 +132,7 @@ repositories.
 
 Kernel command line arguments can be added through the GRUB bootloader by
 editing `/etc/default/grub`, changing the `GRUB_CMDLINE_LINUX_DEFAULT` variable
-and then reconfiguring the `grub` package.
+and then running `update-grub`.
 
 ### dracut
 
