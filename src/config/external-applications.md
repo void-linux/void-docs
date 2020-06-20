@@ -38,8 +38,8 @@ The Void build system runs on x86_64 servers, both for compiling and cross
 compiling packages. However, some packages (e.g. `libreoffice`) do not support
 cross-compilation. These packages have to be built locally on a computer running
 the same architecture and libc as the system on which the package is to be used.
-For building packages, see the [building
-instructions](../xbps/packages/building.md).
+To learn how to build packages, refer to [the README for the void-packages
+repository](https://github.com/void-linux/void-packages/blob/master/README.md).
 
 ## Flatpak
 

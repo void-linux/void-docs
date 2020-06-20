@@ -1,5 +1,33 @@
 # XBPS Package Manager
 
-The X Binary Package System (XBPS) is a package manager designed that was
-designed implemented from scratch and is extremely fast. XBPS is managed by the
-void-linux team and developed at <https://github.com/void-linux/xbps>.
+The X Binary Package System (XBPS) is a fast package manager that has been
+designed and implemented from scratch. XBPS is managed by the Void Linux team
+and developed at <https://github.com/void-linux/xbps>.
+
+Most general package management is done with the following commands:
+
+- [xbps-query(1)](https://man.voidlinux.org/xbps-query.1) searches for and
+   displays information about packages installed locally, or, if used with the
+   `-R` flag, packages contained in repositories.
+- [xbps-install(1)](https://man.voidlinux.org/xbps-install.1) installs and
+   updates packages, and syncs repository indexes.
+- [xbps-remove(1)](https://man.voidlinux.org/xbps-remove.1) removes installed
+   packages, and can also remove orphaned packages and cached package files.
+- [xbps-reconfigure(1)](https://man.voidlinux.org/xbps-reconfigure.1) runs the
+   configuration steps for installed packages, and can be used to reconfigure
+   certain packages after changes in their configuration files. The latter
+   usually requires the `--force` flag.
+- [xbps-alternatives(1)](https://man.voidlinux.org/xbps-alternatives.1) lists or
+   sets the alternatives provided by installed packages. Alternatives is a
+   system which allows multiple packages to provide common functionality through
+   otherwise conflicting files, by creating symlinks from the common paths to
+   package-specific versions that are selected by the user.
+- [xbps-pkgdb(1)](https://man.voidlinux.org/xbps-pkgdb.1) can report and fix
+   issues in the package database, as well as modify it.
+
+Most questions can be answered by consulting the man pages for these tools,
+together with the [xbps.d(5)](https://man.voidlinux.org/xbps.d.5) man page.
+
+To learn how to build packages from source, refer to [the README for the
+void-packages
+repository](https://github.com/void-linux/void-packages/blob/master/README.md).
