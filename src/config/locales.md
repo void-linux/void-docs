@@ -9,8 +9,8 @@ $ locale -a
 ## Enabling locales
 
 To enable a certain locale, un-comment or add the relevant lines in
-`/etc/default/libc-locales` and [reconfigure](../xbps/packages/management.md)
-the `glibc-locales` package.
+`/etc/default/libc-locales` and [reconfigure](../xbps/index.md) the
+`glibc-locales` package.
 
 ## Setting the system locale
 
@@ -19,6 +19,6 @@ Set `LANG=xxxx` in `/etc/locale.conf`.
 ## Application locale
 
 Some programs have their translations in a separate package that must be
-installed in order to use them. You can [search](../xbps/packages/management.md)
+installed in order to use them. You can [search](../xbps/files-and-packages.md)
 for the desired language (e.g. "german" or "portuguese") in the package
 repositories and install the packages relevant to the applications you use.

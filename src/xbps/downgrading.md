@@ -1,9 +1,11 @@
-# Downgrading to a specific package version
+# Downgrading
+
+XBPS allows you to downgrade a package to a specific package version.
 
 ## Via xdowngrade
 
 The easiest way to downgrade is to use `xdowngrade` from the `xtools` package,
-specifying the package version you wish to downgrade to:
+specifying the package version to which you wish to downgrade:
 
 ```
 # xdowngrade /var/cache/xbps/pkg-1.0_1.xbps
