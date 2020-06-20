@@ -23,23 +23,16 @@ software assumes the presence of a session bus.
 
 ## elogind
 
-[elogind(8)](https://man.voidlinux.org/elogind.8) is a standalone version of
-`systemd-logind`, a service to manage user logins. This service provides
-necessary features for most desktop environments and Wayland compositors. It can
-also be one of the mechanisms for rootless [Xorg](./graphical-session/xorg.md).
+[elogind(8)](https://man.voidlinux.org/elogind.8) manages user logins and system
+power, as a standalone version of `systemd-logind`. elogind provides necessary
+features for most desktop environments and Wayland compositors. It can also be
+one of the mechanisms for rootless [Xorg](./graphical-session/xorg.md).
+
+Please read the "[Power Management](./power-management.md)" section for things
+to consider before installing elogind.
+
 To make use of its features, install the `elogind` package and make sure the
 [system D-Bus](#d-bus) is enabled. You might need to log out and in again.
 
-### Troubleshooting
-
-If you're having any issues with `elogind`, [enable](./services/index.md) its
+If you're having any issues with elogind, [enable](./services/index.md) its
 service, as waiting for a D-Bus activation can lead to issues.
-
-By default, `elogind` listens for and processes ACPI events related to
-lid-switch activation and presses of *power*, *suspend* and *hibernate* keys.
-This will conflict with the [acpid(8)](https://man.voidlinux.org/acpid) service
-if it is installed and enabled. Either disable `acpid` when enabling `elogind`
-or configure `elogind` to `ignore` ACPI events in
-[logind.conf(5)](https://man.voidlinux.org/logind.conf.5). There are several
-configuration options, all starting with the keyword `Handle`, that should be
-set to `ignore` to avoid interfering with `acpid`.

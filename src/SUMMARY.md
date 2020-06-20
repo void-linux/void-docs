@@ -30,6 +30,7 @@
       - [AppArmor](./config/security/apparmor.md)
    - [Date and Time](./config/date-time.md)
    - [Kernel](./config/kernel.md)
+   - [Power Management](./config/power-management.md)
    - [Network](./config/network/index.md)
       - [iptables](./config/network/iptables.md)
       - [wpa_supplicant](./config/network/wpa_supplicant.md)
