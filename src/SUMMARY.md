@@ -14,6 +14,7 @@
    - [Advanced Installation](./installation/guides/index.md)
       - [Installation via chroot (x86/x86_64)](./installation/guides/chroot.md)
       - [Full Disk Encryption](./installation/guides/fde.md)
+      - [MDRAID](./installation/guides/mdraid.md)
    - [musl](./installation/musl.md)
 - [Configuration](./config/index.md)
    - [Locales](./config/locales.md)
