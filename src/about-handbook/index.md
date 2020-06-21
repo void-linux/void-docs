@@ -21,6 +21,14 @@ configuration instructions, it does provide links to the [man
 pages](https://man.voidlinux.org/) for the referenced software wherever
 possible.
 
+To learn how to use the [man(1)](https://man.voidlinux.org/man.1) man page
+viewer, run the command `man man`. It can be configured by editing
+`/etc/man.conf`; read [man.conf(5)](https://man.voidlinux.org/man.conf.5) for
+details.
+
+Void uses the [mandoc](https://mandoc.bsd.lv/) toolset for man pages. mandoc was
+formerly known as "mdocml", and is provided by the `mdocml` package.
+
 ## Example Commands
 
 Examples in this guide may have snippets of commands to be run in your shell.
