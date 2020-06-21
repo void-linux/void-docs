@@ -36,7 +36,7 @@
       - [iwd](./config/network/iwd.md)
       - [NetworkManager](./config/network/networkmanager.md)
       - [ConnMan](./config/network/connman.md)
-   - [Session Management](./config/session-management.md)
+   - [Session and Seat Management](./config/session-management.md)
    - [Graphical Session](./config/graphical-session/index.md)
       - [Graphics Drivers](./config/graphical-session/graphics-drivers/index.md)
          - [Intel GPU](./config/graphical-session/graphics-drivers/intel.md)
