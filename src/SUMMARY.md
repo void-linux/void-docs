@@ -46,6 +46,7 @@
          - [NVIDIA](./config/graphical-session/graphics-drivers/nvidia.md)
       - [Xorg](./config/graphical-session/xorg.md)
       - [Wayland](./config/graphical-session/wayland.md)
+      - [Fonts](./config/graphical-session/fonts.md)
       - [GNOME](./config/graphical-session/gnome.md)
       - [KDE](./config/graphical-session/kde.md)
    - [Multimedia](./config/media/index.md)
