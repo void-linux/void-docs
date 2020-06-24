@@ -32,7 +32,7 @@
    - [Kernel](./config/kernel.md)
    - [Power Management](./config/power-management.md)
    - [Network](./config/network/index.md)
-      - [iptables](./config/network/iptables.md)
+      - [Firewalls](./config/network/firewalls.md)
       - [wpa_supplicant](./config/network/wpa_supplicant.md)
       - [iwd](./config/network/iwd.md)
       - [NetworkManager](./config/network/networkmanager.md)
