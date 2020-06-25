@@ -119,6 +119,19 @@ and not:
 [example](example.md#heading-text)
 ```
 
+When referring literally to a Handbook section, the section title should be
+placed in double-quotes. Otherwise, double-quotes are not required. For example:
+
+```
+For more information, please read the "[Power Management](./power-management.md)" section.
+```
+
+and
+
+```
+Void provides facilities to assist with [power management](./power-management.md).
+```
+
 Command code-blocks should be introduced with a colon (':'), i.e.:
 
 > For example:
