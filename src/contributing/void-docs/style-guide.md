@@ -75,6 +75,12 @@ and also not:
 vi /etc/fstab
 ```
 
+Command code-blocks should be introduced with a colon (':'), i.e.:
+
+> For example:
+> 
+> `$ ls -l`
+
 ### Placeholders
 
 Placeholders indicate where the user should substitute the appropriate
@@ -131,12 +137,6 @@ and
 ```
 Void provides facilities to assist with [power management](./power-management.md).
 ```
-
-Command code-blocks should be introduced with a colon (':'), i.e.:
-
-> For example:
-> 
-> `$ ls -l`
 
 ### Man Page Links
 
