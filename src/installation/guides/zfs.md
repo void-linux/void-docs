@@ -70,7 +70,9 @@ size.
 Create a pool specifying the previously created Solaris Root Partition from the
 disk:
 
-`# zpool create -f -m none zroot dev`
+```
+# zpool create -f -m none zroot dev
+```
 
 | Argument | Action                                            |
 |----------|---------------------------------------------------|
@@ -139,11 +141,15 @@ spl                   102400  5 zfs,icp,znvpair,zcommon,zavl
 Setup the ZFS cachefile, to ensure the new machine recognizes the previously
 created pool properly.
 
-`(chroot)# zpool set cachefile=/etc/zfs/zpool.cache zroot`
+```
+(chroot)# zpool set cachefile=/etc/zfs/zpool.cache zroot
+```
 
 Then notate the bootable system for GRUB's autoconfig:
 
-`(chroot)# zpool set bootfs=zroot/ROOT/void zroot`
+```
+(chroot)# zpool set bootfs=zroot/ROOT/void zroot
+```
 
 Finally ensure GRUB recognizes the ZFS module before being installed.
 
@@ -201,7 +207,9 @@ Ensure that the Dracut configuration took and the zfs module is listed in
 Note: It may be necessary to specify the path to the img if the kernel version
 has changed, see [lsinitrd(1)](https://man.voidlinux.org/lsinitrd).
 
-`(chroot)# lsinitrd -m`
+```
+(chroot)# lsinitrd -m
+```
 
 Check that the ZFS cache is recognized as well:
 
@@ -214,7 +222,9 @@ Check that the ZFS cache is recognized as well:
 
 Exit chroot:
 
-`(chroot)$ exit`
+```
+(chroot)$ exit
+```
 
 and un-mount the chroot environment:
 
