@@ -2,7 +2,7 @@
 
 echo "Installing mdbook-linkcheck"
 
-_version="v0.6.0"
+_version="v0.7.0"
 curl -sL -o ~/bin/linkcheck.tar.gz "https://github.com/Michael-F-Bryan/mdbook-linkcheck/releases/download/${_version}/mdbook-linkcheck-${_version}-x86_64-unknown-linux-gnu.tar.gz"
 
 tar xvf ~/bin/linkcheck.tar.gz -C ~/bin
