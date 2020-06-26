@@ -23,7 +23,7 @@ NVRM: at www.nvidia.com.
 
 which means you have to uninstall `nvidia` and install the legacy `nvidia390`.
 
-A summary of the methods supported by Void:
+A summary of the methods supported by Void, which are mutually exclusive:
 
 [PRIME Render Offload](#prime-render-offload)
 
@@ -36,8 +36,8 @@ Offloading Graphics Display with RandR 1.4
 
 - available on `nvidia` and `nvidia390`
 - allows to choose which GPU to use at the start of the X session
-- less flexible but allows to shut down completely the NVIDIA GPU when not in
-   use, thus saving power
+- less flexible, but allows the user to completely shut down the NVIDIA GPU when
+   not in use, thus saving power
 
 [Bumblebee](#bumblebee)
 
@@ -51,30 +51,19 @@ Offloading Graphics Display with RandR 1.4
 - allows to switch to the NVIDIA GPU on a per-application basis
 - `nouveau` is a reverse-engineered driver and offers poor performance
 
-> Note: different methods are mutually exclusive.
+You can check the currently used GPU by searching for `renderer string` in the
+output of the `glxinfo` command. It is necessary to install the `glxinfo`
+package for this.
 
 ## PRIME Render Offload
 
-In this method, GPU switching is done via setting environment variables when
-executing the application to be rendered on the NVIDIA GPU. Thus one can easily
-write a small wrapper script `prime-run` with the following contents:
+In this method, GPU switching is done by setting environment variables when
+executing the application to be rendered on the NVIDIA GPU. The wrapper script
+`prime-run` is available from the `nvidia` package, and can be used as shown
+below:
 
 ```
-#!/bin/sh
-__NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia __VK_LAYER_NV_optimus=NVIDIA_only "$@"
-```
-
-To verify that the variables are honored, check for the vendor returned by the
-following command (install the package `glxinfo`):
-
-```
-$ prime-run glxinfo | grep "renderer string"
-```
-
-and compare it with:
-
-```
-$ glxinfo | grep "renderer string"
+$ prime-run <application>
 ```
 
 For more information, see NVIDIA's
@@ -82,9 +71,8 @@ For more information, see NVIDIA's
 
 ## Bumblebee
 
-Enable the `bumblebeed` service and add the user to the `bumblebee` group.
-
-> Note: This requires a re-login to be effective.
+Enable the `bumblebeed` service and add the user to the `bumblebee` group. This
+requires a re-login to take effect.
 
 Run the application to be rendered on the NVIDIA GPU with `optirun`:
 
@@ -92,26 +80,14 @@ Run the application to be rendered on the NVIDIA GPU with `optirun`:
 $ optirun <application>
 ```
 
-For example (install the package `glxinfo`):
-
-```
-$ optirun glxinfo | grep "renderer string"
-```
-
 ## Nouveau PRIME
 
-> Note: This method uses the open source `nouveau` driver, which is blacklisted
-> by NVIDIA drivers. Uninstall any NVIDIA driver present on your system and
-> reboot.
+This method uses the open source `nouveau` driver. If the NVIDIA drivers are
+installed, it is necessary to [configure the system to use
+`nouveau`](./nvidia.md#reverting-from-nvidia-to-nouveau).
 
 Set `DRI_PRIME=1` to run an application on the NVIDIA GPU:
 
 ```
 $ DRI_PRIME=1 <application>
-```
-
-For example (install the package `glxinfo`):
-
-```
-$ DRI_PRIME=1 glxinfo | grep "renderer string"
 ```
