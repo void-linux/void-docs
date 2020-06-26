@@ -52,7 +52,7 @@ network={
 
 ### The wpa_supplicant service
 
-The `wpa_supplicant` runit script checks the following options in
+The `wpa_supplicant` service checks the following options in
 `/etc/sv/wpa_supplicant/conf`:
 
 - `OPTS`: Options to be passed to the service. Overrides any other options.
@@ -69,6 +69,9 @@ If no `conf` file is found, the service searches for the following files in
    named interface.
 - `wpa_supplicant.conf`: If found, this file is loaded and binds to all other
    interfaces found.
+
+Once you are satisfied with your configuration,
+[enable](../services/index.md#enabling-services) the `wpa_supplicant` service.
 
 ### Using wpa_cli
 
