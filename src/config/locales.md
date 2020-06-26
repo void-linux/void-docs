@@ -8,6 +8,7 @@ $ locale -a
 
 ## Enabling locales
 
+<<<<<<< HEAD
 To enable a certain locale, un-comment or add the relevant lines in
 `/etc/default/libc-locales` and [reconfigure](../xbps/index.md) the
 `glibc-locales` package.
