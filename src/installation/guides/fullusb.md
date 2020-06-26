@@ -40,5 +40,5 @@ For BIOS/GPT use:
 
 ## Installation
 
-To continue the installation, follow the [chroot install guide](./), which
-details the rest of the process.
+To continue the installation, follow the [chroot install guide](./chroot.md),
+which details the rest of the process.

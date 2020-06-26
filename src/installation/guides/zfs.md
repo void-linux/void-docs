@@ -113,8 +113,8 @@ alternate mountpoint:
 
 **Important:** Please consult the Base Installation & Configuration sections,
 ignoring the configuration of the fstab, of the [chroot
-guide](./#base-installation). These detail the critical steps to install the
-system that are required before continuing.
+guide](./chroot.md#base-installation). These detail the critical steps to
+install the system that are required before continuing.
 
 At this point, the `grub` and `zfs` packages will need to be installed from the
 new system.
