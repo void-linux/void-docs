@@ -1,9 +1,8 @@
 # Live USB To Full Install
 
-This installation guide shows how to convert a Live USB of Void Linux into a
-Full, Pervasive Install. It is recommended to use a machine that has at least
-4GB of RAM, and a USB drive with more than 4GB of storage to perform the
-installation.
+This installation guide explains how to convert a Live USB of Void Linux into a
+Full Install. It is recommended to use a machine that has at least 4GB of RAM,
+and a USB drive with more than 4GB of storage to perform the installation.
 
 ## Setup
 
@@ -21,12 +20,12 @@ Void Linux
 Boot First HD Found by BIOS
 ```
 
-And then un-mounting the remaining connection between the USB and the system:
+and then un-mounting the remaining connection between the USB and the system:
 
 `# umount /run/initramfs/live`
 
 Then locate the USB using [fdisk(8)](https://man.voidlinux.org/fdisk.8), with
-the `-l` argument, or [lsblk(8)](https://man.voidlinux.org/lsblk.8):
+the `-l` argument, or [lsblk(8)](https://man.voidlinux.org/lsblk.8).
 
 **Important:** Before creating the partition tables it is essential to remove
 the existing GRUB install. This can be done using one of the following commands.

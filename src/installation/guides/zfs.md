@@ -1,8 +1,8 @@
 # ZFS On Root
 
 This installation guide assumes that an already existing install of Void Linux
-is available. Not a Live USB. If Void Linux has yet to be installed, please
-consult one of the [other installation guides](./index.md) or use a custom iso
+is available, not a live USB. If Void Linux has yet to be installed, please
+consult one of the [other installation guides](./index.md) or use a custom ISO
 such as [hrmpf](https://github.com/leahneukirchen/hrmpf) before continuing with
 this guide.
 
@@ -13,10 +13,12 @@ From the existing system, install the `zfs` package.
 Then ensure the ZFS module is loaded with
 [modprobe(1)](https://man.voidlinux.org/modprobe):
 
-`# modprobe zfs`
+```
+# modprobe zfs
+```
 
 Locate the drive to format using [fdisk(8)](https://man.voidlinux.org/fdisk.8),
-with the -l argument, or [lsblk(8)](https://man.voidlinux.org/lsblk.8):
+with the -l argument, or [lsblk(8)](https://man.voidlinux.org/lsblk.8).
 
 ## Partitioning
 
@@ -24,7 +26,9 @@ Prepare the drive for installation by creating one of the following partition
 schemes using [cfdisk(8)](https://man.voidlinux.org/cfdisk.8) or another
 partitioning tool:
 
-`# cfdisk -z /dev/sda`
+```
+# cfdisk -z /dev/sda
+```
 
 **Warning:** The disk being partitioned will be formatted and any existing data
 on it will be destroyed.
@@ -108,13 +112,12 @@ alternate mountpoint:
 ```
 
 **Important:** Please consult the Base Installation & Configuration sections,
-ignoring the configuration of a fstab, of the [chroot guide](./). These provide
-an in depth guide of a general configuration that is required before continuing.
+ignoring the configuration of the fstab, of the [chroot
+guide](./#base-installation). These detail the critical steps to install the
+system that are required before continuing.
 
-After consulting the guide, install `grub` and `zfs` from the new system which
-will build the requirements necessary to boot:
-
-`(chroot)# xbps-install -S -R $REPO grub zfs`
+At this point, the `grub` and `zfs` packages will need to be installed from the
+new system.
 
 ## GRUB Installation
 
@@ -144,7 +147,7 @@ Then notate the bootable system for GRUB's autoconfig:
 
 Finally ensure GRUB recognizes the ZFS module before being installed.
 
-Note: When using id's the ZPOOL_VDEV_NAME_PATH variable must be set to 1.
+Note: When using IDs the ZPOOL_VDEV_NAME_PATH variable must be set to 1.
 
 ```
 (chroot)# ZPOOL_VDEV_NAME_PATH=1 grub-probe /
@@ -200,7 +203,7 @@ has changed, see [lsinitrd(1)](https://man.voidlinux.org/lsinitrd).
 
 `(chroot)# lsinitrd -m`
 
-As well check that the ZFS cache is recognized:
+Check that the ZFS cache is recognized as well:
 
 ```
 (chroot)# lsinitrd | grep zpool.cache
@@ -213,7 +216,7 @@ Exit chroot:
 
 `(chroot)$ exit`
 
-And un-mount the chroot environment:
+and un-mount the chroot environment:
 
 ```
 # umount /mnt/void/dev/pts
