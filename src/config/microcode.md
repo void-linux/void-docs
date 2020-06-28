@@ -10,9 +10,8 @@ without the need to replace the hardware.
 ### Intel
 
 Install the Intel microcode package, `intel-ucode`. This package is in the
-nonfree repo, which has to be
-[enabled](../xbps/repositories/official/nonfree.md). After installing this
-package, it is necessary to regenerate your
+nonfree repo, which has to be [enabled](../xbps/repositories/nonfree.md). After
+installing this package, it is necessary to regenerate your
 [initramfs](./kernel.md#kernel-hooks). For subsequent updates, the microcode
 will be added to the initramfs automatically.
 
