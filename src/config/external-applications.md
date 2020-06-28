@@ -70,3 +70,7 @@ example, to build the control package, you must install the `openblas-devel`,
 
 To use MATLAB's help browser, live scripts, add-on installer, and simulink,
 install the `libselinux` package.
+
+## NVIDIA CUDA
+
+To install the CUDA Toolkit, use a [runfile installer from NVIDIA's website](https://developer.nvidia.com/cuda-toolkit). The installer may complain about missing ncurses libraries even if `ncurses,` `ncurses-libs` and `ncurses-libs-32bit` are all installed. To circumvent this issue, pass the `--silent` option which does not load the gui. The settings available in the gui are still available from the command line (For example, pass `--toolkit` to install only the SDK and not the driver. A full list of options is available by passing `--help`).
