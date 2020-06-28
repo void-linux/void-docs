@@ -19,8 +19,8 @@ For using Wayland, users should install the `mesa-dri` provided driver.
 
 ## nvidia (Proprietary Driver)
 
-The proprietary drivers are available in the [non-free
-repository](../../../xbps/repositories/nonfree.md).
+The proprietary drivers are available in the [nonfree
+repository](../../../xbps/repositories/index.md#nonfree).
 
 Check if your graphics card belongs to the [legacy
 branch](https://www.nvidia.com/en-us/drivers/unix/legacy-gpu/). If it does not,

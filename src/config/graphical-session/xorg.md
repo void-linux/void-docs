@@ -50,8 +50,8 @@ For advanced configuration, see
 ### Proprietary Drivers
 
 Void also provides [proprietary NVIDIA drivers](./graphics-drivers/nvidia.md),
-which are available in the [non-free
-repository](../../xbps/repositories/nonfree.md).
+which are available in the [nonfree
+repository](../../xbps/repositories/index.md#nonfree).
 
 ## Input Drivers
 
