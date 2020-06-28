@@ -74,10 +74,10 @@ If the verification process does not produce the expected "OK" status, do not
 use it! Please alert the Void Linux team of where you got the image and how you
 verified it, and we will follow up on it.
 
-For verification with `minisign`, it is necessary to rename the `sha256.sig` file
-to `sha256.txt.minisig` and remove the first line from the `.pub` release key.
-The following example demonstrates the verification of the `sha256.txt` file
-from the 20191109 release:
+For verification with `minisign`, it is necessary to rename the `sha256.sig`
+file to `sha256.txt.minisig` and remove the first line from the `.pub` release
+key. The following example demonstrates the verification of the `sha256.txt`
+file from the 20191109 release:
 
 ```
 $ minisign -Vm sha256.txt -f -p void-release-20191109.pub
