@@ -209,7 +209,7 @@ generated from currently mounted filesystems by copying the file `/proc/mounts`:
 Remove lines in `/etc/fstab` that refer to `proc`, `sys`, `devtmpfs` and `pts`.
 
 Replace references to `/dev/sdXX`, `/dev/nvmeXnYpZ`, etc. with their respective
-UUID, which can be found by found by running
+UUID, which can be found by running
 [blkid(8)](https://man.voidlinux.org/blkid.8). Referring to filesystems by their
 UUID guarantees they will be found even if they are assigned a different name at
 a later time. In some situations, such as booting from USB, this is absolutely

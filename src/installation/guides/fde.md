@@ -6,7 +6,8 @@ it is correct.
 Boot the live image and login.
 
 Create a single physical partition on the disk using `cfdisk`, marking it
-bootable. For an MBR system, the partition layout should look the following.
+bootable. For an MBR system, the partition layout should look like the
+following.
 
 ```
 # fdisk -l /dev/sda
