@@ -1,7 +1,8 @@
 # Installation Guide
 
-Once you have [downloaded](../downloading.md) a Void image to install and
-[prepared](./prep.md) your install media, you are ready to install Void Linux.
+Once you have [downloaded](../index.md#downloading-installation-media) a Void
+image to install and [prepared](./prep.md) your install media, you are ready to
+install Void Linux.
 
 Before you begin installation, you should determine whether your machine boots
 using BIOS or UEFI. This will affect how you plan partitions. See [Partitioning

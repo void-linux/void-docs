@@ -5,8 +5,6 @@
    - [About this Handbook](./about-handbook/index.md)
    - [InfraDocs](./about/meta/infradocs.md)
 - [Installation](./installation/index.md)
-   - [Downloading Installation Media](./installation/downloading.md)
-   - [Base System Requirements](./installation/base-requirements.md)
    - [Live Installers](./installation/live-images/index.md)
       - [Prepare Installation Media](./installation/live-images/prep.md)
       - [Partitioning Notes](./installation/live-images/partitions.md)
