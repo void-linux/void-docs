@@ -1,5 +1,8 @@
 # Date and Time
 
+To view your system's current date and time information, as well as make direct
+changes to it, use [date(1)](https://man.voidlinux.org/date.1).
+
 ## Timezone
 
 The default system timezone can be set by linking the timezone file to
