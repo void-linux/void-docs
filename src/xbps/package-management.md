@@ -111,3 +111,22 @@ To get a list of all installed packages, without their version:
 ```
 $ xbps-query -l | awk '{ print $2 }' | xargs -n1 xbps-uhelper getpkgname | fmt
 ```
+
+## Ignoring Packages
+
+Sometimes you may wish to remove a package whose functionality is being provided
+by another package, but will be unable to do so due to dependency issues. For
+example, you may wish to use [doas(1)](https://man.voidlinux.org/doas.1) instead
+of [sudo(8)](https://man.voidlinux.org/sudo.8), but will be unable to remove the
+`sudo` package due to it being a dependency of the `base-system` package. To
+remove it, you will need to *ignore* the `sudo` package.
+
+To ignore a package, add an appropriate `ignorepkg` entry in an
+[xbps.d(5)](https://man.voidlinux.org/xbps.d.5) configuration file. For example:
+
+```
+ignorepkg=sudo
+```
+
+You will then be able to remove the `sudo` package using
+[xbps-remove(1)](https://man.voidlinux.org/xbps-remove.1).
