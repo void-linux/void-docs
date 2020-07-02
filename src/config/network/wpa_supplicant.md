@@ -2,7 +2,8 @@
 
 The `wpa_supplicant` package is installed by default on the base system. It
 includes utilities to configure wireless interfaces and handle wireless security
-protocols.
+protocols. To use wpa_supplicant, you will need to enable [the wpa_supplicant
+service](#the-wpa_supplicant-service).
 
 [wpa_supplicant(8)](https://man.voidlinux.org/wpa_supplicant.8) is a daemon that
 manages wireless interfaces based on
