@@ -57,6 +57,7 @@
    - [Printing](./config/print/index.md)
    - [Manual Pages](./config/man.md)
    - [Microcode](./config/microcode.md)
+   - [Docker](./config/docker.md)
 - [XBPS Package Manager](./xbps/index.md)
    - [Package Management](./xbps/package-management.md)
    - [Repositories](./xbps/repositories/index.md)
