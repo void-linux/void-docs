@@ -3,3 +3,5 @@ To contribute to the Void documentation, please read the following sections of t
 - [About this Handbook](https://docs.voidlinux.org/about-handbook/index.html)
 - [Style Guide](https://docs.voidlinux.org/contributing/void-docs/style-guide.html)
 - [Submitting Changes](https://docs.voidlinux.org/contributing/void-docs/submitting.html)
+
+In particular, please note that, when building the documentation for the purposes of testing a PR locally, you will need to [install `mdbook-linkcheck`](https://docs.voidlinux.org/contributing/void-docs/style-guide.html#checking-links) in addition to `mdbook` itself.
