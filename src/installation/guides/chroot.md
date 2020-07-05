@@ -300,4 +300,4 @@ computer:
 ```
 
 After booting into your Void installation for the first time, [perform a system
-update](../../xbps/package-management.md#updating).
+update](../../xbps/index.md#updating).

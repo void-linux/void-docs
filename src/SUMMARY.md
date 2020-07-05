@@ -58,7 +58,7 @@
    - [Manual Pages](./config/man.md)
    - [Microcode](./config/microcode.md)
 - [XBPS Package Manager](./xbps/index.md)
-   - [Package Management](./xbps/package-management.md)
+   - [Advanced Usage](./xbps/advanced-usage.md)
    - [Repositories](./xbps/repositories/index.md)
       - [Mirrors](./xbps/repositories/mirrors/index.md)
          - [Changing Mirrors](./xbps/repositories/mirrors/changing.md)
