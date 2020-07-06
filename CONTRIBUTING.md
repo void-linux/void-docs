@@ -3,3 +3,5 @@ To contribute to the Void documentation, please read the following sections of t
 - [About this Handbook](https://docs.voidlinux.org/about-handbook/index.html)
 - [Style Guide](https://docs.voidlinux.org/contributing/void-docs/style-guide.html)
 - [Submitting Changes](https://docs.voidlinux.org/contributing/void-docs/submitting.html)
+
+In particular, please be sure to run this repository's `check.sh` script, and to address any issues it raises, before submitting your PR.

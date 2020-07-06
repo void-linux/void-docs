@@ -33,13 +33,7 @@ of the auto-formatter `vmdfmt`, which works very similarly to `gofmt`. Most
 valid markdown is accepted by the formatter. The output format is described in
 the project's [README](https://github.com/bobertlo/vmd/blob/master/README.md).
 
-Void provides the package `vmdfmt`. Otherwise you may `go get` from the repo:
-
-```
-$ go get github.com/bobertlo/vmd/cmd/vmdfmt
-```
-
-To format a file you have edited, run:
+After installing the `vmdfmt` package, you can format a file by running:
 
 ```
 vmdfmt -w <filepath>
@@ -51,6 +45,9 @@ files modified, run:
 ```
 vmdfmt -w -l <filepath>
 ```
+
+`vmdfmt` is used by the void-docs repository's `check.sh` script, which must be
+[run locally before submitting a pull request](./submitting.md#making-changes).
 
 ## Commands
 
@@ -164,19 +161,21 @@ They should not be formatted like this:
 ### Checking links
 
 If you're including new links (either internal or external) in the docs or
-changing the current file structure, you should install `mdbook-linkcheck`,
-which can be obtained from the Void repos or by using `cargo`. You can then
-build the mdBook locally, which will run a linkcheck as well, or run it in
-standalone mode:
+changing the current file structure, you should make use of the
+`mdbook-linkcheck` package:
 
 ```
 $ mdbook-linkcheck -s
 ```
 
-This way, linkcheck will verify all the references, and warn you if there are
-any issues. If any link you're using is correct but generating errors for some
-reason, you can add its domain to the exclude list in `book.toml`, under the
+This will verify all the references, and warn you if there are any issues. If
+any link you're using is correct but generating errors for some reason, you can
+add its domain to the exclude list in `book.toml`, under the
 `[mdbook.linkcheck]` key.
+
+`mdbook-linkcheck` is used by the void-docs repository's `check.sh` script,
+which must be [run locally before submitting a pull
+request](./submitting.md#making-changes).
 
 ## Case
 

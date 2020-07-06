@@ -31,11 +31,20 @@ $ cd void-docs
 $ git checkout -b <branch_name>
 ```
 
-You can then edit the repository files as appropriate. To serve the docs locally
-and view your changes, run `mdbook serve` from the root of the repository.
+You can then edit the repository files as appropriate.
 
-Once you are satisfied with your changes, commit them and push them to the
-forked repository:
+## Making changes
+
+To serve the docs locally and view your changes, run `mdbook serve` from the
+root of the repository.
+
+Once you are satisfied with your changes, run the `check.sh` script provided in
+the repository root. This will run the `vmdfmt` command, which will wrap the
+text appropriately, and the `mdbook-linkcheck` command, which will check for
+broken links. Address any issues raised by `check.sh`.
+
+Once `check.sh` runs without errors, push your changes to your forked
+repository:
 
 ```
 $ git add <edited_file(s)>
