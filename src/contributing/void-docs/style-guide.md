@@ -3,8 +3,26 @@
 This style guide outlines the standards for contributing to the
 [void-docs](https://github.com/void-linux/void-docs/) project. The manual on
 <https://docs.voidlinux.org> is generated from an
-[mdBook](https://rust-lang-nursery.github.io/mdBook/) stored in the
+[mdBook](https://rust-lang.github.io/mdBook/) stored in the
 [void-docs](https://github.com/void-linux/void-docs/) repository.
+
+## General
+
+Although there will always be cases where command listings are appropriate, the
+contents of the Handbook should be written in American English (or the relevant
+language in the case of translations of the Handbook).
+
+Outside of the 'installation' sections, step-by-step instructions containing
+'magic' commands for copying-and-pasting are strongly discouraged. Users are
+expected to read the canonical documentation (e.g. man pages) for individual
+programs to understand how to use them, rather than relying on
+copying-and-pasting.
+
+Command code-blocks should not be used to describe routine tasks documented
+elsewhere in this Handbook. For example, when writing documentation for the
+`foo` package, do not provide a command code-block stating that one should
+install it via `xbps-install foo`. Similarly, do not provide code blocks
+describing how to enable the `foo` service.
 
 ## Formatting
 
@@ -18,7 +36,7 @@ the project's [README](https://github.com/bobertlo/vmd/blob/master/README.md).
 Void provides the package `vmdfmt`. Otherwise you may `go get` from the repo:
 
 ```
-$ go get https://github.com/bobertlo/vmd/cmd/vmdfmt
+$ go get github.com/bobertlo/vmd/cmd/vmdfmt
 ```
 
 To format a file you have edited, run:
@@ -45,31 +63,88 @@ For example:
 # vi /etc/fstab
 ```
 
-And not:
+and not:
 
 ```
 $ sudo vi /etc/fstab
 ```
 
-And also not:
+and also not:
 
 ```
 vi /etc/fstab
 ```
 
-Command code-blocks should not be used to describe routine tasks documented
-elsewhere in this Handbook. For example, when writing documentation for the
-`foo` package, do not provide a command code-block stating that one should
-install it via `xbps-install foo`.
+Command code-blocks should be introduced with a colon (':'), i.e.:
+
+> For example:
+> 
+> `$ ls -l`
+
+### Placeholders
+
+Placeholders indicate where the user should substitute the appropriate
+information. They should use angle brackets (`<` and `>`) and contain only
+lower-case text, with words separated by underscores. For example:
+
+```
+# ln -s /etc/sv/<service_name> /var/service/
+```
+
+and not:
+
+```
+# ln -s /etc/sv/[SERVICENAME] /var/service/
+```
 
 ## Links
 
+Link text should not include sentence-level punctuation. For example:
+
+```
+[Visit this site](https://example.org).
+```
+
+and not:
+
+```
+[Visit this site.](https://example.org)
+```
+
+### Internal links
+
+Links to other sections of the Handbook must be relative. For example:
+
+```
+[example](./example.md#heading-text)
+```
+
+and not:
+
+```
+[example](example.md#heading-text)
+```
+
+When referring literally to a Handbook section, the section title should be
+placed in double-quotes. Otherwise, double-quotes are not required. For example:
+
+```
+For more information, please read the "[Power Management](./power-management.md)" section.
+```
+
+and
+
+```
+Void provides facilities to assist with [power management](./power-management.md).
+```
+
 ### Man Page Links
 
-Including links to man page is encouraged. These links should point to their man
-page on `https://docs.voidlinux.org`, have their title section number in
-parenthesis, and contain no formatting in their bodies. For example:
-[man(1)](https://man.voidlinux.org/man.1), and not
+The first reference to a command or man page must be a link to the relevant man
+page on `https://man.voidlinux.org/`.
+
+The link text must contain the title section number in parenthesis, and contain
+no formatting. For example: [man(1)](https://man.voidlinux.org/man.1), not
 [`man(1)`](https://man.voidlinux.org/man.1).
 
 ### Auto Links
@@ -85,6 +160,23 @@ They should not be formatted like this:
 ```
 [https://www.example.com/](https://www.example.com/)
 ```
+
+### Checking links
+
+If you're including new links (either internal or external) in the docs or
+changing the current file structure, you should install `mdbook-linkcheck`,
+which can be obtained from the Void repos or by using `cargo`. You can then
+build the mdBook locally, which will run a linkcheck as well, or run it in
+standalone mode:
+
+```
+$ mdbook-linkcheck -s
+```
+
+This way, linkcheck will verify all the references, and warn you if there are
+any issues. If any link you're using is correct but generating errors for some
+reason, you can add its domain to the exclude list in `book.toml`, under the
+`[mdbook.linkcheck]` key.
 
 ## Case
 
@@ -111,3 +203,24 @@ that may not be as clear to an ESL reader.
 This version contains a clear command to act, and a follow up that shows what
 will be done next. It is clear both to native English speakers, ESL readers, and
 to translators.
+
+## Notes
+
+Notes should only be used sparingly, and for non-critical information. They
+should begin with "Note: ", and not be block-quoted with `>`. For example, the
+Markdown should look like:
+
+```
+Note: You can also use program X for this purpose.
+```
+
+and not:
+
+```
+> You can also use program X for this purpose.
+```
+
+## Block quotes
+
+Block quotes (i.e. `>`) should only be used to quote text from an external
+source.

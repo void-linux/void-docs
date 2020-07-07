@@ -9,42 +9,19 @@ without the need to replace the hardware.
 
 ### Intel
 
-The Intel microcode package is in the non-free repo, so that has to be enabled
-first.
-
-```
-# xbps-install -S void-repo-nonfree
-```
-
-Install the `intel-ucode` package.
-
-```
-# xbps-install -S intel-ucode
-```
-
-Rebuild the initramfs matching the kernel. This only has to be done once, the
-first time the `intel-ucode` package is installed. If the current bootloader
-configuration contains more than one kernel version, the initramfs has to be
-rebuilt for each of them.
-
-```
-# xbps-reconfigure -f linuxX.X
-```
+Install the Intel microcode package, `intel-ucode`. This package is in the
+nonfree repo, which has to be [enabled](../xbps/repositories/index.md#nonfree).
+After installing this package, it is necessary to regenerate your
+[initramfs](./kernel.md#kernel-hooks). For subsequent updates, the microcode
+will be added to the initramfs automatically.
 
 ### AMD
 
-The AMD package contains microcode for both AMD CPUs and GPUs. AMD CPUs and GPUs
-will automatically load the microcode, no further configuration required.
-
-```
-# xbps-install -S linux-firmware-amd
-```
+Install the AMD package, `linux-firmware-amd`, which contains microcode for both
+AMD CPUs and GPUs. AMD CPUs and GPUs will automatically load the microcode, no
+further configuration required.
 
 ## Verification
 
-Performing the following command after a reboot can be used as verification that
-the update worked
-
-```
-$ grep microcode /proc/cpuinfo
-```
+The `/proc/cpuinfo` file has some information under `microcode` that can be used
+to verify the microcode update.

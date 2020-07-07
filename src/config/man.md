@@ -1,7 +1,7 @@
 # Manual Pages
 
 Void packages come with manual pages and the default installation includes the
-[mandoc](http://mandoc.bsd.lv/) manpage toolset.
+[mandoc](https://mandoc.bsd.lv/) manpage toolset.
 
 The [man(1)](https://man.voidlinux.org/man.1) command can be used to show manual
 pages.
@@ -10,10 +10,9 @@ pages.
 $ man 1 chroot
 ```
 
-The [mandoc](http://mandoc.bsd.lv/) toolset contains
-[apropos(1)](https://man.voidlinux.org/apropos.1) to search for manual pages,
-[apropos(1)](https://man.voidlinux.org/apropos.1) uses a database that can be
-updated and generated with the
+The `mandoc` toolset contains [apropos(1)](https://man.voidlinux.org/apropos.1),
+which can be used to search for manual pages. `apropos` uses a database that can
+be updated and generated with the
 [makewhatis(8)](https://man.voidlinux.org/makewhatis.8) command.
 
 ```
@@ -27,13 +26,5 @@ xbps-uunshare(1) - XBPS utility to chroot and bind mount with Linux user namespa
 chroot(2) - change root directory
 ```
 
-There are two extra packages for development and POSIX manuals that are not
-installed by default.
-
-```
-$ xbps-query -Rs man-pages
-[*] man-pages-4.11_1        Linux Documentation Project (LDP) manual pages
-[-] man-pages-devel-4.11_1  Linux Documentation Project (LDP) manual pages - development pages
-[-] man-pages-posix-2013a_3 Manual pages about POSIX systems
-# xbps-install -S man-pages-devel man-pages-posix
-```
+`man-pages-devel` and `man-pages-posix` are extra packages which are not
+installed by default. They contain development and POSIX manuals, respectively.

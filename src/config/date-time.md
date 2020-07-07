@@ -1,5 +1,8 @@
 # Date and Time
 
+To view your system's current date and time information, as well as make direct
+changes to it, use [date(1)](https://man.voidlinux.org/date.1).
+
 ## Timezone
 
 The default system timezone can be set by linking the timezone file to
@@ -37,7 +40,7 @@ Protocol](https://en.wikipedia.org/wiki/Network_Time_Protocol) (NTP).
 Void provides packages for three NTP daemons: NTP, OpenNTPD and Chrony.
 
 Once you have installed an NTP daemon, you can [enable the
-service](../config/services/managing.md).
+service](../config/services/index.md#managing-services).
 
 ### NTP
 
@@ -45,7 +48,7 @@ NTP is the official reference implementation of the Network Time Protocol.
 
 The `ntp` package provides NTP and the `isc-ntpd` service.
 
-For further information, visit [the NTP site](http://www.ntp.org/).
+For further information, visit [the NTP site](https://www.ntp.org/).
 
 ### OpenNTPD
 
@@ -58,7 +61,7 @@ For further information, visit [the OpenNTPD site](http://www.openntpd.org/).
 
 ### Chrony
 
-Chrony is designed to work well in a variety of conditions; it can synchronise
+Chrony is designed to work well in a variety of conditions; it can synchronize
 faster and with greater accuracy than NTP.
 
 The `chrony` package provides Chrony and the `chronyd` service.

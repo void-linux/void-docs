@@ -15,9 +15,11 @@ of source or binary packages.
 You can use `xbps-src` in the
 [void-packages](https://github.com/void-linux/void-packages) repository to build
 the restricted packages from templates. For instructions on building packages
-from templates see the
+from templates, refer to the
 [void-packages](https://github.com/void-linux/void-packages) documentation, and
-specifically the quick setup section of the README.
+the ["Quick start"
+section](https://github.com/void-linux/void-packages#quick-start) in particular
+.
 
 Remember that the building of restricted packages must be enabled explicitly by
 setting `XBPS_ALLOW_RESTRICTED=yes` in your `xbps-src` configuration (in the

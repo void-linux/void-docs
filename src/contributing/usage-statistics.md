@@ -16,15 +16,5 @@ The data collected by *PopCorn* is available to view at
 
 ## Setting up PopCorn
 
-First, install the `PopCorn` package:
-
-```
-# xbps-install PopCorn
-```
-
-To run *PopCorn* automatically as a service, enable the sv script, which will
-attempt to report statistics once per day:
-
-```
-# ln -s /etc/sv/popcorn /var/service/
-```
+First, install the `PopCorn` package. Then, enable the `popcorn` service, which
+will attempt to report statistics once per day.

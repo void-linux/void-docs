@@ -84,17 +84,17 @@ svg {
 	padding: 1em;
 }
 
-.right {
-	float: right;
-}
-
 /* void navigation */
 
 #void-nav {
 	width: 100%;
-	height: 50px;
+	min-height: 50px;
 	background: #478061;
 	font-size: 14px;
+
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
 }
 #void-nav button,
 #void-nav label {
@@ -110,8 +110,13 @@ svg {
 	margin: 0;
 	padding: 0;
 }
+
+#void-nav ul#nav-right {
+	margin-left: auto;
+}
+
 #void-nav ul li {
-	float: left;
+	display: inline-block;
 }
 #void-nav ul li a {
 	color: #fff;
@@ -251,6 +256,7 @@ body {
 #content {
 	display: flex;
 	flex-direction: row;
+	width: 100%;
 }
 #page-wrapper {
 	width: 100%;
@@ -270,7 +276,7 @@ body {
 /* 300px + 800px + 2*90px + 15px */
 @media only screen and (min-width: 1295px) {
 	.sidebar-visible #nav-wide-wrapper {
-		max-width: auto;
+		max-width: none;
 		margin: 0;
 	}
 	.sidebar-visible .nav-chapters {
@@ -288,7 +294,7 @@ body {
 /* 800px + 2*90px + 15px */
 @media only screen and (min-width: 995px) {
 	.sidebar-hidden #nav-wide-wrapper {
-		max-width: auto;
+		max-width: none;
 		margin: 0;
 	}
 	.sidebar-hidden .nav-chapters {
@@ -304,9 +310,88 @@ body {
 	}
 }
 
-/* whatever, just hide the nav */
-@media only screen and (max-width: 700px) {
-	#void-nav ul.right {
-		display: none;
+@media (prefers-color-scheme: dark) {
+	body {
+		color: #ccc;
+		background-color: #222;
+	}
+	h1, h2, h3, h4, h5, h6 { color: #ccc; }
+	a {
+		color: #62b086;
+	}
+	a:hover {
+		color: #ccc;
+	}
+
+	code {
+		background: inherit;
+	}
+	pre {
+		background: #353535;
+		border: 1px solid #111;
+	}
+
+	blockquote {
+		background: inherit;
+		border-left: .2em solid #ccc;
+		border-right: none;
+		border-top: none;
+		border-bottom: none;
+		padding-top: .5em;
+		padding-bottom: .5em;
+		padding-left: 1em;
+		padding-right: 1em;
+		margin-left: 1em;
+	}
+	blockquote code {
+		color: #62b086;
+	}
+	table td {
+		border: 1px #2c2c2c solid;
+	}
+	table thead {
+		background: #2c2c2c;
+	}
+	table tbody tr:nth-child(2n) {
+		background: #2c2c2c;
+	}
+
+	/* nav */
+	#void-nav ul li a:hover,
+	#void-nav ul li a:focus,
+	#void-nav button:hover,
+	#void-nav button:focus,
+	#void-nav label:hover,
+	#void-nav label:focus {
+		background: #222;
+	}
+
+	#void-nav {
+		background: #295340;
+	}
+
+	/* sidebar  */
+	#sidebar {
+		background: #252525;
+	}
+	#sidebar a {
+		color: #ccc;
+	}
+	#sidebar a:hover {
+		color: #62b086;
+	}
+	#sidebar a.active {
+		color: #62b086;
+	}
+
+	/* search */
+	#searchbar {
+		background-color: #222;
+		color: #ccc;
+	}
+
+	/* chapter navigation */
+	.nav-chapters:hover {
+		fill: #fff
 	}
 }

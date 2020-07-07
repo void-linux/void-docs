@@ -1,21 +1,24 @@
 # ALSA
 
-Install the `alsa-utils` package make sure your user is part of the `audio`
-group to access audio devices.
+To use ALSA, install the `alsa-utils` package and make sure your user is a
+member of the `audio` group.
 
-```
-# xbps-install -S alsa-utils
-# usermod -a -G audio <username>
-```
+The `alsa-utils` package provides the `alsa` service. When enabled, this service
+saves and restores the state of ALSA (e.g. volume) at shutdown and boot,
+respectively.
 
-The `alsa-utils` package comes with the system service `/etc/sv/alsa` which can
-be activated to save and restore the state of alsa controls like the volume at
-shutdown and boot respectively.
+To allow use of software requiring PulseAudio, install the `apulse` package.
+`apulse` provides part of the PulseAudio interface expected by applications,
+translating calls to that interface into calls to ALSA. For details about using
+`apulse`, consult [the project
+README](https://github.com/i-rinat/apulse/blob/master/README.md).
 
-If the soundcard you want to use is not the default you can either use kernel
-module options or the alsa config to change the default card.
+## Configuration
 
-The current module order can be retrieved from the procfs filesystem.
+The default sound card can be specified via ALSA configuration files or via
+kernel module options.
+
+To obtain information about the order of loaded sound card modules:
 
 ```
 $ cat /proc/asound/modules
@@ -24,18 +27,29 @@ $ cat /proc/asound/modules
  2 snd_usb_audio
 ```
 
-To use the kernel module options you can create a file like
-`/etc/modprobe.d/alsa.conf` with following content.
+To set a different card as the default, edit `/etc/asound.conf` or the per-user
+configuration file `~/.asoundrc`:
+
+```
+defaults.ctl.card 2;
+defaults.pcm.card 2;
+```
+
+or specify sound card module order in `/etc/modprobe.d/alsa.conf`:
 
 ```
 options snd_usb_audio index=0
 ```
 
-Alternatively using the alsa configuration file `/etc/asound.conf` or the
-per-user configuration file `~/.asoundrc` to set a different card as the
-default.
+## Dmix
+
+The `dmix` ALSA plugin allows playing sound from multiple sources. `dmix` is
+enabled by default for soundcards which do not support hardware mixing. To
+enable it for digital output, edit `/etc/asound.conf`:
 
 ```
-defaults.ctl.card 2;
-defaults.pcm.card 2;
+pcm.dsp {
+    type plug
+    slave.pcm "dmix"
+}
 ```

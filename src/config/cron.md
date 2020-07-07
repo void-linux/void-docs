@@ -8,6 +8,6 @@ Available choices include [cronie](https://github.com/cronie-crond/cronie/),
 [fcron](http://fcron.free.fr/) and more.
 
 As alternative to the standard cron implementations you can use something like
-[snooze](https://github.com/chneukirchen/snooze) or
-[runwhen](http://code.dogmap.org/runwhen/) which go hand in hand with service
+[snooze](https://github.com/leahneukirchen/snooze) or
+[runwhen](https://code.dogmap.org/runwhen/) which go hand in hand with service
 supervision.

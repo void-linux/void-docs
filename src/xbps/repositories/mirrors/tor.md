@@ -1,6 +1,6 @@
 # Using Tor mirrors
 
-Tor is an anonymising software that bounces traffic via computers all around the
+Tor is an anonymizing software that bounces traffic via computers all around the
 world. It can provide access to regular sites on the internet or to hidden sites
 only available on the network.
 
@@ -21,11 +21,7 @@ via Tor.
 
 ### Installing Tor
 
-Tor can be installed using XBPS:
-
-```
-# xbps-install -S tor
-```
+Tor is contained in the `tor` package.
 
 After having installed Tor, you can start it as your own user:
 
@@ -33,11 +29,7 @@ After having installed Tor, you can start it as your own user:
 $ tor
 ```
 
-or as a system service:
-
-```
-# ln -s /etc/sv/tor /var/service/
-```
+or enable its system service.
 
 By default, Tor will act as a client and open a SOCKS5 proxy on TCP port 9050 on
 localhost.
@@ -73,10 +65,10 @@ example):
 # sed -i 's|https://alpha.de.repo.voidlinux.org|http://lysator7eknrfl47rlyxvgeamrv7ucefgrrlhk7rouv3sna25asetwid.onion/pub/voidlinux|g' /etc/xbps.d/*-repository-*.conf
 ```
 
-Tor provides layered end-to-end encryption so https is not necessary.
+Tor provides layered end-to-end encryption so HTTPS is not necessary.
 
 When installing packages, with `SOCKS_PROXY` set like the earlier example, XBPS
-should indicate that it is synchronising the repositories from the onion address
+should indicate that it is synchronizing the repositories from the onion address
 specified in the override:
 
 ```
