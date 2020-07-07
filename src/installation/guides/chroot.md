@@ -114,6 +114,10 @@ installation by installing the `base-system` metapackage:
 # XBPS_ARCH=$ARCH xbps-install -S -r /mnt -R "$REPO" base-system
 ```
 
+`xbps-install` might ask you to [verify the RSA
+keys](../../xbps/index.md#verifying-rsa-keys) for the packages you are
+installing.
+
 ### The ROOTFS Method
 
 [Download a ROOTFS

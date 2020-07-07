@@ -122,6 +122,10 @@ On a UEFI system, the EFI system partition also needs to be mounted.
 
 Before we enter the chroot to finish up configuration, we do the actual install.
 
+`xbps-install` might ask you to [verify the RSA
+keys](../../xbps/index.md#verifying-rsa-keys) for the packages you are
+installing.
+
 ```
 # xbps-install -Sy -R https://alpha.de.repo.voidlinux.org/current -r /mnt base-system lvm2 cryptsetup grub
 [*] Updating `https://alpha.de.repo.voidlinux.org/current/x86_64-repodata' ...
