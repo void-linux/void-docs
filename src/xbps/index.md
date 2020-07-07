@@ -105,3 +105,18 @@ To get a list of all installed packages, without their version:
 ```
 $ xbps-query -l | awk '{ print $2 }' | xargs -n1 xbps-uhelper getpkgname
 ```
+
+## Verifying RSA keys
+
+If you are installing Void for the first time or the RSA keys randomly change,
+you may get a message from `xbps-install` claiming:
+
+```
+<REPO> repository has been RSA signed by <RSA-FINGERPRINT>
+```
+
+To verify the signature, ensure the <RSA-FINGERPRINT> matches one of the
+fingerprints in
+[void-packages](https://github.com/void-linux/void-packages/tree/master/common/repo-keys) 
+or [void-mklive](https://github.com/void-linux/void-mklive/tree/master/keys),
+because the keys in those repos should match.
