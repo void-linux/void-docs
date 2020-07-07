@@ -56,3 +56,15 @@ ignorepkg=sudo
 
 You will then be able to remove the `sudo` package using
 [xbps-remove(1)](https://man.voidlinux.org/xbps-remove.1).
+
+## Virtual Packages
+
+Virtual packages can be created with
+[xbps.d(5)](https://man.voidlinux.org/xbps.d.5) `virtualpkg` entries. Any
+request to the virtual package will be resolved to the real package. For
+example, to create a `linux` virtual package which will resolve to the
+`linux5.6` package, create an `xbps.d` configuration file with the contents:
+
+```
+virtualpkg=linux:linux5.6
+```
