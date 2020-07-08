@@ -23,5 +23,5 @@ set to `ignore` to avoid interfering with `acpid`.
 
 Laptop battery life can be extended by using
 [tlp(8)](https://man.voidlinux.org/tlp.8). To use it, install the `tlp` package,
-and enable the `tlp` service. Refer to [the TLP
-documentation](https://linrunner.de/tlp/) for details.
+and [enable](./services/index.md#enabling-services) the `tlp` service. Refer to
+[the TLP documentation](https://linrunner.de/tlp/) for details.
