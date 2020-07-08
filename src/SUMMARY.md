@@ -57,6 +57,7 @@
    - [Printing](./config/print/index.md)
    - [Manual Pages](./config/man.md)
    - [Microcode](./config/microcode.md)
+   - [PCI Passthrough](./config/pci-passthrough.md)
 - [XBPS Package Manager](./xbps/index.md)
    - [Advanced Usage](./xbps/advanced-usage.md)
    - [Repositories](./xbps/repositories/index.md)
