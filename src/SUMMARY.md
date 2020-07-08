@@ -57,6 +57,8 @@
    - [Printing](./config/print/index.md)
    - [Manual Pages](./config/man.md)
    - [Microcode](./config/microcode.md)
+   - [Containers and VMs](./config/containers_and_vms/index.md)
+      - [Podman](./config/containers_and_vms/podman.md)
 - [XBPS Package Manager](./xbps/index.md)
    - [Advanced Usage](./xbps/advanced-usage.md)
    - [Repositories](./xbps/repositories/index.md)
