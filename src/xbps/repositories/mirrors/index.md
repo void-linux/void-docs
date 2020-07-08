@@ -26,6 +26,7 @@ sub-repository.
 
 | Repository                                         | Location          |
 |----------------------------------------------------|-------------------|
+| <https://mirror.ps.kz/voidlinux/>                  | Asia: Almaty, KZ  |
 | <https://mirrors.bfsu.edu.cn/voidlinux/>           | Asia: China       |
 | <https://mirrors.cnnic.cn/voidlinux/>              | Asia: China       |
 | <https://mirrors.hushan.tech:44300/voidlinux>      | Asia: China       |
