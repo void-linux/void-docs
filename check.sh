@@ -43,7 +43,7 @@ if [ "$MISSING" ]; then
     # Check whether executables are now present.
     
     for i in $MISSING; do
-        if ( ! command -v $i 2>1 >/dev/null ); then
+        if ( ! command -v $i 2>&1 >/dev/null ); then
             UNAVAILABLE="$UNAVAILABLE $i"
         fi
     done
@@ -57,7 +57,7 @@ fi
 
 vmdfmt -l -w src/
 
-if ( command -v mdbook 2>1 >/dev/null ); then
+if ( command -v mdbook 2>&1 >/dev/null ); then
     mdbook build
 else
     mdbook-linkcheck -s
