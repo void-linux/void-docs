@@ -24,6 +24,8 @@ Most general package management is done with the following commands:
    package-specific versions that are selected by the user.
 - [xbps-pkgdb(1)](https://man.voidlinux.org/xbps-pkgdb.1) can report and fix
    issues in the package database, as well as modify it.
+- [xbps-rindex(1)](https://man.voidlinux.org/xbps-rindex.1) manages local binary
+   package repositories.
 
 Most questions can be answered by consulting the man pages for these tools,
 together with the [xbps.d(5)](https://man.voidlinux.org/xbps.d.5) man page.

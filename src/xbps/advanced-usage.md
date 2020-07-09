@@ -38,6 +38,39 @@ Then downgrade with `xbps-install`:
 The `-f` flag is necessary to force downgrade/re-installation of an already
 installed package.
 
+## Holding packages
+
+To prevent a package from being updated during a system update, use
+[xbps-pkgdb(1)](https://man.voidlinux.org/xbps-pkgdb.1):
+
+```
+# xbps-pkgdb -m hold pkg
+```
+
+The hold can be removed with:
+
+```
+# xbps-pkgdb -m unhold pkg
+```
+
+## Repository-locking packages
+
+If you've used `xbps-src` to build and install a package from a customized
+template, or with custom build options, you may wish to prevent system updates
+from replacing that package with a non-customized version. To ensure that a
+package is only updated from the same repository used to install it, you can
+*repolock* it via [xbps-pkgdb(1)](https://man.voidlinux.org/xbps-pkgdb.1):
+
+```
+# xbps-pkgdb -m repolock pkg
+```
+
+To remove the repolock:
+
+```
+# xbps-pkgdb -m repounlock pkg
+```
+
 ## Ignoring Packages
 
 Sometimes you may wish to remove a package whose functionality is being provided
