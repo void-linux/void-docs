@@ -81,14 +81,10 @@ Follow only one of the two following subsections.
 
 ### The XBPS Method
 
-[Select an XBPS mirror](../../xbps/repositories/mirrors/index.md). For
-simplicity, save this URL to a shell variable for later use. Append `/current`
-to this repository URL to install a glibc distribution, or `/current/musl` for a
-musl distribution.
-
-Note: musl binaries are not available for i686.
-
-For example, this is the URL for glibc from a Tier 1 server:
+Select a [mirror](../../xbps/repositories/mirrors/index.md) and use the
+[appropriate URL](../../xbps/repositories/index.md#the-main-repository) for the
+type of system you wish to install. For simplicity, save this URL to a shell
+variable for later use, e.g.:
 
 ```
 # REPO=https://alpha.de.repo.voidlinux.org/current
