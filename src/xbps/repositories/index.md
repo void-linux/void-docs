@@ -8,7 +8,16 @@ which may also be signed.
 Note that, while local repositories do not require signatures, remote
 repositories *must* be signed.
 
-## Official Repositories
+## The main repository
+
+The locations of the main repository in relation to a base [mirror
+URL](./mirrors/index.md) are:
+
+- glibc: `/current`
+- musl: `/current/musl`
+- aarch64 and aarch64-musl: `/current/aarch64`
+
+## Subrepositories
 
 In addition to the main repository, which is enabled upon installation, Void
 provides other official repositories maintained by the Void project, but not
