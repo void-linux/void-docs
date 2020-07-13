@@ -7,20 +7,43 @@ that you are using the latest version of the remote repository index. Running
 [xbps-install(1)](https://man.voidlinux.org/xbps-install.1) with the `-S` option
 will guarantee that.
 
+### "Operation not permitted"
+
+An "Operation not permitted" error, such as:
+
+```
+ERROR: [reposync] failed to fetch file https://alpha.de.repo.voidlinux.org/current/nonfree/x86_64-repodata': Operation not permitted
+```
+
+can be caused by your system's date and/or time being incorrect. Ensure your
+[date and time](../../config/date-time.md) are correct.
+
+### "Not Found"
+
+A "Not Found" error, such as:
+
+```
+ERROR: [reposync] failed to fetch file `https://alpha.de.repo.voidlinux.org/current/musl/x86_64-repodata': Not Found
+```
+
+usually means your XBPS configuration is pointing to the wrong repositories for
+your system. Confirm that your [xbps.d(5)](https://man.voidlinux.org/xbps.d.5)
+files refer to [the correct repositories](../repositories/index.md).
+
 ### shlib errors
 
-If you get an error with the format:
+An "unresolvable shlib" error, such as:
 
 ```
 libllvm8-8.0.1_2: broken, unresolvable shlib `libffi.so.6'
 ```
 
-it is likely that orphan packages which have already been removed from the Void
-repos are still installed in your system. This can be solved by running
+is probably due to orphan packages, already removed from the Void repos, still
+being installed on your system. This can be solved by running
 [xbps-remove(1)](https://man.voidlinux.org/xbps-remove.1) with the `-o` option,
 which removes orphan packages.
 
-If you get an error message saying
+If you get an error message saying:
 
 ```
 Transaction aborted due to unresolved shlibs
