@@ -24,12 +24,13 @@ not managed by Void and do not have any guarantees of freshness or completeness
 of packages, nor are they required to sync every available architecture or
 sub-repository.
 
+### Globally-available mirrors
+
 | Repository                                         | Location          |
 |----------------------------------------------------|-------------------|
 | <https://mirror.ps.kz/voidlinux/>                  | Asia: Almaty, KZ  |
 | <https://mirrors.bfsu.edu.cn/voidlinux/>           | Asia: China       |
 | <https://mirrors.cnnic.cn/voidlinux/>              | Asia: China       |
-| <https://mirrors.hushan.tech:44300/voidlinux>      | Asia: China       |
 | <https://mirrors.tuna.tsinghua.edu.cn/voidlinux/>  | Asia: China       |
 | <https://mirror.maakpain.kro.kr/void/>             | Asia: Seoul, SK   |
 | <https://void.webconverger.org/>                   | Asia: Singapore   |
@@ -49,7 +50,29 @@ sub-repository.
 | <https://ftp.lysator.liu.se/pub/voidlinux/>        | EU: Sweden        |
 | <https://ftp.sunet.se/mirror/voidlinux/>           | EU: Sweden        |
 
+### Region-locked mirrors
+
+| Repository                                    | Location    |
+|-----------------------------------------------|-------------|
+| <https://mirrors.hushan.tech:44300/voidlinux> | Asia: China |
+
 ## Tor Mirrors
 
 Void Linux is also mirrored on the Tor network. See [Using Tor
 Mirrors](./tor.md) for more information.
+
+## Creating a mirror
+
+If you'd like to set up a mirror, and are confident you can keep it reasonably
+up-to-date, follow one of the many guides available for mirroring with
+[rsync(1)](https://man.voidlinux.org/rsync.1), then submit a pull request to
+[the void-docs repository](https://github.com/void-linux/void-docs) to add your
+mirror to the appropriate mirror table on this page.
+
+A full mirror requires around 1TB of storage. It is also possible to mirror only
+part of the repositories. Excluding debug packages is one way of decreasing the
+load on the Tier 1 mirrors, with low impact on users.
+
+Please keep in mind that we pay bandwidth for all data sent out from the Tier 1
+mirrors. You can respect this by only mirroring if your use case for your mirror
+will offset the network throughput consumed by your mirror syncing.
