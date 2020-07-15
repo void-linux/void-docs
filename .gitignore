@@ -1,3 +1,4 @@
 book/
 mandoc/
-void-docs.7
+void-docs
+void-docs.1

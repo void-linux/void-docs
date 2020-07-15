@@ -1,0 +1,170 @@
+#!/bin/sh
+# This is the void linux documentation browser
+
+[ "$DEBUG" ] && set -x
+# turn on errors and noglob
+set -fe
+
+# document to open
+VOIDDOC=
+# terms to search for
+TERMS=
+# versions to try
+_html=1
+_md=1
+_roff=1
+_pdf=
+
+usage() {
+    cat <<EOF
+Welcome to the Void Linux documentation browser!
+
+Usage: $0 [options] [search terms]
+
+Options:
+-h, --help: show this help text
+-b: only try to display the HTML version
+-m: only try to display the Markdown version
+-r: only try to display the roff (mandoc) version
+-p: open the PDF version
+-s: only display search results
+EOF
+
+    exit 0
+}
+
+while [ $# -gt 0 ]; do
+    case $1 in
+        -h|--help) usage ;;
+        -b) _html=1 ; _md= ; _roff= ;;
+        -m) _html= ; _md=1 ; _roff= ;;
+        -r) _html= ; _md= ; _roff=1 ;;
+        -p) _pdf=1 ;;
+        -s) _search=1 ;;
+        *)
+            if [ "$TERMS" ]; then
+                TERMS="$TERMS -and -iwholename *$1*"
+            else
+                TERMS="-iwholename *$1*"
+            fi
+            ;;
+    esac
+    shift
+done
+
+: "${DOCS:=@PREFIX@/share/doc/void}"
+
+if [ "$_pdf" ]; then
+    PDF="$DOCS/handbook.pdf"
+    if [ -n "$PDF_VIEWER" ] && command -v "$PDF_VIEWER" >dev/null; then
+        exec $PDF_VIEWER $PDF
+    elif command -v xdg-open >/dev/null; then
+        exec xdg-open $PDF
+    elif command -v run-mailcap >/dev/null; then
+        exec run-mailcap --action=view $PDF
+    else
+        for cmd in zathura okular
+        do
+            if command -v $cmd >/dev/null; then
+                exec $cmd $PDF
+            fi
+        done
+    fi
+fi
+
+# creates the appropriate path
+find_page() {
+    case $1 in
+        html) VOIDDOC="$DOCS/html/$2.html" ;;
+        md) VOIDDOC="$DOCS/markdown/$2.md" ;;
+        man) VOIDDOC="$DOCS/mandoc/$2.7" ;;
+    esac
+
+    if [ -f "$VOIDDOC" ]; then
+        echo "$VOIDDOC"
+    else
+        echo "couldn't find file" >&2
+        return 1
+    fi
+}
+
+# knows how to open a certain page
+open_page() {
+    if [ "$_html" ]; then
+        if [ -n "$BROWSER" ] && command -v $BROWSER >/dev/null; then
+            page=$(find_page html $1)
+            exec $BROWSER $page
+        fi
+
+        # check if wayland or X session
+        if [ -n "$WAYLAND_DISPLAY" -o -n "$DISPLAY" ] && command -v xdg-open >/dev/null; then
+            page=$(find_page html $1)
+            exec xdg-open $page
+        fi
+
+        if command -v run-mailcap >/dev/null; then
+            exec run-mailcap --action=view $PDF
+        fi
+
+        # if a browser or xdg-open weren't available, we can try other stuff
+
+        # cli browser
+        for viewer in lynx w3m links
+        do
+            if command -v $viewer >/dev/null; then
+                page=$(find_page html $1)
+                exec $viewer $page
+            fi
+        done
+    fi
+
+    if [ "$_md" ]; then
+        # markdown processor
+        for viewer in mdcat glow
+        do
+            if command -v $viewer >/dev/null; then
+                page=$(find_page md $1)
+                $viewer $page | less -R
+                exit
+            fi
+        done
+    fi
+
+    if [ "$_roff" ]; then
+        # otherwise go for the man page
+        page=$(find_page man $1)
+        exec man -l $page
+    fi
+
+    echo "Couldn't find a program to display the documentation."
+    return 1
+}
+
+search_page() {
+    file="$(find $DOCS/markdown -type f $1 -printf "%P\n")"
+    [ -z "$file" ] && exit 1
+
+    if [ "$_search" ]; then
+        echo "$file"
+        return 0
+    fi
+
+    if command -v fzf >/dev/null; then
+        file="$(echo "$file" | fzf -1)"
+        [ -z "$file" ] && exit 1
+    else
+        file="$(echo "$file" | head -1)"
+    fi
+    file="${file%.md}"
+    echo $file
+}
+
+page=about/index
+[ "$TERMS" ] && page="$(search_page "$TERMS")"
+
+if [ "$_search" ]; then
+    echo "$page"
+    exit 0
+fi
+
+open_page "$page"
