@@ -8,7 +8,7 @@ the same protocol as the packages tree. For details, please read
 ## Building
 
 The [build.sh](./build.sh) script builds HTML, roff and PDF versions of the Void
-documentation and the `void-docs.7` man page. It requires the following Void
+documentation and the `void-docs.1` man page. It requires the following Void
 packages:
 
 - `mdBook`
@@ -17,3 +17,7 @@ packages:
 - `texlive`
 - `perl`
 - `perl-JSON`
+
+In order to build ans install everything, set the `PREFIX` and `DESTDIR`
+environment variables to appropriate values and run `build.sh` followed by
+`install.sh`.

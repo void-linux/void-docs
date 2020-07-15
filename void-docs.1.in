@@ -1,0 +1,188 @@
+.Dd August 2, 2020
+.Dt VOID-DOCS 1
+.Os
+.Sh NAME
+.Nm void-docs
+.Nd Access Void Linux documentation
+.Sh SYNOPSIS
+.Nm
+.Op OPTIONS
+.Op search terms
+.Sh DESCRIPTION
+The
+.Nm
+utility will attempt to launch different programs until it can find an
+adequate one to display the Void Linux documentation. If it is invoked
+without a search term, it will show the documentation's home
+page. Multiple search terms can be used to filter results. If the user
+has the
+.Xr fzf 1
+utility installed in their system, it will be used to browse the
+results. Otherwise,
+.Nm
+will display the first search result. If the
+.Fl s
+flag is used,
+.Nm
+will display the search results instead of the documentation.
+
+The programs
+.Nm
+will try to use are, in order of preference:
+.Bl -dash
+.It
+For the HTML version:
+.Bl -dash
+.It
+the program specified in the environment variable
+.Ev BROWSER .
+.It
+.Xr xdg-open 1
+if either the
+.Ev DISPLAY
+or
+.Ev WAYLAND_DISPLAY
+environment variable is set.
+.It
+.Xr run-mailcap 1 .
+.It
+the TUI browsers
+.Xr lynx 1 ,
+.Xr w3m 1 ,
+and
+.Xr links 1 .
+.El
+.It
+For the Markdown version:
+.Bl -dash
+.It
+the Markdown processors
+.Sq mdcat
+and
+.Sq glow .
+.El
+.It
+For the roff (mdoc) version:
+.Bl -dash
+.It
+.Xr man 1 .
+.El
+.It
+For the PDF version:
+.Bl -dash
+.It
+.Xr xdg-open 1 ,
+and
+.Xr run-mailcap 1 .
+.It
+the PDF viewers
+.Xr zathura 1
+and
+.Xr okular 1 .
+.El
+.El
+.Pp
+It should be noted that for the PDF version,
+.Nm
+doesn't support search results.
+.Pp
+For a better browsing experience, installing
+.Xr fzf 1
+is recommended.
+.Sh OPTIONS
+.Bl -tag -width -x
+.It Fl h, Fl -help
+Show help message.
+.It Fl b
+Only try to display the HTML version.
+.It Fl m
+Only try to display the Markdown version.
+.It Fl r
+Only try to display the roff (mdoc) version.
+.It Fl p
+Open the PDF version.
+.It Fl s
+Only display search results.
+.El
+.Sh FILES
+The
+.Sq void-docs
+package contains a snapshot of the online documentation from
+.Lk https://docs.voidlinux.org ,
+which intends to document installation, configuration and system
+management for Void Linux. It is packaged in four formats.
+.Bl -tag -width x
+.It Pa @PREFIX@/share/doc/void/html
+Documentation in HTML format. Can be viewed with any browser, such as
+Mozilla Firefox or Chromium. Recommended when a GUI session is
+available, because it allows easy navigation between the documentation
+pages and has the same format as the official website. Can be accessed
+by pointing a browser to
+.Pa @PREFIX@/share/doc/void/html/index.html .
+.It Pa @PREFIX@/share/doc/void/markdown
+Documentation in Markdown format. Can be viewed as text files, using
+.Xr cat 1
+or
+.Xr less 1 ,
+or as formatted Markdown files, using applications such as
+.Sq mdcat
+or
+.Sq glow .
+The table of contents can be accessed via the
+.Pa @PREFIX@/share/doc/void/markdown/SUMMARY.md
+file.
+.It Pa @PREFIX@/share/doc/void/mandoc
+Documentation in roff (mdoc) format. Can be viewed using
+.Xr mandoc 1 .
+Using
+.Xr mandoc 1
+with the
+.Fl a
+option, which enables a pager, is recommended.
+.It Pa @PREFIX@/share/doc/void/handbook.pdf
+Documentation in PDF format. Can be viewed with any PDF viewer, such as
+.Xr zathura 1
+or
+.Xr okular 1 .
+.Sh EXAMPLES
+View the documentation page about the kernel:
+.Pp
+.Dl $ void-docs kernel
+.Pp
+View a documentation page inside another session:
+.Pp
+.Dl $ void-docs graphical-session kde
+.Pp
+View the homepage of the HTML documentation with
+.Xr qutebrowser 1 :
+.Pp
+.Dl $ qutebrowser @PREFIX@/share/doc/void/html/index.html
+.Pp
+View the summary of the Markdown documentation with
+.Xr less 1 :
+.Pp
+.Dl $ less @PREFIX@/share/doc/void/markdown/SUMMARY.md
+.Pp
+View the
+.Dq Kernel
+page of the Markdown documentation with
+.Sq mdcat :
+.Pp
+.Dl $ mdcat @PREFIX@/share/doc/void/markdown/config/kernel.md
+.Pp
+View the
+.Dq Cron
+page of the roff (mdoc) documentation with
+.Xr mandoc 1 :
+.Pp
+.Dl $ mandoc -a @PREFIX@/share/doc/void/mandoc/config/cron.7
+.Pp
+.Sh AVAILABILITY
+This man page is part of the void-docs package and is available from
+.Lk https://github.com/void-linux/void-docs .
+.Sh BUGS
+The Void Linux documentation tries to limit itself to content that is
+specific to Void. Therefore, if you feel something is missing, it
+might have been deliberate. However, if there is any information that
+is mistaken, outdated or indeed missing, please report an issue at
+.Lk https://github.com/void-linux/void-docs .

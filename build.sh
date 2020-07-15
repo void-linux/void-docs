@@ -1,5 +1,8 @@
 #!/bin/sh
+# uses PREFIX from environment
+: "${PREFIX:=/usr/local}"
 
+set -e
 PATH="$PWD:$PATH"
 
 # Build HTML mdbook
@@ -19,12 +22,12 @@ fd "\.md" ./ -x pandoc \
 
 cd -
 
-# Build reference man page
-echo "Building void-docs man page"
-pandoc \
-    -V "title=void-docs" -V "section=7" -V "header=Void Docs" -s \
-    -o "void-docs.7" "void-docs.md"
+# Build script
+echo "Building void-docs script and man page"
+sed -e "s,@PREFIX@,$PREFIX," void-docs.in > void-docs
+sed -e "s,@PREFIX@,$PREFIX," void-docs.1.in > void-docs.1
 
 # Build PDF
+echo "Building PDF"
 pdflatex -output-directory=book/latex/ book/latex/handbook.tex >/dev/null
 pdflatex -output-directory=book/latex/ book/latex/handbook.tex >/dev/null
