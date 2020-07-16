@@ -74,6 +74,14 @@ kernels](../config/kernel.md#removing-old-kernels)" for further information.
 
 ## Finding Files and Packages
 
+If you can't find a file or program you expected to find after installing a
+package, you can use [xbps-query(1)](https://man.voidlinux.org/xbps-query.1) to
+list the files provided by that package:
+
+```
+$ xbps-query -f <package_name>
+```
+
 The `xtools` package contains the
 [xlocate(1)](https://man.voidlinux.org/xlocate.1) utility. `xlocate` works like
 [locate(1)](https://man.voidlinux.org/locate.1), but for files in the Void
