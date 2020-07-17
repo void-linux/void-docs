@@ -14,6 +14,18 @@ delete and modify groups respectively. The
 [groups(1)](https://man.voidlinux.org/groups.1) command lists all groups a user
 belongs to.
 
+## Default shell
+
+The default shell for a user can be changed with
+[chsh(1)](https://man.voidlinux.org/chsh.1):
+
+```
+$ chsh -s <shell> <user_name>
+```
+
+`<shell>` must be the path to the shell as specified by `/etc/shells` or the
+output of `chsh -l`, which provides a list of installed shells.
+
 ## sudo
 
 > Note: [sudo(8)](https://man.voidlinux.org/sudo.8) is installed by default but
