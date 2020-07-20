@@ -45,6 +45,14 @@ blockquote {
 	border-right: none;
 }
 
+li.js-unavailable {
+        background-color: #f6cf68;
+        border-radius: 10px;
+        margin-left: 1em;
+        padding-left: 1em;
+        padding-right: 1em;
+}
+
 table {
 	border-collapse: collapse;
 }
@@ -346,6 +354,14 @@ body {
 	blockquote code {
 		color: #62b086;
 	}
+        li.js-unavailable {
+                background-color: #f6cf68;
+                color: #000000;
+                border-radius: 10px;
+                margin-left: 1em;
+                padding-left: 1em;
+                padding-right: 1em;
+        }
 	table td {
 		border: 1px #2c2c2c solid;
 	}
