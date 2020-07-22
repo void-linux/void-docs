@@ -7,6 +7,9 @@ title = "Void Linux Handbook"
 [output.html]
 theme = "src/theme"
 
+[output.latex]
+optional = true
+
 [output.linkcheck]
 optional = true
 follow-web-links = true

@@ -1,0 +1,396 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+
+use Cwd;
+use JSON;
+
+my $data;
+{
+  local $/;
+  undef $/;
+  $data = <>;
+}
+my $json = JSON->new->decode($data);
+my $sections = $json->{book}->{sections};
+
+my $date = `date '+%d %B %Y'`;
+chomp $date;
+
+my $latex;
+my %code_inline;
+my $code_inline_index = 0;
+my %codeblocks;
+my $codeblock_index = 0;
+
+# Opening.
+
+$latex .= "\\documentclass{article}\n";
+$latex .= "\\usepackage[margin=4cm]{geometry}\n";
+$latex .= "\\usepackage[T1]{fontenc}\n";
+$latex .= "\\usepackage{hyperref}\n";
+$latex .= "\\usepackage{listings}\n";
+$latex .= "\\lstdefinestyle{void}{\n";
+$latex .= "  basicstyle=\\ttfamily,\n";
+$latex .= "  breaklines=true,\n";
+$latex .= "  showstringspaces=false,\n";
+$latex .= "  aboveskip=\\bigskipamount,\n";
+$latex .= "  belowskip=\\bigskipamount,\n";
+$latex .= "}\n";
+$latex .= "\\def\\code#1{\\texttt{#1}}\n";
+$latex .= "\\begin{document}\n";
+$latex .= "\\title{Void Handbook}\n";
+$latex .= "\\date{$date}\n";
+$latex .= "\\maketitle\n";
+$latex .= "\\setcounter{tocdepth}{5}\n";
+$latex .= "\\tableofcontents\n";
+$latex .= "\\begin{sloppypar}\n"; # Ugly; need to find better solution
+
+# Contents.
+
+foreach my $i (@$sections) {
+    process_json($i);
+}
+
+# Postprocessing.
+
+$latex =~ s/config-network-wpa\\_supplicant/config-network-wpa_supplicant/g;
+$latex =~ s/config-network-wpa_supplicant-the-wpa\\_supplicant-service/config-network-wpa_supplicant-the-wpa_supplicant-service/g;
+$latex =~ s/(handbook-codeblock-\d+)/$codeblocks{$1}/eg;
+$latex =~ s/(handbook-codeinline-\d+)/$code_inline{$1}/eg;
+
+# Closing.
+
+$latex .= "\\end{sloppypar}\n";
+$latex .= "\\end{document}\n";
+
+open(my $fh, ">", "handbook.tex")
+    or die "Can't open handbook.tex for writing: $!";
+print $fh $latex;
+close($fh)
+    or die "Couldn't close handbook.tex after writing: $!";
+
+exit 0;
+
+sub process_json {
+
+    my $i = shift;
+    my $type = ref($i);
+    if ($type eq 'HASH') {
+        if (defined $i->{content}) {
+            process_content($i->{path},$i->{content});
+        }
+        if (defined $i->{Chapter}) {
+            process_json($i->{Chapter});
+        }
+        if (defined $i->{sub_items}) {
+            foreach my $j ($i->{sub_items}) {
+                process_json($j);
+            }
+        }
+    }
+    if ($type eq 'ARRAY') {
+        foreach my $j (@{$i}) {
+            process_json($j);
+        }
+    }
+}
+
+sub process_content {
+
+    my $path = shift;
+    my $content = shift;
+    my $base = convert_path_to_hypertarget_base($path);
+
+    # Create sections.
+    $content =~ s/^# ([^\n]+)/create_sectioning("section",$1,$base)/eg;
+
+    # Create subsections.
+    $content =~ s/\n## ([^\n]+)/create_sectioning("subsection",$1,$base)/eg;
+
+    # Create subsubsections.
+    $content =~ s/\n### ([^\n]+)/create_sectioning("subsubsection",$1,$base)/eg;
+
+    # Create paragraphs.
+    $content =~ s/\n#### ([^\n]+)/create_sectioning("paragraph",$1,$base)/eg;
+
+    # Create subparagraphs.
+    $content =~ s/\n##### ([^\n]+)/create_sectioning("subparagraph",$1,$base)/eg;
+
+    # Create codeblocks.
+    $content =~ s/```\n(.+?)\n```/create_codeblock($1)/esg;
+
+    # Create internal links.
+    $content =~ s/\[([^]]+?)\]\(((?:\..?.+?)|(?:#.+?))\)/create_internal_link($1,$2,$path)/esg;
+
+    # Create external links.
+    $content =~ s/<(http[^>]+)>/\\href{$1}{$1}/sg; # bare links
+    $content =~ s/\[([^]]+?)\]\((.+?)\)/\\href{$2}{$1}/sg;
+
+    # Create lists.
+    $content =~ s/\n\n(- .+?)\n(?:\n|\z)/create_list($1)/esg;
+
+    # Create numbered lists.
+    $content =~ s/\n\n(\d+\. .+?)\n(?:\n|\z)/create_numbered_list($1)/esg;
+
+    # Create blockquotes.
+    $content =~ s/((^>(?:\s*\n|[^\n]+))+)/create_blockquote($1)/emsg;
+
+    # Bold text.
+    $content =~ s/\*\*([^*]+)\*\*/{\\bfseries $1}/sg;
+
+    # Escape LaTeX special characters.
+    $content =~ s/#/'\#'/eg;
+    $content =~ s/\$/'\$'/eg;
+    $content =~ s/_/'\_'/eg;
+    $content =~ s/~/'\~'/eg;
+    $content =~ s/&/'\&'/eg;
+    $content =~ s/\^/'\^'/eg;
+
+    # Create tables.
+    $content =~ s/((?:(?:\| +[^|]+ +\| +(?:[^|]+ +\|)+\n)|(?:\|-[^\n]+\n))+)/create_table($1)/esg;
+
+    # Create inline code.
+    $content =~ s/(?: |\n)`([^`]+)`/create_code_inline($1)/esg;
+
+    $latex .= $content;
+
+}
+
+sub convert_heading_to_fragment {
+
+    my $heading = shift;
+
+    $heading =~ s/ /-/g;
+    $heading =~ s/\.//g;
+    $heading =~ s/\(|\)//g;
+    $heading =~ s/(.+)/lc($1)/e;
+
+    return $heading;
+
+}
+
+sub convert_path_to_hypertarget_base {
+
+    my $base = shift;
+
+    if ($base =~ m|index.md|) {
+        $base =~ m|(.+/index).md|;
+        $base = $1;
+        $base =~ s|/|-|g;
+    } else {
+        $base =~ m|(.+).md|;
+        $base = $1;
+        $base =~ s|/|-|g;
+    }
+
+    return $base;
+
+}
+
+sub create_blockquote {
+
+    my $blockquote = shift;
+    my $result;
+
+    $blockquote =~ s/>//g;
+    $blockquote =~ s/\n//g;
+
+    $result .= "\\begin{quote}\n";
+    $result .= $blockquote;
+    $result .= "\\end{quote}\n";
+
+    return $result;
+
+}
+
+sub create_codeblock {
+
+    my $codeblock = shift;
+    my $label;
+    my $result;
+
+    $codeblock_index++;
+    $label = 'handbook-codeblock-' . $codeblock_index;
+
+    $result .= "\\begin{lstlisting}[style=void]\n";
+    $result .= $codeblock;
+    $result .= "\n\\end{lstlisting}\n";
+
+    $codeblocks{$label} = $result;
+
+    # Mark places in document where codeblock will be re-inserted
+    # during postprocessing.
+    return $label;
+
+}
+
+sub create_code_inline {
+
+    my $code = shift;
+    my $label;
+    my $result;
+
+    $code_inline_index++;
+    $label = 'handbook-codeinline-' . $code_inline_index;
+
+    $result = " \\code{$code}";
+
+    $code_inline{$label} = $result;
+
+    # Mark places in document where code will be re-inserted
+    # during postprocessing.
+    return $label;
+
+}
+
+sub create_internal_link {
+
+    my $text = shift;
+    my $destination = shift;
+    my $current_section = shift;
+    my $current_directory;
+    my $base;
+    my $fragment;
+    my $hypertarget;
+    my $result;
+
+    if ($destination =~ /^#/) {
+        $base = $current_section . $destination;
+        $base =~ s|.md#.+$||;
+    } else {
+        $current_section =~ m|^(.+/)|;
+        $current_directory = $1;
+        $base = $destination;
+        $base =~ m|^(.+\.md)|;
+        $base = $1;
+        $base = $current_directory . $base;
+        $base = Cwd::abs_path("../../src/" . $base);
+        $base =~ s|^.+/void-docs/src/||;
+        $base =~ s|.md||;
+    }
+    $base =~ s|/|-|g;
+
+    if ($destination =~ /#/) {
+        $destination =~ m|#(.+)$|;
+        $fragment = "-" . $1;
+    } else {
+        $fragment = "";
+    }
+
+    $text =~ s/\n/ /;
+    $hypertarget = $base . $fragment;
+    $result = "\\hyperlink{$hypertarget}{$text}";
+
+    return $result;
+
+}
+
+sub create_list {
+
+    my $list = shift;
+    my $result;
+
+    $result .= "\n\\begin{itemize}\n";
+    $list =~ s/^- /\\item /mg;
+    $result .= $list;
+    $result .= "\n\\end{itemize}\n";
+
+    return $result;
+
+}
+
+sub create_numbered_list {
+
+    my $list = shift;
+    my $result;
+
+    $result .= "\n\\begin{enumerate}\n";
+    $list =~ s/^\d+\. /\\item /mg;
+    $result .= $list;
+    $result .= "\n\\end{enumerate}\n";
+
+    return $result;
+
+}
+
+sub create_sectioning {
+
+    my $type = shift;
+    my $text = shift;
+    my $name = shift;
+    my $result;
+
+    if ($type ne "section") {
+        $name = $name . "-" . convert_heading_to_fragment($text);
+        $result .= "\n\\hypertarget{";
+        $result .= $name;
+        $result .= "}{}";
+        $result .= "\n\\$type\{$text\}\n";
+    } else {
+        $result .= "\n\\newpage\n";
+        $result .= "\n\\hypertarget{";
+        $result .= $name;
+        $result .= "}{}";
+        $result .= "\n\\$type\{$text\}\n";
+    }
+
+    return $result;
+
+}
+
+sub create_table {
+
+    my $table = shift;
+    my $result;
+    my @lines;
+    my $header;
+    my $type = "general";
+    my @body;
+    my $column_count;
+
+    @lines = split(/\n/, $table);
+    $header = $lines[0];
+    if ($header =~ /Enlightenment/) {
+        $type = "flavors";
+    }
+    $header =~ s/[^|]//g;
+    $column_count = length($header) - 1;
+
+    $result .= "\n\\bigskip";
+    if ($type eq "flavors") {
+        $result .= "\\newgeometry{left=1.5cm,right=1.5cm}\n"
+    }
+    $result .= "\n\\begin{tabular}{ | ";
+    if ($type eq "flavors") {
+        $result .= "p{2.3cm} | " x ($column_count - 1);
+        $result .= "p{2.3cm} | }\n";
+    } else {
+        $result .= "l | " x ($column_count - 1);
+        $result .= "l | }\n";
+    }
+    $result .= "\\hline\n";
+    $header = $lines[0];
+    $header =~ s/^\|//;
+    $header =~ s/\|/&/g;
+    $header =~ s/&$//;
+    $result .= $header;
+    $result .= "\\\\ \\hline \\hline\n";
+    shift @lines;
+    foreach my $line (@lines) {
+        if ($line !~ /^\|-/) {
+            $line =~ s/^\|//;
+            $line =~ s/\|/&/g;
+            $line =~ s/&$//;
+            $result .= $line;
+            $result .= "\\\\ \\hline\n";
+        }
+    }
+    $result .= "\n\\end{tabular}\n";
+    if ($type eq "flavors") {
+        $result .= "\n\\restoregeometry\n";
+    }
+    $result .= "\n\\bigskip\n";
+
+}
