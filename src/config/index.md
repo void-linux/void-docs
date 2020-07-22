@@ -1,3 +1,4 @@
 # Configuration
 
-Everything from basic network config to where to find tuning constants.
+This section and its subsections provide information about configuring your Void
+system.
