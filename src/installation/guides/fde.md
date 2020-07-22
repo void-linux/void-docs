@@ -185,15 +185,11 @@ Next, the kernel needs to be configured to find the encrypted device. First,
 find the UUID of the device.
 
 ```
-# lsblk -f
-NAME                 FSTYPE      LABEL UUID                                   MOUNTPOINT
-sda                                                                           
-└─sda1               crypto_LUKS       135f3c06-26a0-437f-a05e-287b036440a4   
-  └─voidvm        LVM2_member       gjOBNB-SXiK-qcGn-uHxp-ZdBZ-14wd-4FIL7p 
-    ├─voidvm-root xfs         root  b4e4aa35-e819-42a4-bbfc-cdcd74f1df8a   /
-    ├─voidvm-swap swap              1f8e9ca3-65bc-45b8-b7d0-6300587dfcf8   [SWAP]
-    └─voidvm-home xfs         home  b6cedb19-d8f6-4629-8519-cd2e7279ec2c   /home
-sr0                                                                           
+# lsblk -l -o NAME,UUID
+NAME  UUID
+sda
+sda1  135f3c06-26a0-437f-a05e-287b036440a4
+...
 ```
 
 Edit the `GRUB_CMDLINE_LINUX_DEFAULT=` line in `/etc/default/grub` and add
