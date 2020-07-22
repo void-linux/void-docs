@@ -137,9 +137,9 @@ methods.
 Mount the pseudo-filesystems needed for a chroot:
 
 ```
-# mount --rbind /sys /mnt/sys && mount --make-rslave /mnt/sys
-# mount --rbind /dev /mnt/dev && mount --make-rslave /mnt/dev
-# mount --rbind /proc /mnt/proc && mount --make-rslave /mnt/proc
+# mount --rbind --make-rslave /sys /mnt/sys
+# mount --rbind --make-rslave /dev /mnt/dev
+# mount --rbind --make-rslave /proc /mnt/proc
 ```
 
 Copy the DNS configuration into the new root so that XBPS can still download new
