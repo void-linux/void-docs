@@ -2,10 +2,13 @@
 
 Proposed changes should be submitted as pull requests to the
 [void-docs](https://github.com/void-linux/void-docs) repository on
-[GitHub](https://github.com/). Please note that, unlike a wiki, submissions will
-be reviewed before they are merged. If any changes are required they will need
-to be made before the pull request is accepted. This process is in place to
-ensure the quality and standards of the Handbook are sustained.
+[GitHub](https://github.com/). However, you can also suggest changes and/or
+additions on [the voidlinux subreddit](https://www.reddit.com/r/voidlinux/).
+
+Please note that, unlike a wiki, submissions will be reviewed before they are
+merged. If any changes are required they will need to be made before the pull
+request is accepted. This process is in place to ensure the quality and
+standards of the Handbook are sustained.
 
 ## Requirements
 
