@@ -1,5 +1,7 @@
 #!/bin/sh
 
+PATH="$PWD:$PATH"
+
 # Build HTML mdbook
 echo "Building mdBook"
 mdbook build
@@ -22,3 +24,7 @@ echo "Building void-docs man page"
 pandoc \
     -V "title=void-docs" -V "section=7" -V "header=Void Docs" -s \
     -o "void-docs.7" "void-docs.md"
+
+# Build PDF
+pdflatex -output-directory=book/latex/ book/latex/handbook.tex >/dev/null
+pdflatex -output-directory=book/latex/ book/latex/handbook.tex >/dev/null
