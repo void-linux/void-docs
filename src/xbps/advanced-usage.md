@@ -44,13 +44,13 @@ To prevent a package from being updated during a system update, use
 [xbps-pkgdb(1)](https://man.voidlinux.org/xbps-pkgdb.1):
 
 ```
-# xbps-pkgdb -m hold pkg
+# xbps-pkgdb -m hold <package>
 ```
 
 The hold can be removed with:
 
 ```
-# xbps-pkgdb -m unhold pkg
+# xbps-pkgdb -m unhold <package>
 ```
 
 ## Repository-locking packages
@@ -62,13 +62,13 @@ package is only updated from the same repository used to install it, you can
 *repolock* it via [xbps-pkgdb(1)](https://man.voidlinux.org/xbps-pkgdb.1):
 
 ```
-# xbps-pkgdb -m repolock pkg
+# xbps-pkgdb -m repolock <package>
 ```
 
 To remove the repolock:
 
 ```
-# xbps-pkgdb -m repounlock pkg
+# xbps-pkgdb -m repounlock <package>
 ```
 
 ## Ignoring Packages
