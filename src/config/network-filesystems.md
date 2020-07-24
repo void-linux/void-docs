@@ -8,8 +8,8 @@ To mount an NFS share, start by installing the `nfs-utils` and `sv-netmount`
 packages.
 
 Before mounting an NFS share, [enable](./services/index.md#enabling-services)
-the `statd`, `procbind`, and `sv-netmount` services. If the server supports
-`nfs4`, the `statd` service isn't necessary.
+the `statd`, `rpcbind`, and `netmount` services. If the server supports `nfs4`,
+the `statd` service isn't necessary.
 
 To mount an NFS share:
 
