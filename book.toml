@@ -8,5 +8,6 @@ title = "Void Linux Handbook"
 theme = "src/theme"
 
 [output.linkcheck]
+optional = true
 follow-web-links = true
 exclude = [ "kernel.org", "ntp.org", "\\.onion", "localhost", "hushan.tech" ]
