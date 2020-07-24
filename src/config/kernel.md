@@ -11,12 +11,12 @@ $ xbps-query --regex -Rs '^linux[0-9.]+-[0-9._]+'
 ```
 
 The `linux` meta package, installed by default, depends on one of the kernel
-packages, usually the latest mainline kernel that works with all DKMS modules.
-Newer kernels might be available in the repository, but are not necessarily
-considered stable enough to be the default; use these at your own risk. If you
-wish to use a more recent kernel and have DKMS modules that you need to build,
-install the relevant `linuxX.Y-headers` package, then use
-[xbps-reconfigure(1)](https://man.voidlinux.org/xbps-reconfigure.1) to
+packages, usually the package containing the latest mainline kernel that works
+with all DKMS modules. Newer kernels might be available in the repository, but
+are not necessarily considered stable enough to be the default; use these at
+your own risk. If you wish to use a more recent kernel and have DKMS modules
+that you need to build, install the relevant `linuxX.Y-headers` package, then
+use [xbps-reconfigure(1)](https://man.voidlinux.org/xbps-reconfigure.1) to
 reconfigure the `linuxX.Y` package you installed. This will build the DKMS
 modules.
 
@@ -33,7 +33,8 @@ to clean old kernels from time to time.
 Removing old kernels is done using the
 [vkpurge(8)](https://man.voidlinux.org/vkpurge.8) utility. `vkpurge` comes
 pre-installed on every Void Linux system. This utility runs the necessary
-[hooks](#kernel-hooks) when removing old kernels.
+[hooks](#kernel-hooks) when removing old kernels. Note that `vkpurge` does not
+remove kernel *packages*, only particular *kernels*.
 
 ## Kernel modules
 
