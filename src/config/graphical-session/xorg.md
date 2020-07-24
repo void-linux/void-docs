@@ -88,7 +88,7 @@ EndSection
 and restart Xorg. Verify that the configuration has been picked up with:
 
 ```
-$ grep -m1 '(II) modeset([0-9]\+):' /var/log/Xorg.0.log
+$ grep -m1 '(II) modeset([0-9]+):' /var/log/Xorg.0.log
 ```
 
 If there is a match, modesetting is being used.
