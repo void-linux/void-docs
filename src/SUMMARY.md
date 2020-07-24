@@ -13,6 +13,7 @@
       - [Installation via chroot (x86/x86_64)](./installation/guides/chroot.md)
       - [Full Disk Encryption](./installation/guides/fde.md)
       - [ARM Devices](./installation/guides/arm-devices/index.md)
+         - [Supported platforms](./installation/guides/arm-devices/platforms.md)
    - [musl](./installation/musl.md)
 - [Configuration](./config/index.md)
    - [Manual Pages](./config/man.md)
