@@ -14,8 +14,8 @@ To clone the repository and push changes,
 the `git` package.
 
 Building the Handbook locally requires
-[mdBook](https://rust-lang.github.io/mdBook/), which can be installed via the
-`mdBook` package.
+[mdBook](https://rust-lang.github.io/mdBook/) and [mdbook-linkcheck](https://github.com/Michael-F-Bryan/mdbook-linkcheck), which can be installed via the
+`mdBook` and `mdbook-linkcheck` packages respectively.
 
 ## Forking
 
