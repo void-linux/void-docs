@@ -15,5 +15,5 @@ X-based Plasma session, but you can request a Wayland-based Plasma session
 instead.
 
 If you wish to start an X-based session from the console, use
-[startx](./xorg.html#startx) to run `startplasma-x11`. For a Wayland-based
+[startx](./xorg.md#startx) to run `startplasma-x11`. For a Wayland-based
 session, run `startplasma-wayland` directly.
