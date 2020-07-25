@@ -41,9 +41,9 @@ may be example output from the command.
 Some examples include text with placeholders. Placeholders indicate where you
 should substitute the appropriate information. For example:
 
-> ```
-> # ln -s /etc/sv/<service_name> /var/service/
-> ```
+```
+# ln -s /etc/sv/<service_name> /var/service/
+```
 
 This means you need to substitute the text `<service_name>` with the actual
 service name.
