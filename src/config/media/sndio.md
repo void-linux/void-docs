@@ -55,3 +55,14 @@ MPV comes with sndio support, but to prevent it from using ALSA over sndio if
 the ALSA device is available, set the `--ao=sndio` command line option. You can
 also add the option to mpv's configuration file: `~/.config/mpv/mpv.conf` should
 contain a line specifying `ao=sndio`.
+
+### OpenAL
+
+libopenal comes with sndio support, but prioritizes ALSA over sndio by default.
+You can configure this behaviour per user in `~/.alsoftrc` or system wide in
+`/etc/openal/alsoft.conf` by adding the following lines:
+
+```
+[general]
+drivers = sndio
+```
