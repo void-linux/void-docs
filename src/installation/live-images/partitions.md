@@ -19,9 +19,13 @@ The following sections will detail the options for partition configuration.
 ## BIOS system notes
 
 It is recommended that you create an MBR partition table if you are using a BIOS
-boot system. This will limit the number of partitions you create to four. It is
-possible to install a GPT partition table on a BIOS system, but grub will need a
-special partition to boot properly.
+boot system. This will limit the number of partitions you create to four.
+
+It is possible to use a GPT partition table on a BIOS system, but GRUB will
+require a special partition to boot properly. This partition should be at the
+beginning of your disk and have a size of 1MB, with type `BIOS boot` (GUID
+`21686148-6449-6E6F-744E-656564454649`). Don't create any filesystem in it. GRUB
+should then install itself successfully.
 
 ## UEFI system notes
 
