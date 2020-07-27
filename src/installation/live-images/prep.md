@@ -37,10 +37,10 @@ umount: /dev/sdX: not mounted.
 ### Write the live image
 
 The [dd(1)](https://man.voidlinux.org/man1/dd.1) command can be used to copy a
-live image to a storage device. Using dd, write the live image to the device:
+live image to a storage device. Using `dd`, write the live image to the device:
 
-> **Warning**: this will destroy any data currently on the referenced device.
-> Exercise caution.
+**Warning**: this will destroy any data currently on the referenced device.
+Exercise caution.
 
 ```
 # dd bs=4M if=/path/to/void-live-ARCH-DATE-VARIANT.iso of=/dev/sdX
@@ -49,8 +49,9 @@ live image to a storage device. Using dd, write the live image to the device:
 377487360 bytes (377 MB, 360 MiB) copied, 0.461442 s, 818 MB/s
 ```
 
-dd won't print anything until it's completed (or if it failed), so depending on
-the device, this can take a few minutes or longer.
+`dd` won't print anything until it's completed (or if it failed), so, depending
+on the device, this can take a few minutes or longer. You can enable printing by
+adding `status=progress` to the command if using GNU coreutils `dd`.
 
 Finally, ensure all data is flushed before disconnecting the device:
 
@@ -71,5 +72,5 @@ CD or DVD. The following free software applications are available
 - [K3B](https://userbase.kde.org/K3b)
 - [Xfburn](https://goodies.xfce.org/projects/applications/xfburn)
 
-> Note: with a CD or DVD, live sessions will be less responsive than with a USB
-> or hard drive.
+It should be noted that, with a CD or DVD, live sessions will be less responsive
+than with a USB stick or hard drive.
