@@ -41,7 +41,7 @@ Device      Start       End   Sectors  Size Type
 /dev/sda2  264192 100663262 100399071 47.9G Linux filesystem
 ```
 
-Configure the encrypted volume. `cryptsetup` defaults to LUKS2, yet `grub`
+Configure the encrypted volume. `cryptsetup` defaults to LUKS2, yet GRUB
 currently only has support for LUKS1, so it is critical to force LUKS1. Keep in
 mind this will be `/dev/sda2` on EFI systems.
 

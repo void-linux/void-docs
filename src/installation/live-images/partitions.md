@@ -30,7 +30,7 @@ should then install itself successfully.
 ## UEFI system notes
 
 UEFI users are recommended to create a GPT partition table. UEFI booting with
-grub also requires a special partition of the type `EFI System` with a `vfat`
+GRUB also requires a special partition of the type `EFI System` with a `vfat`
 filesystem mounted at `/boot/efi`. A reasonable size for this partition could be
 between 200MB and 1GB. With this partition setup during the live image
 installation, the installer should successfully set up the bootloader
@@ -55,7 +55,7 @@ On most modern systems, a separate `/boot` partition is no longer necessary to
 boot properly. If you choose to use one, note that Void does not remove old
 kernels after updates by default and also that the kernel tends to increase in
 size with each new version, so plan accordingly (e.g. `/boot` with one Linux 5.x
-`x86_64` kernel and grub occupies about 60MB).
+`x86_64` kernel and GRUB occupies about 60MB).
 
 ## Other partitions
 
