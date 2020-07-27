@@ -43,7 +43,7 @@ following table has recommendations for swap partition size.
 
 | System RAM | Recommended swap space | Swap space if using hibernation |
 |------------|------------------------|---------------------------------|
-| &lt; 2GB   | 2x the amount of RAM   | 3x the amount of RAM            |
+| < 2GB      | 2x the amount of RAM   | 3x the amount of RAM            |
 | 2-8GB      | Equal to amount of RAM | 2x the amount of RAM            |
 | 8-64GB     | At least 4GB           | 1.5x the amount of RAM          |
 | 64GB       | At least 4GB           | Hibernation not recommended     |
