@@ -21,10 +21,10 @@ The following sections will detail the options for partition configuration.
 It is recommended that you create an MBR partition table if you are using a BIOS
 boot system. This will limit the number of partitions you create to four.
 
-It is possible to install a GPT partition table on a BIOS system, but grub will
-need a special partition to boot properly. To do this, create a partition of
-1MB at the beginning of your disk, and give it the type `BIOS boot`. This
-partition shall not have a filesystem; grub should install successfully.
+It is possible to use a GPT partition table on a BIOS system, but grub will
+require a special partition to boot properly. This partition should be at the
+beginning of your disk and have a size of 1MB, with type BIOS boot. Don't create
+any filesystem in it. GRUB should install successfully.
 
 ## UEFI system notes
 
@@ -43,7 +43,7 @@ following table has recommendations for swap partition size.
 
 | System RAM | Recommended swap space | Swap space if using hibernation |
 |------------|------------------------|---------------------------------|
-| < 2GB      | 2x the amount of RAM   | 3x the amount of RAM            |
+| &lt; 2GB   | 2x the amount of RAM   | 3x the amount of RAM            |
 | 2-8GB      | Equal to amount of RAM | 2x the amount of RAM            |
 | 8-64GB     | At least 4GB           | 1.5x the amount of RAM          |
 | 64GB       | At least 4GB           | Hibernation not recommended     |
