@@ -35,7 +35,7 @@ files refer to [the correct repositories](../repositories/index.md).
 An "unresolvable shlib" error, such as:
 
 ```
-libllvm8-8.0.1_2: broken, unresolvable shlib 'libffi.so.6'
+libllvm8-8.0.1_2: broken, unresolvable shlib `libffi.so.6'
 ```
 
 is probably due to orphan packages, already removed from the Void repos, still
