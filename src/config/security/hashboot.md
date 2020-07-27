@@ -45,7 +45,7 @@ For a special programmer for flashrom (e.g.
 PROGRAMMER="internal:laptop=force_I_want_a_brick"
 ```
 
-# Usage
+## Usage
 
 - Run `hashboot index` to generate checksums and a backup for /boot and MBR
 - Run `hashboot check` to check /boot and MBR
