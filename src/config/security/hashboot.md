@@ -23,7 +23,6 @@ After installation it is important to run
 ```
 
 to create the configuration file and generate the index of the chosen options.
-
 If this is not run after installation, next boot will stop with an emergency
 shell.
 
