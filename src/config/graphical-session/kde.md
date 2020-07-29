@@ -7,7 +7,8 @@ Install the `kde5` package, and optionally, the `kde5-baseapps` package.
 To use the "Networks" widget, enable the `dbus` and `NetworkManager` services.
 
 Installing the `kde5` package also installs the `sddm` package, which provides
-the `sddm` service for the Simple Desktop Display Manager; [test the
+the `sddm` service for the Simple Desktop Display Manager. This service depends
+on the `dbus` service being enabled; [test the
 service](../services/index.md#testing-services) before enabling it. If you are
 not intending to run SDDM via a remote X server, you will need to install either
 the `xorg-minimal` package or the `xorg` package. By default, SDDM will start an
