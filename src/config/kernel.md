@@ -130,6 +130,23 @@ repositories.
 
 ## cmdline
 
+The kernel, the initial RAM disk (initrd) and some system programs can be
+configured at boot by kernel command line arguments. The parameters understood
+by the kernel are explained in the [kernel-parameters
+documentation](https://www.kernel.org/doc/html/latest/admin-guide/kernel-parameters.html)
+and by [bootparam(7)](https://man.voidlinux.org/bootparam.7). Parameters
+understood by dracut can be found in
+[dracut.cmdline(7)](https://man.voidlinux.org/dracut.cmdline.7).
+
+Once the system is booted, the current kernel command line parameters can be
+found in the `/proc/cmdline` file. Some system programs can change their
+behavior based on the parameters passed in the command line, which is what
+happens when [booting a different
+runsvdir](./services/index.md#booting-a-different-runsvdir), for example.
+
+There are different ways of setting these parameters, some of which are
+explained below.
+
 ### GRUB
 
 Kernel command line arguments can be added through the GRUB bootloader by
