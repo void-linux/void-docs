@@ -23,8 +23,9 @@ boot system. This will limit the number of partitions you create to four.
 
 It is possible to use a GPT partition table on a BIOS system, but grub will
 require a special partition to boot properly. This partition should be at the
-beginning of your disk and have a size of 1MB, with type BIOS boot. Don't create
-any filesystem in it. GRUB should install successfully.
+beginning of your disk and have a size of 1MB, with type `BIOS boot` (GUID
+`21686148-6449-6E6F-744E-656564454649`). Don't create any filesystem in it. GRUB
+should install successfully.
 
 ## UEFI system notes
 
