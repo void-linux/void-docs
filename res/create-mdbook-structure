@@ -1,0 +1,151 @@
+#!/usr/bin/perl
+
+# mdBook can have a 'section' within a 'section'. For example, we
+# might have 'section_a' with 'index.md' as its opening section, and
+# 'b.md' another section within 'section_a'. Despite this containment,
+# the internal structures for 'section_a/index.md' and
+# 'section_a/b.md' are the same, and the output of the HTML mdBook
+# backend results in section headings for 'index.html' being at the
+# same styling level as the section headings for 'b.html'.
+#
+# However, in LaTeX, one cannot have a 'section' within a 'section';
+# 'sections' can only contain 'subsections', which can only contain
+# 'subsubsections', and so on. Converting 'section_a/b.md' to a
+# subsection of 'section_a' would result in top-level headings for
+# section 'b' being subheadings of 'index', thus not matching the
+# styling of the HTML output.
+#
+# Thus, 'mdbook-latex' converts all mdBook 'sections' to LaTeX
+# 'sections'. However, this means that the LaTeX '\tableofcontents'
+# command doesn't produce a ToC with the same structure, or section
+# numbering, as SUMMARY.md.
+#
+# This script takes the handbook.toc produced by the first run
+# 'pdflatex' on the output of the 'mdbook-latex' script, generates a
+# ToC in style of the mdBook HTML backend, inserts that into
+# 'handbook.tex' at the appropriate point, and adds the relevant
+# section numbers to sections in 'handbook.tex'.
+
+use strict;
+use warnings;
+
+use Getopt::Long;
+
+my $usage .= "Options:\n";
+$usage .= "  --format <format>\n";
+$usage .= "    Page format: 'a4' or 'letter'\n";
+
+my $format = '';
+GetOptions ("format=s" => \$format)
+    or die($usage);
+$format =~ /^a4|letter$/
+    or die($usage);
+
+my $fh;
+my $latex_path = 'book/latex';
+my $toc_path;
+my %source_hierarchy;
+my $handbook_latex;
+my $toc_latex = "";
+my %section_level;
+
+$toc_path = $latex_path . '/handbook-' . $format . '.toc';
+-f $toc_path
+    or die "No handbook-${format}.toc in $latex_path; please run pdflatex.\n";
+
+$section_level{level1} = 0;
+$section_level{level2} = 0;
+$section_level{level3} = 0;
+$section_level{level4} = 0;
+$section_level{level5} = 0;
+
+# Parse SUMMARY.md for section titles and paths
+
+open($fh, '<', 'src/SUMMARY.md')
+    or die "Can't open src/SUMMARY.md for reading: $!\n";
+while (my $line = <$fh>) {
+    if ($line =~ /\[([^]]+)\]\(([^)]+)\)/) {
+        $source_hierarchy{$1} = $2;
+    }
+}
+close($fh)
+    or die "Couldn't close src/SUMMARY.md: $!\n";
+
+# Parse handbook-${format}.toc, generate ToC from contents
+
+open($fh, '<', $toc_path)
+    or die "Couldn't open $toc_path for reading: $!\n";
+
+while (my $line = <$fh>) {
+
+    my $key;
+    my $hypertarget;
+    my $level;
+    my $indent;
+    
+    $line =~ m|\\contentsline\s\{([^\}]+)\}\{(?:\\numberline\s\{[^\}]+\})?([^\}]+)\}\{(\d+)\}|;
+    my $type = $1;
+    my $title = $2;
+    my $page = $3;
+    
+    if ($type eq 'section') {
+
+        # Remove any LaTeX escaping in the title.
+        $key = $title;
+        if ($key =~ m|\\|) {
+            $key =~ s|\\||;
+        }
+        
+        $hypertarget = $source_hierarchy{$key};
+        if (defined $hypertarget) {
+            $hypertarget =~ s|^\.||;
+            $hypertarget =~ s|\.md||;
+            $level = $hypertarget;
+            $level =~ s|[^/]||g;
+            $level = length($level);
+            if ($hypertarget =~ /index$/) { $level--; }
+            $indent = "\\indent" x $level;
+            $hypertarget =~ s|^/||;
+            $hypertarget =~ s|/|-|g;
+        } else {
+            $indent = "\\indent";
+        }
+
+        unless ($line =~ /Optimus/) {
+            $toc_latex .= $indent;
+            $toc_latex .= "\\hyperlink{$hypertarget}{$title} \\hfill ";
+            $toc_latex .= "\\hyperlink{$hypertarget}{$page} \\\\ \n";
+        } else {
+            # Special-case the two-line "NVIDIA Optimus" entry in SUMMARY.md.
+            $toc_latex .= "\\indent\\indent\\indent\\indent";
+            $toc_latex .= "\\hyperlink{config-graphical-session-graphics-drivers-optimus}{$title} \\hfill ";
+            $toc_latex .= "\\hyperlink{config-graphical-session-graphics-drivers-optimus}{$page} \\\\ \n";
+        }
+
+    }
+    
+}
+
+close($fh)
+    or die "Couldn't close $toc_path: $!\n";
+
+# Insert generated ToC into handbook-${format}.tex
+
+open($fh, '<', $latex_path . '/handbook-' . $format . '.tex')
+    or die "Couldn't open ${latex_path}/handbook-${format}.tex for reading: $!\n";
+{
+    local $/;
+    undef $/;
+    $handbook_latex = <$fh>;
+}
+close($fh);
+
+$handbook_latex =~ s/handbook-toc/$toc_latex/;
+
+open($fh, '>', $latex_path . '/handbook-' . $format . '.tex')
+    or die "Couldn't open ${latex_path}/handbook-${format}.tex for writing: $!\n";
+print $fh $handbook_latex;
+close($fh)
+    or die "Couldn't close book/latex/handbook-${format}.tex: $!\n";
+
+exit 0;

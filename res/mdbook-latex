@@ -29,7 +29,14 @@ my $codeblock_index = 0;
 $latex .= "\\documentclass[letterpaper]{article}\n";
 $latex .= "\\usepackage[margin=4cm]{geometry}\n";
 $latex .= "\\usepackage[T1]{fontenc}\n";
+$latex .= "\\usepackage{xcolor}\n";
+$latex .= "\\definecolor{void}{HTML}{478061}\n";
 $latex .= "\\usepackage{hyperref}\n";
+$latex .= "\\hypersetup{\n";
+$latex .= "  colorlinks=true,\n";
+$latex .= "  linkcolor=void,\n";
+$latex .= "  urlcolor=blue\n";
+$latex .= "}\n";
 $latex .= "\\usepackage{listings}\n";
 $latex .= "\\lstdefinestyle{void}{\n";
 $latex .= "  basicstyle=\\ttfamily,\n";
@@ -38,14 +45,28 @@ $latex .= "  showstringspaces=false,\n";
 $latex .= "  aboveskip=\\bigskipamount,\n";
 $latex .= "  belowskip=\\bigskipamount,\n";
 $latex .= "}\n";
+# Create a '\code' command for inline code, which will be displayed
+# with '\texttt'.
 $latex .= "\\def\\code#1{\\texttt{#1}}\n";
 $latex .= "\\begin{document}\n";
 $latex .= "\\title{Void Handbook}\n";
 $latex .= "\\date{$date}\n";
 $latex .= "\\maketitle\n";
-$latex .= "\\setcounter{tocdepth}{5}\n";
+# Calling '\tableofcontents' is necessary to produce a 'handbook.toc'
+# file for use by the 'create-mdbook-structure' script, but we don't
+# want to display the results of calling it, as that script will be
+# generating an artisinal hand-crafted ToC itself. So set the
+# 'tocdepth' counter to '0' to prevent display.
+$latex .= "\\setcounter{tocdepth}{0}\n";
 $latex .= "\\tableofcontents\n";
-$latex .= "\\begin{sloppypar}\n"; # Ugly; need to find better solution
+# Now set the 'tocdepth' to its actual value.
+$latex .= "\\setcounter{tocdepth}{5}\n";
+# Create placeholder for use by 'create-mdbook-structure' script.
+$latex .= "handbook-toc\n";
+# Set 'sloppypar' for entire document, to avoid overfull hboxes with
+# code / URLs / etc.
+# Ugly; need to find better solution.
+$latex .= "\\begin{sloppypar}\n";
 
 # Contents.
 
