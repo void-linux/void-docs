@@ -1,9 +1,9 @@
 # Summary
 
 - [About](./about/index.md)
-   - [History](./about/history/index.md)
-   - [About This Handbook](./about-handbook/index.md)
-   - [InfraDocs](./about/meta/infradocs.md)
+   - [History](./about/history.md)
+   - [About This Handbook](./about/about-this-handbook.md)
+   - [InfraDocs](./about/infradocs.md)
 - [Installation](./installation/index.md)
    - [Live Installers](./installation/live-images/index.md)
       - [Prepare Installation Media](./installation/live-images/prep.md)

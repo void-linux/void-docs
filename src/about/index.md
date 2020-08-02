@@ -1,7 +1,7 @@
 # About
 
-Welcome to the Void Handbook! Please be sure to read the "[About this
-Handbook](../about-handbook/index.md)" section to learn how to use this
+Welcome to the Void Handbook! Please be sure to read the "[About This
+Handbook](./about-this-handbook.md)" section to learn how to use this
 documentation effectively.
 
 Void is an independent, [rolling
