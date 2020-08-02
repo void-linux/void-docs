@@ -1,4 +1,4 @@
-# Contributing To The void-docs Project
+# Contributing To void-docs
 
 The sources for this handbook are hosted in the
 [void-docs](https://github.com/void-linux/void-docs) repository on

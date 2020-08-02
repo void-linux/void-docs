@@ -1,4 +1,4 @@
-# Signing repositories
+# Signing Repositories
 
 Remote repositories **must** be signed. Local repositories do not need to be
 signed.

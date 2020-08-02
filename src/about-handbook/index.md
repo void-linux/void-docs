@@ -1,4 +1,4 @@
-# About this Handbook
+# About This Handbook
 
 This handbook is not an extensive guide on how to use and configure common Linux
 software. The purpose of this document is to explain how to install, configure,

@@ -1,4 +1,4 @@
-# Using Tor mirrors
+# Using Tor Mirrors
 
 Tor is an anonymizing software that bounces traffic via computers all around the
 world. It can provide access to regular sites on the internet or to hidden sites
