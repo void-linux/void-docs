@@ -1,4 +1,4 @@
-# Partitioning notes
+# Partitioning Notes
 
 Partitioning for a modern Linux distribution is generally very simple, however
 the introduction of GPT and UEFI booting does bring new complexity to the
