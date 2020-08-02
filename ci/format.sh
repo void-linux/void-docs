@@ -9,7 +9,7 @@ tar xvf ~/bin/linkcheck.tar.gz -C ~/bin
 
 echo "Checking links"
 
-~/bin/mdbook-linkcheck -s
+RUST_LOG=linkcheck=debug ~/bin/mdbook-linkcheck -s
 LINKCHECK=$?
 
 echo "Installing Go"
