@@ -18,3 +18,17 @@ instead.
 If you wish to start an X-based session from the console, use
 [startx](./xorg.md#startx) to run `startplasma-x11`. For a Wayland-based
 session, run `startplasma-wayland` directly.
+
+## Dolphin
+
+Dolphin is the default file manager of the KDE desktop environment. It can be
+installed on its own by installing the `dolphin` package, or it can be installed
+as part of the `kde5-baseapps` meta-package.
+
+### Thumbnail Previews
+
+To enable thumbnail file previews, install the `kdegraphics-thumbnailers`
+package. If you want video thumbnails, the `ffmpegthumbs` package is also
+necessary. Enable previews in "Control" -> "Configure Dolphin" -> "General" ->
+"Previews" by checking the corresponding boxes. File previews will be shown for
+the selected file types after clicking "Preview" in Dolphin's toolbar.
