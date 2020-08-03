@@ -53,7 +53,7 @@ fi
 # Check SUMMARY.md
 echo ""
 echo "Checking SUMMARY.md"
-./ci/check-summary.sh
+res/ci/check-summary.sh
 SUMMARY=$?
 
 # Generate exit value

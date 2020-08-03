@@ -2,7 +2,7 @@
 language: bash
 
 script:
-  - ci/format.sh
+  - res/ci/format.sh
 
 notifications:
   email: false
