@@ -115,9 +115,8 @@ These hooks are used to update the boot menus for bootloaders like `grub`,
 
 The `{pre,post}-install` hooks are executed by
 [xbps-reconfigure(1)](https://man.voidlinux.org/xbps-reconfigure.1) when
-configuring a Linux kernel, such as building its initramfs. This happens when a
-kernel series is installed for the first time or updated, but can also be run
-manually:
+configuring a Linux kernel. This happens when a kernel series is installed for
+the first time or updated, but can also be run manually:
 
 ```
 # xbps-reconfigure --force linux<x>.<y>
@@ -130,6 +129,24 @@ boot.
 
 The `{pre,post}-remove` hooks are executed by
 [vkpurge(8)](https://man.voidlinux.org/vkpurge.8) when removing old kernels.
+
+### Available hooks
+
+Void Linux ships kernel hooks for multiple packages:
+
+| Package       | Hook                                                                                         | Configuration file                     |
+|---------------|----------------------------------------------------------------------------------------------|----------------------------------------|
+| `dkms`        | `10-dkms`: builds [DKMS](#dkms) modules                                                      |                                        |
+| `dracut`      | `20-dracut`: builds the initramfs for the kernel, necessary for booting in most cases        |                                        |
+| `dracut-uefi` | `20-dracut-uefi`: builds an EFI bundle, which includes the kernel, initramfs and cmdline     | `/etc/default/dracut-uefi-hook`        |
+| `efibootmgr`  | `50-efibootmgr`: sets up an entry in the EFI firmware to boot the kernel                     | `/etc/default/efibootmgt-kernel-hook`  |
+| `grub`        | `50-grub`: sets up an entry in GRUB to boot the kernel                                       | `/etc/default/grub`                    |
+| `gummiboot`   | `50-gummiboot`: sets up an entry in gummiboot to boot the kernel                             | `/etc/default/gummiboot`               |
+| `lilo`        | `50-lilo`: sets up an entry in lilo to boot the kernel                                       |                                        |
+| `mkinitcpio`  | `20-mkinitcpio`: builds the initramfs for the kernel                                         |                                        |
+| `refind`      | `50-refind`: sets up an entry in rEFInd to boot the kernel; isn't always necessary           | `/etc/default/refind-kernel-hook.conf` |
+| `sbsigntool`  | `40-sbsigntool`: signs the kernel and/or files specified in the config with Secure Boot keys | `/etc/default/sbsigntool-kernel-hook`  |
+| `u-boot-menu` | `60-extlinux`: sets up an entry in U-Boot to boot the kernel                                 | `/etc/default/extlinux`                |
 
 ## Dynamic Kernel Module Support (DKMS)
 
