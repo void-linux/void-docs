@@ -14,5 +14,5 @@ cp -r book/html $DOC/html
 
 cp -r mandoc/ $DOC/mandoc
 
-install -Dm0644 void-docs.1 ${DESTDIR}${PREFIX}/share/man/man1/
-install -Dm0755 void-docs ${DESTDIR}${PREFIX}/bin/
+install -Dm0644 res/void-docs.1 ${DESTDIR}${PREFIX}/share/man/man1/
+install -Dm0755 res/void-docs ${DESTDIR}${PREFIX}/bin/

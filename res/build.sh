@@ -3,7 +3,7 @@
 : "${PREFIX:=/usr/local}"
 
 set -e
-PATH="$PWD:$PATH"
+PATH="$PWD/res:$PATH"
 
 # Build HTML mdbook
 echo "Building mdBook"
@@ -24,8 +24,8 @@ cd -
 
 # Build script
 echo "Building void-docs script and man page"
-sed -e "s,@PREFIX@,$PREFIX," void-docs.in > void-docs
-sed -e "s,@PREFIX@,$PREFIX," void-docs.1.in > void-docs.1
+sed -e "s,@PREFIX@,$PREFIX," res/void-docs.in > res/void-docs
+sed -e "s,@PREFIX@,$PREFIX," res/void-docs.1.in > res/void-docs.1
 
 # Build PDF
 echo "Building PDF"
