@@ -74,7 +74,4 @@
       - [Common Errors](./xbps/troubleshooting/common-errors.md)
       - [Static XBPS](./xbps/troubleshooting/static.md)
 - [Contributing](./contributing/index.md)
-   - [Usage Statistics](./contributing/usage-statistics.md)
    - [Contributing To void-docs](./contributing/void-docs/index.md)
-      - [Style Guide](./contributing/void-docs/style-guide.md)
-      - [Submitting Changes](./contributing/void-docs/submitting.md)
