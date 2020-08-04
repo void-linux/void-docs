@@ -267,7 +267,7 @@ sub create_internal_link {
         $base = $1;
         $base = $current_directory . $base;
         $base = Cwd::abs_path("../../src/" . $base);
-        $base =~ s|^.+/void-docs/src/||;
+        $base =~ s|^.+/src/||;
         $base =~ s|.md||;
     }
     $base =~ s|/|-|g;
