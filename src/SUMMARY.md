@@ -42,10 +42,11 @@
    - [Session and Seat Management](./config/session-management.md)
    - [Graphical Session](./config/graphical-session/index.md)
       - [Graphics Drivers](./config/graphical-session/graphics-drivers/index.md)
-         - [Intel GPU](./config/graphical-session/graphics-drivers/intel.md)
+         - [AMD or ATI](./config/graphical-session/graphics-drivers/amd.md)
+         - [Intel](./config/graphical-session/graphics-drivers/intel.md)
+         - [NVIDIA](./config/graphical-session/graphics-drivers/nvidia.md)
          - [NVIDIA
             Optimus](./config/graphical-session/graphics-drivers/optimus.md)
-         - [NVIDIA](./config/graphical-session/graphics-drivers/nvidia.md)
       - [Xorg](./config/graphical-session/xorg.md)
       - [Wayland](./config/graphical-session/wayland.md)
       - [Fonts](./config/graphical-session/fonts.md)

@@ -5,6 +5,7 @@ of your system.
 
 ## Section Contents
 
-- [Intel GPU](./intel.md)
-- [NVIDIA Optimus](./optimus.md)
+- [AMD or ATI](./amd.md)
+- [Intel](./intel.md)
 - [NVIDIA](./nvidia.md)
+- [NVIDIA Optimus](./optimus.md)
