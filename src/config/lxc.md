@@ -19,23 +19,55 @@ configuration; simply use the various `lxc-*` commands, such as
 
 ### Creating unprivileged containers
 
-Both [subuid(5)](https://man.voidlinux.org/subuid.5) and
-[subgid(5)](https://man.voidlinux.org/subgid.5) need to have entries for the
-user who will be running unprivileged containers. That user will also need to
-have a `default.conf` file specifying use of the relevant subuids and subgids.
-`/etc/subuid` and `/etc/subgid` contain an entry for `root` by default, but
-entries for other users need to be added manually.
+Unprivileged containers enhance security by mapping normal the normal range
+(0--65535) of user IDs (UIDs) and group IDs (GIDs) inside each container to
+ranges not in use by the host system. The host ranges must be *subordinated* to
+the user who will be running the unprivileged containers. The
+[subuid(5)](https://man.voidlinux.org/subuid.5) and
+[subgid(5)](https://man.voidlinux.org/subgid.5) files respectively assign
+subordinate UIDs and GIDs. The superuser may launch unprivileged containers in
+the system store; regular users may launch unprivileged containers in their
+individual stores.
 
-Edit `/etc/subuid` and `/etc/subgid` as root to add the relevant entries:
+To create unprivileged containers, first edit `/etc/subuid` and `/etc/subgid`
+to delegate ranges. For example:
 
 ```
 root:1000000:65536
-<user>:2000000:65536
+user:2000000:65536
 ```
 
-In each case, the entry specifies a base value, and the number of subuids
-available to that user starting from the base value. Thus, root will have
-subuids/subgids 1000000 to 1065535.
+In colon-deliminated each entry, the first field is the user to which a
+subordinate range will be assigned, the second field is the smallest numeric ID
+defining a subordinate range, and the third field is the number of consecutive
+IDs in the range. Generally, the number of consecutive IDs should be an integer
+multiple of 65536; the starting value is not important, except to ensure that
+the various ranges defined in the file do not overlap. In this example, `root`
+controls UIDs (or, from `subgid`, GIDs) ranging from 1000000 to 1065535,
+inclusive; `user` controls IDs ranging from 2000000 to 20655535.
+
+Before creating a container, the user owning the container will need a
+`default.conf` file specifying the subuid and subgid range to use. For
+root-owned containers, this file resides at `/etc/lxc/default.conf`; for
+unprivileged users, the file resides at `~/.config/lxc/default.conf`. Mappings
+are described in lines of the form
+
+```
+lxc.idmap = u 0 1000000 65536
+lxc.idmap = g 0 1000000 65536
+```
+
+The isolated `u` character indicates a UID mapping, while the isolated `g`
+indicates a GID mapping. The first numeric value should generally always be 0;
+this indicates the start of the UID or GID range *as seen from within the
+container*. The second numeric value is the start of the corresponding range
+*as seen from outside the container*, and may be an arbitrary value within the
+range delegated in `/etc/subuid` or `/etc/subgid`. The final value is the numer
+of consecutive IDs to map.
+
+**Note:** Although the external range start is arbitrary, care must be taken to
+ensure that the end of the range implied by the start and number does not
+extend beyond the range of IDs delegated to the user.
 
 If configuring a non-root user, edit `/etc/lxc/lxc-usernet` as root to specify a
 network device quota. For example, to allow the user named `user` to create up
@@ -45,24 +77,27 @@ to 10 `veth` devices connected to the `lxcbr0` bridge:
 user veth lxcbr0 10
 ```
 
-If configuring root, specify the subuid and subgid in `/etc/lxc/default.conf`:
-
-```
-lxc.idmap = u 0 1000000 65536
-lxc.idmap = g 0 1000000 65536
-```
-
-Otherwise, create `~/.config/lxc/default.conf`:
-
-```
-$ mkdir ~/.config/lxc
-$ cp /etc/lxc/default.conf ~/.config/lxc/default.conf
-```
-
-and edit the user's `default.conf` to include the relevant `lxc.idmap` entries.
-
 The user can now create and use unprivileged containers with the `lxc-*`
-utilities.
+utilities. To create a simple Void container named `mycontainer`, use a command
+similar to
+
+```
+lxc-create -n mycontainer -t download -- \
+	--dist voidlinux --release current --arch x86_64
+```
+
+You may substitute another architecture for `x86_64`, and you may specify a
+`musl` image by adding `--variant musl` to the end of the the command. See the
+[LXC Image Server](http://images.linuxcontainers.org) for a list of available
+containers.
+
+All containers will share the same subordinate UID and GID maps by default.
+This is permissible, but it means that an attacker who gains elevated access
+within one container and can somehow break out of the container will have
+similar access to other containers. To isolate containers from each other,
+alter the `lxc.idmap` ranges in `default.conf` to point to a unique range
+*before* you create each container. Trying to fix permissions on a container
+created with the wrong map is possible, but inconvenient.
 
 ## LXD
 
