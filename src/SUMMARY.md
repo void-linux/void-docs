@@ -57,6 +57,7 @@
    - [TeX Live](./config/texlive.md)
    - [External Applications](./config/external-applications.md)
    - [Printing](./config/print/index.md)
+   - [LXC](./config/lxc.md)
    - [Manual Pages](./config/man.md)
 - [XBPS Package Manager](./xbps/index.md)
    - [Advanced Usage](./xbps/advanced-usage.md)
