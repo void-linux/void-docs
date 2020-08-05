@@ -1,4 +1,4 @@
-# Intel GPU
+# Intel
 
 Intel GPU support requires the `linux-firmware-intel` package. If you have
 installed the `linux` or `linux-lts` packages, it will be installed as a
