@@ -97,7 +97,7 @@ To start, stop, restart or get the status of a service:
 
 The `<services>` placeholder can be:
 
-- Service names (service directory names) inside the `/var/service` directory.
+- Service names (service directory names) inside the `/var/service/` directory.
 - The full paths to the services.
 
 For example, the following commands show the status of a specific service and of
@@ -115,7 +115,7 @@ See [sv(8)](https://man.voidlinux.org/sv.8) for further information.
 Void Linux provides service directories for most daemons in `/etc/sv/`.
 
 To enable a service on a booted system, create a symlink to the service
-directory in `/var/service`:
+directory in `/var/service/`:
 
 ```
 # ln -s /etc/sv/<service> /var/service/
@@ -165,7 +165,7 @@ supervisor, run it once before fully enabling it:
 
 ```
 # touch /etc/sv/<service>/down
-# ln -s /etc/sv/<service> /var/service
+# ln -s /etc/sv/<service> /var/service/
 # sv once <service>
 ```
 
