@@ -26,9 +26,7 @@ each container to ranges not in use by the host system. The host ranges must be
 
 Subordinate UIDs and GIDs are assigned by the
 [subuid(5)](https://man.voidlinux.org/subuid.5) and
-[subgid(5)](https://man.voidlinux.org/subgid.5) files, respectively. The
-superuser may launch unprivileged containers in the system store; regular users
-may launch unprivileged containers in their individual stores.
+[subgid(5)](https://man.voidlinux.org/subgid.5) files, respectively.
 
 To create unprivileged containers, first edit `/etc/subuid` and `/etc/subgid` to
 delegate ranges. For example:
@@ -50,11 +48,12 @@ defined in the file do not overlap. In this example, `root` controls UIDs (or,
 from `subgid`, GIDs) ranging from 1000000 to 1065535, inclusive; `user` controls
 IDs ranging from 2000000 to 2065535.
 
-Before creating a container, the user owning the container will need a
-`default.conf` file specifying the subuid and subgid range to use. For
-root-owned containers, this file resides at `/etc/lxc/default.conf`; for
-unprivileged users, the file resides at `~/.config/lxc/default.conf`. Mappings
-are described in lines of the form
+Before creating a container, the user owning the container will need an
+[lxc.conf(5)](https://man.voidlinux.org/lxc.conf.5) file, `default.conf`,
+specifying the subuid and subgid range to use. For root-owned containers, this
+file resides at `/etc/lxc/default.conf`; for unprivileged users, the file
+resides at `~/.config/lxc/default.conf`. Mappings are described in lines of the
+form
 
 ```
 lxc.idmap = u 0 1000000 65536
@@ -91,9 +90,16 @@ lxc-create -n mycontainer -t download -- \
 ```
 
 You may substitute another architecture for `x86_64`, and you may specify a
-`musl` image by adding `--variant musl` to the end of the command. See the
-[LXC Image Server](http://images.linuxcontainers.org) for a list of available
+`musl` image by adding `--variant musl` to the end of the command. See the [LXC
+Image Server](http://images.linuxcontainers.org) for a list of available
 containers.
+
+By default, configurations and mountpoints for system containers are stored in
+`/var/lib/lxc`, while configurations for user containers and mountpoints are
+stored in `~/.local/share/lxc`. Both of these values can be modified by setting
+`lxc.lxcpath` in the relevant `default.conf`. The superuser may launch
+unprivileged containers in the system `lxc.lxcpath`; regular users may launch
+unprivileged containers in their personal `lxc.lxcpath`.
 
 All containers will share the same subordinate UID and GID maps by default. This
 is permissible, but it means that an attacker who gains elevated access within
