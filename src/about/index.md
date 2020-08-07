@@ -36,4 +36,4 @@ considered stable enough for daily use. We do this for fun and hope that our
 work will be useful to others.
 
 The name "Void" comes from the C literal `void`. It was chosen rather randomly,
-and has no deeper meaning.
+and is void of any meaning.
