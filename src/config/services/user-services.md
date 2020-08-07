@@ -43,3 +43,13 @@ run: /home/duncan/service/ssh-agent: (pid 900) 33102s
 $ SVDIR=~/service sv restart gpg-agent
 ok: run: gpg-agent: (pid 19818) 0s
 ```
+
+For your convenience, an alias for local service management may be added to your
+shell's init script. If the default Bash shell is used, add the following line
+to the `~/.bashrc` file:
+
+... alias svl="SVDIR=~/service sv" ...
+
+Local services may now be managed using the alias `svl`. It will accept all the
+same arugments that vanilla [sv](./index.md#basic-usage) does, but `svl` will
+check the user services directory instead.
