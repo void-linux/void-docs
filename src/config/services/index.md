@@ -12,6 +12,10 @@ Some advantages of using runit include:
 - a reliable logging facility for services, where the log service stays up as
    long as the relevant service is running and possibly writing to the log.
 
+If you don't need a program to be running constantly, but would like it to run
+at regular intervals, you might like to consider using a [cron
+daemon](../cron.md).
+
 ## Section Contents
 
 - [Per-User Services](./user-services.md)
