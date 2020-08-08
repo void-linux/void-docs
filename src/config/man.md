@@ -1,19 +1,43 @@
 # Manual Pages
 
-Void packages come with manual pages and the default installation includes the
-[mandoc](https://mandoc.bsd.lv/) manpage toolset.
+Many Void packages come with manual ('man') pages. The default installation
+includes the [mandoc](https://mandoc.bsd.lv/) manpage toolset, via the `mdocml`
+package.
 
-The [man(1)](https://man.voidlinux.org/man.1) command can be used to show manual
-pages.
+The [man(1)](https://man.voidlinux.org/man.1) command can be used to show man
+pages:
 
 ```
-$ man 1 chroot
+$ man chroot
 ```
+
+Every man page belongs to a particular *section*:
+
+- 1: User commands (Programs)
+- 2: System calls
+- 3: Library calls
+- 4: Special files (devices)
+- 5: File formats and configuration files
+- 6: Games
+- 7: Overview, conventions, and miscellaneous
+- 8: System management commands
+
+Refer to [man-pages(7)](https://man.voidlinux.org/man-pages.7) for details.
+
+There are some man pages which have the same name, but are used in different
+contexts, and are thus in a different section. You can specify which one to use
+by including the section number in the call to `man`:
+
+```
+$ man 1 printf
+```
+
+`man` can be configured via [man.conf(5)](https://man.voidlinux.org/man.conf.5).
 
 The `mandoc` toolset contains [apropos(1)](https://man.voidlinux.org/apropos.1),
 which can be used to search for manual pages. `apropos` uses a database that can
-be updated and generated with the
-[makewhatis(8)](https://man.voidlinux.org/makewhatis.8) command.
+be generated and updated with the
+[makewhatis(8)](https://man.voidlinux.org/makewhatis.8) command:
 
 ```
 # makewhatis -a
@@ -26,5 +50,9 @@ xbps-uunshare(1) - XBPS utility to chroot and bind mount with Linux user namespa
 chroot(2) - change root directory
 ```
 
-`man-pages-devel` and `man-pages-posix` are extra packages which are not
-installed by default. They contain development and POSIX manuals, respectively.
+The `mdocml` package provides a cron job to update the database daily,
+`/etc/cron.daily/makewhatis`. You will need to install a [cron
+daemon](./cron.md) for this functionality to be activated.
+
+Development and POSIX manuals are not installed by default, but are available
+via the `man-pages-devel` and `man-pages-posix` packages.
