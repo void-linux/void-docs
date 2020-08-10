@@ -19,12 +19,13 @@ configuration; simply use the various `lxc-*` commands, such as
 
 ### Creating unprivileged containers
 
-The normal ranges of user IDs (UIDs) and group IDs (GIDs) are from 0 to 65535.
+User IDs (UIDs) and group IDs (GIDs) normally range from 0 to 65535.
 Unprivileged containers enhance security by mapping UID and GID ranges inside
-each container to ranges not in use by the host system. The host ranges must be
-*subordinated* to the user who will be running the unprivileged containers.
+each container to ranges not in use by the host system. The unused host ranges
+must be *subordinated* to the user who will be running the unprivileged
+containers.
 
-Subordinate UIDs and GIDs are assigned by the
+Subordinate UIDs and GIDs are assigned in the
 [subuid(5)](https://man.voidlinux.org/subuid.5) and
 [subgid(5)](https://man.voidlinux.org/subgid.5) files, respectively.
 
@@ -42,6 +43,9 @@ In each colon-delimited entry:
 - the second field is the smallest numeric ID defining a subordinate range; and
 - the third field is the number of consecutive IDs in the range.
 
+The [usermod(8)](https://man.voidlinux.org/usermod.8) program may also be used
+to manipulate suborinated IDs.
+
 Generally, the number of consecutive IDs should be an integer multiple of 65536;
 the starting value is not important, except to ensure that the various ranges
 defined in the file do not overlap. In this example, `root` controls UIDs (or,
@@ -49,11 +53,10 @@ from `subgid`, GIDs) ranging from 1000000 to 1065535, inclusive; `user` controls
 IDs ranging from 2000000 to 2065535.
 
 Before creating a container, the user owning the container will need an
-[lxc.conf(5)](https://man.voidlinux.org/lxc.conf.5) file, `default.conf`,
-specifying the subuid and subgid range to use. For root-owned containers, this
-file resides at `/etc/lxc/default.conf`; for unprivileged users, the file
-resides at `~/.config/lxc/default.conf`. Mappings are described in lines of the
-form
+[lxc.conf(5)](https://man.voidlinux.org/lxc.conf.5) file specifying the subuid
+and subgid range to use. For root-owned containers, this file resides at
+`/etc/lxc/default.conf`; for unprivileged users, the file resides at
+`~/.config/lxc/default.conf`. Mappings are described in lines of the form
 
 ```
 lxc.idmap = u 0 1000000 65536
@@ -68,7 +71,7 @@ seen from outside the container*, and may be an arbitrary value within the range
 delegated in `/etc/subuid` or `/etc/subgid`. The final value is the number of
 consecutive IDs to map.
 
-**Note:** Although the external range start is arbitrary, care must be taken to
+Note that, although the external range start is arbitrary, care must be taken to
 ensure that the end of the range implied by the start and number does not extend
 beyond the range of IDs delegated to the user.
 
@@ -97,9 +100,11 @@ containers.
 By default, configurations and mountpoints for system containers are stored in
 `/var/lib/lxc`, while configurations for user containers and mountpoints are
 stored in `~/.local/share/lxc`. Both of these values can be modified by setting
-`lxc.lxcpath` in the relevant `default.conf`. The superuser may launch
-unprivileged containers in the system `lxc.lxcpath`; regular users may launch
-unprivileged containers in their personal `lxc.lxcpath`.
+`lxc.lxcpath` in the
+[lxc.system.conf(5)](https://man.voidlinux.org/lxc.system.conf.5) file. The
+superuser may launch unprivileged containers in the system `lxc.lxcpath` defined
+in `/etc/lxc/lxc.conf`; regular users may launch unprivileged containers in the
+personal `lxc.lxcpath` defined in `~/.config/lxc/lxc.conf`.
 
 All containers will share the same subordinate UID and GID maps by default. This
 is permissible, but it means that an attacker who gains elevated access within
