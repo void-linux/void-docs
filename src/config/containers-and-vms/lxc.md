@@ -119,7 +119,7 @@ wrong map is possible, but inconvenient.
 LXD provides an alternative interface to LXC's `lxc-*` utilities. However, it
 does not require the configuration described in [the previous section](#lxc).
 
-Install the `lxd` package, and [enable](./services/index.md#enabling-services)
+Install the `lxd` package, and [enable](../services/index.md#enabling-services)
 the `lxd` service.
 
 LXD users must belong to the `lxd` group.
