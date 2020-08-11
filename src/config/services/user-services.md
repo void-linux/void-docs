@@ -45,5 +45,4 @@ ok: run: gpg-agent: (pid 19818) 0s
 ```
 
 It may be convenient to adapt the above example to a shell alias such as
-`svl="SVDIR=~/service sv"` for your user shell. This makes management of user
-services trivial.
+`svl="SVDIR=~/service sv"`. This makes management of user services trivial.
