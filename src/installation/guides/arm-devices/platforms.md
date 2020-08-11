@@ -7,8 +7,9 @@ Raspberry Pi Foundation's kernel tree, which should enable all special
 functionality that isn't available with mainline kernels. The RPi kernel
 packages also have their own header packages, `rpi-kernel-headers`. These
 packages should be installed if you want to use any DKMS packages. Void ships
-`rpi-base` meta packages that depend on the relevant kernel and `rpi-firmware`
-packages, which together enable Wi-Fi and Bluetooth functionality.
+`rpi-base` meta-packages that install the relevant `rpi-kernel` and
+`rpi-firmware` packages. Together, these packages enable Wi-Fi and Bluetooth
+functionality.
 
 The [command line](../../../config/kernel.md#cmdline) parameters passed to the
 kernel are in the `rootfs/boot/cmdline.txt` file. Some of the relevant
@@ -60,17 +61,17 @@ To enable serial console logins,
 [enable](../../../config/services/index.md#enabling-services) the
 `agetty-ttyAMA0` service. See
 [securetty(5)](https://man.voidlinux.org/securetty.5) for interfaces that allow
-root login and the kernel command line in `/boot/cmdline.txt` for start-up
-configuration of the serial port, done through the `console=ttyAMA0,115200`
-parameter.
+root login. For configuration of the serial port at startup, refer to the kernel
+command line in `/boot/cmdline.txt` - in particular, the
+`console=ttyAMA0,115200` parameter.
 
 ### I2C
 
 To enable [I2C](https://en.wikipedia.org/wiki/I%C2%B2C), add
 `device_tree_param=i2c_arm=on` to `/boot/config.txt`, and
-`bcm2708.vc_i2c_override=1` to `/boot/cmdline.txt`. Then, create a
+`bcm2708.vc_i2c_override=1` to `/boot/cmdline.txt`. Then create a
 [modules-load(8)](https://man.voidlinux.org/modules-load.8) `.conf` file with
-the content below:
+the following content:
 
 ```
 i2c-dev
