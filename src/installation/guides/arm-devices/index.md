@@ -4,19 +4,20 @@ Void Linux provides packages and images for several ARM devices. Installing Void
 on such devices can be done in several ways:
 
 - [Pre-built images](#pre-built-images): images that can be flashed directly
-   onto an SD card or other storage medium, but give you a limited partition
-   layout and require manual expansion if you wish to increase the partitions;
+   onto an SD card or other storage medium, but which give you a limited
+   partition layout, and require manual expansion if you wish to increase the
+   size of the partitions;
 - [Tarball installation](#tarball-installation): PLATFORMFS and ROOTFS tarballs
    that can be extracted to a previously prepared partition scheme;
 - [Chroot installation](#chroot-installation): follows most of the steps
    outlined in [the chroot guide](../chroot.md).
 
-Since most of the commands on this guide will be run on external storage, it is
+This guide also outlines [configuration steps](#configuration) that are mostly
+specific to such devices.
+
+Since most of the commands in this guide will be run on external storage, it is
 important to run [sync(1)](https://man.voidlinux.org/sync.1) before removing the
 device.
-
-Further [configuration steps](#configuration) that are mostly specific to such
-devices are also outlined.
 
 ## Installation
 
@@ -27,10 +28,11 @@ thoroughly.
 ### Pre-built images
 
 After [downloading and verifying](../../index.md#downloading-installation-media)
-an image, it can be flashed onto an SD card in `/dev/mmcblk0`, for example, with
-the [cat(1)](https://man.voidlinux.org/cat.1),
-[pv(1)](https://man.voidlinux.org/pv.1) or
-[dd(1)](https://man.voidlinux.org/dd.1) command:
+an image, it can be written to the relevant media with
+[cat(1)](https://man.voidlinux.org/cat.1),
+[pv(1)](https://man.voidlinux.org/pv.1), or
+[dd(1)](https://man.voidlinux.org/dd.1). For example, to flash it onto an SD
+card located at `/dev/mmcblk0`:
 
 ```
 # dd if=<image>.img of=/dev/mmcblk0 bs=4M status=progress
@@ -38,35 +40,34 @@ the [cat(1)](https://man.voidlinux.org/cat.1),
 
 ### Custom partition layout
 
-It is possible to customize an installation further, for example with a custom
-partition layout, but it requires a more involved process. Two available options
-are:
+Customizing an installation - for example, with a custom partition layout -
+requires a more involved process. Two available options are:
 
 - [Tarball installation](#tarball-installation); and
-- [Chroot installation](#chroot-installation)
+- [Chroot installation](#chroot-installation).
 
 To prepare the storage for these installation methods, it is necessary to
-partition the storage medium to then mount the partitions in the correct
-mounting points.
+partition the storage medium and then mount the partitions at the correct mount
+points.
 
-The usual partitioning scheme for ARM devices requires at least two partitions
-on a drive formatted with an MSDOS partition table:
+The usual partitioning scheme for ARM devices requires at least two partitions,
+on a drive formatted with an MS-DOS partition table:
 
 - one formatted as FAT32 with partition type `0c`, which will be mounted on
    `/boot`;
 - one that can be formatted as any file system that Linux can boot from, such as
-   ext4, which will be mounted on `/`. If you are using an SD card, for example,
-   it might be interesting to create the ext4 file system with the
-   `^has_journal` option, which disables journaling and might increase the
-   drive's life, at the cost of a higher chance of data loss.
+   ext4, which will be mounted on `/`. If you're using an SD card, you can
+   create the ext4 file system with the `^has_journal` option - this disables
+   journaling, which might increase the drive's life, at the cost of a higher
+   chance of data loss.
 
-This can be done with the [cfdisk(8)](https://man.voidlinux.org/cfdisk.8)
-utility, for example.
+There are a variety of tools available for partitioning, e.g.
+[cfdisk(8)](https://man.voidlinux.org/cfdisk.8).
 
 To access the newly created file systems, it is necessary to mount them. This
 guide will assume that the second partition will be mounted on `/mnt`, but you
 may mount it elsewhere. To mount these filesystems, you can use the commands
-below, replacing the device names with the appropriate ones for your setup.
+below, replacing the device names with the appropriate ones for your setup:
 
 ```
 # mnt /dev/mmcblk0p2 /mnt
@@ -78,9 +79,8 @@ below, replacing the device names with the appropriate ones for your setup.
 
 First, [download and verify](../../index.md#downloading-installation-media) a
 PLATFORMFS or ROOTFS tarball for your desired platform and [prepare your storage
-medium](#preparing-your-storage). Then, it is necessary to unpack the tarball
-onto the file system, which can be done using
-[tar(1)](https://man.voidlinux.org/tar.1):
+medium](#preparing-your-storage). Then, unpack the tarball onto the file system
+using [tar(1)](https://man.voidlinux.org/tar.1):
 
 ```
 # tar xvfp <image>.tar.xz -C /mnt
@@ -98,12 +98,12 @@ PLATFORMFS or ROOTFS tarball for your desired platform and [prepare your storage
 medium](#preparing-your-storage). Then, follow the [XBPS chroot installation
 steps](../chroot.md#the-xbps-method) using the appropriate architecture and base
 packages, some of which are listed in the "[Supported
-platforms](./platforms.md)" page.
+platforms](./platforms.md)" section.
 
 Finally, follow the [chroot configuration steps](../chroot.md#configuration)
 steps, but instead of using the [chroot(1)](https://man.voidlinux.org/chroot.1)
-command to [enter the chroot](../chroot.md#entering-the-chroot), use the command
-below:
+command to [enter the chroot](../chroot.md#entering-the-chroot), use the
+following command:
 
 ```
 # proot -q qemu-arm-static -r /mnt -w /
@@ -125,7 +125,7 @@ For the pre-built images and tarball installations, the `root` user password is
 The `/boot` partition should be added to `/etc/fstab`, with an entry similar to
 the one below. It is possible to boot without that entry, but updating the
 kernel package in that situation can lead to breakage, such as being unable to
-find kernel modules, which is essential for functionality such as wireless
+find kernel modules, which are essential for functionality such as wireless
 connectivity. If you aren't using an SD card, replace `/dev/mmcblk0p1` with the
 appropriate device path.
 
@@ -136,8 +136,8 @@ appropriate device path.
 ### System time
 
 Several of the ARM devices supported by Void Linux don't have battery powered
-real time clocks (RTC), which means they won't keep track of time once powered
-off. This issue can present itself as HTTPS errors when browsing the web or
+real time clocks (RTCs), which means they won't keep track of time once powered
+off. This issue can present itself as HTTPS errors when browsing the Web or
 using the package manager. It is possible to set the time manually using the
 [date(1)](https://man.voidlinux.org/date.1) utility. In order to fix this issue
 for subsequent boots, install and enable [an NTP
@@ -148,11 +148,11 @@ the current time in a configuration file and restores it at boot, leading to a
 better initial approximation of the current time, even without a network
 connection.
 
-**Warning**: Images from before 2019-11-09 might have an issue where the
-installation of the `chrony` package, which comes as the default NTP daemon, is
-incomplete, and the system will be missing the `chrony` user. This can be
-checked in the output of the [getent(1)](https://man.voidlinux.org/getent.1)
-command, which will be empty if it doesn't exist:
+**Warning**: Images from before 2020-03-16 might have an issue where the
+installation of the `chrony` package, the default NTP daemon, is incomplete, and
+the system will be missing the `chrony` user. This can be checked in the output
+of the [getent(1)](https://man.voidlinux.org/getent.1) command, which will be
+empty if it doesn't exist:
 
 ```
 $ getent group chrony
