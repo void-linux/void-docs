@@ -74,6 +74,16 @@ kernels](../config/kernel.md#removing-old-kernels)" for further information.
 
 ## Finding Files and Packages
 
+To search available repositories for packages, use
+[xbps-query(1)](https://man.voidlinux.org/xbps-query.1):
+
+```
+$ xbps-query -Rs <search_pattern>
+```
+
+The `-R` flag specifies that repositories should be searched. Without it, `-s`
+searches for locally-installed packages.
+
 If you can't find a file or program you expected to find after installing a
 package, you can use [xbps-query(1)](https://man.voidlinux.org/xbps-query.1) to
 list the files provided by that package:
