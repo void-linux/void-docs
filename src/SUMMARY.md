@@ -71,7 +71,7 @@
       - [Custom Repositories](./xbps/repositories/custom.md)
       - [Signing Repositories](./xbps/repositories/signing.md)
    - [Troubleshooting XBPS](./xbps/troubleshooting/index.md)
-      - [Common Errors](./xbps/troubleshooting/common-errors.md)
+      - [Common Issues](./xbps/troubleshooting/common-issues.md)
       - [Static XBPS](./xbps/troubleshooting/static.md)
 - [Contributing](./contributing/index.md)
    - [Contributing To void-docs](./contributing/void-docs/index.md)

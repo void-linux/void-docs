@@ -1,4 +1,18 @@
-# Common Errors
+# Common Issues
+
+## Verifying RSA keys
+
+If you are installing Void for the first time or the Void RSA key has changed,
+[xbps-install(1)](https://man.voidlinux.org/xbps-install.1) might report:
+
+```
+<repository> repository has been RSA signed by <rsa_fingerprint>
+```
+
+To verify the signature, ensure the `<rsa_fingerprint>` matches one of the
+fingerprints in both
+[void-packages](https://github.com/void-linux/void-packages/tree/master/common/repo-keys)
+and [void-mklive](https://github.com/void-linux/void-mklive/tree/master/keys).
 
 ## Errors while updating or installing packages
 

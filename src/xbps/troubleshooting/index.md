@@ -6,5 +6,5 @@ working with XBPS.
 
 ## Section Contents
 
-- [Common Errors](./common-errors.md)
+- [Common Issues](./common-issues.md)
 - [Static XBPS](./static.md)

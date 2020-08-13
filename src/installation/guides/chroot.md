@@ -111,8 +111,8 @@ installation by installing the `base-system` metapackage:
 ```
 
 `xbps-install` might ask you to [verify the RSA
-keys](../../xbps/index.md#verifying-rsa-keys) for the packages you are
-installing.
+keys](../../xbps/troubleshooting/common-issues.md#verifying-rsa-keys) for the
+packages you are installing.
 
 ### The ROOTFS Method
 
