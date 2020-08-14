@@ -273,7 +273,7 @@ manually selecting a boot device):
 
 ```
 (chroot) # xbps-install grub-x86_64-efi
-(chroot) # grub-install --bootloader-id="Void"
+(chroot) # grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id="Void"
 ```
 
 If installing onto a removable disk (such as USB), add the option `--removable`
