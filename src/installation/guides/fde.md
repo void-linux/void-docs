@@ -241,11 +241,10 @@ Next, install the boot loader to the disk.
 # grub-install /dev/sda
 ```
 
-Ensure an initramfs is generated. Replace `X.X` in the following command line
-with the installed kernel version.
+Ensure an initramfs is generated:
 
 ```
-# xbps-reconfigure -f linuxX.X
+# xbps-reconfigure -fa
 ```
 
 Exit the `chroot`, unmount the filesystems, and reboot the system.
