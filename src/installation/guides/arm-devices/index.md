@@ -8,7 +8,7 @@ on such devices can be done in several ways:
    partition layout, and require manual expansion if you wish to increase the
    size of the partitions;
 - [Tarball installation](#tarball-installation): PLATFORMFS and ROOTFS tarballs
-   that can be extracted to a previously prepared partition scheme;
+   that can be extracted to a previously prepared partition scheme; and
 - [Chroot installation](#chroot-installation): follows most of the steps
    outlined in [the chroot guide](../chroot.md).
 
@@ -88,25 +88,26 @@ using [tar(1)](https://man.voidlinux.org/tar.1):
 
 #### Chroot installation
 
-It is also possible to perform a chroot installation, which requires using the
+It is also possible to perform a chroot installation, which can require the
 `qemu-user-static` package together with either the `binfmt-support` or `proot`
-package. This guide explains how to use the `qemu-<platform>-static` program
-from `qemu-user-static` with [proot(1)](https://man.voidlinux.org/proot.1).
+package if a computer with an incompatible architecture (such as i686) is being
+used. This guide explains how to use the `qemu-<platform>-static` program from
+`qemu-user-static` with [proot(1)](https://man.voidlinux.org/proot.1).
 
-First, [download and verify](../../index.md#downloading-installation-media) a
-PLATFORMFS or ROOTFS tarball for your desired platform and [prepare your storage
-medium](#preparing-your-storage). Then, follow the [XBPS chroot installation
-steps](../chroot.md#the-xbps-method) using the appropriate architecture and base
-packages, some of which are listed in the "[Supported
-platforms](./platforms.md)" section.
+First, [prepare your storage medium](#preparing-your-storage). Then, follow
+either the [XBPS chroot installation](../chroot.md#the-xbps-method) or the
+[ROOTFS chroot installation](../chroot.md#the-rootfs-method) steps, using the
+appropriate architecture and base packages, some of which are listed in the
+"[Supported Platforms](./platforms.md)" section.
 
 Finally, follow the [chroot configuration steps](../chroot.md#configuration)
 steps, but instead of using the [chroot(1)](https://man.voidlinux.org/chroot.1)
 command to [enter the chroot](../chroot.md#entering-the-chroot), use the
-following command:
+following command, replacing `<platform>` with `arm` for armv6l and armv7l
+devices, and with `aarch64` for aarch64 devices:
 
 ```
-# proot -q qemu-arm-static -r /mnt -w /
+# proot -q qemu-<platform>-static -r /mnt -w /
 ```
 
 ## Configuration
