@@ -47,8 +47,20 @@ Flatpak is another method for installing external proprietary applications on
 Linux. For information on using Flatpak with Void Linux, see the [official
 Flatpak documentation](https://flatpak.org/setup/Void%20Linux/).
 
-> Flatpak's sandboxing will not necessarily protect you from any security and/or
-> privacy-violating features of proprietary software.
+Note that Flatpak's sandboxing will not necessarily protect you from any
+security and/or privacy-violating features of proprietary software.
+
+## AppImages
+
+An [AppImage](https://appimage.org/) is a file that bundles an application with
+everything needed to run it. An AppImage can be used by making it executable and
+running it; installation is not required. AppImages can be run in a sandbox,
+such as [firejail](https://firejail.wordpress.com/).
+
+Some of the applications for which an AppImage is available can be found on
+[AppImageHub](https://appimage.github.io/).
+
+AppImages do not yet work on musl installations.
 
 ### Troubleshooting
 
