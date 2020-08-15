@@ -3,7 +3,7 @@
 ## Kernel series
 
 Void Linux provides many kernel series in the default repository. These are
-named `linuxX.Y`: for example, `linux4.19`. You can query for all available
+named `linux<x>.<y>`: for example, `linux4.19`. You can query for all available
 kernel series by running:
 
 ```
@@ -15,9 +15,9 @@ packages, usually the package containing the latest mainline kernel that works
 with all DKMS modules. Newer kernels might be available in the repository, but
 are not necessarily considered stable enough to be the default; use these at
 your own risk. If you wish to use a more recent kernel and have DKMS modules
-that you need to build, install the relevant `linuxX.Y-headers` package, then
-use [xbps-reconfigure(1)](https://man.voidlinux.org/xbps-reconfigure.1) to
-reconfigure the `linuxX.Y` package you installed. This will build the DKMS
+that you need to build, install the relevant `linux<x>.<y>-headers` package,
+then use [xbps-reconfigure(1)](https://man.voidlinux.org/xbps-reconfigure.1) to
+reconfigure the `linux<x>.<y>` package you installed. This will build the DKMS
 modules.
 
 ## Removing old kernels
@@ -35,6 +35,16 @@ Removing old kernels is done using the
 pre-installed on every Void Linux system. This utility runs the necessary
 [hooks](#kernel-hooks) when removing old kernels. Note that `vkpurge` does not
 remove kernel *packages*, only particular *kernels*.
+
+## Removing the default kernel series
+
+If you've installed a kernel package for a series other than the default, and
+want to remove the default kernel packages, use
+[xbps.d(5)](https://man.voidlinux.org/xbps.d.5) `ignorepkg` entries to
+[ignore](../xbps/advanced-usage.md#ignoring-packages) the relevant
+`linux<x>.<y>` and `linux<x>.<y>-headers` packages. After adding these entries,
+you will be able to remove the packages with
+[xbps-remove(1)](https://man.voidlinux.org/xbps-remove.1).
 
 ## Kernel modules
 
@@ -110,7 +120,7 @@ kernel series is installed for the first time or updated, but can also be run
 manually:
 
 ```
-# xbps-reconfigure --force linuxX.Y
+# xbps-reconfigure --force linux<x>.<y>
 ```
 
 If run manually, they serve to apply initramfs configuration changes to the next
