@@ -44,5 +44,5 @@ $ SVDIR=~/service sv restart gpg-agent
 ok: run: gpg-agent: (pid 19818) 0s
 ```
 
-It may be convenient to adapt the above example to a shell alias such as
-`svl="SVDIR=~/service sv"`. This makes management of user services trivial.
+It may be convenient to export the `SVDIR=~/service` variable in your shell
+profile.
