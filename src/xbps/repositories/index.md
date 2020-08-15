@@ -71,8 +71,9 @@ Once enabled, symbols may be obtained for `<package>` by installing
 
 #### Finding debug dependencies
 
-The `xtools` package contains the `xdbg` utility to retrieve a list of debug
-packages, including dependencies, for a package:
+The `xtools` package contains the [xdbg(1)](https://man.voidlinux.org/xtools.1)
+utility to retrieve a list of debug packages, including dependencies, for a
+package:
 
 ```
 $ xdbg bash
