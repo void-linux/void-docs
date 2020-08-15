@@ -19,6 +19,11 @@ from your shell's profile:
 export TZ=<timezone>
 ```
 
+Note that setting the *timezone* does not set the *time* (or date); instead, it
+simply specifies an offset from
+[UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), as described in
+[timezone(3)](https://man.voidlinux.org/timezone.3).
+
 ## Hardware clock
 
 By default, the hardware clock in Void is stored as UTC. Windows does not use
