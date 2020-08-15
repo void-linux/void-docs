@@ -1,4 +1,4 @@
-# Supported platforms
+# Supported Platforms
 
 ## Raspberry Pi
 
