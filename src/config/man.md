@@ -44,8 +44,6 @@ be generated and updated with the
 $ apropos chroot
 chroot(1) - run command or interactive shell with special root directory
 xbps-uchroot(1) - XBPS utility to chroot and bind mount with Linux namespaces
-xbps-uchroot(1) - XBPS utility to chroot and bind mount with Linux namespaces
-xbps-uunshare(1) - XBPS utility to chroot and bind mount with Linux user namespaces
 xbps-uunshare(1) - XBPS utility to chroot and bind mount with Linux user namespaces
 chroot(2) - change root directory
 ```
