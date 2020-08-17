@@ -28,9 +28,9 @@ output of `chsh -l`, which provides a list of installed shells.
 
 ## sudo
 
-> Note: [sudo(8)](https://man.voidlinux.org/sudo.8) is installed by default but
-> may not be configured. It is only necessary to configure sudo if you wish to
-> use it.
+[sudo(8)](https://man.voidlinux.org/sudo.8) is installed by default, but might
+not be configured appropriately for your needs. It is only necessary to
+configure sudo if you wish to use it.
 
 Use [visudo(8)](https://man.voidlinux.org/visudo.8) as root to edit the
 [sudoers(5)](https://man.voidlinux.org/sudoers.5) file.
