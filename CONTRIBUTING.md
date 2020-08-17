@@ -214,13 +214,18 @@ which must be [run locally before submitting a pull request](#making-changes).
 
 ### Case
 
-Filenames and directories should use [kebab
-case](https://en.wikipedia.org/wiki/Kebab_case) when splitting words. For
-example the filename should be `post-install.md` not `postinstall.md`.
+Proper nouns outside of code blocks should use the casing of official
+information sources: e.g. 'runit' not 'Runit', 'DKMS' not 'dkms', 'GRUB' not
+'Grub' or 'grub', etc. In general, abbreviations should be upper-cased: 'CPU'
+for central processing unit, 'SSD' for solid state drive, 'UI' for user
+interface, etc.
 
-Words that are part of trademarks or well known package names are exempt from
-this rule. Examples include `PulseAudio` and `NetworkManager` which are well
-known by their squashed names.
+Handbook filenames and directories should use [kebab
+case](https://en.wikipedia.org/wiki/Kebab_case) when splitting words. For
+example the filename should be `post-install.md` not `postinstall.md`. Words
+that are part of trademarks or well-known package names are exempt from this
+rule: for example, `PulseAudio` and `NetworkManager` are well-known by their
+[camel-case](https://en.wikipedia.org/wiki/Camel_case) names.
 
 ### Voice
 
