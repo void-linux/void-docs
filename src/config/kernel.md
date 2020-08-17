@@ -24,7 +24,7 @@ modules.
 
 When updating the kernel, old versions are left behind in case it is necessary
 to roll back to an older version. Over time, old kernel versions can accumulate,
-consuming disk space and increasing the time taken by dkms module updates.
+consuming disk space and increasing the time taken by DKMS module updates.
 Furthermore, if `/boot` is a separate partition and fills up with old kernels,
 updating can fail or result in incomplete initramfs filesystems to be generated
 and result in kernel panics if they are being booted. Thus, it may be advisable
@@ -121,12 +121,14 @@ boot.
 The `{pre,post}-remove` hooks are executed by
 [vkpurge(8)](https://man.voidlinux.org/vkpurge.8) when removing old kernels.
 
-## Dynamic Kernel Module Support (dkms)
+## Dynamic Kernel Module Support (DKMS)
 
 There are kernel modules that are not part of the Linux source tree that are
-built at install time using dkms and [kernel hooks](#kernel-hooks). The
+built at install time using DKMS and [kernel hooks](#kernel-hooks). The
 available modules can be listed by searching for `dkms` in the package
 repositories.
+
+DKMS build logs are available in `/var/lib/dkms/`.
 
 ## cmdline
 
