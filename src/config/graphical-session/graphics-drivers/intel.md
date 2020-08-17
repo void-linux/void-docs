@@ -7,10 +7,9 @@ dependency. If you installed a version-specific kernel package (e.g.,
 
 ## OpenGL
 
-Install the Mesa DRI package, `mesa-dri`.
-
-> Note: This is already included in the `xorg` meta-package, but it is needed
-> when installing xorg via `xorg-minimal` or for running a Wayland compositor.
+OpenGL requires the Mesa DRI package, `mesa-dri`. This is provided by the `xorg`
+meta-package, but will need to be installed manually when using the
+`xorg-minimal` package or running a Wayland compositor.
 
 ## Vulkan
 
