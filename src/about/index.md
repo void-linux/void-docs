@@ -2,7 +2,8 @@
 
 Welcome to the Void Handbook! Please be sure to read the "[About This
 Handbook](./about-this-handbook.md)" section to learn how to use this
-documentation effectively.
+documentation effectively. A local copy of this handbook, in several formats,
+can be [installed](../xbps/index.md) via the `void-docs` package.
 
 Void is an independent, [rolling
 release](https://en.wikipedia.org/wiki/Rolling_release) Linux distribution,
