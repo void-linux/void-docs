@@ -137,8 +137,10 @@ Do you want to import this public key? [Y/n] y
 ...
 ```
 
-UEFI systems will have a slightly different package selection. The installation
-command for a UEFI system will be as follows.
+UEFI systems will have a slightly different package selection.
+On some devices the EFI firmware is 32 bits: install grub-i386-efi instead
+To confirm EFI firmware architecture: cat /sys/firmware/efi/fw_platform_size
+The installation command for a UEFI system will be as follows.
 
 ```
 # xbps-install -Sy -R https://alpha.de.repo.voidlinux.org/current -r /mnt base-system cryptsetup grub-x86_64-efi lvm2
@@ -192,6 +194,12 @@ sda1  135f3c06-26a0-437f-a05e-287b036440a4
 ...
 ```
 
+Or in a way better suited for shell scripting:
+
+```
+# blkid | grep /dev/sda1 | cut -d'"' -f 2
+```
+
 Edit the `GRUB_CMDLINE_LINUX_DEFAULT=` line in `/etc/default/grub` and add
 `rd.lvm.vg=voidvm rd.luks.uuid=<UUID>` to it. Make sure the UUID matches the one
 for the `sda1` device found in the output of the `lsblk` command above.
@@ -201,10 +209,10 @@ configured to automatically unlock the encrypted volume on boot. First, generate
 a random key.
 
 ```
-# dd bs=512 count=4 if=/dev/urandom of=/boot/volume.key
-4+0 records in
-4+0 records out
-2048 bytes (2.0 kB, 2.0 KiB) copied, 0.000421265 s, 4.9 MB/s
+# dd bs=512 count=64 if=/dev/random of=/boot/volume.key
+64+0 records in
+64+0 records out
+32768 bytes (33 kB, 32 KiB) copied, 0.000783849 s, 41.8 MB/s
 ```
 
 Next, add the key to the encrypted volume.
@@ -235,10 +243,10 @@ a new file at `/etc/dracut.conf.d/10-crypt.conf` with the following line:
 install_items+=" /boot/volume.key /etc/crypttab "
 ```
 
-Next, install the boot loader to the disk.
+Next, install the boot loader to the disk. If the EFI firmware is 32 bits: change target to =i386-efi
 
 ```
-# grub-install /dev/sda
+# grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=void_grub --boot-directory=/boot --recheck
 ```
 
 Ensure an initramfs is generated:
