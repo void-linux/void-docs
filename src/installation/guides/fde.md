@@ -53,16 +53,16 @@ WARNING!
 This will overwrite data on /dev/sda1 irrevocably.
 
 Are you sure? (Type uppercase yes): YES
-Enter passphrase: 
-Verify passphrase: 
+Enter passphrase:
+Verify passphrase:
 ```
 
 Once the volume is created, it needs to be opened. Replace voidvm with an
 appropriate name. Again, this will be `/dev/sda2` on EFI systems.
 
 ```
-# cryptsetup luksOpen /dev/sda1 voidvm      
-Enter passphrase for /dev/sda1: 
+# cryptsetup luksOpen /dev/sda1 voidvm
+Enter passphrase for /dev/sda1:
 ```
 
 Once the LUKS container is opened, create the LVM volume group using that
@@ -93,7 +93,7 @@ GRUB](https://www.gnu.org/software/grub/manual/grub/grub.html#Features) will
 work.
 
 ```
-# mkfs.xfs -L root /dev/voidvm/root 
+# mkfs.xfs -L root /dev/voidvm/root
 meta-data=/dev/voidvm/root       isize=512    agcount=4, agsize=655360 blks
 ...
 # mkfs.xfs -L home /dev/voidvm/home
@@ -185,33 +185,31 @@ Next, the kernel needs to be configured to find the encrypted device. First,
 find the UUID of the device.
 
 ```
-# lsblk -l -o NAME,UUID
-NAME  UUID
-sda
-sda1  135f3c06-26a0-437f-a05e-287b036440a4
-...
+# blkid -o value -s UUID /dev/sda1
+135f3c06-26a0-437f-a05e-287b036440a4
 ```
 
 Edit the `GRUB_CMDLINE_LINUX_DEFAULT=` line in `/etc/default/grub` and add
 `rd.lvm.vg=voidvm rd.luks.uuid=<UUID>` to it. Make sure the UUID matches the one
-for the `sda1` device found in the output of the `lsblk` command above.
+for the `sda1` device found in the output of the
+[blkid(8)](https://man.voidlinux.org/blkid.8) command above.
 
 And now to avoid having to enter the password twice on boot, a key will be
 configured to automatically unlock the encrypted volume on boot. First, generate
 a random key.
 
 ```
-# dd bs=512 count=4 if=/dev/urandom of=/boot/volume.key
-4+0 records in
-4+0 records out
-2048 bytes (2.0 kB, 2.0 KiB) copied, 0.000421265 s, 4.9 MB/s
+# dd bs=1 count=64 if=/dev/urandom of=/boot/volume.key
+64+0 records in
+64+0 records out
+64 bytes copied, 0.000662757 s, 96.6 kB/s
 ```
 
 Next, add the key to the encrypted volume.
 
 ```
 # cryptsetup luksAddKey /dev/sda1 /boot/volume.key
-Enter any existing passphrase: 
+Enter any existing passphrase:
 ```
 
 Change the permissions to protect generated the key.
