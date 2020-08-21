@@ -27,7 +27,6 @@
    - [Cron](./config/cron.md)
    - [Solid State Drives](./config/ssd.md)
    - [Security](./config/security/index.md)
-      - [Hashboot](./config/security/hashboot.md)
       - [AppArmor](./config/security/apparmor.md)
    - [Date and Time](./config/date-time.md)
    - [Kernel](./config/kernel.md)
