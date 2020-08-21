@@ -6,4 +6,3 @@ explores some of them.
 ## Section Contents
 
 - [AppArmor](./apparmor.md)
-- [Hashboot](./hashboot.md)
