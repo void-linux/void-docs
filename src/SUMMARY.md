@@ -18,7 +18,7 @@
 - [Configuration](./config/index.md)
    - [Manual Pages](./config/man.md)
    - [Firmware](./config/firmware.md)
-   - [Locales](./config/locales.md)
+   - [Locales and Translations](./config/locales.md)
    - [Users and Groups](./config/users-and-groups.md)
    - [Services and Daemons - runit](./config/services/index.md)
       - [Per-User Services](./config/services/user-services.md)
