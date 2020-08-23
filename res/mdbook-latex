@@ -26,7 +26,7 @@ my $codeblock_index = 0;
 
 # Opening.
 
-$latex .= "\\documentclass{article}\n";
+$latex .= "\\documentclass[letterpaper]{article}\n";
 $latex .= "\\usepackage[margin=4cm]{geometry}\n";
 $latex .= "\\usepackage[T1]{fontenc}\n";
 $latex .= "\\usepackage{hyperref}\n";
