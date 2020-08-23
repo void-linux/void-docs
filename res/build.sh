@@ -29,5 +29,25 @@ sed -e "s,@PREFIX@,$PREFIX," res/void-docs.1.in > res/void-docs.1
 
 # Build PDF
 echo "Building PDF"
-pdflatex -output-directory=book/latex/ book/latex/handbook.tex >/dev/null
-pdflatex -output-directory=book/latex/ book/latex/handbook.tex >/dev/null
+## Letter version
+pdflatex \
+    -output-directory=book/latex/ \
+    -jobname=handbook-letter \
+    book/latex/handbook.tex \
+    >/dev/null
+pdflatex \
+    -output-directory=book/latex/ \
+    -jobname=handbook-letter \
+    book/latex/handbook.tex \
+    >/dev/null
+## A4 version
+sed -ie "s/\\documentclass\[letterpaper\]{article}/\\documentclass[a4paper]{article}/" \
+    book/latex/handbook.tex
+pdflatex -output-directory=book/latex/ \
+         -jobname=handbook-a4 \
+         book/latex/handbook.tex \
+         >/dev/null
+pdflatex -output-directory=book/latex/ \
+         -jobname=handbook-a4 \
+         book/latex/handbook.tex \
+         >/dev/null
