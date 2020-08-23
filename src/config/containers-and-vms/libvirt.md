@@ -4,9 +4,10 @@
 virtualization, supporting virtualization technologies such as LXC, KVM, QEMU,
 Bhyve, Xen, VMWare, and Hyper-V.
 
-To use libvirt, install the `libvirt` package and
-[enable](../services/index.md#enabling-services) the `libvirtd`, `virtlockd` and
-`virtlogd` services. The `libvirtd` daemon can be reconfigured at runtime via
+To use libvirt, install the `libvirt` package, ensure the `dbus` package is
+installed, and [enable](../services/index.md#enabling-services) the `dbus`,
+`libvirtd`, `virtlockd` and `virtlogd` services. The `libvirtd` daemon can be
+reconfigured at runtime via
 [virt-admin(1)](https://man.voidlinux.org/virt-admin.1).
 
 The `libvirt` package provides the [virsh(1)](https://man.voidlinux.org/virsh.1)
