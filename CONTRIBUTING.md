@@ -212,6 +212,16 @@ add its domain to the exclude list in `book.toml`, under the
 `mdbook-linkcheck` is used by the void-docs repository's `check.sh` script,
 which must be [run locally before submitting a pull request](#making-changes).
 
+#### Redirects
+
+When changing a section name, or moving a section to a different part of the
+Handbook, a redirect must be added to the `[output.html.redirect]` section in
+`book.toml`, e.g.
+
+```
+"/example.html" = "/new-location/example.html"
+```
+
 ### Case
 
 Proper nouns outside of code blocks should use the casing of official
