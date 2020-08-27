@@ -18,9 +18,10 @@ get_last_mod() {
 }
 
 # vars
-book_path="book"
+book_path="${BOOK_PATH:-book}"
+output_path="${OUTPUT_PATH:-book}"
 src_path="src"
-output="$book_path/sitemap.xml"
+output="$output_path/sitemap.xml"
 changefreq="weekly" # values: always hourly daily weekly monthly yearly never
 url_prefix="https://docs.voidlinux.org"
 
