@@ -70,7 +70,7 @@ may mount it elsewhere. To mount these filesystems, you can use the commands
 below, replacing the device names with the appropriate ones for your setup:
 
 ```
-# mnt /dev/mmcblk0p2 /mnt
+# mount /dev/mmcblk0p2 /mnt
 # mkdir /mnt/boot
 # mount /dev/mmcblk0p1 /mnt/boot
 ```
