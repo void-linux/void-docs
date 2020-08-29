@@ -79,7 +79,7 @@ below, replacing the device names with the appropriate ones for your setup:
 
 First, [download and verify](../../index.md#downloading-installation-media) a
 PLATFORMFS or ROOTFS tarball for your desired platform and [prepare your storage
-medium](#preparing-your-storage). Then, unpack the tarball onto the file system
+medium](#custom-partition-layout). Then, unpack the tarball onto the file system
 using [tar(1)](https://man.voidlinux.org/tar.1):
 
 ```
@@ -94,7 +94,7 @@ package if a computer with an incompatible architecture (such as i686) is being
 used. This guide explains how to use the `qemu-<platform>-static` program from
 `qemu-user-static` with [proot(1)](https://man.voidlinux.org/proot.1).
 
-First, [prepare your storage medium](#preparing-your-storage). Then, follow
+First, [prepare your storage medium](#custom-partition-layout). Then, follow
 either the [XBPS chroot installation](../chroot.md#the-xbps-method) or the
 [ROOTFS chroot installation](../chroot.md#the-rootfs-method) steps, using the
 appropriate architecture and base packages, some of which are listed in the
