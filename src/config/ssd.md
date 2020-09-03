@@ -41,10 +41,10 @@ Finally, make the script executable:
 
 ## Continuous TRIM with fstab discard
 
-Note: You can use either continuous or periodic TRIM, but usage of continuous
-TRIM is discouraged if you have an SSD that doesn't handle NCQ correctly. Refer
-to the
-[blacklist](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/ata/libata-core.c#n4522).
+You can use either continuous or periodic TRIM, but usage of continuous TRIM is
+discouraged if you have an SSD that doesn't handle NCQ correctly. Refer to the
+kernel
+[blacklist](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/ata/libata-core.c?h=v5.8&id=bcf876870b95592b52519ed4aafcf9d95999bc9c#n3774).
 
 Edit `/etc/fstab` and add the `discard` option to block devices that need TRIM.
 
