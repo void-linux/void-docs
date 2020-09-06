@@ -18,6 +18,6 @@ Void packages:
 - `perl`
 - `perl-JSON`
 
-In order to build ans install everything, set the `PREFIX` and `DESTDIR`
+In order to build and install these files, set the `PREFIX` and `DESTDIR`
 environment variables to appropriate values and run `res/build.sh` followed by
 `res/install.sh`.
