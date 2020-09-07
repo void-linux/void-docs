@@ -57,3 +57,12 @@ Void provides several ways to connect to wireless networks:
 - [iwd](./iwd.md)
 - [NetworkManager](./networkmanager.md)
 - [ConnMan](./connman.md)
+
+## Firewalls
+
+By default, the `iptables` package is installed on the base system. However,
+iptables is now considered deprecated on Linux, with nftables as its
+replacement.
+
+- [iptables](./iptables.md)
+- [nftables](./nftables.md)
