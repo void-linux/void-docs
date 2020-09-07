@@ -12,3 +12,6 @@ For example, to disable use of bitmap fonts:
 # ln -s /usr/share/fontconfig/conf.avail/70-no-bitmaps.conf /etc/fonts/conf.d/
 # xbps-reconfigure -f fontconfig
 ```
+
+Use [fc-conflist(1)](https://man.voidlinux.org/fc-conflist.1) to list which
+configurations are in effect.
