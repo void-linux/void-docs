@@ -78,7 +78,8 @@ This adds a core-service which restores the ruleset in `/etc/nftables.conf`.
 ### Applying the rules at runtime
 
 The `nftables` package provides the `nftables` service, which uses rules from
-`/etc/nftables.conf`. To load the rules, run:
+`/etc/nftables.conf`. Once you [enable](../services/index.md#enabling-service)
+the `nftables` service, to load the rules, run:
 
 ```
 # sv up nftables
