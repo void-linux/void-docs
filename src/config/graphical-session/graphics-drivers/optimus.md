@@ -53,7 +53,9 @@ Offloading Graphics Display with RandR 1.4
 
 You can check the currently used GPU by searching for `renderer string` in the
 output of the `glxinfo` command. It is necessary to install the `glxinfo`
-package for this.
+package for this. For the first two alternatives below, it is also possible to
+verify that a process is using the NVIDIA GPU by checking the output of
+`nvidia-smi`.
 
 ## PRIME Render Offload
 
