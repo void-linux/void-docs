@@ -1,0 +1,123 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+
+use File::Which;
+use File::Path qw(make_path);
+use JSON;
+
+# Accept input on stdin regardless of whether the 'md2gemini' executable
+# is present, to avoid "Broken pipe" errors from mdBook.
+
+my $data;
+{
+  local $/;
+  undef $/;
+  $data = <>;
+}
+
+if (! defined which 'md2gemini') {
+    print "'md2gemini' not found in PATH; not building Gemini output\n";
+    # We can't return non-zero here, as that would cause the entire
+    # mdBook build process to fail.
+    exit 0;
+}
+
+my $json = JSON->new->decode($data);
+my $sections = $json->{book}->{sections};
+
+# Create toc.gmi from SUMMARY.md
+
+my $leader;
+
+open(my $summary, '<', '../../src/SUMMARY.md')
+    or die "Can't open SUMMARY.md for reading: $!\n";
+open(my $toc, '>', 'toc.gmi')
+    or die "Can't open toc.gmi for writing: $!\n";
+
+print $toc "# Table of Contents\n\n";
+while (<$summary>) {
+
+    if (/^(\s*)- \[([^\]]+)\]\(([^\)]+)\)/) {
+
+        my $depth = $1;
+        my $heading = $2;
+        my $path = $3;
+
+        if (length($depth) == 0) {
+            $leader = '-';
+        } else {
+            $leader = '-' x (1 + (length($depth) / 3));
+        }
+
+        $path =~ s/\.md$/.gmi/;
+
+        print $toc "=> " . $path . " " . $leader . " " . $heading . "\n";
+
+    }
+
+}
+
+close($summary)
+    or die "Can't close SUMMARY.md after reading: $!\n";
+close($toc)
+    or die "Can't close toc.gmi after writing: $!\n";
+
+# Create individual pages.
+
+foreach my $i (@$sections) {
+    process_json($i);
+}
+
+exit 0;
+
+
+### Functions
+
+sub process_json {
+
+    my $i = shift;
+    my $type = ref($i);
+    if ($type eq 'HASH') {
+        if (defined $i->{content}) {
+            process_content($i->{path},$i->{content});
+        }
+        if (defined $i->{Chapter}) {
+            process_json($i->{Chapter});
+        }
+        if (defined $i->{sub_items}) {
+            foreach my $j ($i->{sub_items}) {
+                process_json($j);
+            }
+        }
+    }
+    if ($type eq 'ARRAY') {
+        foreach my $j (@{$i}) {
+            process_json($j);
+        }
+    }
+}
+
+sub process_content {
+
+    my $path = shift;
+    my $directory = $path;
+    my $filename = $path;
+    my $content = shift;
+    my $fh;
+
+    $directory =~ s|/[^/]+\.md$||;
+    $filename =~ s|^.*/([^/]+)\.md$|$1.gmi|;
+
+    make_path($directory);
+
+    open($fh, "| md2gemini --links copy --md-links --ascii-table > " .
+         $directory . '/' . $filename)
+        or die "Can't open pipe to md2gemini: $!\n";
+    print $fh $content;
+    print $fh "\n\n" . "=> /toc.gmi Table of Contents" . "\n";
+    close $fh
+        or die "Can't close pipe to md2gemini: $!\n";
+
+}

@@ -14,6 +14,9 @@ theme = "src/theme"
 [output.latex]
 optional = true
 
+[output.gemini]
+optional = true
+
 [output.linkcheck]
 optional = true
 follow-web-links = true
