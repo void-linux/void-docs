@@ -18,6 +18,7 @@ Void packages:
 - `perl`
 - `perl-JSON`
 - `librsvg-utils`
+- `python3-md2gemini`
 
 In order to build and install these files, set the `PREFIX` and `DESTDIR`
 environment variables to appropriate values and run `res/build.sh` followed by
