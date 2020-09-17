@@ -29,8 +29,8 @@ legacy driver, either `nvidia390` or `nvidia340`.
 
 | Brand  | Type        | Model                           | Driver Package |
 |--------|-------------|---------------------------------|----------------|
-| NVIDIA | Proprietary | 500+                            | `nvidia`       |
-| NVIDIA | Proprietary | 300/400 Series                  | `nvidia390`    |
+| NVIDIA | Proprietary | 600+                            | `nvidia`       |
+| NVIDIA | Proprietary | 300/400/500 Series              | `nvidia390`    |
 | NVIDIA | Proprietary | GeForce8/9 + 100/200/300 Series | `nvidia340`    |
 
 The proprietary driver integrates in the kernel through
