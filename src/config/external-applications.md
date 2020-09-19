@@ -50,6 +50,16 @@ Flatpak documentation](https://flatpak.org/setup/Void%20Linux/).
 Note that Flatpak's sandboxing will not necessarily protect you from any
 security and/or privacy-violating features of proprietary software.
 
+### Troubleshooting
+
+Some apps may not function properly (e.g. not being able to access the host
+system's files). Some of these issues can be fixed by installing one or more of
+the `xdg-desktop-portal`, `xdg-desktop-portal-gtk`, `xdg-user-dirs`,
+`xdg-user-dirs-gtk` or `xdg-utils` packages.
+
+Some Flatpaks require [D-Bus](./session-management.md#d-bus) and/or
+[Pulseaudio](./media/pulseaudio.md).
+
 ## AppImages
 
 An [AppImage](https://appimage.org/) is a file that bundles an application with
@@ -61,16 +71,6 @@ Some of the applications for which an AppImage is available can be found on
 [AppImageHub](https://appimage.github.io/).
 
 AppImages do not yet work on musl installations.
-
-### Troubleshooting
-
-Some apps may not function properly (e.g. not being able to access the host
-system's files). Some of these issues can be fixed by installing one or more of
-the `xdg-desktop-portal`, `xdg-desktop-portal-gtk`, `xdg-user-dirs`,
-`xdg-user-dirs-gtk` or `xdg-utils` packages.
-
-Some Flatpaks require [D-Bus](./session-management.md#d-bus) and/or
-[Pulseaudio](./media/pulseaudio.md).
 
 ## Octave Packages
 
