@@ -280,11 +280,28 @@ computer's firmware when manually selecting a boot device):
 (chroot) # grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id="Void"
 ```
 
-If installing onto a removable disk (such as USB), add the option `--removable`
-to the `grub-install` command.
+### Troubleshooting GRUB installation
 
 If EFI variables are not available, add the option `--no-nvram` to the
 `grub-install` command.
+
+#### Installing on removable media or non-compliant UEFI systems
+
+Unfortunately, not all systems have a fully standards compliant UEFI
+implementation. In some cases, it is necessary to "trick" the firmware into
+booting by using the default fallback location for the bootloader instead of a
+custom one. In that case, or if installing onto a removable disk (such as USB),
+add the option `--removable` to the `grub-install` command.
+
+Alternatively, use [mkdir(1)](https://man.voidlinux.org/mkdir.1) to create the
+`/boot/efi/EFI/boot` directory and copy the installed GRUB executable, usually
+located in `/boot/efi/void/grubx64.efi` (its location can be found using
+[efibootmgr(8)](https://man.voidlinux.org/efibootmgr.8)), into the new folder:
+
+```
+(chroot) # mkdir -p /boot/efi/boot
+(chroot) # cp /boot/efi/void/grubx64.efi /boot/efi/EFI/boot/bootx64.efi
+```
 
 ## Finalization
 
