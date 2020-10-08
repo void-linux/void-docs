@@ -41,3 +41,8 @@ cmdline](../../kernel.md#cmdline). This problem is expected to happen on the
 Broadwell generation of internal GPUs. If you have another internal GPU and your
 issues are fixed by this kernel option, you should file a bug reporting the
 problem to kernel developers.
+
+For newer Intel chipsets, the [DDX](../xorg.md#ddx) drivers may interfere with
+correct operation. This is characterized by graphical acceleration not working
+and general graphical instability. If this is the case, try removing all
+`xf86-video-*` packages.
