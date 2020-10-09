@@ -149,14 +149,21 @@ search_page() {
         return 0
     fi
 
+    _pager=
     if command -v fzf >/dev/null; then
-        file="$(echo "$file" | fzf -1)"
+        _pager=fzf
+    elif command -v sk >/dev/null; then
+        _pager=sk
+    fi
+
+    if [ "$_pager" ]; then
+        file="$(echo "$file" | $_pager -1)"
         [ -z "$file" ] && exit 1
     else
         file="$(echo "$file" | head -1)"
     fi
     file="${file%.md}"
-    echo $file
+    echo "$file"
 }
 
 page=about/index

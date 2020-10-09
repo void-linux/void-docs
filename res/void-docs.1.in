@@ -17,10 +17,12 @@ without a search term, it will show the documentation's home
 page. Multiple search terms can be used to filter results. If the user
 has the
 .Xr fzf 1
-utility installed in their system, it will be used to browse the
+or
+.Xr sk 1
+utilities installed in their system, it will be used to browse the
 results. Otherwise,
 .Nm
-will display the first search result. If the
+will immediately display the first search result. If the
 .Fl s
 flag is used,
 .Nm
