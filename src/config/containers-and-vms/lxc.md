@@ -89,10 +89,10 @@ similar to:
 
 ```
 lxc-create -n mycontainer -t download -- \
-	--dist voidlinux --release current --arch x86_64
+	--dist voidlinux --release current --arch amd64
 ```
 
-You may substitute another architecture for `x86_64`, and you may specify a
+You may substitute another architecture for `amd64`, and you may specify a
 `musl` image by adding `--variant musl` to the end of the command. See the [LXC
 Image Server](http://images.linuxcontainers.org) for a list of available
 containers.
