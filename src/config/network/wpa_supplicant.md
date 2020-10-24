@@ -3,7 +3,10 @@
 The `wpa_supplicant` package is installed by default on the base system. It
 includes utilities to configure wireless interfaces and handle wireless security
 protocols. To use wpa_supplicant, you will need to enable [the wpa_supplicant
-service](#the-wpa_supplicant-service).
+service](#the-wpa_supplicant-service). 
+
+`ln -s /etc/sv/wpa_supplicant /var/service`
+`sv start wpa_supplicant`
 
 [wpa_supplicant(8)](https://man.voidlinux.org/wpa_supplicant.8) is a daemon that
 manages wireless interfaces based on
@@ -81,6 +84,11 @@ to specify which network interface to use via the `-i` option, e.g.:
 
 ```
 # wpa_cli -i wlp2s0
+(wpa)$ add_network 0
+(wpa)$ set_network 0 ssid "wifi_name"
+(wpa)$ set_network 0 password abc123
+(wpa)$ enable_entwork 0
+(wpa)$ quit
 ```
 
 Not doing so can result in various `wpa_cli` commands (for example, `scan` and
