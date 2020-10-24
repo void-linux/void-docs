@@ -5,10 +5,6 @@ includes utilities to configure wireless interfaces and handle wireless security
 protocols. To use wpa_supplicant, you will need to enable [the wpa_supplicant
 service](../services/index.md#enabling-services). 
 
-`ln -s /etc/sv/wpa_supplicant /var/service`
-
-The wireless service will be automatically started once soft link is done.
-
 Then you need to run `rfkill` to make sure your radio device is not blocked.
 
 Run `rfkill unblock id|type` if it is shown blocked.
