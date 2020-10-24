@@ -1,9 +1,9 @@
-# Enabling wpa_supplicant
+# wpa_supplicant
 
 The `wpa_supplicant` package is installed by default on the base system. It
 includes utilities to configure wireless interfaces and handle wireless security
 protocols. To use wpa_supplicant, you will need to enable [the wpa_supplicant
-service](#the-wpa_supplicant-service). 
+service](../services/index.md#enabling-services). 
 
 `ln -s /etc/sv/wpa_supplicant /var/service`
 
@@ -13,7 +13,7 @@ Then you need to run `rfkill` to make sure your radio device is not blocked.
 
 Run `rfkill unblock id|type` if it is shown blocked.
 
-# Using wpa_cli
+## Using wpa_cli
 
 `wpa_cli` is a tool comes with base system. You can use `wpa_cli` to manage `wpa_supplicant` from the command line, be sure
 to specify which network interface to use via the `-i` option. Not doing so can result in various `wpa_cli` commands (for example, `scan` and
@@ -29,7 +29,7 @@ Sample Setup Commands:
 (wpa)$ quit
 ```
 
-# More on wpa_supplicant
+## More on wpa_supplicant
 
 [wpa_supplicant(8)](https://man.voidlinux.org/wpa_supplicant.8) is a daemon that
 manages wireless interfaces based on
