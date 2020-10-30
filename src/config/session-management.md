@@ -40,3 +40,14 @@ service, as waiting for a D-Bus activation can lead to issues.
 There is an alternative D-Bus configuration which takes advantage of elogind for
 features such as seat detection. It requires installing the `dbus-elogind`,
 `dbus-elogind-libs` and `dbus-elogind-x11` packages.
+
+## seatd
+
+[seatd(1)](https://man.voidlinux.org/seatd.1) is a minimal seat management
+daemon and an alternative to elogind.
+
+To use it, install the `seatd` package and enable its service. If you want
+non-root users to be able to access the seatd session, add them to the `_seatd`
+group.
+
+Note that, unlike elogind, seatd doesn't do anything besides managing seats.
