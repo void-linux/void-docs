@@ -20,7 +20,12 @@ linked XBPS](../../xbps/troubleshooting/static.md).
 The **ROOTFS method** requires only a host operating system that can enter a
 Linux chroot and that has both [tar(1)](https://man.voidlinux.org/tar.1) and
 [xz(1)](https://man.voidlinux.org/xz.1) installed. This method may be preferable
-if you wish to install Void using a different Linux distribution.
+if you wish to install Void using a different Linux distribution. Note that ROOTFS
+images generally contain out of date software, due to being a snapshot of the
+time when they were built, and do not come with a complete base-system, so using
+this method will entail the extra steps of updating the package manager and
+installing the base-system.
+
 
 ## Prepare Filesystems
 
