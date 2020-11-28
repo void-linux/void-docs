@@ -5,6 +5,12 @@
 set -e
 PATH="$PWD/res:$PATH"
 
+# Build script
+echo "Building void-docs script and man page"
+sed -e "s,@PREFIX@,$PREFIX," res/void-docs.in > res/void-docs
+sed -e "s,@PREFIX@,$PREFIX," res/void-docs.1.in > res/void-docs.1
+[ -n "$ONLY_VOID_DOCS" ] && exit
+
 # Build HTML mdbook
 echo "Building mdBook"
 mdbook build
@@ -21,11 +27,6 @@ fd "\.md" ./ -x pandoc \
     -o "../mandoc/{.}.7" "{}"
 
 cd -
-
-# Build script
-echo "Building void-docs script and man page"
-sed -e "s,@PREFIX@,$PREFIX," res/void-docs.in > res/void-docs
-sed -e "s,@PREFIX@,$PREFIX," res/void-docs.1.in > res/void-docs.1
 
 # Build PDF
 
