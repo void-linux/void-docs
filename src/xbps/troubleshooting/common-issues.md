@@ -52,10 +52,11 @@ An "unresolvable shlib" error, such as:
 libllvm8-8.0.1_2: broken, unresolvable shlib `libffi.so.6'
 ```
 
-is probably due to orphan packages, already removed from the Void repos, still
-being installed on your system. This can be solved by running
-[xbps-remove(1)](https://man.voidlinux.org/xbps-remove.1) with the `-o` option,
-which removes orphan packages.
+is probably due to outdated or orphan packages. To check for outdated packages,
+simply try to [update your system](../index.md#updating). Orphan packages, on
+the other hand, have been removed from the Void repos, but are still installed
+on your system; they can be removed by running
+[xbps-remove(1)](https://man.voidlinux.org/xbps-remove.1) with the `-o` option.
 
 If you get an error message saying:
 
