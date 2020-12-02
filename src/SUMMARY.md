@@ -77,3 +77,4 @@
       - [Static XBPS](./xbps/troubleshooting/static.md)
 - [Contributing](./contributing/index.md)
    - [Contributing To void-docs](./contributing/void-docs.md)
+   - [Troubleshooting Packages](./contributing/debug.md)
