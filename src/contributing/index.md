@@ -2,13 +2,21 @@
 
 There's more to running a distribution than just writing code.
 
-To contribute to the Void packages repository, start by reading the
+If you fix an issue with a package, the solution can be added to the official
+package repository, and new packages and updates are also welcome! To contribute
+to the Void packages repository, start by reading the
 [CONTRIBUTING](https://github.com/void-linux/void-packages/blob/master/CONTRIBUTING.md)
 document in the void-packages GitHub repository.
 
-To contribute to this Handbook, read
-[CONTRIBUTING](https://github.com/void-linux/void-docs/blob/master/CONTRIBUTING.md)
-in the void-docs repository.
+If you are unable to fix a package yourself, make sure to [open an
+issue](https://github.com/void-linux/void-packages/issues/new) in the
+void-packages repository. This gives the problem visibility, which can greatly
+speed up a fix. Remember to check the existing issues for your problem! There
+are also some [things you can do to assist in finding the problem](./debug.md).
+
+This Handbook doesn't (yet!) contain all the important Void-specific
+information. To contribute to it see the [void-docs specific
+page](./void-docs.md).
 
 If you have any questions, feel free to ask them via IRC in #voidlinux on
 irc.freenode.net, or in [the voidlinux
