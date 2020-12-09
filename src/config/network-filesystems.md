@@ -35,7 +35,7 @@ To have the directory mounted when the system boots, add an entry to
 [fstab(5)](https://man.voidlinux.org/fstab.5):
 
 ```
-192.168.1.99:/volume /mnt/volume nfs rw,hard,intr 0 0
+192.168.1.99:/volume /mnt/volume nfs rw,hard 0 0
 ```
 
 Refer to [nfs(5)](https://man.voidlinux.org/nfs.5) for information about the
