@@ -1,13 +1,15 @@
 # Full Disk Encryption
 
-Your drive's block device and other information may be different, so make sure
-it is correct.
+**Warning**: Your drive's block device and other information may be different,
+so make sure it is correct.
 
-Boot the live image and login.
+## Partitioning
 
-Create a single physical partition on the disk using `cfdisk`, marking it
-bootable. For an MBR system, the partition layout should look like the
-following.
+Boot a live image and login.
+
+Create a single physical partition on the disk using
+[cfdisk](https://man.voidlinux.org/cfdisk), marking it as bootable. For an MBR
+system, the partition layout should look like the following.
 
 ```
 # fdisk -l /dev/sda
@@ -41,9 +43,14 @@ Device      Start       End   Sectors  Size Type
 /dev/sda2  264192 100663262 100399071 47.9G Linux filesystem
 ```
 
-Configure the encrypted volume. `cryptsetup` defaults to LUKS2, yet GRUB
-currently only has support for LUKS1, so it is critical to force LUKS1. Keep in
-mind this will be `/dev/sda2` on EFI systems.
+## Encrypted volume configuration
+
+[Cryptsetup](https://man.voidlinux.org/cryptsetup.8) defaults to LUKS2, yet
+GRUB releases before 2.06 only had support for LUKS1. Therefore, it might make
+sense to force LUKS1 if you wish to achieve better compatibility.
+
+Keep in mind the encrypted volume will be `/dev/sda2` on EFI systems, since
+`/dev/sda1` is taken up by the EFI partition.
 
 ```
 # cryptsetup luksFormat --type luks1 /dev/sda1
@@ -57,7 +64,7 @@ Enter passphrase:
 Verify passphrase:
 ```
 
-Once the volume is created, it needs to be opened. Replace voidvm with an
+Once the volume is created, it needs to be opened. Replace `voidvm` with an
 appropriate name. Again, this will be `/dev/sda2` on EFI systems.
 
 ```
@@ -102,6 +109,8 @@ meta-data=/dev/voidvm/home       isize=512    agcount=4, agsize=2359040 blks
 # mkswap /dev/voidvm/swap
 Setting up swapspace version 1, size = 2 GiB (2147479552 bytes)
 ```
+
+## System installation
 
 Next, setup the chroot and install the base system.
 
@@ -160,6 +169,8 @@ When it's done, we can enter the `chroot` and finish up the configuration.
 # xbps-reconfigure -f glibc-locales
 ```
 
+### Filesystem configuration
+
 The next step is editing `/etc/fstab`, which will depend on how you configured
 and named your filesystems. For this example, the file should look like this:
 
@@ -176,6 +187,8 @@ UEFI systems will also have an entry for the EFI system partition.
 ```
 /dev/sda1	/boot/efi	vfat	defaults	0	0
 ```
+
+### GRUB configuration
 
 Next, configure GRUB to be able to unlock the filesystem. Add the following line
 to `/etc/default/grub`:
@@ -196,6 +209,8 @@ Edit the `GRUB_CMDLINE_LINUX_DEFAULT=` line in `/etc/default/grub` and add
 `rd.lvm.vg=voidvm rd.luks.uuid=<UUID>` to it. Make sure the UUID matches the one
 for the `sda1` device found in the output of the
 [blkid(8)](https://man.voidlinux.org/blkid.8) command above.
+
+## LUKS key setup
 
 And now to avoid having to enter the password twice on boot, a key will be
 configured to automatically unlock the encrypted volume on boot. First, generate
@@ -235,6 +250,8 @@ a new file at `/etc/dracut.conf.d/10-crypt.conf` with the following line:
 ```
 install_items+=" /boot/volume.key /etc/crypttab "
 ```
+
+## Complete system installation
 
 Next, install the boot loader to the disk.
 
