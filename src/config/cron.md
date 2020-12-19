@@ -13,12 +13,10 @@ implementations are available, including
 [fcron](http://fcron.free.fr/) and more.
 
 Once you have chosen and installed an implementation,
-[enable](./services/index.md#enabling-services) the `crond` service, which is a
-symlink to the actual service (e.g. `dcron`). If you install several
-implementations, you can choose which one to use via
-[xbps-alternatives(1)](https://man.voidlinux.org/xbps-alternatives.1); this will
-alter the `crond` symlink appropriately. Implementation documentation will be
-available in [crond(8)](https://man.voidlinux.org/crond.8).
+[enable](./services/index.md#enabling-services) the corresponding service. There
+is also a generic `crond` service which is maintained by the alternatives
+system, but there is no real benefit in using it and just makes your setup
+harder to follow.
 
 As an alternative to the standard cron implementations, you can use
 [snooze(1)](https://man.voidlinux.org/snooze.1) together with the
