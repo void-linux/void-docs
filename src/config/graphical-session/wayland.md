@@ -36,6 +36,13 @@ provided by the `mesa-dri` package. The "[Graphics
 Drivers](./graphics-drivers/index.md)" section has more details regarding
 setting up graphics in different systems.
 
+### Seat management
+
+Wayland compositors require some way of controlling the video display and
+accessing input devices. In Void systems, this requires a seat manager service,
+which can be either elogind or seatd. Enabling them is explained in the
+["Session and Seat Management"](../session-management.md) session.
+
 ### Native applications
 
 [Qt5](https://wayland.freedesktop.org/qt5.html)-based applications require
@@ -73,8 +80,8 @@ compositors, and is installed as a dependency for most of them. Its package is
 
 ## Configuration
 
-The Wayland API uses the `XDG_RUNTIME_DIR` environment variable to determine the
-directory for the Wayland socket.
+The Wayland library uses the `XDG_RUNTIME_DIR` environment variable to determine
+the directory for the Wayland socket.
 
 Install `elogind` as your [session manager](../session-management.md) to
 automatically setup `XDG_RUNTIME_DIR`.
