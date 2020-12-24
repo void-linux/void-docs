@@ -44,7 +44,8 @@ features such as seat detection. It requires installing the `dbus-elogind`,
 ## seatd
 
 [seatd(1)](https://man.voidlinux.org/seatd.1) is a minimal seat management
-daemon and an alternative to elogind.
+daemon and an alternative to elogind primarily for [wlroots
+compositors](./graphical-session/wayland.md#standalone-compositors).
 
 To use it, install the `seatd` package and enable its service. If you want
 non-root users to be able to access the seatd session, add them to the `_seatd`
