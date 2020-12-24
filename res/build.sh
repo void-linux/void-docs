@@ -14,11 +14,9 @@ echo "Building man pages"
 mkdir -p mandoc
 cd src
 
-fd -t d "" ./ -x mkdir -p "../mandoc/{}"
-
-fd "\.md" ./ -x pandoc \
-    -V "title={/.}" -V "section=7" -V "header=Void Docs" -s \
-    -o "../mandoc/{.}.7" "{}"
+find . -type d -exec mkdir -p "../mandoc/{}" \;
+find . -type f -name "*.md" -exec sh -c \
+	'file="{}"; filew="${file%.md}"; pandoc -V "title=${filew##*/}" -V section=7 -V "header=Void Docs" -s -o "../mandoc/${filew}.7" "$file"' \;
 
 cd -
 
