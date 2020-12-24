@@ -12,7 +12,7 @@ the Void documentation and the `void-docs.1` man page. It requires the following
 Void packages:
 
 - `mdBook`
-- `fd`
+- `findutils`
 - `pandoc`
 - `texlive`
 - `perl`
