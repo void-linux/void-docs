@@ -1,6 +1,7 @@
 #!/bin/sh
-# uses PREFIX from environment
+# uses PREFIX and BUILD_MANPAGES from environment
 : "${PREFIX:=/usr/local}"
+: "${BUILD_MANPAGES:=1}"
 
 set -e
 PATH="$PWD/res:$PATH"
@@ -9,16 +10,19 @@ PATH="$PWD/res:$PATH"
 echo "Building mdBook"
 mdbook build
 
-# Build mandoc version
-echo "Building man pages"
-mkdir -p mandoc
-cd src
 
-find . -type d -exec mkdir -p "../mandoc/{}" \;
-find . -type f -name "*.md" -exec sh -c \
-	'file="{}"; filew="${file%.md}"; pandoc -V "title=${filew##*/}" -V section=7 -V "header=Void Docs" -s -o "../mandoc/${filew}.7" "$file"' \;
+if [ "$BUILD_MANPAGES" = "1" ]; then
+    # Build mandoc version
+    echo "Building man pages"
+    mkdir -p mandoc
+    cd src
 
-cd -
+    find . -type d -exec mkdir -p "../mandoc/{}" \;
+    find . -type f -name "*.md" -exec sh -c \
+        'file="{}"; filew="${file%.md}"; pandoc -V "title=${filew##*/}" -V section=7 -V "header=Void Docs" -s -o "../mandoc/${filew}.7" "$file"' \;
+
+    cd -
+fi
 
 # Build script
 echo "Building void-docs script and man page"
