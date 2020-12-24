@@ -16,4 +16,4 @@ cp -r mandoc/ $DOC/mandoc
 
 install -Dm0644 res/void-docs.1 ${DESTDIR}${PREFIX}/share/man/man1/void-docs.1
 install -Dm0755 res/void-docs ${DESTDIR}${PREFIX}/bin/void-docs
-install -Dm0644 book/latex/handbook.pdf ${DESTDIR}${PREFIX}/share/doc/void/handbook.pdf
+install -Dm0644 book/latex/handbook-a4.pdf ${DESTDIR}${PREFIX}/share/doc/void/handbook.pdf
