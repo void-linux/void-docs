@@ -45,7 +45,9 @@ Protocol](https://en.wikipedia.org/wiki/Network_Time_Protocol) (NTP).
 Void provides packages for three NTP daemons: NTP, OpenNTPD and Chrony.
 
 Once you have installed an NTP daemon, you can [enable the
-service](../config/services/index.md#managing-services).
+service](../config/services/index.md#managing-services) for it, either through
+its own service or the `ntpd` service managed by
+[xbps-alternatives(1)](https://man.voidlinux.org/xbps-alternatives.1).
 
 ### NTP
 
