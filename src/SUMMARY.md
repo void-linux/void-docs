@@ -55,6 +55,7 @@
       - [KDE](./config/graphical-session/kde.md)
    - [Multimedia](./config/media/index.md)
       - [ALSA](./config/media/alsa.md)
+      - [PipeWire](./config/media/pipewire.md)
       - [PulseAudio](./config/media/pulseaudio.md)
       - [sndio](./config/media/sndio.md)
    - [Bluetooth](./config/bluetooth.md)
