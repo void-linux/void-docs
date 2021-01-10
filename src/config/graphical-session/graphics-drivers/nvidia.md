@@ -2,20 +2,28 @@
 
 ## nouveau (Open Source Driver)
 
-This driver is developed mostly by the community, with little input from Nvidia,
-and is not as performant as the proprietary driver. It is required in order to
-run most Wayland compositors.
+This is a reverse engineered driver largely developed by the community, with
+some documentation provided by Nvidia. It tends to perform well on older
+hardware, and is required to use a large portion of the available Wayland
+compositors.
 
-Install the `mesa-dri` driver or the `xf86-video-nouveau` driver.
+At the time of writing, graphics cards starting with second generation Maxwell
+(GTX 9xx) are unable to perform at their full potential with `nouveau`. This is
+because the `linux-firmware` collection is missing signed firmware blobs needed
+to reclock these cards past their boot frequencies.
 
-Xorg can make use of either of the above mentioned drivers. The latter is older,
-more stable and generally the recommended option. However, for newer devices you
-might get better performance by using the `mesa-dri` provided driver.
+To use `nouveau` with Wayland, you only need the `mesa-dri` package, which
+provides the accelerated OpenGL driver. On X11, you also need an appropriate
+Xorg driver. You can either install `xf86-video-nouveau` or use the universal
+`modesetting` driver bundled with Xorg (this is the only option on Tegra based
+ARM boards). The former can make use of GPU-specific 2D acceleration paths,
+which is primarily useful on older cards with specialized fixed function
+hardware (the `modesetting` driver will accelerate 2D using OpenGL via GLAMOR).
+When in doubt, it's a good idea to try `xf86-video-nouveau` first.
 
-Note: `xf86-video-nouveau` is already included in the `xorg` meta-package, but
-is needed when installing via `xorg-minimal`.
-
-For using Wayland, users should install the `mesa-dri` provided driver.
+Note: `xf86-video-nouveau` is usually installed by default if you use the `xorg`
+metapackage. If you use `xorg-minimal`, you will need to install it manually,
+either directly or through `xorg-video-drivers`.
 
 ## nvidia (Proprietary Driver)
 
