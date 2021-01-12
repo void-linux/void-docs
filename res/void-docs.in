@@ -120,14 +120,19 @@ open_page() {
 
     if [ "$_md" ]; then
         # markdown processor
-        for viewer in mdcat glow
-        do
-            if command -v $viewer >/dev/null; then
-                page=$(find_page md $1)
-                $viewer $page | less -R
-                exit
-            fi
-        done
+        _viewer=
+        if command -v mdcat >/dev/null; then
+            _viewer=mdcat
+        elif command -v lowdown >/dev/null; then
+            _viewer="lowdown -Tterm"
+        elif command -v glow >/dev/null; then
+            _viewer=glow
+        fi
+        if [ "$_viewer" ]; then
+            page=$(find_page md $1)
+            $_viewer $page | less -R
+            exit
+        fi
     fi
 
     if [ "$_roff" ]; then
@@ -151,13 +156,15 @@ search_page() {
 
     _pager=
     if command -v fzf >/dev/null; then
-        _pager=fzf
+        _pager="fzf -1"
     elif command -v sk >/dev/null; then
-        _pager=sk
+        _pager="sk -1"
+    elif command -v pick >/dev/null; then
+        _pager=pick
     fi
 
     if [ "$_pager" ]; then
-        file="$(echo "$file" | $_pager -1)"
+        file="$(echo "$file" | $_pager)"
         [ -z "$file" ] && exit 1
     else
         file="$(echo "$file" | head -1)"
