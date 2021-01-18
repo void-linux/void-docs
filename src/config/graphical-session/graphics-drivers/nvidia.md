@@ -33,13 +33,14 @@ repository](../../../xbps/repositories/index.md#nonfree).
 Check if your graphics card belongs to the [legacy
 branch](https://www.nvidia.com/en-us/drivers/unix/legacy-gpu/). If it does not,
 install the `nvidia` package. Otherwise you should install the appropriate
-legacy driver, either `nvidia390` or `nvidia340`.
+legacy driver, `nvidia390`. The older legacy driver, `nvidia340`, is no longer
+available, and users are encouraged to [switch to
+nouveau](#reverting-from-nvidia-to-nouveau).
 
-| Brand  | Type        | Model                           | Driver Package |
-|--------|-------------|---------------------------------|----------------|
-| NVIDIA | Proprietary | 600+                            | `nvidia`       |
-| NVIDIA | Proprietary | 300/400/500 Series              | `nvidia390`    |
-| NVIDIA | Proprietary | GeForce8/9 + 100/200/300 Series | `nvidia340`    |
+| Brand  | Type        | Model          | Driver Package |
+|--------|-------------|----------------|----------------|
+| NVIDIA | Proprietary | 600+           | `nvidia`       |
+| NVIDIA | Proprietary | 400/500 Series | `nvidia390`    |
 
 The proprietary driver integrates in the kernel through
 [DKMS](../../kernel.md#dynamic-kernel-module-support-dkms).
@@ -55,8 +56,8 @@ additional packages.
 If using the `nouveau` driver, install the `mesa-dri-32bit` package.
 
 If using the `nvidia` driver, install the `nvidia<x>-libs-32bit` package. `<x>`
-represents the legacy driver version (340 or 390) or can be left empty for the
-main driver.
+represents the legacy driver version (`390`) or can be left empty for the main
+driver.
 
 ## Reverting from nvidia to nouveau
 
@@ -64,9 +65,9 @@ main driver.
 
 In order to revert to the `nouveau` driver, install the [`nouveau`
 driver](#nouveau-open-source-driver) (if it was not installed already), then
-remove the `nvidia`, `nvidia390` or `nvidia340` package, as appropriate.
+remove the `nvidia` or `nvidia390` package, as appropriate.
 
-If you were using the `nvidia340` driver, you will need to install the
+If you were using the obsolete `nvidia340` driver, you might need to install the
 `libglvnd` package after removing the `nvidia340` package.
 
 ### Keeping both drivers
