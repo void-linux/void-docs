@@ -35,7 +35,7 @@ from [other mirrors](../xbps/repositories/mirrors/index.md). Previous releases
 can be found under <https://alpha.de.repo.voidlinux.org/live/>, organized by
 date.
 
-### Verifying images
+## Verifying images
 
 Each image release's directory contains two files used to verify the image(s)
 you download. First, there is a `sha256.txt` file containing image checksums to
@@ -45,7 +45,7 @@ used to verify the authenticity of the checksums.
 It is necessary to verify both the image's integrity and authenticity. It is,
 therefore, recommended that you download both files.
 
-#### Verifying image integrity
+### Verifying image integrity
 
 You can verify the integrity of a downloaded file using
 [sha256sum(1)](https://man.voidlinux.org/sha256sum.1) with the `sha256.txt` file
