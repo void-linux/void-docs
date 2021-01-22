@@ -50,7 +50,7 @@ chroot(2) - change root directory
 
 The `mdocml` package provides a cron job to update the database daily,
 `/etc/cron.daily/makewhatis`. You will need to install a [cron
-daemon](./cron.md) for this functionality to be activated.
+daemon](../cron.md) for this functionality to be activated.
 
 Development and POSIX manuals are not installed by default, but are available
 via the `man-pages-devel` and `man-pages-posix` packages.
