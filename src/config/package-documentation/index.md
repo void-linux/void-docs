@@ -1,4 +1,4 @@
-# Package documentation
+# Package Documentation
 
 The most common media for documentation in Void Linux are [manual
 pages](./man.md).
