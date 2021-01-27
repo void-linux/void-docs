@@ -40,7 +40,7 @@ be generated and updated with the
 [makewhatis(8)](https://man.voidlinux.org/makewhatis.8) command:
 
 ```
-# makewhatis -a
+# makewhatis
 $ apropos chroot
 chroot(1) - run command or interactive shell with special root directory
 xbps-uchroot(1) - XBPS utility to chroot and bind mount with Linux namespaces
@@ -49,7 +49,7 @@ chroot(2) - change root directory
 ```
 
 The `mdocml` package provides a cron job to update the database daily,
-`/etc/cron.daily/makewhatis`. You will need to install a [cron
+`/etc/cron.daily/makewhatis`. You will need to install and enable a [cron
 daemon](../cron.md) for this functionality to be activated.
 
 Development and POSIX manuals are not installed by default, but are available
