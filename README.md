@@ -13,7 +13,7 @@ Void packages:
 
 - `mdBook`
 - `findutils`
-- `pandoc`
+- `lowdown` (version 0.8.1 or greater)
 - `texlive`
 - `perl`
 - `perl-JSON`
