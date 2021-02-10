@@ -6,20 +6,33 @@
 set -e
 PATH="$PWD/res:$PATH"
 
+if [ -z "$SOURCE_DATE_EPOCH" ]; then
+    export SOURCE_DATE_EPOCH=$(git log --pretty='%ct' -1)
+    if [ -z "$SOURCE_DATE_EPOCH" -a "$BUILD_MANPAGES" = 1 ]; then
+      echo "git or SOURCE_DATE_EPOCH are needed to build man pages!"
+      exit 1
+    fi
+fi
+
 # Build HTML mdbook
 echo "Building mdBook"
 mdbook build
 
-
 if [ "$BUILD_MANPAGES" = "1" ]; then
     # Build mandoc version
     echo "Building man pages"
-    mkdir -p mandoc
     cd src
 
     find . -type d -exec mkdir -p "../mandoc/{}" \;
+
     find . -type f -name "*.md" -exec sh -c \
-        'file="{}"; filew="${file%.md}"; pandoc -V "title=${filew##*/}" -V section=7 -V "header=Void Docs" -s -o "../mandoc/${filew}.7" "$file"' \;
+      'file="{}"; filew="${file%.md}"; \
+          man_date="$(git log --pretty=%cs -1 "$file" 2>/dev/null || date -d "@$SOURCE_DATE_EPOCH" +%F)";
+          lowdown -Tman \
+          ${man_date:+-m "date: $man_date"} \
+          -m "title: ${filew##*/}" \
+          -m "section: 7" -m "source: Void Docs" -m "volume: Void Docs" \
+          -s -o "../mandoc/${filew}.7" "$file"' \;
 
     cd -
 fi
