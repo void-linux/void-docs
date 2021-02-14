@@ -49,13 +49,6 @@ security.sandbox.content.read_path_whitelist;/home/<username>/.sndio/cookie
 security.sandbox.content.write_path_whitelist;/home/<username>/.sndio/cookie
 ```
 
-### mpv
-
-MPV comes with sndio support, but to prevent it from using ALSA over sndio if
-the ALSA device is available, set the `--ao=sndio` command line option. You can
-also add the option to mpv's configuration file: `~/.config/mpv/mpv.conf` should
-contain a line specifying `ao=sndio`.
-
 ### OpenAL
 
 libopenal comes with sndio support, but prioritizes ALSA over sndio by default.
