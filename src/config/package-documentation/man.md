@@ -54,3 +54,24 @@ daemon](../cron.md) for this functionality to be activated.
 
 Development and POSIX manuals are not installed by default, but are available
 via the `man-pages-devel` and `man-pages-posix` packages.
+
+## Localized manual pages
+
+It is also possible to use localized man pages from packages which provide their
+own as well as those provided by the `manpages-*` packages. However, this can
+require some configuration.
+
+### With mdocml
+
+If `mdocml` is being used and the settings should be applied for all users, it
+is necessary to add the relevant paths to
+[man.conf(5)](https://man.voidlinux.org/man.conf.5). For example, German
+speakers would add these two lines to their configuration file:
+
+```
+/usr/share/man/de
+/usr/share/man/de.UTF-8
+```
+
+Alternatively, each user can export the `MANPATH` variable in their environment,
+as explained in [man(1)](https://man.voidlinux.org/man.1).
