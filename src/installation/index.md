@@ -38,8 +38,8 @@ date.
 ### Verifying images
 
 Each image release's directory contains two files used to verify the image(s)
-you download. First, there is a `sha256.txt` file containing image checksums to
-verify the integrity of the downloaded images. Second is the `sha256.sig` file,
+you download. First, there is a `sha256sum.txt` file containing image checksums to
+verify the integrity of the downloaded images. Second is the `sha256sum.sig` file,
 used to verify the authenticity of the checksums.
 
 It is necessary to verify both the image's integrity and authenticity. It is,
@@ -48,12 +48,12 @@ therefore, recommended that you download both files.
 #### Verifying image integrity
 
 You can verify the integrity of a downloaded file using
-[sha256sum(1)](https://man.voidlinux.org/sha256sum.1) with the `sha256.txt` file
+[sha256sum(1)](https://man.voidlinux.org/sha256sum.1) with the `sha256sum.txt` file
 downloaded above. The following command will check the integrity of only the
 image(s) you have downloaded:
 
 ```
-$ sha256sum -c --ignore-missing sha256.txt
+$ sha256sum -c --ignore-missing sha256sum.txt
 void-live-x86_64-musl-20170220.iso: OK
 ```
 
@@ -89,12 +89,12 @@ If you are not currently using Void Linux, it will also be necessary to obtain
 the appropriate signing key from our Git repository
 [here](https://github.com/void-linux/void-packages/tree/master/srcpkgs/void-release-keys/files/).
 
-Once you've obtained the key, you can verify your image with the `sha256.sig`
+Once you've obtained the key, you can verify your image with the `sha256sum.sig`
 file. The following example demonstrates the verification of the GCP musl
 filesystem from the 20191109 release:
 
 ```
-$ signify -C -p /etc/signify/void-release-20191109.pub -x sha256.sig void-GCP-musl-PLATFORMFS-20191109.tar.xz
+$ signify -C -p /etc/signify/void-release-20191109.pub -x sha256sum.sig void-GCP-musl-PLATFORMFS-20191109.tar.xz
 Signature Verified
 void-GCP-musl-PLATFORMFS-20191109.tar.xz: OK
 ```
@@ -103,13 +103,13 @@ If the verification process does not produce the expected "OK" status, do not
 use it! Please alert the Void Linux team of where you got the image and how you
 verified it, and we will follow up on it.
 
-For verification with `minisign`, it is necessary to rename the `sha256.sig`
-file to `sha256.txt.minisig` and remove the first line from the `.pub` release
-key. The following example demonstrates the verification of the `sha256.txt`
+For verification with `minisign`, it is necessary to rename the `sha256sum.sig`
+file to `sha256sum.txt.minisig` and remove the first line from the `.pub` release
+key. The following example demonstrates the verification of the `sha256sum.txt`
 file from the 20191109 release:
 
 ```
-$ minisign -Vm sha256.txt -f -p void-release-20191109.pub
+$ minisign -Vm sha256sum.txt -f -p void-release-20191109.pub
 void-release-20191109.pub: Success
 ```
 
