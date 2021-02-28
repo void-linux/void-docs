@@ -46,6 +46,60 @@ want to remove the default kernel packages, use
 you will be able to remove the packages with
 [xbps-remove(1)](https://man.voidlinux.org/xbps-remove.1).
 
+## cmdline
+
+The kernel, the initial RAM disk (initrd) and some system programs can be
+configured at boot by kernel command line arguments. The parameters understood
+by the kernel are explained in the [kernel-parameters
+documentation](https://www.kernel.org/doc/html/latest/admin-guide/kernel-parameters.html)
+and by [bootparam(7)](https://man.voidlinux.org/bootparam.7). Parameters
+understood by dracut can be found in
+[dracut.cmdline(7)](https://man.voidlinux.org/dracut.cmdline.7).
+
+Once the system is booted, the current kernel command line parameters can be
+found in the `/proc/cmdline` file. Some system programs can change their
+behavior based on the parameters passed in the command line, which is what
+happens when [booting a different
+runsvdir](./services/index.md#booting-a-different-runsvdir), for example.
+
+There are different ways of setting these parameters, some of which are
+explained below.
+
+### GRUB
+
+Kernel command line arguments can be added through the GRUB bootloader by
+editing `/etc/default/grub`, changing the `GRUB_CMDLINE_LINUX_DEFAULT` variable
+and then running `update-grub`.
+
+### dracut
+
+Dracut can be configured to add additional command line arguments to the kernel
+through a configuration file. The documentation for dracut's configuration files
+can be found in [dracut.conf(5)](https://man.voidlinux.org/dracut.conf.5). To
+apply these changes, it is necessary to [regenerate](#kernel-hooks) the
+initramfs.
+
+## Kernel hardening
+
+Void Linux ships with some kernel security options enabled by default. This was
+originally provided by kernel command line arguments `slub_debug=P page_poison=1`,
+but since kernel series 5.3, these have been replaced with `init_on_alloc` and
+`init_on_free` (see [this commit](https://github.com/torvalds/linux/commit/6471384af)).
+
+Void's kernels come with the `init_on_alloc` option enabled by default where
+available (i.e. `linux5.4` and greater). In most cases you should usually not
+disable it, as it has a fairly minimal impact on performance (within 1%). The
+`init_on_free` option is more expensive (around 5% on average) and needs to be
+enabled manually by passing `init_on_free=1` on the kernel command line. If you
+need to disable `init_on_alloc`, you can do that similarly by passing
+`init_on_alloc=0`.
+
+There is a chance that your existing system still has the old options enabled.
+They still work in newer kernels, but have a performance impact more in line
+with `init_on_free=1`. On older hardware this can be quite noticeable. If you
+are running a kernel series older than 5.4, you can keep them (or add them)
+for extra security at the cost of speed; otherwise you should remove them.
+
 ## Kernel modules
 
 Kernel modules are typically drivers for devices or filesystems.
@@ -139,36 +193,3 @@ available modules can be listed by searching for `dkms` in the package
 repositories.
 
 DKMS build logs are available in `/var/lib/dkms/`.
-
-## cmdline
-
-The kernel, the initial RAM disk (initrd) and some system programs can be
-configured at boot by kernel command line arguments. The parameters understood
-by the kernel are explained in the [kernel-parameters
-documentation](https://www.kernel.org/doc/html/latest/admin-guide/kernel-parameters.html)
-and by [bootparam(7)](https://man.voidlinux.org/bootparam.7). Parameters
-understood by dracut can be found in
-[dracut.cmdline(7)](https://man.voidlinux.org/dracut.cmdline.7).
-
-Once the system is booted, the current kernel command line parameters can be
-found in the `/proc/cmdline` file. Some system programs can change their
-behavior based on the parameters passed in the command line, which is what
-happens when [booting a different
-runsvdir](./services/index.md#booting-a-different-runsvdir), for example.
-
-There are different ways of setting these parameters, some of which are
-explained below.
-
-### GRUB
-
-Kernel command line arguments can be added through the GRUB bootloader by
-editing `/etc/default/grub`, changing the `GRUB_CMDLINE_LINUX_DEFAULT` variable
-and then running `update-grub`.
-
-### dracut
-
-Dracut can be configured to add additional command line arguments to the kernel
-through a configuration file. The documentation for dracut's configuration files
-can be found in [dracut.conf(5)](https://man.voidlinux.org/dracut.conf.5). To
-apply these changes, it is necessary to [regenerate](#kernel-hooks) the
-initramfs.
