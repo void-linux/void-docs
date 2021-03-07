@@ -19,7 +19,7 @@ chmod +x ~/bin/gimme
 
 eval "$(gimme stable)"
 
-go get github.com/bobertlo/vmd/cmd/vmdfmt
+GO111MODULE=auto go get github.com/bobertlo/vmd/cmd/vmdfmt
 
 echo "Checking formatting"
 
