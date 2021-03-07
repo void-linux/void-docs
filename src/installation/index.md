@@ -38,9 +38,9 @@ date.
 ### Verifying images
 
 Each image release's directory contains two files used to verify the image(s)
-you download. First, there is a `sha256sum.txt` file containing image checksums to
-verify the integrity of the downloaded images. Second is the `sha256sum.sig` file,
-used to verify the authenticity of the checksums.
+you download. First, there is a `sha256sum.txt` file containing image checksums
+to verify the integrity of the downloaded images. Second is the `sha256sum.sig`
+file, used to verify the authenticity of the checksums.
 
 It is necessary to verify both the image's integrity and authenticity. It is,
 therefore, recommended that you download both files.
@@ -48,9 +48,9 @@ therefore, recommended that you download both files.
 #### Verifying image integrity
 
 You can verify the integrity of a downloaded file using
-[sha256sum(1)](https://man.voidlinux.org/sha256sum.1) with the `sha256sum.txt` file
-downloaded above. The following command will check the integrity of only the
-image(s) you have downloaded:
+[sha256sum(1)](https://man.voidlinux.org/sha256sum.1) with the `sha256sum.txt`
+file downloaded above. The following command will check the integrity of only
+the image(s) you have downloaded:
 
 ```
 $ sha256sum -c --ignore-missing sha256sum.txt
@@ -104,9 +104,9 @@ use it! Please alert the Void Linux team of where you got the image and how you
 verified it, and we will follow up on it.
 
 For verification with `minisign`, it is necessary to rename the `sha256sum.sig`
-file to `sha256sum.txt.minisig` and remove the first line from the `.pub` release
-key. The following example demonstrates the verification of the `sha256sum.txt`
-file from the 20191109 release:
+file to `sha256sum.txt.minisig` and remove the first line from the `.pub`
+release key. The following example demonstrates the verification of the
+`sha256sum.txt` file from the 20191109 release:
 
 ```
 $ minisign -Vm sha256sum.txt -f -p void-release-20191109.pub

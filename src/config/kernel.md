@@ -82,9 +82,10 @@ initramfs.
 ## Kernel hardening
 
 Void Linux ships with some kernel security options enabled by default. This was
-originally provided by kernel command line arguments `slub_debug=P page_poison=1`,
-but since kernel series 5.3, these have been replaced with `init_on_alloc` and
-`init_on_free` (see [this commit](https://github.com/torvalds/linux/commit/6471384af)).
+originally provided by kernel command line arguments `slub_debug=P
+page_poison=1`, but since kernel series 5.3, these have been replaced with
+`init_on_alloc` and `init_on_free` (see [this
+commit](https://github.com/torvalds/linux/commit/6471384af)).
 
 Void's kernels come with the `init_on_alloc` option enabled by default where
 available (i.e. `linux5.4` and greater). In most cases you should usually not
@@ -97,8 +98,8 @@ need to disable `init_on_alloc`, you can do that similarly by passing
 There is a chance that your existing system still has the old options enabled.
 They still work in newer kernels, but have a performance impact more in line
 with `init_on_free=1`. On older hardware this can be quite noticeable. If you
-are running a kernel series older than 5.4, you can keep them (or add them)
-for extra security at the cost of speed; otherwise you should remove them.
+are running a kernel series older than 5.4, you can keep them (or add them) for
+extra security at the cost of speed; otherwise you should remove them.
 
 ## Kernel modules
 
