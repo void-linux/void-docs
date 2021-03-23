@@ -20,10 +20,6 @@ addition, there are several features that make Void unique:
    and correctness, has first class support. This allows us to build certain
    components for musl systems statically, which would not be practical on glibc
    systems.
-- The [LibreSSL](https://www.libressl.org/) fork is used instead of the mainline
-   OpenSSL library. Developed as part of the OpenBSD project, LibreSSL is
-   dedicated to the security, quality, and maintainability of this critical
-   library.
 - [runit](../config/services/index.md) is used for
    [init(8)](https://man.voidlinux.org/init.8) and service supervision. This
    allows Void to support musl as a second libc choice, which would not be
