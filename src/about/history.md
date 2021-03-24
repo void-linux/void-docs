@@ -13,3 +13,6 @@ Knowledge of the ancients, grepped from the Git logs themselves:
 - 2018-07-06: first use of [Terraform for GitHub
    permissions](https://github.com/void-linux/void-infrastructure/tree/master/terraform),
    for increased transparency
+- 2021-03-05: begin
+   [switching](https://github.com/void-linux/void-packages/commit/d90dba0ae27c4bb22cbb1722f70e4ed6d599e473)
+   to [OpenSSL](https://www.openssl.org/)
