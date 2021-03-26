@@ -19,6 +19,15 @@ Some CUPS drivers contain proprietary or binary-only extensions. These are
 available only in the nonfree repository, and sometimes only for specific
 architectures.
 
+### Driverless printing
+
+Most modern network printers support printing driverlessly using the IPP
+Everywhere standard. See <https://www.pwg.org/printers/> for a list of
+self-certified printers supporting this standard. Even if a printer is not on
+this list, there is still a high chance it is supported.
+
+Do note that `cups-filters` is still required for driverless printing.
+
 ### Gutenprint drivers
 
 Gutenprint provides support for many printers. These drivers are contained in
@@ -46,6 +55,12 @@ in the `foomatic-db` and `foomatic-db-nonfree` packages.
 CUPS provides a web interface and command line tools that can be used to
 configure printers. Additionally, various native GUI options are available and
 may be better suited, depending on the use-case.
+
+### Automatically
+
+Printers with support for IPP Everywhere can be discovered and configured
+automatically using [ZeroConf](http://www.zeroconf.org/). To enable this,
+install the `avahi` package and enable the `avahi-daemon` service.
 
 ### Web interface
 
