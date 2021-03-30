@@ -40,7 +40,7 @@ Specifies which font to use for the Linux console. Available fonts are listed in
 FONT=eurlatgr
 ```
 
-For further details, refer to [setfont(1)](https://man.voidlinux.org/setfont.1).
+For further details, refer to [setfont(8)](https://man.voidlinux.org/setfont.8).
 
 ## rc.local
 
