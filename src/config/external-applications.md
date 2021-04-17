@@ -47,6 +47,10 @@ Flatpak is another method for installing external proprietary applications on
 Linux. For information on using Flatpak with Void Linux, see the [official
 Flatpak documentation](https://flatpak.org/setup/Void%20Linux/).
 
+If sound is not working for programs installed using Flatpak,
+[PulseAudio](./media/pulseaudio.md) auto-activation might not be working
+correctly. Make sure PulseAudio is running before launching the program.
+
 Note that Flatpak's sandboxing will not necessarily protect you from any
 security and/or privacy-violating features of proprietary software.
 
@@ -82,3 +86,17 @@ example, to build the control package, you must install the `openblas-devel`,
 
 To use MATLAB's help browser, live scripts, add-on installer, and simulink,
 install the `libselinux` package.
+
+## Steam
+
+Steam can be installed either via a native package, which requires [enabling the
+"nonfree" repository](../xbps/repositories/index.md#nonfree), or via
+[Flatpak](#flatpak). The list of dependencies for different platforms and
+troubleshooting information for the native package can be found in its
+[Void-specific documentation](./package-documentation/index.html), while this
+section deals with potential issues faced by Flatpak users.
+
+If you are using a different drive to store your game library, the
+`--filesystem` option from
+[flatpak-override(1)](https://man.voidlinux.org/flatpak-override.1) can prove
+useful.
