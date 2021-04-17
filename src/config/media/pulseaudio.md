@@ -11,7 +11,13 @@ The PulseAudio package comes with a service file, which is not necessary in most
 setups - the PulseAudio maintainers
 [discourage](https://www.freedesktop.org/wiki/Software/PulseAudio/Documentation/User/SystemWide/)
 using a system-wide setup. Instead, PulseAudio will automatically start when
-needed.
+needed. If it is not starting automatically, it can be started manually by
+invoking [pulseaudio(1)](https://man.voidlinux.org/pulseaudio.1) from the
+terminal as follows:
+
+```
+$ pulseaudio --daemonize=no --exit-idle-time=-1
+```
 
 There are several methods of allowing PulseAudio to access to audio devices. The
 simplest one is to add your user to the `audio` group. Alternatively, you can
