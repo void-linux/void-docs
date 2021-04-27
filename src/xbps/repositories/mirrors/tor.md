@@ -9,6 +9,7 @@ The following Void Linux Mirrors are available on the Tor Network:
 | Repository                                                                             | Location   |
 |----------------------------------------------------------------------------------------|------------|
 | <http://lysator7eknrfl47rlyxvgeamrv7ucefgrrlhk7rouv3sna25asetwid.onion/pub/voidlinux/> | EU: Sweden |
+| <http://aafeeff2jty6me2boflxjbz4nqnm6ww5tcylc5u2fdprzbqg6gz5p2id.onion>                |            |
 
 ## Using XBPS with Tor
 
