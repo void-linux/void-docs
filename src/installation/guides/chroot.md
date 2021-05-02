@@ -225,14 +225,14 @@ For example, the partition scheme used throughout previous examples yields the
 following `fstab`:
 
 ```
-/dev/sda1       /boot/EFI   vfat    rw,relatime,[...]       0 0
+/dev/sda1       /boot/efi   vfat    rw,relatime,[...]       0 0
 /dev/sda2       /           ext4    rw,relatime             0 0
 ```
 
 The information from `blkid` results in the following `/etc/fstab`:
 
 ```
-UUID=6914[...]  /boot/EFI   vfat    rw,relatime,[...]       0 2
+UUID=6914[...]  /boot/efi   vfat    rw,relatime,[...]       0 2
 UUID=dc1b[...]  /           ext4    rw,relatime             0 1
 ```
 
