@@ -19,9 +19,13 @@ software to need modification to compile and/or function properly. Void
 developers work to patch such software and hopefully get portability/correctness
 changes accepted into the upstream projects.
 
-Proprietary software rarely supports non-glibc libc implementations, although
-sometimes these applications are available as [flatpaks](https://flatpak.org/),
-which provide their own libc in the image.
+Proprietary software usually supports only glibc systems, though sometimes such
+applications are available as
+[flatpaks](../config/external-applications.md#flatpak) and can be run on a musl
+system. In particular, the [proprietary NVIDIA
+drivers](../config/graphical-session/graphics-drivers/nvidia.md#nvidia-proprietary-driver)
+do not support musl, which should be taken into account when evaluating hardware
+compatibility.
 
 ### glibc chroot
 
