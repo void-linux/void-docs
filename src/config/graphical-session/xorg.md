@@ -99,14 +99,23 @@ If there is a match, modesetting is being used.
 
 The `xinit` package provides the [startx(1)](https://man.voidlinux.org/startx.1)
 script as a frontend to [xinit(1)](https://man.voidlinux.org/xinit.1), which can
-be used to start X sessions from the console. For example, to use i3, edit
-`~/.xinitrc` to contain:
+be used to start X sessions from the console. For example, to start
+[i3(1)](https://man.voidlinux.org/i3.1), edit `~/.xinitrc` to contain `exec
+/bin/i3` on the last line.
+
+To start arbitrary programs together with an X session, add them in `~/.xinitrc`
+before the last line. For example, to start
+[pipewire(1)](https://man.voidlinux.org/pipewire.1) before starting i3, add
+`pipewire &` before the last line.
+
+A `~/.xinitrc` file which starts `pipewire` and `i3` is shown below:
 
 ```
+pipewire &
 exec /bin/i3
 ```
 
-Then call `startx` to start an i3 session.
+Then call `startx` to start a session.
 
 If a D-Bus session bus is required, you can [manually start
 one](../session-management.md#d-bus).
