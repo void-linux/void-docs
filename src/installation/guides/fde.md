@@ -156,26 +156,6 @@ UEFI systems will also have an entry for the EFI system partition.
 /dev/sda1	/boot/efi	vfat	defaults	0	0
 ```
 
-Next, configure GRUB to be able to unlock the filesystem. Add the following line
-to `/etc/default/grub`:
-
-```
-GRUB_ENABLE_CRYPTODISK=y
-```
-
-Next, the kernel needs to be configured to find the encrypted device. First,
-find the UUID of the device.
-
-```
-# blkid -o value -s UUID /dev/sda1
-135f3c06-26a0-437f-a05e-287b036440a4
-```
-
-Edit the `GRUB_CMDLINE_LINUX_DEFAULT=` line in `/etc/default/grub` and add
-`rd.lvm.vg=voidvm rd.luks.uuid=<UUID>` to it. Make sure the UUID matches the one
-for the `sda1` device found in the output of the
-[blkid(8)](https://man.voidlinux.org/blkid.8) command above.
-
 And now to avoid having to enter the password twice on boot, a key will be
 configured to automatically unlock the encrypted volume on boot. First, generate
 a random key.
@@ -215,11 +195,34 @@ a new file at `/etc/dracut.conf.d/10-crypt.conf` with the following line:
 install_items+=" /boot/volume.key /etc/crypttab "
 ```
 
-Next, install the boot loader to the disk.
+Next, install the bootloader, see the instructions on [Installing
+GRUB](chroot.md#installing-grub) to install the correct GRUB package for your
+system, but do not install it on the disk just yet (with `grub-install`) as we
+will need to modify it's configuration before doing so.
+
+After installing the correct GRUB package, configure GRUB to be able to unlock
+the filesystem. Add the following line to `/etc/default/grub`:
 
 ```
-# grub-install /dev/sda
+GRUB_ENABLE_CRYPTODISK=y
 ```
+
+Next, the kernel needs to be configured to find the encrypted device. First,
+find the UUID of the device.
+
+```
+# blkid -o value -s UUID /dev/sda1
+135f3c06-26a0-437f-a05e-287b036440a4
+```
+
+Edit the `GRUB_CMDLINE_LINUX_DEFAULT=` line in `/etc/default/grub` and add
+`rd.lvm.vg=voidvm rd.luks.uuid=<UUID>` to it. Make sure the UUID matches the one
+for the `sda1` device found in the output of the
+[blkid(8)](https://man.voidlinux.org/blkid.8) command above.
+
+Next, install the bootloader onto the disk using the correct `grub-install`
+command for your system, as explained in the ["Installing
+GRUB"](chroot.md#installing-grub) section.
 
 Ensure an initramfs is generated:
 
