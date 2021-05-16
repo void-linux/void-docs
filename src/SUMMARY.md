@@ -10,7 +10,8 @@
       - [Partitioning Notes](./installation/live-images/partitions.md)
       - [Installation Guide](./installation/live-images/guide.md)
    - [Advanced Installation Guides](./installation/guides/index.md)
-      - [Installation via chroot (x86/x86_64)](./installation/guides/chroot.md)
+      - [Installation via chroot
+         (x86/x86_64/aarch64)](./installation/guides/chroot.md)
       - [Full Disk Encryption](./installation/guides/fde.md)
       - [ARM Devices](./installation/guides/arm-devices/index.md)
          - [Supported Platforms](./installation/guides/arm-devices/platforms.md)
