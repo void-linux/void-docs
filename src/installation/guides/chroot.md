@@ -1,10 +1,10 @@
-# Installation via chroot (x86/x86_64)
+# Installation via chroot (x86/x86_64/aarch64)
 
 This guide details the process of manually installing Void via a chroot on an
-x86 or x86_64 PC architecture. It is assumed that you have a familiarity with
-Linux, but not necessarily with installing a Linux system via a chroot. This
-guide can be used to create a a "typical" setup, using a single partition on a
-single SATA/IDE/USB disk. Each step may be modified to create less typical
+x86, x86_64 or aarch64 architecture. It is assumed that you have a familiarity
+with Linux, but not necessarily with installing a Linux system via a chroot.
+This guide can be used to create a a "typical" setup, using a single partition
+on a single SATA/IDE/USB disk. Each step may be modified to create less typical
 setups, such as [full disk encryption](./fde.md).
 
 Void provides two options for bootstrapping the new installation. The **XBPS
@@ -79,6 +79,10 @@ Initialize swap space, if desired, using
 
 Follow only one of the two following subsections.
 
+If on aarch64, it will be necessary to install a kernel package in addition to
+`base-system`. For example, `linux` is a kernel package that points to the
+latest stable kernel packaged by Void.
+
 ### The XBPS Method
 
 Select a [mirror](../../xbps/repositories/mirrors/index.md) and **use the**
@@ -91,8 +95,8 @@ variable. A glibc installation, for example, would use:
 ```
 
 XBPS also needs to know what architecture is being installed. Available options
-are `x86_64`, `x86_64-musl` and `i686` for PC architecture computers. For
-example:
+are `x86_64`, `x86_64-musl`, `i686` for PC architecture computers and `aarch64`.
+For example:
 
 ```
 # ARCH=x86_64
@@ -266,10 +270,10 @@ install GRUB to. For example:
 (chroot) # grub-install /dev/sda
 ```
 
-**On a UEFI computer**, install either `grub-x86_64-efi` or `grub-i386-efi`,
-depending on your architecture, then run `grub-install`, optionally specifying a
-bootloader label (this label may be used by your computer's firmware when
-manually selecting a boot device):
+**On a UEFI computer**, install either `grub-x86_64-efi`, `grub-i386-efi` or
+`grub-arm64-efi`, depending on your architecture, then run `grub-install`,
+optionally specifying a bootloader label (this label may be used by your
+computer's firmware when manually selecting a boot device):
 
 ```
 (chroot) # xbps-install grub-x86_64-efi
@@ -278,6 +282,9 @@ manually selecting a boot device):
 
 If installing onto a removable disk (such as USB), add the option `--removable`
 to the `grub-install` command.
+
+If EFI variables are not available, add the option `--no-nvram` to the
+`grub-install` command.
 
 ## Finalization
 
