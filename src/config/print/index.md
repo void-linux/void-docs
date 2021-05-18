@@ -99,3 +99,38 @@ The device URI can be found manually by running:
 ```
 # /usr/lib/cups/backend/usb
 ```
+
+### Wireless printer detected but unable to print
+
+Even if CUPS can detect networked printers with:
+
+```
+# lpinfo -v
+```
+
+you may still end up with an "Unable to locate printer" error when trying to
+print. The solution is to enable Avahi's .local hostname resolution.
+
+Avahi provides local hostname resolution using a `hostname.local` naming scheme.
+To enable it, install `nss-mdns` and start (or restart) `avahi-daemon`. For more
+information on how to resolve host names that don't end in .local click
+[here](https://github.com/lathiat/nss-mdns/blob/master/README.md#libraries).
+
+Then, edit the file:
+
+```
+# /etc/nsswitch.conf
+```
+
+and change the `hosts` line to:
+
+```
+hosts: files mdns4_minimal [NOTFOUND=return] dns mdns4
+```
+
+Alternatively, when manually adding a printer with the CUPS web interface,
+specify the printers IP address and printer port number. For example:
+
+```
+ipps://<printer_IP_address>:<port>/
+```
