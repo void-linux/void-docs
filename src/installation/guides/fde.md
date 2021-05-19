@@ -99,7 +99,7 @@ meta-data=/dev/voidvm/root       isize=512    agcount=4, agsize=655360 blks
 # mkfs.xfs -L home /dev/voidvm/home
 meta-data=/dev/voidvm/home       isize=512    agcount=4, agsize=2359040 blks
 ...
-mkswap /dev/voidvm/swap
+# mkswap /dev/voidvm/swap
 Setting up swapspace version 1, size = 2 GiB (2147479552 bytes)
 ```
 
