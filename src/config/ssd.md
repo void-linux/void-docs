@@ -14,14 +14,13 @@ chose a file system with TRIM support (ext4, Btrfs, F2FS, etc.). Note that F2FS
 requires kernel 4.19 or above to support TRIM.
 
 To run TRIM one-shot, you can run
-[`fstrim(8)`](https://man.voidlinux.org/fstrim.8) manually. For example, if your
-/ directory is on an SSD:
+[`fstrim(8)`](https://man.voidlinux.org/fstrim.8) manually. For example, to trim all mounted filesystems mentioned in `/etc/fstab` on devices that support the discard operation:
 
 ```
-# fstrim /
+# fstrim --fstab
 ```
 
-To automate running TRIM, use cron or add the `discard` option to `/etc/fstab`.
+To automate running TRIM, use cron or add the `discard` option to `/etc/fstab`. Note, using `discard` is not recommended. The `discard` method might cause the system to slow down because it forces the system to apply TRIM instantly on every individual file deletion.
 
 ## Periodic TRIM with cron
 
@@ -30,13 +29,21 @@ Add the following lines to `/etc/cron.daily/fstrim`:
 ```
 #!/bin/sh
 
-fstrim /
+fstrim --fstab
 ```
 
 Finally, make the script executable:
 
 ```
 # chmod u+x /etc/cron.daily/fstrim
+```
+
+## TRIM on system boot or system shutdown
+
+Append the following line to `/etc/rc.local` or `/etc/rc.shutdown`
+
+```
+fstrim --fstab
 ```
 
 ## Continuous TRIM with fstab discard
