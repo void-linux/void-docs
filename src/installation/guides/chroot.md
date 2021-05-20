@@ -81,9 +81,9 @@ Follow only one of the two following subsections.
 
 ### The XBPS Method
 
-Select a [mirror](../../xbps/repositories/mirrors/index.md) and **use the
-[appropriate URL](../../xbps/repositories/index.md#the-main-repository)** for the
-type of system you wish to install. For simplicity, save this URL to a shell
+Select a [mirror](../../xbps/repositories/mirrors/index.md) and **use the**
+[**appropriate URL**](../../xbps/repositories/index.md#the-main-repository) for
+the type of system you wish to install. For simplicity, save this URL to a shell
 variable. A glibc installation, for example, would use:
 
 ```
