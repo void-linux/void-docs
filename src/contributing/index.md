@@ -11,7 +11,7 @@ To contribute to this Handbook, read
 in the void-docs repository.
 
 If you have any questions, feel free to ask them via IRC in #voidlinux on
-irc.freenode.net, or in [the voidlinux
+irc.libera.chat, or in [the voidlinux
 subreddit](https://reddit.com/r/voidlinux).
 
 ## Usage Statistics
