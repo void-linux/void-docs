@@ -6,6 +6,8 @@ title = "Void Linux Handbook"
 
 [output.html]
 theme = "src/theme"
+git-repository-url = "https://github.com/void-linux/void-docs"
+edit-url-template = "https://github.com/void-linux/void-docs/edit/master/{path}"
 
 [output.html.redirect]
 "/about-this-handbook.html" = "/about/about-this-handbook.html"
