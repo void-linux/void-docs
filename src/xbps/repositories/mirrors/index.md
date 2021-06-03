@@ -15,7 +15,6 @@ packages available.
 | <https://alpha.de.repo.voidlinux.org/>         | EU: Finland      |
 | <https://mirrors.servercentral.com/voidlinux/> | USA: Chicago     |
 | <https://alpha.us.repo.voidlinux.org/>         | USA: Kansas City |
-| <https://mirror.clarkson.edu/voidlinux/>       | USA: New York    |
 
 ## Tier 2 mirrors
 
@@ -49,6 +48,7 @@ sub-repository.
 | <https://ftp.acc.umu.se/mirror/voidlinux/>         | EU: Sweden        |
 | <https://ftp.lysator.liu.se/pub/voidlinux/>        | EU: Sweden        |
 | <https://ftp.sunet.se/mirror/voidlinux/>           | EU: Sweden        |
+| <https://mirror.clarkson.edu/voidlinux/>           | USA: New York     |
 
 ### Region-locked mirrors
 
