@@ -64,3 +64,9 @@ on glibc-based systems:
 # echo "/usr/lib/pipewire-0.3/jack" > /etc/ld.so.conf.d/pipewire-jack.conf
 # ldconfig
 ```
+
+## Troubleshooting
+
+The Pulseaudio replacement requires the
+[`XDG_RUNTIME_DIR`](../session-management.html#xdg_runtime_dir) environment
+variable to work correctly.
