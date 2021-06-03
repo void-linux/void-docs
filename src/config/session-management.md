@@ -52,3 +52,17 @@ non-root users to be able to access the seatd session, add them to the `_seatd`
 group.
 
 Note that, unlike elogind, seatd doesn't do anything besides managing seats.
+
+## XDG_RUNTIME_DIR
+
+`XDG_RUNTIME_DIR` is an environment variable defined by the [XDG Base Directory
+Specification](https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html).
+Its value sets the path to the base directory where programs should store
+user-specific runtime files.
+
+Install [elogind](#elogind) as your session manager to automatically set up
+`XDG_RUNTIME_DIR`.
+
+Alternatively, manually set the environment variable through the shell. Make
+sure to create a dedicated user directory and set its permissions to `700`. A
+good default location is `/run/user/$(id -u)`.
