@@ -50,12 +50,6 @@ sub-repository.
 | <https://ftp.sunet.se/mirror/voidlinux/>           | EU: Sweden        |
 | <https://mirror.clarkson.edu/voidlinux/>           | USA: New York     |
 
-### Region-locked mirrors
-
-| Repository                                    | Location    |
-|-----------------------------------------------|-------------|
-| <https://mirrors.hushan.tech:44300/voidlinux> | Asia: China |
-
 ## Tor Mirrors
 
 Void Linux is also mirrored on the Tor network. See [Using Tor
