@@ -16,3 +16,8 @@ To use AppArmor on a system, one must:
 
 To accomplish the third step, consult [the documentation on how to modify the
 kernel cmdline](./../kernel.md#cmdline).
+
+AppArmor tools [aa-genprof(8)](https://man.voidlinux.org/aa-genprof.8) and
+[aa-logprof(8)](https://man.voidlinux.org/aa-logprof.8) require either
+configured [syslog](../services/logging.md) or a running
+[auditd(8)](https://man.voidlinux.org/auditd.8) service.
