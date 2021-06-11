@@ -121,6 +121,9 @@ On a UEFI system, the EFI system partition also needs to be mounted.
 ```
 
 Before we enter the chroot to finish up configuration, we do the actual install.
+Do not forget to use the [appropriate repository
+URL](../../xbps/repositories/index.md#the-main-repository) for the type of
+system you wish to install.
 
 `xbps-install` might ask you to [verify the RSA
 keys](../../xbps/troubleshooting/common-issues.md#verifying-rsa-keys) for the
