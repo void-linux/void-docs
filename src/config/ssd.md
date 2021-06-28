@@ -25,7 +25,7 @@ To automate running TRIM, use cron or add the `discard` option to `/etc/fstab`.
 
 ## Periodic TRIM with cron
 
-Add the following lines to `/etc/cron.daily/fstrim`:
+Add the following lines to `/etc/cron.weekly/fstrim`:
 
 ```
 #!/bin/sh
@@ -36,7 +36,7 @@ fstrim /
 Finally, make the script executable:
 
 ```
-# chmod u+x /etc/cron.daily/fstrim
+# chmod u+x /etc/cron.weekly/fstrim
 ```
 
 ## Continuous TRIM with fstab discard
