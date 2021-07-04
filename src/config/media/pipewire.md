@@ -69,4 +69,5 @@ on glibc-based systems:
 
 The Pulseaudio replacement requires the
 [`XDG_RUNTIME_DIR`](../session-management.html#xdg_runtime_dir) environment
-variable to work correctly.
+variable and the user being in the [`audio`](../users-and-groups.md) group to
+work correctly.
