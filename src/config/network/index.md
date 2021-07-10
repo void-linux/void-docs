@@ -7,7 +7,7 @@ service enabled.
 ## Interface Names
 
 Newer versions of [udev(7)](https://man.voidlinux.org/udev.7) no longer use the
-traditional Linux naming scheme for interfaces (`eth0`, `eth0`, `wlan0`, ...).
+traditional Linux naming scheme for interfaces (`eth0`, `eth1`, `wlan0`, ...).
 
 This behavior can be reverted by adding `net.ifnames=0` to the [kernel
 cmdline](../kernel.md#cmdline).
