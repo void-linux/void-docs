@@ -3,8 +3,8 @@
 This guide details the process of manually installing Void via a chroot on an
 x86, x86_64 or aarch64 architecture. It is assumed that you have a familiarity
 with Linux, but not necessarily with installing a Linux system via a chroot.
-This guide can be used to create a a "typical" setup, using a single partition
-on a single SATA/IDE/USB disk. Each step may be modified to create less typical
+This guide can be used to create a "typical" setup, using a single partition on
+a single SATA/IDE/USB disk. Each step may be modified to create less typical
 setups, such as [full disk encryption](./fde.md).
 
 Void provides two options for bootstrapping the new installation. The **XBPS
