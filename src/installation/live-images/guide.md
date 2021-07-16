@@ -75,7 +75,8 @@ will not be shown on screen.
 Choose a login (default `void`) and a descriptive name for that login. Then
 enter and confirm the password for the new user. You will then be prompted to
 verify the groups for this new user. They are added to the `wheel` group by
-default and will have `sudo` access.
+default and will have `sudo` access. Default groups and their respective meaning
+are described [here](../../config/users-and-groups.html#default-groups).
 
 ## Bootloader
 
