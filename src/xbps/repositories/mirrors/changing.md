@@ -11,7 +11,7 @@ To modify mirror URLs cleanly, copy all the repository configuration files to
 ```
 # mkdir -p /etc/xbps.d
 # cp /usr/share/xbps.d/*-repository-*.conf /etc/xbps.d/
-# sed -i 's|https://alpha.de.repo.voidlinux.org|<repository>|g' /etc/xbps.d/*-repository-*.conf
+# sed -i 's|<repository>|https://alpha.us.repo.voidlinux.org|g' /etc/xbps.d/*-repository-*.conf
 ```
 
 After changing the URLs, you must synchronize xbps with the new mirrors:
