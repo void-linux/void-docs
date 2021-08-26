@@ -73,11 +73,19 @@ and then running `update-grub`.
 
 ### dracut
 
-Dracut can be configured to add additional command line arguments to the kernel
-through a configuration file. The documentation for dracut's configuration files
-can be found in [dracut.conf(5)](https://man.voidlinux.org/dracut.conf.5). To
-apply these changes, it is necessary to [regenerate](#kernel-hooks) the
-initramfs.
+Dracut offers a [`kernel_cmdline` configuration
+option](https://man.voidlinux.org/dracut.conf.5) and [`--kernel-cmdline`
+command-line option](https://man.voidlinux.org/dracut.8) that will encode
+command-line arguments directly in the initramfs image. When dracut is used to
+create a UEFI executable, arguments set with these options will be passed to the
+kernel. However, when an ordinary initramfs is produced, these options will
+*not* be passed to the kernel at boot. Instead, they will be written to a
+configuration file in `/etc/cmdline.d` within the image. While dracut parses
+this configuration to control its own boot-time behavior, the kernel itself will
+not be aware of anything set via this mechanism.
+
+After modifying a dracut configuration, [regenerate](#kernel-hooks) the
+initramfs to ensure that it includes the changes.
 
 ## Kernel hardening
 
