@@ -154,20 +154,17 @@ search_page() {
         return 0
     fi
 
-    _pager=
+    _pager="head -1"
     if command -v fzf >/dev/null; then
-        _pager="fzf -1"
+        _pager=fzf
     elif command -v sk >/dev/null; then
-        _pager="sk -1"
+        _pager=sk
     elif command -v pick >/dev/null; then
         _pager=pick
     fi
 
-    if [ "$_pager" ]; then
+    if [ $(IFS=' '; echo $file | wc -l) -gt 1 ]; then
         file="$(echo "$file" | $_pager)"
-        [ -z "$file" ] && exit 1
-    else
-        file="$(echo "$file" | head -1)"
     fi
     file="${file%.md}"
     echo "$file"
