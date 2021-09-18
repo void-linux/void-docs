@@ -10,12 +10,14 @@ AppArmor for better security for container payloads.
 To use AppArmor on a system, one must:
 
 1. Install the `apparmor` package.
-2. Set the `APPARMOR` variable in `/etc/default/apparmor` to `enforce` or
-   `complain`.
-3. Set `apparmor=1 security=apparmor` on the kernel commandline.
+2. Set `apparmor=1 security=apparmor` on the kernel commandline.
 
-To accomplish the third step, consult [the documentation on how to modify the
+To accomplish the second step, consult [the documentation on how to modify the
 kernel cmdline](./../kernel.md#cmdline).
+
+The `APPARMOR` variable in `/etc/default/apparmor` controls how profiles will be
+loaded at boot, the value is set to `complain` by default and corresponds to
+AppArmor modes (`disable`, `complain`, `enforce`).
 
 AppArmor tools [aa-genprof(8)](https://man.voidlinux.org/aa-genprof.8) and
 [aa-logprof(8)](https://man.voidlinux.org/aa-logprof.8) require either
