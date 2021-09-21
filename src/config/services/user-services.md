@@ -8,7 +8,7 @@ create a system-level service that runs
 start and monitor the services in a personal services directory.
 
 For example, you could create a service called `/etc/sv/runsvdir-<username>`
-with the following `run` script:
+with the following `run` script, which should be executable:
 
 ```
 #!/bin/sh
