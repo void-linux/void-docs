@@ -41,6 +41,7 @@ sub-repository.
 | <http://ftp.dk.xemacs.org/voidlinux/>              | EU: Denmark       |
 | <https://mirrors.dotsrc.org/voidlinux/>            | EU: Denmark       |
 | <https://quantum-mirror.hu/mirrors/pub/voidlinux/> | EU: Hungary       |
+| <https://voidlinux.mirror.garr.it>                 | EU: Italy         |
 | <https://voidlinux.qontinuum.space:4443/>          | EU: Monaco        |
 | <https://mirror.fit.cvut.cz/voidlinux/>            | EU: Prague, CZ    |
 | <http://ftp.debian.ru/mirrors/voidlinux/>          | EU: Russia        |
