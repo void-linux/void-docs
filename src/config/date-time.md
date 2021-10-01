@@ -64,7 +64,7 @@ works" with reasonable accuracy for a majority of use-cases.
 
 The `openntpd` package provides OpenNTPD and the `openntpd` service.
 
-For further information, visit [the OpenNTPD site](http://www.openntpd.org/).
+For further information, visit [the OpenNTPD site](https://www.openntpd.org/).
 
 ### Chrony
 
@@ -74,6 +74,6 @@ faster and with greater accuracy than NTP.
 The `chrony` package provides Chrony and the `chronyd` service.
 
 The Chrony site provides [a brief overview of its advantages over
-NTP](https://chrony.tuxfamily.org/faq.html#_how_does_code_chrony_code_compare_to_code_ntpd_code),
+NTP](https://chrony.tuxfamily.org/faq.html#_how_does_chrony_compare_to_ntpd),
 as well as [a detailed feature comparison between Chrony, NTP and
 OpenNTPD](https://chrony.tuxfamily.org/comparison.html).
