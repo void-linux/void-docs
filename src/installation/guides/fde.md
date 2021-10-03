@@ -45,9 +45,9 @@ Device      Start       End   Sectors  Size Type
 
 ## Encrypted volume configuration
 
-[Cryptsetup](https://man.voidlinux.org/cryptsetup.8) defaults to LUKS2, yet
-GRUB releases before 2.06 only had support for LUKS1. Therefore, it might make
-sense to force LUKS1 if you wish to achieve better compatibility.
+[Cryptsetup](https://man.voidlinux.org/cryptsetup.8) defaults to LUKS2, yet GRUB
+releases before 2.06 only had support for LUKS1. Therefore, it might make sense
+to force LUKS1 if you wish to achieve better compatibility.
 
 Keep in mind the encrypted volume will be `/dev/sda2` on EFI systems, since
 `/dev/sda1` is taken up by the EFI partition.

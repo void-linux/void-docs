@@ -74,6 +74,6 @@ faster and with greater accuracy than NTP.
 The `chrony` package provides Chrony and the `chronyd` service.
 
 The Chrony site provides [a brief overview of its advantages over
-NTP](https://chrony.tuxfamily.org/faq.html#_how_does_chrony_compare_to_ntpd),
-as well as [a detailed feature comparison between Chrony, NTP and
+NTP](https://chrony.tuxfamily.org/faq.html#_how_does_chrony_compare_to_ntpd), as
+well as [a detailed feature comparison between Chrony, NTP and
 OpenNTPD](https://chrony.tuxfamily.org/comparison.html).

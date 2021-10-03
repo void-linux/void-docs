@@ -40,11 +40,11 @@ remove kernel *packages*, only particular *kernels*.
 
 If you've installed a kernel package for a series other than the default, and
 want to remove the default kernel packages, you should install the `linux-base`
-package or [mark it as a manual
-package](https://man.voidlinux.org/xbps-pkgdb.1) in case it is already
-installed. After this procedure, you can remove the default kernel packages
-with [xbps-remove(1)](https://man.voidlinux.org/xbps-remove.1). It might be
-necessary to add `linux` and `linux-headers` to an `ignorepkg` entry in
+package or [mark it as a manual package](https://man.voidlinux.org/xbps-pkgdb.1)
+in case it is already installed. After this procedure, you can remove the
+default kernel packages with
+[xbps-remove(1)](https://man.voidlinux.org/xbps-remove.1). It might be necessary
+to add `linux` and `linux-headers` to an `ignorepkg` entry in
 [xbps.d(5)](https://man.voidlinux.org/xbps.d.5), since base packages can depend
 on them.
 
