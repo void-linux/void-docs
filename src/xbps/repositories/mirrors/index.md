@@ -13,8 +13,9 @@ packages available.
 | Repository                                     | Location         |
 |------------------------------------------------|------------------|
 | <https://alpha.de.repo.voidlinux.org/>         | EU: Finland      |
+| <https://repo-fi.voidlinux.org/>               | EU: Finland      |
 | <https://mirrors.servercentral.com/voidlinux/> | USA: Chicago     |
-| <https://alpha.us.repo.voidlinux.org/>         | USA: Kansas City |
+| <https://repo-us.voidlinux.org/>               | USA: Kansas City |
 
 ## Tier 2 mirrors
 
