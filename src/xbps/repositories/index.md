@@ -6,7 +6,7 @@ signatures, and a data file named `$ARCH-repodata` (e.g. `x86_64-repodata`),
 which may also be signed.
 
 Note that, while local repositories do not require signatures, remote
-repositories *must* be signed.
+repositories **must** be signed.
 
 ## The main repository
 
