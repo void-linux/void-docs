@@ -26,7 +26,7 @@ letter) for USB devices, `/dev/mmcblkX` for SD cards, or other variations
 depending on the device. You can use the model and size (`7.5GiB` above, after
 the path) to identify the device if you're not sure what path it will have.
 
-Once you've identified the device you'll use, ensure it's not mounted by
+Once you've identified the device you'll use, ensure it's **not** mounted by
 unmounting it with [umount(8)](https://man.voidlinux.org/man8/umount.8):
 
 ```
