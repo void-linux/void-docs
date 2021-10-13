@@ -22,7 +22,7 @@ I/O size (minimum/optimal): 512 bytes / 512 bytes
 
 In the example above, the output shows the USB device as `/dev/sda`. On Linux,
 the path to the device will typically be in the form of `/dev/sdX` (where X is a
-number) for USB devices, `/dev/mmcblkX` for SD cards, or other variations
+letter) for USB devices, `/dev/mmcblkX` for SD cards, or other variations
 depending on the device. You can use the model and size (`7.5GiB` above, after
 the path) to identify the device if you're not sure what path it will have.
 
