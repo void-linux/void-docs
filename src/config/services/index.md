@@ -145,7 +145,7 @@ create a file named `down` in its service directory:
 The `down` file mechanism also makes it possible to disable services that are
 enabled by default, such as the [agetty(8)](https://man.voidlinux.org/agetty.8)
 services for ttys 1 to 6. This way, package updates which affect these services
-- in this case, the `runit-void` package - won't re-enable them.
+(in this case, the `runit-void` package) won't re-enable them.
 
 #### Disabling Services
 
