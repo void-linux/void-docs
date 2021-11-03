@@ -48,9 +48,32 @@ Use [chroot(1)](https://man.voidlinux.org/chroot.1) to change to the new root,
 then run glibc programs as usual. Once you've finished using it, unmount the
 chroot using [umount(8)](https://man.voidlinux.org/umount.8).
 
-#### PRoot
+#### Bubblewrap
 
-An alternative to the above is [proot(1)](https://man.voidlinux.org/proot.1), a
-user-space implementation of chroot, mount --bind, and binfmt_misc. By
-installing the `proot` package, unprivileged users can utilize a chroot
-environment.
+An alternative for unprivileged users is
+[bwrap(1)](https://man.voidlinux.org/bwrap.1), which uses Linux namespaces. It
+can be installed via the `bubblewrap` package. An example illustrating how to
+use `bwrap` to launch Tor Browser follows.
+
+Create a glibc Void Linux container with the required software:
+
+```
+$ mkdir container
+$ XBPS_TARGET_ARCH=$(xbps-uhelper arch | sed 's/-musl$//') xbps-install -S -r container -R https://repo-default.voidlinux.org/current/ base-voidstrap torbrowser-launcher libXt dejavu-fonts-ttf
+```
+
+(you will have to verify and confirm the repository RSA key before proceeding;
+the `dejavu-fonts-ttf` package is required in order for the launcher to display
+correctly). Uncomment desired locales in `container/etc/default/libc-locales`
+and generate them by issuing:
+
+```
+$ bwrap --bind container / --dev /dev --proc /proc --tmpfs /tmp xbps-reconfigure glibc-locales ca-certificates
+```
+
+which will also configure the `ca-certificates` package required by Tor Browser.
+Launch `torbrowser-launcher`:
+
+```
+$ bwrap --bind container / --dev /dev --proc /proc --tmpfs /tmp --ro-bind ~/.Xauthority ~/.Xauthority --ro-bind /etc/resolv.conf /etc/resolv.conf --ro-bind /tmp/.X11-unix/X${DISPLAY:1} /tmp/.X11-unix/X${DISPLAY:1} --setenv DISPLAY $DISPLAY --unshare-all --share-net torbrowser-launcher
+```
