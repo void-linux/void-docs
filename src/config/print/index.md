@@ -60,7 +60,7 @@ may be better suited, depending on the use-case.
 
 Printers with support for IPP Everywhere can be discovered and configured
 automatically using [ZeroConf](http://www.zeroconf.org/). To enable this,
-install the `avahi` package and enable the `avahi-daemon` service.
+install the `avahi` and `nss-mdns` packages and enable the `avahi-daemon` service.
 
 ### Web interface
 
