@@ -35,7 +35,7 @@ These packages only install a repository configuration file in
 ### nonfree
 
 Void has a `nonfree` repository for packages that don't have free licenses. It
-can enabled by installing the `void-repo-nonfree` package.
+can be enabled by installing the `void-repo-nonfree` package.
 
 Packages can end up in the `nonfree` repository for a number of reasons:
 
