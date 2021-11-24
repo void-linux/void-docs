@@ -52,9 +52,8 @@ installing the `qt5-wayland` package and setting the environment variable
 applications also require installing the `kwayland` package.
 [EFL](https://wayland.freedesktop.org/efl.html)-based applications require
 setting the environment variable `ELM_DISPLAY=wl`, and can have issues without
-it, due to not supporting XWayland properly.
-[SDL](https://libsdl.org)-based applications require setting the environment
-variable `SDL_VIDEODRIVER=wayland`.
+it, due to not supporting XWayland properly. [SDL](https://libsdl.org)-based
+applications require setting the environment variable `SDL_VIDEODRIVER=wayland`.
 [GTK+](https://wiki.gnome.org/Initiatives/Wayland/GTK%2B)-based applications
 should use the Wayland backend automatically. Information about other toolkits
 can be found in the [Wayland
