@@ -54,6 +54,7 @@
       - [Icons](./config/graphical-session/icons.md)
       - [GNOME](./config/graphical-session/gnome.md)
       - [KDE](./config/graphical-session/kde.md)
+      - [Sway](./config/graphical-session/sway.md)
    - [Multimedia](./config/media/index.md)
       - [ALSA](./config/media/alsa.md)
       - [PipeWire](./config/media/pipewire.md)
