@@ -3,6 +3,13 @@
 **Warning**: Your drive's block device and other information may be different,
 so make sure it is correct.
 
+## Caution
+
+Filesystem-level encryption with AEAD is more reliable than using
+[XTS](https://sockpuppet.org/blog/2014/04/30/you-dont-want-xts/),
+you need to adapt the guide from Alpine Linux wiki for setting up
+[encrypted root on ZFS](https://wiki.alpinelinux.org/wiki/Root_on_ZFS_with_native_encryption)
+
 ## Partitioning
 
 Boot a live image and login.
