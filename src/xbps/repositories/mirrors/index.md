@@ -50,6 +50,7 @@ sub-repository.
 | <https://ftp.acc.umu.se/mirror/voidlinux/>         | EU: Sweden        |
 | <https://ftp.lysator.liu.se/pub/voidlinux/>        | EU: Sweden        |
 | <https://ftp.sunet.se/mirror/voidlinux/>           | EU: Sweden        |
+| <https://void.sakamoto.pl/>                        | EU: Warsaw, PL    |
 | <https://mirror.clarkson.edu/voidlinux/>           | USA: New York     |
 
 ## Tor Mirrors
