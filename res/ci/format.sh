@@ -1,8 +1,5 @@
 #!/bin/sh
 
-# Fetch upstream
-git fetch git://github.com/void-linux/void-docs.git master
-
 echo "Checking links"
 RUST_LOG=linkcheck=debug mdbook-linkcheck -s
 LINKCHECK=$?
