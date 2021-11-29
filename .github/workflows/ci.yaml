@@ -4,9 +4,9 @@ on: pull_request
 jobs:
   only:
     name: Check formatting and links
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     container:
-      image: ghcr.io/void-linux/void-linux:latest-full-x86_64-musl
+      image: ghcr.io/void-linux/void-linux:latest-mini-x86_64-musl
     steps:
       - name: Prepare container
         run: |
