@@ -1,8 +1,0 @@
----
-language: bash
-
-script:
-  - res/ci/format.sh
-
-notifications:
-  email: false

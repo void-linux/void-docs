@@ -1,42 +1,11 @@
 #!/bin/sh
 
-echo "Installing mdbook-linkcheck"
-
-_version="v0.7.0"
-curl -sL -o ~/bin/linkcheck.tar.gz "https://github.com/Michael-F-Bryan/mdbook-linkcheck/releases/download/${_version}/mdbook-linkcheck-${_version}-x86_64-unknown-linux-gnu.tar.gz"
-
-tar xvf ~/bin/linkcheck.tar.gz -C ~/bin
-
-echo "Checking links"
-
-RUST_LOG=linkcheck=debug ~/bin/mdbook-linkcheck -s
-LINKCHECK=$?
-
-echo "Installing Go"
-
-curl -sL -o ~/bin/gimme https://raw.githubusercontent.com/travis-ci/gimme/master/gimme
-chmod +x ~/bin/gimme
-
-eval "$(gimme stable)"
-
-GO111MODULE=auto go get github.com/bobertlo/vmd/cmd/vmdfmt
-
-echo "Checking formatting"
-
-PATH=$PATH:$(go env GOPATH)/bin/
-
-if ! command -v git ; then
-    echo "You need git to run the CI scripts"
-    exit 1
-fi
-
-if ! command -v vmdfmt ; then
-    echo "You need vmdfmt to run the CI scripts"
-    exit 1
-fi
-
 # Fetch upstream
 git fetch git://github.com/void-linux/void-docs.git master
+
+echo "Checking links"
+RUST_LOG=linkcheck=debug mdbook-linkcheck -s
+LINKCHECK=$?
 
 # Format them
 printf "Formatting tree"

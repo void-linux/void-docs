@@ -1,0 +1,17 @@
+name: Check PR
+on: pull_request
+
+jobs:
+  only:
+    name: Check formatting and links
+    runs-on: ubuntu-18.04
+    container:
+      image: ghcr.io/void-linux/void-linux:latest-full-x86_64-musl
+    steps:
+      - name: Prepare container
+        run: |
+          xbps-install -Syu || xbps-install -yu xbps
+          xbps-install -yu
+          xbps-install -y mdbook-linkcheck vmdfmt git
+      - uses: actions/checkout@v1
+      - run: ./res/ci/format.sh
