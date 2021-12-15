@@ -1,8 +1,10 @@
 # Network
 
-Network configuration in Void Linux can be done in several ways. The default
-installation comes with the [dhcpcd(8)](https://man.voidlinux.org/dhcpcd.8)
-service enabled.
+Network configuration in Void Linux can be done in several ways.
+
+When Void is installed from live images using the `void-installer` application,
+[dhcpcd(8)](https://man.voidlinux.org/dhcpcd.8) is used to configure networking
+and the settings are applied to the new system.
 
 ## Interface Names
 
