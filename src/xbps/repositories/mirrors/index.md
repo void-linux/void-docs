@@ -37,7 +37,6 @@ sub-repository.
 | <https://mirror.aarnet.edu.au/pub/voidlinux/>      | AU: Canberra      |
 | <https://ftp.swin.edu.au/voidlinux/>               | AU: Melbourne     |
 | <https://void.cijber.net/>                         | EU: Amsterdam, NL |
-| <https://mirror.erickochen.nl/voidlinux/>          | EU: Haarlem, NL   |
 | <http://ftp.dk.xemacs.org/voidlinux/>              | EU: Denmark       |
 | <https://mirrors.dotsrc.org/voidlinux/>            | EU: Denmark       |
 | <https://quantum-mirror.hu/mirrors/pub/voidlinux/> | EU: Hungary       |
