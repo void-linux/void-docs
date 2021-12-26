@@ -74,7 +74,7 @@ Void Linux defines a number of groups by default.
 | `mail`     | Used by some mail packages, e.g. `dma`.                       |
 | `storage`  | Access to removable storage devices.                          |
 | `scanner`  | Ability to access scanners.                                   |
-| `network`  | Unused - present for historical reasons.                      |
+| `network`  | Access to network devices.                                    |
 | `kvm`      | Ability to use KVM for virtual machines, e.g. via QEMU.       |
 | `input`    | Access to input devices: `/dev/mouse*`, `/dev/event*`.        |
 | `nogroup`  | System daemons that don't need to own any files.              |
