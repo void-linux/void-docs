@@ -17,7 +17,7 @@ compiled copy of XBPS.
 
 Statically compiled versions of XBPS are available in all mirrors in the static/
 directory. The link below points to the static copies on the primary mirror in
-Germany:
+the EU:
 
 <https://alpha.de.repo.voidlinux.org/static>
 
