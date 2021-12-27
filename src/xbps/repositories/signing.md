@@ -12,11 +12,11 @@ can be generated with either
 [openssl(1)](https://man.voidlinux.org/openssl.1):
 
 ```
-$ ssh-keygen -t rsa -m PEM -f private.pem
+$ ssh-keygen -t rsa -b 4096 -m PEM -f private.pem
 ```
 
 ```
-$ openssl genrsa -out private.pem
+$ openssl genrsa -des3 -out private.pem 4096
 ```
 
 Once the key is generated, the public part of the private key has to be added to
