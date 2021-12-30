@@ -107,16 +107,19 @@ does not need to be the same. If your host is running an x86_64 operating
 system, any of the three architectures can be installed (whether the host is
 musl or glibc), but an i686 host can only install i686 distributions.
 
+Copy the RSA keys from the installation medium to the target root directory:
+
+```
+# mkdir -p /mnt/var/db/xbps/keys
+# cp /var/db/xbps/keys/* /mnt/var/db/xbps/keys/
+```
+
 Use [xbps-install(1)](https://man.voidlinux.org/xbps-install.1) to bootstrap the
 installation by installing the `base-system` metapackage:
 
 ```
 # XBPS_ARCH=$ARCH xbps-install -S -r /mnt -R "$REPO" base-system
 ```
-
-`xbps-install` might ask you to [verify the RSA
-keys](../../xbps/troubleshooting/common-issues.md#verifying-rsa-keys) for the
-packages you are installing.
 
 ### The ROOTFS Method
 

@@ -129,22 +129,22 @@ On a UEFI system, the EFI system partition also needs to be mounted.
 # mount /dev/sda1 /mnt/boot/efi
 ```
 
+Copy the RSA keys from the installation medium to the target root directory:
+
+```
+# mkdir -p /mnt/var/db/xbps/keys
+# cp /var/db/xbps/keys/* /mnt/var/db/xbps/keys/
+```
+
 Before we enter the chroot to finish up configuration, we do the actual install.
 Do not forget to use the [appropriate repository
 URL](../../xbps/repositories/index.md#the-main-repository) for the type of
 system you wish to install.
 
-`xbps-install` might ask you to [verify the RSA
-keys](../../xbps/troubleshooting/common-issues.md#verifying-rsa-keys) for the
-packages you are installing.
-
 ```
 # xbps-install -Sy -R https://alpha.de.repo.voidlinux.org/current -r /mnt base-system lvm2 cryptsetup grub
 [*] Updating `https://alpha.de.repo.voidlinux.org/current/x86_64-repodata' ...
 x86_64-repodata: 1661KB [avg rate: 2257KB/s]
-`https://alpha.de.repo.voidlinux.org/current' repository has been RSA signed by "Void Linux"
-Fingerprint: 60:ae:0c:d6:f0:95:17:80:bc:93:46:7a:89:af:a3:2d
-Do you want to import this public key? [Y/n] y
 130 packages will be downloaded:
 ...
 ```
