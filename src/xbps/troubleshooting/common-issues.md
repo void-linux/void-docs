@@ -2,14 +2,17 @@
 
 ## Verifying RSA keys
 
-If you are installing Void for the first time or the Void RSA key has changed,
-[xbps-install(1)](https://man.voidlinux.org/xbps-install.1) might report:
+If the Void RSA key has changed,
+[xbps-install(1)](https://man.voidlinux.org/xbps-install.1) will report the new
+key fingerprint and ask you to confirm it:
 
 ```
-<repository> repository has been RSA signed by <rsa_fingerprint>
+<repository> repository has been RSA signed by "Void Linux"
+Fingerprint: <rsa_fingerprint>
+Do you want to import this public key? [Y/n]
 ```
 
-To verify the signature, ensure the `<rsa_fingerprint>` matches one of the
+To verify the key, ensure the `<rsa_fingerprint>` matches one of the
 fingerprints in both
 [void-packages](https://github.com/void-linux/void-packages/tree/master/common/repo-keys)
 and [void-mklive](https://github.com/void-linux/void-mklive/tree/master/keys).
