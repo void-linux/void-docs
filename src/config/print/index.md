@@ -48,7 +48,8 @@ sufficient.
 ### Brother drivers
 
 For Brother printer support, install the foomatic drivers, which are contained
-in the `foomatic-db` and `foomatic-db-nonfree` packages.
+in the `foomatic-db` and `foomatic-db-nonfree` packages. Support for various
+laser models is provided by the `brother-brlaser` package.
 
 ## Configuring a New Printer
 
@@ -66,7 +67,8 @@ install the `avahi` package and enable the `avahi-daemon` service.
 
 To configure the printer using the CUPS web interface, navigate to
 <http://localhost:631> in a browser. Under the "Administration" tab, select
-"Printers > Add Printer".
+"Printers > Add Printer". When asked to log in, use an account that is in the
+`lpadmin` group.
 
 ### Command line
 
