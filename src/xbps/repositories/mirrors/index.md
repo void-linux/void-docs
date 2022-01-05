@@ -26,30 +26,32 @@ sub-repository.
 
 ### Globally-available mirrors
 
-| Repository                                         | Location          |
-|----------------------------------------------------|-------------------|
-| <https://mirror.ps.kz/voidlinux/>                  | Asia: Almaty, KZ  |
-| <https://mirrors.bfsu.edu.cn/voidlinux/>           | Asia: China       |
-| <https://mirrors.cnnic.cn/voidlinux/>              | Asia: China       |
-| <https://mirrors.tuna.tsinghua.edu.cn/voidlinux/>  | Asia: China       |
-| <https://mirror.sjtu.edu.cn/voidlinux/>            | Asia: China       |
-| <https://void.webconverger.org/>                   | Asia: Singapore   |
-| <https://mirror.aarnet.edu.au/pub/voidlinux/>      | AU: Canberra      |
-| <https://ftp.swin.edu.au/voidlinux/>               | AU: Melbourne     |
-| <https://void.cijber.net/>                         | EU: Amsterdam, NL |
-| <http://ftp.dk.xemacs.org/voidlinux/>              | EU: Denmark       |
-| <https://mirrors.dotsrc.org/voidlinux/>            | EU: Denmark       |
-| <https://quantum-mirror.hu/mirrors/pub/voidlinux/> | EU: Hungary       |
-| <https://voidlinux.mirror.garr.it>                 | EU: Italy         |
-| <https://mirror.fit.cvut.cz/voidlinux/>            | EU: Prague, CZ    |
-| <http://ftp.debian.ru/mirrors/voidlinux/>          | EU: Russia        |
-| <https://mirror.yandex.ru/mirrors/voidlinux/>      | EU: Russia        |
-| <https://cdimage.debian.org/mirror/voidlinux/>     | EU: Sweden        |
-| <https://ftp.acc.umu.se/mirror/voidlinux/>         | EU: Sweden        |
-| <https://ftp.lysator.liu.se/pub/voidlinux/>        | EU: Sweden        |
-| <https://ftp.sunet.se/mirror/voidlinux/>           | EU: Sweden        |
-| <https://void.sakamoto.pl/>                        | EU: Warsaw, PL    |
-| <https://mirror.clarkson.edu/voidlinux/>           | USA: New York     |
+
+| Repository                                         | Location              |
+|----------------------------------------------------|-----------------------|
+| <https://mirror.ps.kz/voidlinux/>                  | Asia: Almaty, KZ      |
+| <https://mirrors.bfsu.edu.cn/voidlinux/>           | Asia: China           |
+| <https://mirrors.cnnic.cn/voidlinux/>              | Asia: China           |
+| <https://mirrors.tuna.tsinghua.edu.cn/voidlinux/>  | Asia: China           |
+| <https://mirror.sjtu.edu.cn/voidlinux/>            | Asia: China           |
+| <https://void.webconverger.org/>                   | Asia: Singapore       |
+| <https://mirror.aarnet.edu.au/pub/voidlinux/>      | AU: Canberra          |
+| <https://ftp.swin.edu.au/voidlinux/>               | AU: Melbourne         |
+| <https://void.cijber.net/>                         | EU: Amsterdam, NL     |
+| <http://ftp.dk.xemacs.org/voidlinux/>              | EU: Denmark           |
+| <https://mirrors.dotsrc.org/voidlinux/>            | EU: Denmark           |
+| <https://quantum-mirror.hu/mirrors/pub/voidlinux/> | EU: Hungary           |
+| <https://voidlinux.mirror.garr.it>                 | EU: Italy             |
+| <https://mirror.fit.cvut.cz/voidlinux/>            | EU: Prague, CZ        |
+| <http://ftp.debian.ru/mirrors/voidlinux/>          | EU: Russia            |
+| <https://mirror.yandex.ru/mirrors/voidlinux/>      | EU: Russia            |
+| <https://cdimage.debian.org/mirror/voidlinux/>     | EU: Sweden            |
+| <https://ftp.acc.umu.se/mirror/voidlinux/>         | EU: Sweden            |
+| <https://ftp.lysator.liu.se/pub/voidlinux/>        | EU: Sweden            |
+| <https://ftp.sunet.se/mirror/voidlinux/>           | EU: Sweden            |
+| <https://void.sakamoto.pl/>                        | EU: Warsaw, PL        |
+| <http://mirror.bytemark.co.uk/voidlinux/>          | UK: York / Manchester |
+| <https://mirror.clarkson.edu/voidlinux/>           | USA: New York         |
 
 ## Tor Mirrors
 
