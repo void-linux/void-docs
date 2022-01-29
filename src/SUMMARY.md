@@ -13,6 +13,7 @@
       - [Installation via chroot
          (x86/x86_64/aarch64)](./installation/guides/chroot.md)
       - [Full Disk Encryption](./installation/guides/fde.md)
+      - [Root on ZFS](./installation/guides/zfs.md)
       - [ARM Devices](./installation/guides/arm-devices/index.md)
          - [Supported Platforms](./installation/guides/arm-devices/platforms.md)
    - [musl](./installation/musl.md)
