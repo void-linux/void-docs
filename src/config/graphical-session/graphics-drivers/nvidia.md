@@ -33,13 +33,14 @@ repository](../../../xbps/repositories/index.md#nonfree).
 Check if your graphics card belongs to the [legacy
 branch](https://www.nvidia.com/en-us/drivers/unix/legacy-gpu/). If it does not,
 install the `nvidia` package. Otherwise you should install the appropriate
-legacy driver, `nvidia390`. The older legacy driver, `nvidia340`, is no longer
-available, and users are encouraged to [switch to
+legacy driver, `nvidia470` or `nvidia390`. The older legacy driver, `nvidia340`,
+is no longer available, and users are encouraged to [switch to
 nouveau](#reverting-from-nvidia-to-nouveau).
 
 | Brand  | Type        | Model          | Driver Package |
 |--------|-------------|----------------|----------------|
-| NVIDIA | Proprietary | 600+           | `nvidia`       |
+| NVIDIA | Proprietary | 800+           | `nvidia`       |
+| NVIDIA | Proprietary | 600/700        | `nvidia470`    |
 | NVIDIA | Proprietary | 400/500 Series | `nvidia390`    |
 
 The proprietary driver integrates in the kernel through
@@ -56,8 +57,8 @@ additional packages.
 If using the `nouveau` driver, install the `mesa-dri-32bit` package.
 
 If using the `nvidia` driver, install the `nvidia<x>-libs-32bit` package. `<x>`
-represents the legacy driver version (`390`) or can be left empty for the main
-driver.
+represents the legacy driver version (`470` or `390`) or can be left empty for
+the main driver.
 
 ## Reverting from nvidia to nouveau
 
@@ -65,7 +66,7 @@ driver.
 
 In order to revert to the `nouveau` driver, install the [`nouveau`
 driver](#nouveau-open-source-driver) (if it was not installed already), then
-remove the `nvidia` or `nvidia390` package, as appropriate.
+remove the `nvidia`, `nvidia470`, or `nvidia390` package, as appropriate.
 
 If you were using the obsolete `nvidia340` driver, you might need to install the
 `libglvnd` package after removing the `nvidia340` package.
