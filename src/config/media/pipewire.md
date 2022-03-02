@@ -4,7 +4,9 @@ To use PipeWire, install the `pipewire` package.
 
 [pipewire(1)](https://man.voidlinux.org/pipewire.1) should be started as a user.
 Use the autostarting mechanism of your desktop environment or
-[startx](../graphical-session/xorg.md#startx).
+[startx](../graphical-session/xorg.md#startx). The `pipewire` package provides
+`pipewire` and `pipewire-pulse` system services, but they are not recommended
+for a typical setup.
 
 ## PulseAudio replacement
 
