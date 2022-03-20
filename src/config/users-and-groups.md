@@ -77,6 +77,7 @@ Void Linux defines a number of groups by default.
 | `network`  | Unused - present for historical reasons.                      |
 | `kvm`      | Ability to use KVM for virtual machines, e.g. via QEMU.       |
 | `input`    | Access to input devices: `/dev/mouse*`, `/dev/event*`.        |
+| `plugdev`  | Access to pluggable devices.                                  |
 | `nogroup`  | System daemons that don't need to own any files.              |
 | `users`    | Ordinary users.                                               |
 | `xbuilder` | To use xbps-uchroot(1) with `xbps-src`.                       |
