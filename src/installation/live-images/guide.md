@@ -107,6 +107,9 @@ If using BIOS, it is recommended you select MBR for the partition table.
 Advanced users may use GPT but will need to [create a special BIOS
 partition](./partitions.md#bios-system-notes) for GRUB to boot.
 
+The root file system needs a partition of type `Linux filesystem` which will be
+mounted at `/`.
+
 See the [Partitioning Notes](./partitions.md) for more details about
 partitioning your disk.
 
