@@ -70,7 +70,7 @@ CD or DVD. The following free software applications are available
 
 - [Brasero](https://wiki.gnome.org/Apps/Brasero/)
 - [K3B](https://userbase.kde.org/K3b)
-- [Xfburn](https://goodies.xfce.org/projects/applications/xfburn)
+- [Xfburn](https://docs.xfce.org/apps/xfburn/start)
 
 It should be noted that, with a CD or DVD, live sessions will be less responsive
 than with a USB stick or hard drive.

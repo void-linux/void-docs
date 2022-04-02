@@ -33,7 +33,7 @@ tool in GNOME.
 
 Eduroam is a roaming service providing international, secure Internet access at
 universities and other academic institutions. More information can be found
-[here](https://www.eduroam.org/).
+[here](https://eduroam.org/).
 
 ### Dependencies
 
