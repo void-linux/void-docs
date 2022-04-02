@@ -354,30 +354,18 @@ sub create_table {
     my $result;
     my @lines;
     my $header;
-    my $type = "general";
     my @body;
     my $column_count;
 
     @lines = split(/\n/, $table);
     $header = $lines[0];
-    if ($header =~ /Enlightenment/) {
-        $type = "flavors";
-    }
     $header =~ s/[^|]//g;
     $column_count = length($header) - 1;
 
     $result .= "\n\\bigskip";
-    if ($type eq "flavors") {
-        $result .= "\\newgeometry{left=1.5cm,right=1.5cm}\n"
-    }
     $result .= "\n\\begin{tabular}{ | ";
-    if ($type eq "flavors") {
-        $result .= "p{2.3cm} | " x ($column_count - 1);
-        $result .= "p{2.3cm} | }\n";
-    } else {
-        $result .= "l | " x ($column_count - 1);
-        $result .= "l | }\n";
-    }
+    $result .= "l | " x ($column_count - 1);
+    $result .= "l | }\n";
     $result .= "\\hline\n";
     $header = $lines[0];
     $header =~ s/^\|//;
@@ -396,9 +384,6 @@ sub create_table {
         }
     }
     $result .= "\n\\end{tabular}\n";
-    if ($type eq "flavors") {
-        $result .= "\n\\restoregeometry\n";
-    }
     $result .= "\n\\bigskip\n";
 
 }
