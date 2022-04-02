@@ -49,8 +49,8 @@ To install packages provided on the install image, select `Local`. Otherwise,
 you may select `Network` to download the latest packages from the Void
 repository.
 
-**Warning!**: If you are installing a desktop environment from a ''flavor''
-image, you MUST choose `Local` for the source!
+> **Warning:** If you are installing the desktop environment from the xfce
+> image, you MUST choose `Local` for the source!
 
 ## Hostname
 
