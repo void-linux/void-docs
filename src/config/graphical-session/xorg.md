@@ -2,8 +2,8 @@
 
 This section details the manual installation and configuration of the Xorg
 display server and common related services and utilities. If you would just like
-to install a full desktop environment, it is recommended to try one of the
-[flavor images](../../installation/live-images/index.md#flavor-images)
+to install a full desktop environment, it is recommended to try the [xfce
+image](../../installation/live-images/index.md#xfce-image).
 
 ## Installation
 
