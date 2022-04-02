@@ -3,6 +3,21 @@
 // Fix back button cache problem
 window.onunload = function () { };
 
+(function theme() {
+    var html = document.querySelector("html");
+    var themeToggleButton = document.getElementById("theme-toggle");
+
+    themeToggleButton.addEventListener('click', function sidebarToggle() {
+        if (html.classList.contains("void-light")) {
+            html.classList.replace("void-light", "void-dark");
+            localStorage.setItem('mdbook-theme', "void-dark");
+        } else {
+            html.classList.replace("void-dark", "void-light");
+            localStorage.setItem('mdbook-theme', "void-light");
+        }
+    });
+})();
+
 (function sidebar() {
     var html = document.querySelector("html");
     var sidebar = document.getElementById("sidebar");
