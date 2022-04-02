@@ -13,10 +13,10 @@ manually.
 
 ## Installer images
 
-Void releases two types of images: base images and "flavor" images. Linux
-beginners are encouraged to try one of the more full-featured flavor images, but
-more advanced users may often prefer to start from a base image to install only
-the packages they need.
+Void releases two types of images: base images and xfce images. Linux beginners
+are encouraged to try one of the more full-featured xfce images, but more
+advanced users may often prefer to start from a base image to install only the
+packages they need.
 
 ### Base images
 
@@ -36,7 +36,7 @@ The following software is included:
 - **File manager:** Thunar
 - **Web Browser:** Firefox ESR
 - **Terminal:** xfce4-terminal
-- **Plain text editor:** Mousepadd
+- **Plain text editor:** Mousepad
 - **Image viewer:** Ristretto
 - **Other:** Bulk rename, Orage Globaltime, Orage Calendar, Task Manager, Parole
    Media Player, Audio Mixer, MIME type editor, Application finder
