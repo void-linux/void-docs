@@ -15,8 +15,7 @@ following minimums for most installations:
 | x86_64-musl  | x86_64           | 96MB | 600MB   |
 | i686-glibc   | Pentium 4 (SSE2) | 96MB | 700MB   |
 
-Note that flavor installations require more resources; how much more depends on
-the flavor.
+Note that xfce image installations require more resources.
 
 Void is not available for the i386, i486, or i586 architectures.
 
