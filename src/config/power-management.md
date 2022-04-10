@@ -17,7 +17,9 @@ and enabled. Either disable `acpid` when enabling `elogind`, or configure
 `elogind` to `ignore` ACPI events in
 [logind.conf(5)](https://man.voidlinux.org/logind.conf.5). There are several
 configuration options, all starting with the keyword `Handle`, that should be
-set to `ignore` to avoid interfering with `acpid`.
+set to `ignore` to avoid interfering with `acpid`. In order to make use of
+[loginctl(1)](https://man.voidlinux.org/loginctl.1) to handle ACPI events as 
+a normal user, install the `polkit` package.
 
 ## Power Saving - tlp
 
