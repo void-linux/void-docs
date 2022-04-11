@@ -23,7 +23,8 @@ processes making use of it.
 
 To use an audio device such as a wireless speaker or headset, ALSA users need to
 install the `bluez-alsa` package. [PulseAudio](./media/pulseaudio.md) users do
-not need any additional software.
+not need any additional software. [PipeWire](./media/pipewire.md) users need
+`libspa-bluetooth`.
 
 ## Usage
 
