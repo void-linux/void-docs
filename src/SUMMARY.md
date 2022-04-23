@@ -76,7 +76,6 @@
          - [Using Tor Mirrors](./xbps/repositories/mirrors/tor.md)
       - [Restricted Packages](./xbps/repositories/restricted.md)
       - [Custom Repositories](./xbps/repositories/custom.md)
-      - [Signing Repositories](./xbps/repositories/signing.md)
    - [Troubleshooting XBPS](./xbps/troubleshooting/index.md)
       - [Common Issues](./xbps/troubleshooting/common-issues.md)
       - [Static XBPS](./xbps/troubleshooting/static.md)
