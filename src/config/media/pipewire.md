@@ -3,22 +3,24 @@
 To use PipeWire, install the `pipewire` package.
 
 [pipewire(1)](https://man.voidlinux.org/pipewire.1) should be started as a user.
-Use the autostarting mechanism of your desktop environment or
-[startx](../graphical-session/xorg.md#startx). The `pipewire` package provides
-`pipewire` and `pipewire-pulse` system services, but they are not recommended
-for a typical setup.
+Run the pipewire command in a terminal emulator in your session.
+
+```
+$ pipewire
+```
+
+When pipewire works as expected, use the autostarting mechanism of your desktop
+environment or [startx](../graphical-session/xorg.md#startx). The `pipewire`
+package provides `pipewire` and `pipewire-pulse` system services, but they are
+not recommended for a typical setup.
 
 ## PulseAudio replacement
-
-PipeWire can start a PulseAudio server. While it's possible to modify
-[pipewire.conf(5)](https://man.voidlinux.org/pipewire.conf.5) for auto-starting
-the PulseAudio server, it's recommended to start it from the same place where
-you start PipeWire by executing `pipewire-pulse`. This keeps the PipeWire
-configuration file unmodified for smoother future upgrades.
 
 Before starting `pipewire-pulse`, make sure that the PulseAudio service is
 [disabled](../services/index.md#disabling-services) and that no other PulseAudio
 server instance is running.
+
+Start the PulseAudio server by running `pipewire-pulse` in a terminal emulator.
 
 To check if the replacement is working correctly, use
 [pactl(1)](https://man.voidlinux.org/pactl.1) (provided by the
@@ -31,6 +33,12 @@ $ pactl info
 Server Name: PulseAudio (on PipeWire 0.3.18)
 [...]
 ```
+
+Once you confirmed that `pipewire-pulse` works as expected, it's recommended to
+autostart it from the same place where you start PipeWire. It is possible to
+modify [pipewire.conf(5)](https://man.voidlinux.org/pipewire.conf.5) for
+auto-starting the PulseAudio server, but it's not recommended keep the PipeWire
+configuration file unmodified for smoother future upgrades.
 
 ## Bluetooth audio
 
