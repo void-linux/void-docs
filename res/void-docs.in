@@ -63,7 +63,7 @@ if [ "$_pdf" ]; then
     elif command -v run-mailcap >/dev/null; then
         exec run-mailcap --action=view $PDF
     else
-        for cmd in zathura okular
+        for cmd in zathura okular evince
         do
             if command -v $cmd >/dev/null; then
                 exec $cmd $PDF
