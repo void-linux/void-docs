@@ -27,3 +27,8 @@ The `gdm` package provides the `gdm` service for the GNOME Display Manager;
 [test the service](../services/index.md#testing-services) before enabling it.
 GDM defaults to providing a Wayland session via the `mutter` window manager, but
 an X session can be chosen instead.
+
+## Steps for a working gnome session
+1. install gnome(dbus, gdm, elogind)
+2. enable `dbus` and `elogind`
+3. enable `gdm`
