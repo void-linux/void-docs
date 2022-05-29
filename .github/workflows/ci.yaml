@@ -10,7 +10,7 @@ jobs:
     steps:
       - name: Prepare container
         run: |
-          xbps-install -Syu || xbps-install -yu xbps
+          xbps-install -Syu || xbps-install -Syu xbps
           xbps-install -yu
           xbps-install -y mdbook-linkcheck vmdfmt git
       - uses: actions/checkout@v1
