@@ -10,9 +10,11 @@ Tier 1 mirrors are maintained by the Void Linux Infrastructure Team. These
 mirrors sync directly from the build-master and will always have the latest
 packages available.
 
+By default XBPS will reach out to <https://repo-default.voidlinux.org>
+which may map to any tier 1 mirror.
+
 | Repository                                     | Location         |
 |------------------------------------------------|------------------|
-| <https://alpha.de.repo.voidlinux.org/>         | EU: Finland      |
 | <https://repo-fi.voidlinux.org/>               | EU: Finland      |
 | <https://mirrors.servercentral.com/voidlinux/> | USA: Chicago     |
 | <https://repo-us.voidlinux.org/>               | USA: Kansas City |
