@@ -62,7 +62,7 @@ example):
 ```
 # mkdir -p /etc/xbps.d
 # cp /usr/share/xbps.d/*-repository-*.conf /etc/xbps.d/
-# sed -i 's|https://alpha.de.repo.voidlinux.org|http://lysator7eknrfl47rlyxvgeamrv7ucefgrrlhk7rouv3sna25asetwid.onion/pub/voidlinux|g' /etc/xbps.d/*-repository-*.conf
+# sed -i 's|https://repo-default.voidlinux.org|http://lysator7eknrfl47rlyxvgeamrv7ucefgrrlhk7rouv3sna25asetwid.onion/pub/voidlinux|g' /etc/xbps.d/*-repository-*.conf
 ```
 
 Tor provides layered end-to-end encryption so HTTPS is not necessary.

@@ -100,7 +100,7 @@ package repositories:
 ```
 $ xlocate -S
 Fetching objects: 11688, done.
-From https://alpha.de.repo.voidlinux.org/xlocate/xlocate
+From https://repo-default.voidlinux.org/xlocate/xlocate
  + e122c3634...a2659176f master     -> master  (forced update)
 $ xlocate xlocate
 xtools-0.59_1   /usr/bin/xlocate

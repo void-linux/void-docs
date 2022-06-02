@@ -91,7 +91,7 @@ the type of system you wish to install. For simplicity, save this URL to a shell
 variable. A glibc installation, for example, would use:
 
 ```
-# REPO=https://alpha.de.repo.voidlinux.org/current
+# REPO=https://repo-default.voidlinux.org/current
 ```
 
 XBPS also needs to know what architecture is being installed. Available options
