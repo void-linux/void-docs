@@ -1,5 +1,7 @@
 #!/bin/sh
 
+git config --global --add safe.directory "$PWD"
+
 echo "Checking links"
 RUST_LOG=linkcheck=debug mdbook-linkcheck -s
 LINKCHECK=$?
