@@ -29,9 +29,9 @@ data on-disk and can be installed without network connectivity.
 ## Downloading installation media
 
 The most recent live images and rootfs tarballs can be downloaded from
-<https://alpha.de.repo.voidlinux.org/live/current/>. They can also be downloaded
+<https://repo-default.voidlinux.org/live/current/>. They can also be downloaded
 from [other mirrors](../xbps/repositories/mirrors/index.md). Previous releases
-can be found under <https://alpha.de.repo.voidlinux.org/live/>, organized by
+can be found under <https://repo-default.voidlinux.org/live/>, organized by
 date.
 
 ## Verifying images

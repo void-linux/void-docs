@@ -29,7 +29,7 @@ will guarantee that.
 An "Operation not permitted" error, such as:
 
 ```
-ERROR: [reposync] failed to fetch file https://alpha.de.repo.voidlinux.org/current/nonfree/x86_64-repodata': Operation not permitted
+ERROR: [reposync] failed to fetch file https://repo-default.voidlinux.org/current/nonfree/x86_64-repodata': Operation not permitted
 ```
 
 can be caused by your system's date and/or time being incorrect. Ensure your
@@ -40,7 +40,7 @@ can be caused by your system's date and/or time being incorrect. Ensure your
 A "Not Found" error, such as:
 
 ```
-ERROR: [reposync] failed to fetch file `https://alpha.de.repo.voidlinux.org/current/musl/x86_64-repodata': Not Found
+ERROR: [reposync] failed to fetch file `https://repo-default.voidlinux.org/current/musl/x86_64-repodata': Not Found
 ```
 
 usually means your XBPS configuration is pointing to the wrong repositories for
@@ -82,7 +82,7 @@ detected by running `xbps-install` with the `-Sd` flags. The debug message for
 this error is shown below.
 
 ```
-[DEBUG] [repo] `//var/db/xbps/https___alpha_de_repo_voidlinux_org_current/x86_64-repodata' failed to open repodata archive Invalid or incomplete multibyte or wide character
+[DEBUG] [repo] `//var/db/xbps/https___repo-default_voidlinux_org_current/x86_64-repodata' failed to open repodata archive Invalid or incomplete multibyte or wide character
 ```
 
 In this situation, it is necessary to follow the steps in

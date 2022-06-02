@@ -19,7 +19,7 @@ Statically compiled versions of XBPS are available on all mirrors in the
 `static/` directory. The link below points to the static copies on the primary
 mirror in the EU:
 
-<https://alpha.de.repo.voidlinux.org/static>
+<https://repo-default.voidlinux.org/static>
 
 Download and unpack the latest version, or the version that matches the broken
 copy on your system (with a preference for the latest copy).

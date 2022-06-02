@@ -142,8 +142,8 @@ URL](../../xbps/repositories/index.md#the-main-repository) for the type of
 system you wish to install.
 
 ```
-# xbps-install -Sy -R https://alpha.de.repo.voidlinux.org/current -r /mnt base-system lvm2 cryptsetup grub
-[*] Updating `https://alpha.de.repo.voidlinux.org/current/x86_64-repodata' ...
+# xbps-install -Sy -R https://repo-default.voidlinux.org/current -r /mnt base-system lvm2 cryptsetup grub
+[*] Updating `https://repo-default.voidlinux.org/current/x86_64-repodata' ...
 x86_64-repodata: 1661KB [avg rate: 2257KB/s]
 130 packages will be downloaded:
 ...
@@ -153,7 +153,7 @@ UEFI systems will have a slightly different package selection. The installation
 command for a UEFI system will be as follows.
 
 ```
-# xbps-install -Sy -R https://alpha.de.repo.voidlinux.org/current -r /mnt base-system cryptsetup grub-x86_64-efi lvm2
+# xbps-install -Sy -R https://repo-default.voidlinux.org/current -r /mnt base-system cryptsetup grub-x86_64-efi lvm2
 ```
 
 When it's done, we can enter the `chroot` and finish up the configuration.
