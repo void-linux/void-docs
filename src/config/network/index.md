@@ -23,6 +23,18 @@ ip addr add 192.168.1.2/24 brd + dev eth0
 ip route add default via 192.168.1.1
 ```
 
+## Bridge Interfaces
+
+To configure bridge interfaces at boot, the `/etc/rc.local` file can be used to
+run [ip(8)](https://man.voidlinux.org/ip.8) commands to add the bridge `br0` and
+set it as the master for the `eth0` interface as example:
+
+```
+ip link add name br0 type bridge
+ip link set eth0 master br0
+ip link set eth0 up
+```
+
 ## dhcpcd
 
 To run [dhcpcd(8)](https://man.voidlinux.org/dhcpcd.8) on all interfaces, enable
