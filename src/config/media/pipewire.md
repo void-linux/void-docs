@@ -14,6 +14,18 @@ environment or [startx](../graphical-session/xorg.md#startx). The `pipewire`
 package provides `pipewire` and `pipewire-pulse` system services, but they are
 not recommended for a typical setup.
 
+The `pipewire` package ships [Desktop
+Entry](https://specifications.freedesktop.org/desktop-entry-spec/latest/) files
+for `pipewire` and `pipewire-pulse` in `/usr/share/applications`. If your
+environment supports the [Desktop Application Autostart
+Specification](https://specifications.freedesktop.org/autostart-spec/autostart-spec-latest.html),
+you can enable pipewire by symlinking the desktop files to the autostart
+directory:
+
+```
+# ln -s /usr/share/applications/pipewire.desktop /etc/xdg/autostart/pipewire.desktop
+```
+
 ## PulseAudio replacement
 
 Before starting `pipewire-pulse`, make sure that the PulseAudio service is
