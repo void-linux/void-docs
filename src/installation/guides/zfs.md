@@ -173,13 +173,13 @@ make sure that the `zfs` package has been installed and `dracut` is configured
 to identify a ZFS root filesystem:
 
 ```
-(chroot) # mkdir -p /etc/dracut.conf.d
-(chroot) # cat > /etc/dracut.conf.d/zol.conf <<EOF
+[xchroot /mnt] # mkdir -p /etc/dracut.conf.d
+[xchroot /mnt] # cat > /etc/dracut.conf.d/zol.conf <<EOF
 nofsck="yes"
 add_dracutmodules+=" zfs "
 omit_dracutmodules+=" btrfs resume "
 EOF
-(chroot) # xbps-install zfs
+[xchroot /mnt] # xbps-install zfs
 ```
 
 Finally, follow the "Finalization" instructions and reboot into your new system.
