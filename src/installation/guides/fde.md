@@ -123,7 +123,6 @@ Next, setup the chroot and install the base system.
 
 ```
 # mount /dev/voidvm/root /mnt
-# for dir in dev proc sys run; do mkdir -p /mnt/$dir ; mount --rbind /$dir /mnt/$dir ; mount --make-rslave /mnt/$dir ; done
 # mkdir -p /mnt/home
 # mount /dev/voidvm/home /mnt/home
 ```
@@ -163,22 +162,25 @@ command for a UEFI system will be as follows.
 # xbps-install -Sy -R https://repo-default.voidlinux.org/current -r /mnt base-system cryptsetup grub-x86_64-efi lvm2
 ```
 
-When it's done, we can enter the `chroot` and finish up the configuration.
+When it's done, we can enter the chroot with
+[`xchroot(1)`](https://man.voidlinux.org/xchroot.1) (from `xtools`) and finish
+up the configuration. Alternatively, entering the chroot can be [done
+manually](../../config/containers-and-vms/chroot.md#manual-method).
 
 ```
-# chroot /mnt
-# chown root:root /
-# chmod 755 /
-# passwd root
-# echo voidvm > /etc/hostname
+# xchroot /mnt
+[xchroot /mnt] # chown root:root /
+[xchroot /mnt] # chmod 755 /
+[xchroot /mnt] # passwd root
+[xchroot /mnt] # echo voidvm > /etc/hostname
 ```
 
 and, for glibc systems only:
 
 ```
-# echo "LANG=en_US.UTF-8" > /etc/locale.conf
-# echo "en_US.UTF-8 UTF-8" >> /etc/default/libc-locales
-# xbps-reconfigure -f glibc-locales
+[xchroot /mnt] # echo "LANG=en_US.UTF-8" > /etc/locale.conf
+[xchroot /mnt] # echo "en_US.UTF-8 UTF-8" >> /etc/default/libc-locales
+[xchroot /mnt] # xbps-reconfigure -f glibc-locales
 ```
 
 ### Filesystem configuration
@@ -187,7 +189,7 @@ The next step is editing `/etc/fstab`, which will depend on how you configured
 and named your filesystems. For this example, the file should look like this:
 
 ```
-# <file system>	   <dir> <type>  <options>             <dump>  <pass>
+# <file system>   <dir> <type>  <options>             <dump>  <pass>
 tmpfs             /tmp  tmpfs   defaults,nosuid,nodev 0       0
 /dev/voidvm/root  /     xfs     defaults              0       0
 /dev/voidvm/home  /home xfs     defaults              0       0
@@ -213,7 +215,7 @@ Next, the kernel needs to be configured to find the encrypted device. First,
 find the UUID of the device.
 
 ```
-# blkid -o value -s UUID /dev/sda1
+[xchroot /mnt] # blkid -o value -s UUID /dev/sda1
 135f3c06-26a0-437f-a05e-287b036440a4
 ```
 
@@ -229,7 +231,7 @@ configured to automatically unlock the encrypted volume on boot. First, generate
 a random key.
 
 ```
-# dd bs=1 count=64 if=/dev/urandom of=/boot/volume.key
+[xchroot /mnt] # dd bs=1 count=64 if=/dev/urandom of=/boot/volume.key
 64+0 records in
 64+0 records out
 64 bytes copied, 0.000662757 s, 96.6 kB/s
@@ -238,15 +240,15 @@ a random key.
 Next, add the key to the encrypted volume.
 
 ```
-# cryptsetup luksAddKey /dev/sda1 /boot/volume.key
+[xchroot /mnt] # cryptsetup luksAddKey /dev/sda1 /boot/volume.key
 Enter any existing passphrase:
 ```
 
 Change the permissions to protect the generated key.
 
 ```
-# chmod 000 /boot/volume.key
-# chmod -R g-rwx,o-rwx /boot
+[xchroot /mnt] # chmod 000 /boot/volume.key
+[xchroot /mnt] # chmod -R g-rwx,o-rwx /boot
 ```
 
 This keyfile also needs to be added to `/etc/crypttab`. Again, this will be
@@ -268,19 +270,19 @@ install_items+=" /boot/volume.key /etc/crypttab "
 Next, install the boot loader to the disk.
 
 ```
-# grub-install /dev/sda
+[xchroot /mnt] # grub-install /dev/sda
 ```
 
 Ensure an initramfs is generated:
 
 ```
-# xbps-reconfigure -fa
+[xchroot /mnt] # xbps-reconfigure -fa
 ```
 
 Exit the `chroot`, unmount the filesystems, and reboot the system.
 
 ```
-# exit
+[xchroot /mnt] # exit
 # umount -R /mnt
 # reboot
 ```
