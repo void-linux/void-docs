@@ -141,25 +141,12 @@ methods.
 
 ### Entering the Chroot
 
-Mount the pseudo-filesystems needed for a chroot:
+[xchroot(1)](https://man.voidlinux.org/xchroot.1) (from `xtools`) can be used to
+set up and enter the chroot. Alternatively, this can be [done
+manually](../../config/containers-and-vms/chroot.md#manual-method).
 
 ```
-# mount --rbind /sys /mnt/sys && mount --make-rslave /mnt/sys
-# mount --rbind /dev /mnt/dev && mount --make-rslave /mnt/dev
-# mount --rbind /proc /mnt/proc && mount --make-rslave /mnt/proc
-```
-
-Copy the DNS configuration into the new root so that XBPS can still download new
-packages inside the chroot:
-
-```
-# cp /etc/resolv.conf /mnt/etc/
-```
-
-Chroot into the new installation:
-
-```
-# PS1='(chroot) # ' chroot /mnt/ /bin/bash
+# xchroot /mnt /bin/bash
 ```
 
 ### Install base-system (ROOTFS method only)
@@ -169,10 +156,10 @@ the time when they were built, and do not come with a complete `base-system`.
 Update the package manager and install `base-system`:
 
 ```
-# xbps-install -Su xbps
-# xbps-install -u
-# xbps-install base-system
-# xbps-remove base-voidstrap
+[xchroot /mnt] # xbps-install -Su xbps
+[xchroot /mnt] # xbps-install -u
+[xchroot /mnt] # xbps-install base-system
+[xchroot /mnt] # xbps-remove base-voidstrap
 ```
 
 ### Installation Configuration
@@ -188,7 +175,7 @@ may wish to install your preferred text editor at this time.
 For glibc builds, generate locale files with:
 
 ```
-(chroot) # xbps-reconfigure -f glibc-locales
+[xchroot /mnt] # xbps-reconfigure -f glibc-locales
 ```
 
 ### Set a Root Password
@@ -201,7 +188,7 @@ privileges.
 To set a root password, run:
 
 ```
-(chroot) # passwd
+[xchroot /mnt] # passwd
 ```
 
 ### Configure fstab
@@ -210,7 +197,7 @@ The [fstab(5)](https://man.voidlinux.org/fstab.5) file can be automatically
 generated from currently mounted filesystems by copying the file `/proc/mounts`:
 
 ```
-(chroot) # cp /proc/mounts /etc/fstab
+[xchroot /mnt] # cp /proc/mounts /etc/fstab
 ```
 
 Remove lines in `/etc/fstab` that refer to `proc`, `sys`, `devtmpfs` and `pts`.
@@ -269,8 +256,8 @@ to install GRUB onto your boot disk.
 install GRUB to. For example:
 
 ```
-(chroot) # xbps-install grub
-(chroot) # grub-install /dev/sda
+[xchroot /mnt] # xbps-install grub
+[xchroot /mnt] # grub-install /dev/sda
 ```
 
 **On a UEFI computer**, install either `grub-x86_64-efi`, `grub-i386-efi` or
@@ -279,8 +266,8 @@ optionally specifying a bootloader label (this label may be used by your
 computer's firmware when manually selecting a boot device):
 
 ```
-(chroot) # xbps-install grub-x86_64-efi
-(chroot) # grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id="Void"
+[xchroot /mnt] # xbps-install grub-x86_64-efi
+[xchroot /mnt] # grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id="Void"
 ```
 
 ### Troubleshooting GRUB installation
@@ -302,8 +289,8 @@ located in `/boot/efi/EFI/Void/grubx64.efi` (its location can be found using
 [efibootmgr(8)](https://man.voidlinux.org/efibootmgr.8)), into the new folder:
 
 ```
-(chroot) # mkdir -p /boot/efi/EFI/boot
-(chroot) # cp /boot/efi/EFI/Void/grubx64.efi /boot/efi/EFI/boot/bootx64.efi
+[xchroot /mnt] # mkdir -p /boot/efi/EFI/boot
+[xchroot /mnt] # cp /boot/efi/EFI/Void/grubx64.efi /boot/efi/EFI/boot/bootx64.efi
 ```
 
 ## Finalization
@@ -312,7 +299,7 @@ Use [xbps-reconfigure(1)](https://man.voidlinux.org/xbps-reconfigure.1) to
 ensure all installed packages are configured properly:
 
 ```
-(chroot) # xbps-reconfigure -fa
+[xchroot /mnt] # xbps-reconfigure -fa
 ```
 
 This will make [dracut(8)](https://man.voidlinux.org/dracut.8) generate an
@@ -322,7 +309,8 @@ At this point, the installation is complete. Exit the chroot and reboot your
 computer:
 
 ```
-(chroot) # exit
+[xchroot /mnt] # exit
+# umount -R /mnt
 # shutdown -r now
 ```
 
