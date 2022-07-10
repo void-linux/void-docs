@@ -12,6 +12,6 @@ jobs:
         run: |
           xbps-install -Syu || xbps-install -Syu xbps
           xbps-install -yu
-          xbps-install -y mdbook-linkcheck vmdfmt git
+          xbps-install -y mdbook-linkcheck vmdfmt git findutils
       - uses: actions/checkout@v1
       - run: ./res/ci/format.sh
