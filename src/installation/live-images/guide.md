@@ -78,6 +78,9 @@ verify the groups for this new user. They are added to the `wheel` group by
 default and will have `sudo` access. Default groups and their descriptions are
 listed [here](../../config/users-and-groups.html#default-groups).
 
+Login names have some restrictions, as described in
+[useradd(8)](https://man.voidlinux.org/useradd.8#CAVEATS).
+
 ## Bootloader
 
 Select the disk to install a bootloader on when Void is installed. You may
