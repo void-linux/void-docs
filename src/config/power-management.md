@@ -19,6 +19,9 @@ and enabled. Either disable `acpid` when enabling `elogind`, or configure
 configuration options, all starting with the keyword `Handle`, that should be
 set to `ignore` to avoid interfering with `acpid`.
 
+To run `loginctl poweroff` and `loginctl reboot` without root privileges,
+`polkit` must be installed.
+
 ## Power Saving - tlp
 
 Laptop battery life can be extended by using
