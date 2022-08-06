@@ -23,3 +23,12 @@ these two condition are fulfilled and you don't have pcscd running, `gpg
 If you need to use pcscd for other reasons, run `echo disable-ccid >>
 ~/.gnupg/scdaemon.conf`. Now, assuming your pcscd setup works correctly, `gpg
 --card-status` should print your card status.
+
+# OpenPGP Card Tools
+
+As an alternative to GnuPG with smartcards, Void also ships
+`openpgp-card-tools`, a Rust based utility not reliant on GnuPG. It requires
+using `pcscd` for interacting with smart cards, so if you want to use it in
+parallel with GnuPG, ou need to configure `scdaemon` to use the pcscd backend,
+as described above in "[scdaemon with pcscd
+backend](#scdaemon-with-pcscd-backend)".

@@ -10,6 +10,7 @@ theme = "src/theme"
 [output.html.redirect]
 "/about-this-handbook.html" = "/about/about-this-handbook.html"
 "/config/man.html" = "/config/package-documentation/man.html"
+"/config/gnupg.html" = "/config/openpgp.html#gnupg"
 
 [output.latex]
 optional = true

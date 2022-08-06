@@ -67,7 +67,7 @@
    - [Containers and Virtual Machines](./config/containers-and-vms/index.md)
       - [libvirt](./config/containers-and-vms/libvirt.md)
       - [LXC](./config/containers-and-vms/lxc.md)
-   - [GnuPG](./config/gnupg.md)
+   - [OpenPGP](./config/openpgp.md)
 - [XBPS Package Manager](./xbps/index.md)
    - [Advanced Usage](./xbps/advanced-usage.md)
    - [Repositories](./xbps/repositories/index.md)
