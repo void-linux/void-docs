@@ -13,8 +13,8 @@ with the following `run` script, which should be executable:
 ```
 #!/bin/sh
 
-export USER="<username>"
-export HOME="/home/<username>"
+export USER="${PWD#*-}"
+export HOME="/home/$USER"
 
 groups="$(id -Gn "$USER" | tr ' ' ':')"
 svdir="$HOME/service"
@@ -28,7 +28,8 @@ user. [chpst(8)](https://man.voidlinux.org/chpst.8) does not read groups on its
 own, but expects the user to list all required groups separated by a `:`. The
 `id` and `tr` pipe is used to create a list of all the user's groups in a way
 [chpst(8)](https://man.voidlinux.org/chpst.8) understands it. Note that we
-export `$USER` and `$HOME` because some user services may not work without them.
+export `$USER` and `$HOME` because some user services may not work without them,
+so we derive these from the service name (`/etc/sv/runsvdir-<username>`).
 
 The user can then create new services or symlinks to them in the
 `/home/<username>/service` directory. To control the services using the
