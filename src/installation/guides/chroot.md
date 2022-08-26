@@ -298,12 +298,12 @@ add the option `--removable` to the `grub-install` command.
 
 Alternatively, use [mkdir(1)](https://man.voidlinux.org/mkdir.1) to create the
 `/boot/efi/EFI/boot` directory and copy the installed GRUB executable, usually
-located in `/boot/efi/void/grubx64.efi` (its location can be found using
+located in `/boot/efi/EFI/Void/grubx64.efi` (its location can be found using
 [efibootmgr(8)](https://man.voidlinux.org/efibootmgr.8)), into the new folder:
 
 ```
-(chroot) # mkdir -p /boot/efi/boot
-(chroot) # cp /boot/efi/void/grubx64.efi /boot/efi/EFI/boot/bootx64.efi
+(chroot) # mkdir -p /boot/efi/EFI/boot
+(chroot) # cp /boot/efi/EFI/Void/grubx64.efi /boot/efi/EFI/boot/bootx64.efi
 ```
 
 ## Finalization
