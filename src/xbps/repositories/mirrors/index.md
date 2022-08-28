@@ -35,6 +35,7 @@ sub-repository.
 | <https://mirrors.cnnic.cn/voidlinux/>              | Asia: China       |
 | <https://mirrors.tuna.tsinghua.edu.cn/voidlinux/>  | Asia: China       |
 | <https://mirror.sjtu.edu.cn/voidlinux/>            | Asia: China       |
+| <https://mirror.nju.edu.cn/voidlinux/>             | Asia: China       |
 | <https://void.webconverger.org/>                   | Asia: Singapore   |
 | <https://mirror.aarnet.edu.au/pub/voidlinux/>      | AU: Canberra      |
 | <https://ftp.swin.edu.au/voidlinux/>               | AU: Melbourne     |
