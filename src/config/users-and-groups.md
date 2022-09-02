@@ -79,5 +79,6 @@ Void Linux defines a number of groups by default.
 | `input`    | Access to input devices: `/dev/mouse*`, `/dev/event*`.        |
 | `plugdev`  | Access to pluggable devices.                                  |
 | `nogroup`  | System daemons that don't need to own any files.              |
+| `usbmon`   | Access to `/dev/usbmon*`.                                     |
 | `users`    | Ordinary users.                                               |
 | `xbuilder` | To use xbps-uchroot(1) with `xbps-src`.                       |
