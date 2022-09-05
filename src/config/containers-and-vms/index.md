@@ -5,5 +5,6 @@ software available on Void.
 
 ## Section Contents
 
+- [Chroots and Containers](./chroot.md)
 - [libvirt](./libvirt.md)
 - [LXC](./lxc.md)

@@ -65,6 +65,7 @@
    - [External Applications](./config/external-applications.md)
    - [Printing](./config/print/index.md)
    - [Containers and Virtual Machines](./config/containers-and-vms/index.md)
+      - [Chroots and Containers](./config/containers-and-vms/chroot.md)
       - [libvirt](./config/containers-and-vms/libvirt.md)
       - [LXC](./config/containers-and-vms/lxc.md)
    - [OpenPGP](./config/openpgp.md)
