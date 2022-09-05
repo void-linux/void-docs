@@ -10,21 +10,23 @@ $ pipewire
 ```
 
 When pipewire works as expected, use the autostarting mechanism of your desktop
-environment or [startx](../graphical-session/xorg.md#startx). The `pipewire`
-package provides `pipewire` and `pipewire-pulse` system services, but they are
-not recommended for a typical setup.
+environment or [startx](../graphical-session/xorg.md#startx).
 
 The `pipewire` package ships [Desktop
 Entry](https://specifications.freedesktop.org/desktop-entry-spec/latest/) files
 for `pipewire` and `pipewire-pulse` in `/usr/share/applications`. If your
 environment supports the [Desktop Application Autostart
 Specification](https://specifications.freedesktop.org/autostart-spec/autostart-spec-latest.html),
-you can enable pipewire by symlinking the desktop files to the autostart
+we recommend enabling pipewire by symlinking the desktop files to the autostart
 directory:
 
 ```
 # ln -s /usr/share/applications/pipewire.desktop /etc/xdg/autostart/pipewire.desktop
 ```
+
+*Warning*: the `pipewire` package provides `pipewire` and `pipewire-pulse`
+system services, but they are experimental and we discourage their use except in
+rare cases.
 
 ## PulseAudio replacement
 
@@ -46,11 +48,85 @@ Server Name: PulseAudio (on PipeWire 0.3.18)
 [...]
 ```
 
-Once you confirmed that `pipewire-pulse` works as expected, it's recommended to
-autostart it from the same place where you start PipeWire. It is possible to
-modify [pipewire.conf(5)](https://man.voidlinux.org/pipewire.conf.5) for
-auto-starting the PulseAudio server, but it's not recommended keep the PipeWire
-configuration file unmodified for smoother future upgrades.
+Once you confirmed that `pipewire-pulse` works as expected, we recommend to
+autostart it via a PipeWire configuration drop-in:
+
+```
+context.exec = [
+    { path = "/usr/bin/pipewire" args = "-c pipewire-pulse.conf" }
+]
+```
+
+Place the above content in a file at either path:
+
+- for per-user configuration (recommended):
+   `~/.config/pipewire/pipewire.conf.d/10-exec-pipewire-pulse.conf`
+- for system-wide configuration:
+   `/etc/pipewire/pipewire.conf.d/10-exec-pipewire-pulse.conf`
+
+See [pipewire.conf(5)](https://man.voidlinux.org/pipewire.conf.5) and
+`/usr/share/pipewire/pipewire.conf` for further details.
+
+Alternatively, you may use the Desktop Application Autostart mechanism:
+
+```
+# ln -s /usr/share/applications/pipewire-pulse.desktop /etc/xdg/autostart/pipewire-pulse.desktop
+```
+
+## Media session
+
+PipeWire is not useful without a session manager.
+
+We recommend using WirePlumber as your session manager, however advanced users
+may find utility in the "example PipeWire session manager", media-session.
+
+### WirePlumber
+
+To use WirePlumber, install the `wireplumber` package.
+
+Then, use a PipeWire configuration drop-in to autostart the daemon:
+
+```
+context.exec = {
+    { path = "/usr/bin/wireplumber" args = "" }
+}
+```
+
+Place the above content in a file at either path:
+
+- for per-user configuration (recommended):
+   `~/.config/pipewire/pipewire.conf.d/10-exec-wireplumber.conf`
+- for system-wide configuration:
+   `/etc/pipewire/pipewire.conf.d/10-exec-wireplumber.conf`
+
+See [pipewire.conf(5)](https://man.voidlinux.org/pipewire.conf.5) and
+`/usr/share/pipewire/pipewire.conf` for further details.
+
+Alternatively, you may use the Desktop Application Autostart mechanism:
+
+```
+# ln -s /usr/share/applications/wireplumber.desktop /etc/xdg/autostart/wireplumber.desktop
+```
+
+*Warning*: the `wireplumber` package provides a `wireplumber` system service,
+but it is experimental and we discourage its use except for rare cases.
+
+### Example PipeWire session manager
+
+The PipeWire developers publish a PipeWire Media Session program that they
+describe as an "example session manager".
+
+The PipeWire developers recommend using WirePlumber instead of this program.
+
+Nevertheless, the example session manager may still be useful to some users
+(perhaps those who encounter bugs in WirePlumber).
+
+To use this session manager, install the `pipewire-media-session` package, then
+configure the daemon to autostart.
+
+You can use the same autostart mechanisms as `wireplumber`, but use
+`/usr/bin/pipewire-media-session` as the daemon path or
+`pipewire-media-session.desktop` as the Desktop Application file name.
 
 ## Bluetooth audio
 
