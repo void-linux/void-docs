@@ -16,13 +16,22 @@ kernel are in the `rootfs/boot/cmdline.txt` file. Some of the relevant
 parameters are documented in the [official
 documentation](https://www.raspberrypi.org/documentation/configuration/cmdline-txt.md).
 
-### Raspberry Pi 3: 32-bit or 64-bit
+### Supported Models
 
-It is possible to run the RPi 2 images on an RPi 3, as the RPi 3's CPU supports
-both the Armv8 and Armv7 instruction sets. The difference between these images
-is that the RPi 2 provides a 32-bit system with packages from the Void `armv7l`
-repositories, while the RPi 3 image provides a 64-bit system with packages from
-the Void `aarch64` repositories.
+| Model          | Architecture | Live Image/PLATFORMFS/Kernel |
+|----------------|--------------|------------------------------|
+| 1 A, B, A+, B+ | armv6l       | `rpi`                        |
+| Zero, 0W, 0WH  | armv6l       | `rpi`                        |
+| 2 B            | armv7l       | `rpi2`                       |
+| 3 B, A+, B+    | aarch64      | `rpi3`                       |
+| Zero 2W        | aarch64      | `rpi3`                       |
+| 4 B, 400       | aarch64      | `rpi4`                       |
+
+> It is possible to run the RPi 2 images on an RPi 3, as the RPi 3's CPU
+> supports both the Armv8 and Armv7 instruction sets. The difference between
+> these images is that the RPi 2 provides a 32-bit system with packages from the
+> Void `armv7l` repositories, while the RPi 3 image provides a 64-bit system
+> with packages from the Void `aarch64` repositories.
 
 ### Enabling hardware RNG device
 
