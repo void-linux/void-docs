@@ -52,6 +52,7 @@ sub-repository.
 | <https://ftp.sunet.se/mirror/voidlinux/>           | EU: Sweden        |
 | <https://void.sakamoto.pl/>                        | EU: Warsaw, PL    |
 | <https://mirror.vofr.net/voidlinux/>               | USA: California   |
+| <https://mirror2.sandyriver.net/pub/voidlinux/>    | USA: Kentucky     |
 | <https://mirror.clarkson.edu/voidlinux/>           | USA: New York     |
 | <https://mirror.puzzle.ch/voidlinux/>              | EU: Bern, CH      |
 
