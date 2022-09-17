@@ -164,6 +164,11 @@ When it's done, we can enter the `chroot` and finish up the configuration.
 # chmod 755 /
 # passwd root
 # echo voidvm > /etc/hostname
+```
+
+and, for glibc systems only:
+
+```
 # echo "LANG=en_US.UTF-8" > /etc/locale.conf
 # echo "en_US.UTF-8 UTF-8" >> /etc/default/libc-locales
 # xbps-reconfigure -f glibc-locales
