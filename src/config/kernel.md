@@ -48,6 +48,42 @@ to add `linux` and `linux-headers` to an `ignorepkg` entry in
 [xbps.d(5)](https://man.voidlinux.org/xbps.d.5), since base packages can depend
 on them.
 
+## Changing the default initramfs generator
+
+By default, Void Linux uses [dracut](https://man.voidlinux.org/dracut.8) to
+prepare initramfs images for installed kernels. Alternatives such as
+[mkinitcpio](https://man.voidlinux.org/mkinitcpio.8) are available. Each
+initramfs generator registers an [XBPS
+alternative](https://man.voidlinux.org/xbps-alternatives.1) in the `initramfs`
+group to link its [kernel hooks](#kernel-hooks) to be used when creating or
+removing initramfs images for a given kernel.
+
+To replace dracut with, *e.g.*, mkinitcpio, install the `mkinitcpio` package;
+confirm that `mkinitcpio` appears in the list of available alternatives by
+running
+
+```
+$ xbps-alternatives -l -g initramfs
+```
+
+Issue the command
+
+```
+# xbps-alternatives -s mkinitcpio
+```
+
+to replace the dracut kernel hooks with those provided by mkinitcpio. With
+subsequent kernel updates (or updates to DKMS packages that trigger initramfs
+regeneration), mkinitcpio will be used instead of dracut to prepare initramfs
+images. To force images to regenerate, reconfigure your kernel packages by
+invoking
+
+```
+# xbps-reconfigure -f linux<x>.<y>
+```
+
+for each `linux<x>.<y>` package that is currently installed.
+
 ## cmdline
 
 The kernel, the initial RAM disk (initrd) and some system programs can be
