@@ -8,6 +8,13 @@ packages.
 The `texlive-bin` package contains the latest TeX Live version; however, earlier
 versions, such as `texlive2018-bin`, are also available.
 
+The `texlive` package and `texlive-*` packages are also available, and provide
+TeX packages directly via xbps. TeX packages installed via those packages cannot
+interact with TeX packages installed directly from CTAN (via `tlmgr`). For
+example: `pdflatex` from `texlive-pdflatex` cannot be used to compile a TeX
+document that uses a package installed via `tlmgr`; `tlmgr install pdflatex`
+would be required for that.
+
 ## Configuring TeX Live
 
 After installing TeX Live, update the value of `PATH`:
