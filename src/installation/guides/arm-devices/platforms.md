@@ -18,20 +18,16 @@ documentation](https://www.raspberrypi.org/documentation/configuration/cmdline-t
 
 ### Supported Models
 
-| Model          | Architecture | Live Image/PLATFORMFS/Kernel |
-|----------------|--------------|------------------------------|
-| 1 A, B, A+, B+ | armv6l       | `rpi`                        |
-| Zero, 0W, 0WH  | armv6l       | `rpi`                        |
-| 2 B            | armv7l       | `rpi2`                       |
-| 3 B, A+, B+    | aarch64      | `rpi3`                       |
-| Zero 2W        | aarch64      | `rpi3`                       |
-| 4 B, 400       | aarch64      | `rpi4`                       |
+| Model                                       | Architecture |
+|---------------------------------------------|--------------|
+| 1 A, 1 B, 1 A+, 1 B+, Zero, Zero W, Zero WH | armv6l       |
+| 2 B                                         | armv7l       |
+| 3 B, 3 A+, 3 B+, Zero 2W, 4 B, 400          | aarch64      |
 
-> It is possible to run the RPi 2 images on an RPi 3, as the RPi 3's CPU
+> It is possible to run the armv7l images on an RPi 3, as the RPi 3's CPU
 > supports both the Armv8 and Armv7 instruction sets. The difference between
-> these images is that the RPi 2 provides a 32-bit system with packages from the
-> Void `armv7l` repositories, while the RPi 3 image provides a 64-bit system
-> with packages from the Void `aarch64` repositories.
+> these images is that the armv7l image provides a 32-bit system while the
+> aarch64 image provides a 64-bit system.
 
 ### Enabling hardware RNG device
 
