@@ -50,6 +50,14 @@ In order to fix this, install the `rng-tools` package and
 [enable](../../../config/services/index.md#enabling-services) the `rngd`
 service, which uses the `/dev/hwrng` device to seed `/dev/random`.
 
+Sometimes `rngd` can cause CPU overload. To prevent this, inefficient entropy
+sources can be excluded and HWRNG device forced by creating `/etc/sv/rngd/conf`
+with the contents:
+
+```
+RNGD_OPTS='-x jitter -x pkcs11 -x rtlsdr -n hwrng'
+```
+
 ## Graphical session
 
 The `mesa-dri` package contains drivers for all the Raspberry Pi variants, and
