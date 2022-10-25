@@ -46,10 +46,8 @@ sub-repository.
 | <https://mirror.fit.cvut.cz/voidlinux/>            | EU: Prague, CZ    |
 | <http://ftp.debian.ru/mirrors/voidlinux/>          | EU: Russia        |
 | <https://mirror.yandex.ru/mirrors/voidlinux/>      | EU: Russia        |
-| <https://cdimage.debian.org/mirror/voidlinux/>     | EU: Sweden        |
-| <https://ftp.acc.umu.se/mirror/voidlinux/>         | EU: Sweden        |
+| <https://mirror.accum.se/mirror/voidlinux/>        | EU: Sweden        |
 | <https://ftp.lysator.liu.se/pub/voidlinux/>        | EU: Sweden        |
-| <https://ftp.sunet.se/mirror/voidlinux/>           | EU: Sweden        |
 | <https://void.sakamoto.pl/>                        | EU: Warsaw, PL    |
 | <https://mirror.vofr.net/voidlinux/>               | USA: California   |
 | <https://mirror2.sandyriver.net/pub/voidlinux/>    | USA: Kentucky     |
