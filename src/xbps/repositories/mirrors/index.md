@@ -18,6 +18,7 @@ map to any tier 1 mirror.
 | <https://repo-fi.voidlinux.org/>               | EU: Finland      |
 | <https://mirrors.servercentral.com/voidlinux/> | USA: Chicago     |
 | <https://repo-us.voidlinux.org/>               | USA: Kansas City |
+| <https://repo-de.voidlinux.org/>               | EU: Germany      |
 
 ## Tier 2 mirrors
 
