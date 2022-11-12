@@ -16,6 +16,7 @@ Void packages:
 - `lowdown` (version 0.8.1 or greater)
 - `texlive`
 - `perl`
+- `perl-File-Which`
 - `perl-JSON`
 - `librsvg-utils`
 - `python3-md2gemini`
