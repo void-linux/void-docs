@@ -45,7 +45,6 @@ sub-repository.
 | <https://mirrors.dotsrc.org/voidlinux/>            | EU: Denmark       |
 | <https://quantum-mirror.hu/mirrors/pub/voidlinux/> | EU: Hungary       |
 | <https://voidlinux.mirror.garr.it/>                | EU: Italy         |
-| <https://mirror.fit.cvut.cz/voidlinux/>            | EU: Prague, CZ    |
 | <http://ftp.debian.ru/mirrors/voidlinux/>          | EU: Russia        |
 | <https://mirror.yandex.ru/mirrors/voidlinux/>      | EU: Russia        |
 | <https://mirror.accum.se/mirror/voidlinux/>        | EU: Sweden        |
