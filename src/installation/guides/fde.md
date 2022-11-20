@@ -220,7 +220,8 @@ find the UUID of the device.
 Edit the `GRUB_CMDLINE_LINUX_DEFAULT=` line in `/etc/default/grub` and add
 `rd.lvm.vg=voidvm rd.luks.uuid=<UUID>` to it. Make sure the UUID matches the one
 for the `sda1` device found in the output of the
-[blkid(8)](https://man.voidlinux.org/blkid.8) command above.
+[blkid(8)](https://man.voidlinux.org/blkid.8) command above. This will be
+`/dev/sda2` on EFI systems.
 
 ## LUKS key setup
 
