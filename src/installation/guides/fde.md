@@ -242,7 +242,7 @@ Next, add the key to the encrypted volume.
 Enter any existing passphrase:
 ```
 
-Change the permissions to protect generated the key.
+Change the permissions to protect the generated key.
 
 ```
 # chmod 000 /boot/volume.key
