@@ -2,6 +2,8 @@
 
 ERROR=0
 
+printf "\n\033[37;1m=> Checking SUMMARY.md\033[m\n"
+
 cd src/ || exit 2
 
 # summary is the list of files taken from SUMMARY.md - unused for now
@@ -11,8 +13,8 @@ files="$( find . -type f -name '*.md' -not -name "SUMMARY.md" )"
 
 for file in $files
 do
-    if ! grep "$file" ./SUMMARY.md >/dev/null ; then
-        printf "\033[31;1m=> $file not in SUMMARY\033[m\n"
+    if ! grep -q "$file" ./SUMMARY.md ; then
+        printf "::error title=Summary Lint,file=src/SUMMARY.md::$file not in SUMMARY.md\n"
         ERROR=1
     fi
 done
