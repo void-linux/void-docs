@@ -1,17 +1,42 @@
 name: Check PR
-on: pull_request
+on:
+  pull_request:
+    paths:
+      - 'src/**'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
-  only:
+  contents:
     name: Check formatting and links
     runs-on: ubuntu-latest
     container:
-      image: ghcr.io/void-linux/void-linux:latest-mini-x86_64-musl
+      image: ghcr.io/void-linux/void-linux:latest-full-x86_64-musl
     steps:
       - name: Prepare container
         run: |
           xbps-install -Syu || xbps-install -Syu xbps
           xbps-install -yu
-          xbps-install -y mdbook-linkcheck vmdfmt git findutils
-      - uses: actions/checkout@v1
-      - run: ./res/ci/format.sh
+          xbps-install -y mdbook-linkcheck vmdfmt git findutils bash
+      - name: Checkout
+        id: checkout
+        uses: classabbyamp/treeless-checkout-action@v1
+      - name: Check summary
+        if: steps.checkout.conclusion == 'success'
+        run: res/ci/check-summary.sh
+      - name: Check formatting
+        if: success() || failure()
+        run: res/ci/format.sh
+      - name: Check links
+        if: success() || failure()
+        run: res/ci/linkcheck.sh
+  commits:
+    name: Check commits
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: classabbyamp/treeless-checkout-action@v1
+      - name: Check commit messages
+        run: res/ci/commit-lint.sh
