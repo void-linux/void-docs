@@ -96,3 +96,19 @@ To update installed packages:
 For a full description, check:
 
 <https://www.tug.org/texlive/doc/tlmgr.html>
+
+## Texinfo PDF and HTML compilation with TeX Live
+Texinfo is the documentation system used by GNU and other projects and can
+output .info files (with `makeinfo`) to be used with the software `info` or can be
+converted into PDFs with `texi2pdf` and HTMLs with `texi2html`. Both
+**PDF and HTML conversions require a _texinfo.tex_ file which can be installed from tlmgr**.
+
+```
+# tlmgr install texinfo
+```
+
+Other missing files the .texi sources require can be installed the same way.
+
+More informations about texinfo on ctan, check:
+
+<https://ctan.org/pkg/texinfo>
