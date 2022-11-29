@@ -98,6 +98,7 @@ For a full description, check:
 <https://www.tug.org/texlive/doc/tlmgr.html>
 
 ## Texinfo PDF and HTML compilation with TeX Live
+
 Texinfo is the documentation system used by GNU and other projects and can
 output .info files (with `makeinfo`) to be used with the software `info` or can
 be exported into PDFs with `texi2pdf` and HTMLs with `texi2html`. Both PDF and
