@@ -96,3 +96,22 @@ To update installed packages:
 For a full description, check:
 
 <https://www.tug.org/texlive/doc/tlmgr.html>
+
+### Texinfo PDF compilation with texi2pdf
+
+Texinfo is the documentation system used by GNU and other projects. The source
+can be compiled into .info files (with `makeinfo`) and be used with the software
+`info` or they can be exported to PDF, HTML and other formats with `texi2pdf`
+and `texi2html`.
+
+Texinfo sources start including a .tex file with `\input texinfo` that implement
+the macros used throughout the document. The file texinfo.tex is required to
+export the document and it needs to be installed with tlmgr:
+
+```
+# tlmgr install texinfo
+```
+
+For more informations, check:
+
+<https://www.gnu.org/software/texinfo/manual/texinfo/texinfo.html#First-Line>
