@@ -15,10 +15,10 @@ map to any tier 1 mirror.
 
 | Repository                                     | Location             |
 |------------------------------------------------|--------------------- |
-| <https://repo-de.voidlinux.org/>               | 🇩🇪 DE: Münster       |
-| <https://repo-fi.voidlinux.org/>               | 🇫🇮 FI: Helsinki      |
-| <https://mirrors.servercentral.com/voidlinux/> | 🇺🇸 US: Chicago       |
-| <https://repo-us.voidlinux.org/>               | 🇺🇸 US: Kansas City   |
+| <https://repo-de.voidlinux.org/>               | DE: Münster       |
+| <https://repo-fi.voidlinux.org/>               | FI: Helsinki      |
+| <https://mirrors.servercentral.com/voidlinux/> | US: Chicago       |
+| <https://repo-us.voidlinux.org/>               | US: Kansas City   |
 
 
 ## Tier 2 mirrors
@@ -32,30 +32,30 @@ sub-repository.
 
 | Repository                                         | Location            |
 |----------------------------------------------------|---------------------|
-| <https://mirror.aarnet.edu.au/pub/voidlinux/>      | 🇦🇺 AU: Canberra     |
-| <https://ftp.swin.edu.au/voidlinux/>               | 🇦🇺 AU: Melbourne    |
-| <https://voidlinux.com.br/repo/>                   | 🇧🇷 BR: Ouro Preto   |
-| <https://mirror.puzzle.ch/voidlinux/>              | 🇨🇭 CH: Bern         |
-| <https://mirrors.bfsu.edu.cn/voidlinux/>           | 🇨🇳 CN: Beijing      |
-| <https://mirrors.cnnic.cn/voidlinux/>              | 🇨🇳 CN: Beijing      |
-| <https://mirrors.tuna.tsinghua.edu.cn/voidlinux/>  | 🇨🇳 CN: Beijing      |
-| <https://mirror.sjtu.edu.cn/voidlinux/>            | 🇨🇳 CN: Shanghai     |
-| <https://mirror.nju.edu.cn/voidlinux/>             | 🇨🇳 CN: Nanjing      |
-| <http://ftp.dk.xemacs.org/voidlinux/>              | 🇩🇰 DK: Copenhagen   |
-| <https://mirrors.dotsrc.org/voidlinux/>            | 🇩🇰 DK: Copenhagen   |
-| <https://quantum-mirror.hu/mirrors/pub/voidlinux/> | 🇭🇺 HU: Budapest     |
-| <https://voidlinux.mirror.garr.it/>                | 🇮🇹 IT: Bari         |
-| <https://mirror.ps.kz/voidlinux/>                  | 🇰🇿 KZ: Almaty       |
-| <https://void.cijber.net/>                         | 🇳🇱 NL: Amsterdam    |
-| <https://void.sakamoto.pl/>                        | 🇵🇱 PL: Warsaw       |
-| <http://ftp.debian.ru/mirrors/voidlinux/>          | 🇷🇺 RU: Moscow       |
-| <https://mirror.yandex.ru/mirrors/voidlinux/>      | 🇷🇺 RU: Moscow       |
-| <https://mirror.accum.se/mirror/voidlinux/>        | 🇸🇪 SE: Umea         |
-| <https://ftp.lysator.liu.se/pub/voidlinux/>        | 🇸🇪 SE: Linkoping    |
-| <https://void.webconverger.org/>                   | 🇸🇬 SG: Singapore    |
-| <https://mirror.vofr.net/voidlinux/>               | 🇺🇸 US: California   |
-| <https://mirror2.sandyriver.net/pub/voidlinux/>    | 🇺🇸 US: Kentucky     |
-| <https://mirror.clarkson.edu/voidlinux/>           | 🇺🇸 US: New York     |
+| <https://mirror.aarnet.edu.au/pub/voidlinux/>      | AU: Canberra     |
+| <https://ftp.swin.edu.au/voidlinux/>               | AU: Melbourne    |
+| <https://voidlinux.com.br/repo/>                   | BR: Ouro Preto   |
+| <https://mirror.puzzle.ch/voidlinux/>              | CH: Bern         |
+| <https://mirrors.bfsu.edu.cn/voidlinux/>           | CN: Beijing      |
+| <https://mirrors.cnnic.cn/voidlinux/>              | CN: Beijing      |
+| <https://mirrors.tuna.tsinghua.edu.cn/voidlinux/>  | CN: Beijing      |
+| <https://mirror.sjtu.edu.cn/voidlinux/>            | CN: Shanghai     |
+| <https://mirror.nju.edu.cn/voidlinux/>             | CN: Nanjing      |
+| <http://ftp.dk.xemacs.org/voidlinux/>              | DK: Copenhagen   |
+| <https://mirrors.dotsrc.org/voidlinux/>            | DK: Copenhagen   |
+| <https://quantum-mirror.hu/mirrors/pub/voidlinux/> | HU: Budapest     |
+| <https://voidlinux.mirror.garr.it/>                | IT: Bari         |
+| <https://mirror.ps.kz/voidlinux/>                  | KZ: Almaty       |
+| <https://void.cijber.net/>                         | NL: Amsterdam    |
+| <https://void.sakamoto.pl/>                        | PL: Warsaw       |
+| <http://ftp.debian.ru/mirrors/voidlinux/>          | RU: Moscow       |
+| <https://mirror.yandex.ru/mirrors/voidlinux/>      | RU: Moscow       |
+| <https://mirror.accum.se/mirror/voidlinux/>        | SE: Umea         |
+| <https://ftp.lysator.liu.se/pub/voidlinux/>        | SE: Linkoping    |
+| <https://void.webconverger.org/>                   | SG: Singapore    |
+| <https://mirror.vofr.net/voidlinux/>               | US: California   |
+| <https://mirror2.sandyriver.net/pub/voidlinux/>    | US: Kentucky     |
+| <https://mirror.clarkson.edu/voidlinux/>           | US: New York     |
 
 ## Tor Mirrors
 
