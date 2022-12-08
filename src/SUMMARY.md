@@ -69,6 +69,7 @@
       - [libvirt](./config/containers-and-vms/libvirt.md)
       - [LXC](./config/containers-and-vms/lxc.md)
    - [OpenPGP](./config/openpgp.md)
+   - [PHP](./config/php.md)
 - [XBPS Package Manager](./xbps/index.md)
    - [Advanced Usage](./xbps/advanced-usage.md)
    - [Repositories](./xbps/repositories/index.md)
