@@ -50,6 +50,7 @@ $ ip link show
 2: enp3s0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
         link/ether ff:ff:ff:ff:ff:ff brd ff:ff:ff:f
 # cp -R /etc/sv/dhcpcd-eth0 /etc/sv/dhcpcd-enp3s0
+# ln -nsf /run/runit/supervise.dhcpcd-enp3s0 /etc/sv/dhcpcd-enp3s0/supervise"
 # sed -i 's/eth0/enp3s0/' /etc/sv/dhcpcd-enp3s0/run
 # ln -s /etc/sv/dhcpcd-enp3s0 /var/service/
 ```
