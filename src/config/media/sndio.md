@@ -59,17 +59,3 @@ You can configure this behavior per user in `~/.alsoftrc` or system wide in
 [general]
 drivers = sndio
 ```
-
-### ALSA
-
-Applications that only have an ALSA backend can still use sndio with the
-`alsa-sndio` package. It contains an ALSA plugin that provides a pcm that
-connects to a `sndiod` server, and currently only supports playback. In order to
-enable the pcm, add the lines below to your [ALSA configuration
-file](./alsa.md#configuration):
-
-```
-pcm.!default {
-	type sndio
-}
-```
