@@ -70,7 +70,7 @@ up-to-date, follow one of the many guides available for mirroring with
 [the void-docs repository](https://github.com/void-linux/void-docs) to add your
 mirror to the appropriate mirror table on this page.
 
-A full mirror requires around 1.0 TB of storage. It is also possible to mirror
+A full mirror requires around 1.3 TB of storage. It is also possible to mirror
 only part of the repositories. Excluding debug packages is one way of decreasing
 the load on the Tier 1 mirrors, with low impact on users.
 
