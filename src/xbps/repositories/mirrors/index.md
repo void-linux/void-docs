@@ -13,12 +13,12 @@ packages available.
 By default XBPS will reach out to <https://repo-default.voidlinux.org> which may
 map to any tier 1 mirror.
 
-| Repository                                     | Location         |
-|------------------------------------------------|------------------|
-| <https://repo-fi.voidlinux.org/>               | EU: Finland      |
-| <https://mirrors.servercentral.com/voidlinux/> | USA: Chicago     |
-| <https://repo-us.voidlinux.org/>               | USA: Kansas City |
-| <https://repo-de.voidlinux.org/>               | EU: Germany      |
+| Repository                                     | Region        | Location                   |
+|------------------------------------------------|---------------|----------------------------|
+| <https://repo-fi.voidlinux.org/>               | Europe        | Finland                    |
+| <https://repo-de.voidlinux.org/>               | Europe        | Frankfurt, Germany         |
+| <https://mirrors.servercentral.com/voidlinux/> | North America | Chicago, United States     |
+| <https://repo-us.voidlinux.org/>               | North America | Kansas City, United States |
 
 ## Tier 2 mirrors
 
@@ -29,32 +29,33 @@ sub-repository.
 
 ### Globally-available mirrors
 
-| Repository                                         | Location          |
-|----------------------------------------------------|-------------------|
-| <https://mirror.ps.kz/voidlinux/>                  | Asia: Almaty, KZ  |
-| <https://mirrors.bfsu.edu.cn/voidlinux/>           | Asia: China       |
-| <https://mirrors.cnnic.cn/voidlinux/>              | Asia: China       |
-| <https://mirrors.tuna.tsinghua.edu.cn/voidlinux/>  | Asia: China       |
-| <https://mirror.sjtu.edu.cn/voidlinux/>            | Asia: China       |
-| <https://mirror.nju.edu.cn/voidlinux/>             | Asia: China       |
-| <https://void.webconverger.org/>                   | Asia: Singapore   |
-| <https://mirror.aarnet.edu.au/pub/voidlinux/>      | AU: Canberra      |
-| <https://ftp.swin.edu.au/voidlinux/>               | AU: Melbourne     |
-| <https://voidlinux.com.br/repo/>                   | BR: Ouro Preto    |
-| <https://void.cijber.net/>                         | EU: Amsterdam, NL |
-| <http://ftp.dk.xemacs.org/voidlinux/>              | EU: Denmark       |
-| <https://mirrors.dotsrc.org/voidlinux/>            | EU: Denmark       |
-| <https://quantum-mirror.hu/mirrors/pub/voidlinux/> | EU: Hungary       |
-| <https://voidlinux.mirror.garr.it/>                | EU: Italy         |
-| <http://ftp.debian.ru/mirrors/voidlinux/>          | EU: Russia        |
-| <https://mirror.yandex.ru/mirrors/voidlinux/>      | EU: Russia        |
-| <https://mirror.accum.se/mirror/voidlinux/>        | EU: Sweden        |
-| <https://ftp.lysator.liu.se/pub/voidlinux/>        | EU: Sweden        |
-| <https://void.sakamoto.pl/>                        | EU: Warsaw, PL    |
-| <https://mirror.vofr.net/voidlinux/>               | USA: California   |
-| <https://mirror2.sandyriver.net/pub/voidlinux/>    | USA: Kentucky     |
-| <https://mirror.clarkson.edu/voidlinux/>           | USA: New York     |
-| <https://mirror.puzzle.ch/voidlinux/>              | EU: Bern, CH      |
+| Repository                                         | Region        | Location                  |
+|----------------------------------------------------|---------------|---------------------------|
+| <https://mirror.ps.kz/voidlinux/>                  | Asia          | Almaty, Kazakhstan        |
+| <https://mirrors.bfsu.edu.cn/voidlinux/>           | Asia          | Beijing, China            |
+| <https://mirrors.cnnic.cn/voidlinux/>              | Asia          | Beijing, China            |
+| <https://mirrors.tuna.tsinghua.edu.cn/voidlinux/>  | Asia          | Beijing, China            |
+| <https://mirror.nju.edu.cn/voidlinux/>             | Asia          | China                     |
+| <https://mirror.sjtu.edu.cn/voidlinux/>            | Asia          | Shanghai, China           |
+| <https://void.webconverger.org/>                   | Asia          | Singapore                 |
+| <https://void.cijber.net/>                         | Europe        | Amsterdam, Netherlands    |
+| <https://mirror.puzzle.ch/voidlinux/>              | Europe        | Bern, Switzerland         |
+| <http://ftp.dk.xemacs.org/voidlinux/>              | Europe        | Denmark                   |
+| <https://mirrors.dotsrc.org/voidlinux/>            | Europe        | Denmark                   |
+| <https://quantum-mirror.hu/mirrors/pub/voidlinux/> | Europe        | Hungary                   |
+| <https://voidlinux.mirror.garr.it/>                | Europe        | Italy                     |
+| <http://ftp.debian.ru/mirrors/voidlinux/>          | Europe        | Russia                    |
+| <https://mirror.yandex.ru/mirrors/voidlinux/>      | Europe        | Russia                    |
+| <https://mirror.accum.se/mirror/voidlinux/>        | Europe        | Sweden                    |
+| <https://ftp.lysator.liu.se/pub/voidlinux/>        | Europe        | Sweden                    |
+| <https://void.sakamoto.pl/>                        | Europe        | Warsaw, Poland            |
+| <https://mirror.vofr.net/voidlinux/>               | North America | California, United States |
+| <https://mirror2.sandyriver.net/pub/voidlinux/>    | North America | Kentucky, United States   |
+| <https://mirror.clarkson.edu/voidlinux/>           | North America | New York, United States   |
+| <https://mirror.aarnet.edu.au/pub/voidlinux/>      | Oceania       | Canberra, Australia       |
+| <https://ftp.swin.edu.au/voidlinux/>               | Oceania       | Melbourne, Australia      |
+| <https://voidlinux.com.br/repo/>                   | South America | Ouro Preto, Brazil        |
+| <http://void.chililinux.com/voidlinux/>            | South America | Pimenta Bueno, Brazil     |
 
 ## Tor Mirrors
 
@@ -69,9 +70,9 @@ up-to-date, follow one of the many guides available for mirroring with
 [the void-docs repository](https://github.com/void-linux/void-docs) to add your
 mirror to the appropriate mirror table on this page.
 
-A full mirror requires around 1TB of storage. It is also possible to mirror only
-part of the repositories. Excluding debug packages is one way of decreasing the
-load on the Tier 1 mirrors, with low impact on users.
+A full mirror requires around 1.0 TB of storage. It is also possible to mirror
+only part of the repositories. Excluding debug packages is one way of decreasing
+the load on the Tier 1 mirrors, with low impact on users.
 
 Please keep in mind that we pay bandwidth for all data sent out from the Tier 1
 mirrors. You can respect this by only mirroring if your use case for your mirror
