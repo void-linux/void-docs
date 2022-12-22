@@ -15,13 +15,14 @@ ZFSBootMenu officially considers Void a first-class distribution. ZFSBootMenu
 supports native ZFS encryption, offers a convenient recovery environment that
 can be used to clone prior snapshots or perform advanced manipulation in a
 pre-boot environment, and will support booting from any pool that is importable
-by modern ZFS drivers. The [ZFSBootMenu
-wiki](https://github.com/zbm-dev/zfsbootmenu/wiki) offers, among other content,
-several step-by-step guides for installing a Void system from scratch. The [UEFI
-guide](https://github.com/zbm-dev/zfsbootmenu/wiki/Void-Linux---Single-disk-UEFI)
+by modern ZFS drivers. The ZFSBootMenu documentation offers, among other
+content, several [step-by-step
+guides](https://docs.zfsbootmenu.org/en/latest/guides/void-linux.html) for
+installing a Void system from scratch. The [UEFI
+guide](https://docs.zfsbootmenu.org/en/latest/guides/void-linux/single-disk-uefi.html)
 describes the procedure of bootstrapping a Void system for modern systems. For
 legacy BIOS systems, the [syslinux
-guide](https://github.com/zbm-dev/zfsbootmenu/wiki/Void-Linux----Single-disk-syslinux-MBR)
+guide](https://docs.zfsbootmenu.org/en/latest/guides/void-linux/single-disk-syslinux-mbr.html)
 provides comparable instructions.
 
 ## Traditional bootloaders
