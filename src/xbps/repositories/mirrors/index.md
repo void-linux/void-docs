@@ -13,12 +13,14 @@ packages available.
 By default XBPS will reach out to <https://repo-default.voidlinux.org> which may
 map to any tier 1 mirror.
 
-| Repository                                     | Location         |
-|------------------------------------------------|------------------|
-| <https://repo-fi.voidlinux.org/>               | EU: Finland      |
-| <https://mirrors.servercentral.com/voidlinux/> | USA: Chicago     |
-| <https://repo-us.voidlinux.org/>               | USA: Kansas City |
-| <https://repo-de.voidlinux.org/>               | EU: Germany      |
+<!-- Order alphabetically by: (1) Region, (2) Country, (3) City/State/Province/etc, (4) URL -->
+
+| Repository                                     | Region        | Location           |
+|------------------------------------------------|---------------|--------------------|
+| <https://repo-fi.voidlinux.org/>               | Europe        | Helsinki, Finland  |
+| <https://repo-de.voidlinux.org/>               | Europe        | Frankfurt, Germany |
+| <https://mirrors.servercentral.com/voidlinux/> | North America | Chicago, USA       |
+| <https://repo-us.voidlinux.org/>               | North America | Kansas City, USA   |
 
 ## Tier 2 mirrors
 
@@ -29,33 +31,35 @@ sub-repository.
 
 ### Globally-available mirrors
 
-| Repository                                         | Location          |
-|----------------------------------------------------|-------------------|
-| <https://mirror.ps.kz/voidlinux/>                  | Asia: Almaty, KZ  |
-| <https://mirrors.bfsu.edu.cn/voidlinux/>           | Asia: China       |
-| <https://mirrors.cnnic.cn/voidlinux/>              | Asia: China       |
-| <https://mirrors.tuna.tsinghua.edu.cn/voidlinux/>  | Asia: China       |
-| <https://mirror.sjtu.edu.cn/voidlinux/>            | Asia: China       |
-| <https://mirror.nju.edu.cn/voidlinux/>             | Asia: China       |
-| <https://void.webconverger.org/>                   | Asia: Singapore   |
-| <https://mirror.aarnet.edu.au/pub/voidlinux/>      | AU: Canberra      |
-| <https://ftp.swin.edu.au/voidlinux/>               | AU: Melbourne     |
-| <https://voidlinux.com.br/repo/>                   | BR: Ouro Preto    |
-| <http://void.chililinux.com/voidlinux/>            | BR: Pimenta Bueno |
-| <https://void.cijber.net/>                         | EU: Amsterdam, NL |
-| <http://ftp.dk.xemacs.org/voidlinux/>              | EU: Denmark       |
-| <https://mirrors.dotsrc.org/voidlinux/>            | EU: Denmark       |
-| <https://quantum-mirror.hu/mirrors/pub/voidlinux/> | EU: Hungary       |
-| <https://voidlinux.mirror.garr.it/>                | EU: Italy         |
-| <http://ftp.debian.ru/mirrors/voidlinux/>          | EU: Russia        |
-| <https://mirror.yandex.ru/mirrors/voidlinux/>      | EU: Russia        |
-| <https://mirror.accum.se/mirror/voidlinux/>        | EU: Sweden        |
-| <https://ftp.lysator.liu.se/pub/voidlinux/>        | EU: Sweden        |
-| <https://void.sakamoto.pl/>                        | EU: Warsaw, PL    |
-| <https://mirror.vofr.net/voidlinux/>               | USA: California   |
-| <https://mirror2.sandyriver.net/pub/voidlinux/>    | USA: Kentucky     |
-| <https://mirror.clarkson.edu/voidlinux/>           | USA: New York     |
-| <https://mirror.puzzle.ch/voidlinux/>              | EU: Bern, CH      |
+<!-- Order alphabetically by: (1) Region, (2) Country, (3) City/State/Province/etc, (4) URL -->
+
+| Repository                                         | Region        | Location               |
+|----------------------------------------------------|---------------|------------------------|
+| <https://mirror.ps.kz/voidlinux/>                  | Asia          | Almaty, Kazakhstan     |
+| <https://mirror.nju.edu.cn/voidlinux/>             | Asia          | China                  |
+| <https://mirrors.bfsu.edu.cn/voidlinux/>           | Asia          | Beijing, China         |
+| <https://mirrors.cnnic.cn/voidlinux/>              | Asia          | Beijing, China         |
+| <https://mirrors.tuna.tsinghua.edu.cn/voidlinux/>  | Asia          | Beijing, China         |
+| <https://mirror.sjtu.edu.cn/voidlinux/>            | Asia          | Shanghai, China        |
+| <https://void.webconverger.org/>                   | Asia          | Singapore              |
+| <http://ftp.dk.xemacs.org/voidlinux/>              | Europe        | Denmark                |
+| <https://mirrors.dotsrc.org/voidlinux/>            | Europe        | Denmark                |
+| <https://quantum-mirror.hu/mirrors/pub/voidlinux/> | Europe        | Hungary                |
+| <https://voidlinux.mirror.garr.it/>                | Europe        | Italy                  |
+| <https://void.cijber.net/>                         | Europe        | Amsterdam, Netherlands |
+| <https://void.sakamoto.pl/>                        | Europe        | Warsaw, Poland         |
+| <http://ftp.debian.ru/mirrors/voidlinux/>          | Europe        | Russia                 |
+| <https://mirror.yandex.ru/mirrors/voidlinux/>      | Europe        | Russia                 |
+| <https://ftp.lysator.liu.se/pub/voidlinux/>        | Europe        | Sweden                 |
+| <https://mirror.accum.se/mirror/voidlinux/>        | Europe        | Sweden                 |
+| <https://mirror.puzzle.ch/voidlinux/>              | Europe        | Bern, Switzerland      |
+| <https://mirror.vofr.net/voidlinux/>               | North America | California, USA        |
+| <https://mirror2.sandyriver.net/pub/voidlinux/>    | North America | Kentucky, USA          |
+| <https://mirror.clarkson.edu/voidlinux/>           | North America | New York, USA          |
+| <https://mirror.aarnet.edu.au/pub/voidlinux/>      | Oceania       | Canberra, Australia    |
+| <https://ftp.swin.edu.au/voidlinux/>               | Oceania       | Melbourne, Australia   |
+| <https://voidlinux.com.br/repo/>                   | South America | Ouro Preto, Brazil     |
+| <http://void.chililinux.com/voidlinux/>            | South America | Pimenta Bueno, Brazil  |
 
 ## Tor Mirrors
 
