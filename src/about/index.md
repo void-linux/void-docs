@@ -3,7 +3,7 @@
 欢迎来到 Void 手册! 请无比阅读"[关于本手册](./about-this-handbook.md)" 的部分，以了解如何有效地使用本手册。
 本手册的本地部分, 有几种格式,可以通过 `void-docs` 软件包[安装](../xbps/index.md)并使用 [void-docs(1)](https://man.voidlinux.org/void-docs.1) 访问。
 
-Void 是独立的, [滚动](https://en.wikipedia.org/wiki/Rolling_release) Linux 发行版,从头开始开发，不是哪个发行办的分叉。注重稳定性大于
+Void 是独立的, [滚动](https://en.wikipedia.org/wiki/Rolling_release) Linux 发行版,从头开始开发，不是哪个发行版的分支。注重稳定性大于
 [新的技术](https://en.wikipedia.org/wiki/Bleeding_edge_technology). 此外, 还有几个特点使 Void 成为独一无二的存在
  
 -  [XBPS](https://github.com/void-linux/xbps) 软件包管理, 它是速度极快, 由 Void 内部开发, XBPS 在更新软件包前会检查兼容性，确保更新不会破坏依赖。
