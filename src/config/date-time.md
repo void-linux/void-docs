@@ -64,7 +64,7 @@ works" with reasonable accuracy for a majority of use-cases.
 
 The `openntpd` package provides OpenNTPD and the `openntpd` service.
 
-For further information, visit [the OpenNTPD site](https://www.openntpd.org/).
+For further information, visit https://www.openntpd.org/.
 
 ### Chrony
 
