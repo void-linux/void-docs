@@ -1,6 +1,6 @@
-# About
+# 关于
 
-Welcome to the Void Handbook! Please be sure to read the "[About This
+欢迎来到 Void 手册! Please be sure to read the "[About This
 Handbook](./about-this-handbook.md)" section to learn how to use this
 documentation effectively. A local copy of this handbook, in several formats,
 can be [installed](../xbps/index.md) via the `void-docs` package and accessed
