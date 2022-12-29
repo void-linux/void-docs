@@ -9,7 +9,7 @@
       - [准备安装介质](./installation/live-images/prep.md)
       - [分区说明](./installation/live-images/partitions.md)
       - [安装指南](./installation/live-images/guide.md)
-   - [高级安装指南](./installation/guides/index.md)
+   - [进阶安装指南](./installation/guides/index.md)
       - [通过 chroot 安装
          (x86/x86_64/aarch64)](./installation/guides/chroot.md)
       - [全盘加密](./installation/guides/fde.md)
