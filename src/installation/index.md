@@ -20,7 +20,7 @@ Void 不支持 i386、i486 或 i586 架构。
 
 安装过程不需要连接网络，但还是非常建议在安装过程中连接网络以下载更新。ISO 镜像包含了安装系统所需要的数据，可以在无网络连接时安装。
 
-## 下载安装介质
+## 下载安装镜像
 
 最近的 live 镜像和 rootfs 压缩包可以从 https://repo-default.voidlinux.org/live/current/ 下载，也可以从[其他镜像](https://docs.voidlinux.org/xbps/repositories/mirrors/index.html)下载。以日期排列的历史发布可以在 https://repo-default.voidlinux.org/live/ 找到。
 
