@@ -24,4 +24,3 @@ Void 使用 [mandoc](https://mandoc.bsd.lv/) 工具组生成 man 手册页。“
 
 这表示你需要用实际的服务名称替换 `<service_name>`。
 
-~
