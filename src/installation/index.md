@@ -1,6 +1,6 @@
 # 安装
 
-本章包括安装 Void 的一般流程。对于特殊的情况，参考[《进阶安装》](./advanced-installation-guides/index.mdx)一节
+本章包括安装 Void 的一般流程。对于特殊的情况，参考[《进阶安装》](./advanced-installation-guides/index.md)一节
 
 ## 基本系统要求
 
@@ -16,7 +16,7 @@
 
 Void 不支持 i386、i486 或 i586 架构。
 
-在安装 musl Void 前，请阅读本手册的 [musl](./musl.mdx) 一章，以了解软件的不兼容信息。
+在安装 musl Void 前，请阅读本手册的 [musl](./musl.md) 一章，以了解软件的不兼容信息。
 
 安装过程不需要连接网络，但还是非常建议在安装过程中连接网络以下载更新。ISO 镜像包含了安装系统所需要的数据，可以在无网络连接时安装。
 
