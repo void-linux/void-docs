@@ -17,4 +17,4 @@ musl 对标准的兼容克制而有限，许多常用的平台特定的扩展都
 
 ### glibc chroot
 
-要求 glibc 的软件可以在 glibc [chroot](../config/containers-and-vms/chroot.md). 中运行。
+要求 glibc 的软件可以在 glibc [chroot](../config/containers-and-vms/chroot.md) 中运行。
