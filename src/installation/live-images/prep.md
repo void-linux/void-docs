@@ -1,9 +1,8 @@
-# Prepare Installation Media
+# 准备安装介质
 
-After [downloading a live image](../index.md#downloading-installation-media), it
-must be written to bootable media, such as a USB drive, SD card, or CD/DVD.
+[下载安装镜像](../index.mdx#下载安装镜像)后，必须将镜像写入可引导的媒介，比如 U 盘、SD 卡或者 CD/DVD。
 
-## Create a bootable USB drive or SD card on Linux
+## 在 Linux 上创建可引导 U 盘或 SD 卡
 
 ### Identify the Device
 
