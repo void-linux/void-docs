@@ -1,6 +1,6 @@
 # 安装
 
-本章包括安装 Void 的一般流程。对于特殊的情况，参考[《进阶安装》](./advanced-installation-guides/index.md)一节
+本章包括安装 Void 的一般流程。对于特殊的情况，参考[《进阶安装》](./installation/guides/index.md)一节
 
 ## 基本系统要求
 
