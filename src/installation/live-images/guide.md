@@ -1,43 +1,35 @@
-# Installation Guide
+# 安装指南
 
-Once you have [downloaded](../index.md#downloading-installation-media) a Void
-image to install and [prepared](./prep.md) your install media, you are ready to
-install Void Linux.
+[下载](../index.md#下载安装媒介)好 Void 镜像，[准备](./prep.md)好安装媒介后，就可以开始安装 Void Linux 了。
 
-Before you begin installation, you should determine whether your machine boots
-using BIOS or UEFI. This will affect how you plan partitions. See [Partitioning
-Notes](./partitions.md) for more detail.
+正式开始安装前，请确定你的机器是用 BIOS 还是 UEFI 引导开机，这会影响你的分区，详情参考[分区说明](./partitions.md)。
 
-The following features are not supported by the installer script:
+安装器脚本不支持这些功能：
 
 - [LVM](https://en.wikipedia.org/wiki/Logical_volume_management)
 - [LUKS](https://en.wikipedia.org/wiki/Linux_Unified_Key_Setup)
 - [ZFS](https://en.wikipedia.org/wiki/ZFS)
 
-## Booting
+## 引导
 
-Boot your machine from the install media you created. If you have enough RAM,
-there is an option on the boot screen to load the entire image into ram, which
-will take some time but speed up the rest of the install process.
+从你的安装媒介上引导启动，如果你的内存够大，可以在引导界面上选择把整个镜像加载到内存中，这会花费一些时间，但可以加速整个安装过程。
 
-Once the live image has booted, log in as `root` with password `voidlinux` and
-run:
+引导好 live 镜像后，以 `root` 登录，密码是 `voidlinux`，运行：
 
 ```
 # void-installer
 ```
 
-The following sections will detail each screen of the installer.
+下面的章节将详述安装器的每个界面：
 
-## Keyboard
+## 键盘
 
-Select the keymap for your keyboard; standard "qwerty" keyboards will generally
-use the "us" keymap.
+选择你键盘的映射；标准的“qwerty”键盘一般使用“us”映射。
 
-## Network
+## 网络
 
-Select your primary network interface. If you do not choose to use DHCP, you
-will be prompted to provide an IP address, gateway, and DNS servers.
+
+选择你的主网络接口，如果你选择不使用 DHCP，你会被要求输入 IP 地址、网关和 DNS 服务器。
 
 If you choose a wireless network interface, you will be prompted to provide the
 SSID, encryption type (`wpa` or `wep`), and password. If `void-installer` fails
@@ -45,70 +37,51 @@ to connect to your network, you may need to exit the installer and configure it
 manually using [wpa_supplicant](../../config/network/wpa_supplicant.md) and
 [dhcpcd](../../config/network/index.md#dhcpcd) before continuing.
 
-## Source
+如果您选择无线网络接口，系统将提示您提供 SSID、加密类型(`wpa` 要么 `wep`), 和密码。果 `void-installer` 失败要连接到您的网络，您可能需要退出安装程序并进行配置手动使用 [wpa_supplicant](../../config/network/wpa_supplicant.md) 和 [dhcpcd](../../config/network/index.md#dhcpcd) 在继续之前。 
 
-To install packages provided on the install image, select `Local`. Otherwise,
-you may select `Network` to download the latest packages from the Void
-repository.
+## 安装源
 
-> **Warning:** If you are installing the desktop environment from the xfce
-> image, you MUST choose `Local` for the source!
+要安装镜像上提供的软件包，选择 `Local`。或者你也可以选择 `Network`，来从 Void 仓库下载最新的软件包。
 
-## Hostname
+> **警告:** 如果你要从 xfce 像上安装桌面环境，你**必须**选择 `Local` 安装源。
 
-Select a hostname for your computer (that is all lowercase, with no spaces.)
+## 主机名
 
-## Locale
+选择设备的主机名（全部小写，没有空格）。
 
-Select your default locale settings. This option is for glibc only, as musl does
-not currently support locales.
+## 语言环境
 
-## Timezone
+设置你的地区，只有 glibc 有这个选项，因为 musl 目前不支持地区。
 
-Select your timezone based on standard timezone options.
+## 时区
 
-## Root password
+基于标准时区选择你的时区。
+## Root 密码
 
-Enter and confirm your `root` password for the new installation. The password
-will not be shown on screen.
+输入并确认你新系统的 `root` 密码，密码不会在屏幕上显示出来。
 
-## User account
+## 用户账户
 
-Choose a login (default `void`) and a descriptive name for that login. Then
-enter and confirm the password for the new user. You will then be prompted to
-verify the groups for this new user. They are added to the `wheel` group by
-default and will have `sudo` access. Default groups and their descriptions are
-listed [here](../../config/users-and-groups.html#default-groups).
+选择一个登录账户（默认是 `void`）并为你的账户起一个描述性的名字。然后输入并确认新用户的密码，接下来你会被要求确认新用户的用户组。默认会将新用户加入 `wheel` 用户组，并有 `sudo` 权限。默认用户组和说明请查看[这里](../../config/users-and-groups.html#default-groups)。
 
-Login names have some restrictions, as described in
+登录名有一些限制，在
 [useradd(8)](https://man.voidlinux.org/useradd.8#CAVEATS).
 
-## Bootloader
+## 引导程序
 
-Select the disk to install a bootloader on when Void is installed. You may
-select `none` to skip this step and install a bootloader manually after
-completing the installation process. If installing a bootloader, you will also
-be asked whether or not you want a graphical terminal for the GRUB menu.
+安装 Void 时，选择安装引导程序的硬盘，你可以选择 `none` 跳过这个步骤，然后在安装过程完成后手动安装引导程序。如果你选择自动安装引导程序，你会被要求选择是否要为 GRUB 菜单添加一个图形终端。
 
-## Partition
+## 分区
 
-Next, you will need to partition your disks. Void does not provide a preset
-partition scheme, so you will need to create your partitions manually with
-[cfdisk(8)](https://man.voidlinux.org/cfdisk.8). You will be prompted with a
-list of disks. Select the disk you want to partition and the installer will
-launch `cfdisk` for that disk. Remember you must write the partition table to
-the drive before you exit the partition editor.
+然后你需要为你的硬盘分区。Void 不提供预设分区方案，所以你需要用 [cfdisk(8)](https://man.voidlinux.org/cfdisk.8) 手动分区。界面会展示硬盘的列表，选择你想要分区的硬盘，安装器会启动 `cfdisk`。记得在推出分区编辑器前写入分区表。
 
-If using UEFI, it is recommended you select GPT for the partition table and
-create a partition (typically between 200MB-1GB) of type `EFI System`, which
-will be mounted at `/boot/efi`.
+如果使用 UEFI，建议你选择 GPT 作为分区表，创建一个类型为 `EFI System` 的分区（通常大小是 200MB-1GB），该分区会被挂载到 `/boot/efi`。
 
 If using BIOS, it is recommended you select MBR for the partition table.
 Advanced users may use GPT but will need to [create a special BIOS
 partition](./partitions.md#bios-system-notes) for GRUB to boot.
 
-See the [Partitioning Notes](./partitions.md) for more details about
-partitioning your disk.
+如果使用 BIOS，建议你选择 MBR 作为分区表。进阶用户可能会想要用 GPT 作为分区表，记得为 GRUB [创建一个特殊的 BIOS 分区](/partitions.md#bios系统笔记)
 
 ## Filesystems
 
