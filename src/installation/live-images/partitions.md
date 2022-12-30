@@ -1,66 +1,36 @@
-# Partitioning Notes
+# 分区说明
 
-Partitioning for a modern Linux distribution is generally very simple, however
-the introduction of GPT and UEFI booting does bring new complexity to the
-process. When creating your new partition table you will need a partition for
-the root filesystem, along with a swap partition and possibly another partition
-or two to facilitate booting, if required.
+在现代 Linux 发行版上的分区一般都很简单，但 GPT 和 UEFI 引导的引入让事情变得复杂了一点。为你的新系统创建分区表时，你需要一个根文件系统分区、一个交换分区，可能还需要额外一到两个分区用于引导。
 
-Note that if the disk has already been initialized, the top of the `cfdisk`
-screen will show the partition layout already present: `Label: dos` for the MBR
-scheme, `Label: gpt` for the GPT scheme. If you just want to erase the partition
-table before starting the installer, use `wipefs(8)`. Otherwise, you can run
-`cfdisk(8)` manually with the `-z` option to start with an uninitialized disk
-layout; `cfdisk` will prompt you for the label type before continuing to the
-main screen.
+注意，如果已经初始化过硬盘了，`cfdisk` 界面顶部会显示分区布局已经存在：MBR 会显示 `Label: dos`，GPT 会显示 `Label: gpt`。如果你想要在运行安装器前删除分区表，用 `wipefs(8)` 。或者你可以手动运行 `cfdisk(8)`，加上 `-z` 选项来使用未初始化的分区布局；`cfdisk` 会在进入主界面前询问你标签类型。
 
-The following sections will detail the options for partition configuration.
+下面的章节将详述分区配置选项：
 
-## BIOS system notes
+## BIOS 系统说明
 
-It is recommended that you create an MBR partition table if you are using a BIOS
-boot system. This will limit the number of partitions you create to four.
+如果你使用 BIOS 引导系统，建议创建 MBR 分区表。这会导致你最多只能创建 4 个（主）分区。
 
-It is possible to use a GPT partition table on a BIOS system, but GRUB will
-require a special partition to boot properly. This partition should be at the
-beginning of your disk and have a size of 1MB, with type `BIOS boot` (GUID
-`21686148-6449-6E6F-744E-656564454649`). Don't create any filesystem in it. GRUB
-should then install itself successfully.
+也可以在 BIOS 系统上用 GPT 分区表，但 GRUB 需要一个特殊的分区以引导系统，该分区必须是硬盘上第一个分区，大小 1MB，类型是 `BIOS boot`（GUID `21686148-6449-6E6F-744E-656564454649`）。不要在这个分区里创建任何文件系统，GRUB 会自行安装。
 
-## UEFI system notes
+## UEFI 系统说明
 
-UEFI users are recommended to create a GPT partition table. UEFI booting with
-GRUB also requires a special partition of the type `EFI System` with a `vfat`
-filesystem mounted at `/boot/efi`. A reasonable size for this partition could be
-between 200MB and 1GB. With this partition setup during the live image
-installation, the installer should successfully set up the bootloader
-automatically.
+UEFI 用户建议创建 GPT 分区表，GRUB 也需要一个特殊的分区在 UEFI 系统上引导。分区类型是 `EFI System`，文件系统是 `vfat`，并且挂载到 `/boot/efi`。分区大小可以在 200MB 到 1GB 之间。挂载这个分区后用 live 镜像安装，安装器会自动安装好引导程序。
 
-## Swap partitions
+## Swap 分区
 
-A swap partition is not strictly required, but recommended for systems with low
-RAM. If you want to use hibernation, you will need a swap partition. The
-following table has recommendations for swap partition size.
+严格说，交换分区不是必需的，但建议在小内存的系统上使用交换分区。如果你要使用休眠，交换分区是必需的。下面的表格是建议的交换分区大小。
 
-| System RAM | Recommended swap space | Swap space if using hibernation |
-|------------|------------------------|---------------------------------|
-| < 2GB      | 2x the amount of RAM   | 3x the amount of RAM            |
-| 2-8GB      | Equal to amount of RAM | 2x the amount of RAM            |
-| 8-64GB     | At least 4GB           | 1.5x the amount of RAM          |
-| 64GB       | At least 4GB           | Hibernation not recommended     |
+| 系统内存 | 建议交换分区大小 | 使用休眠时的交换分区大小 |
+| -------- | ---------------- | ------------------------ |
+| < 2GB    | 内存大小 2 的倍  | 内存大小的 3 倍          |
+| 2-8GB    | 等于内存大小     | 内存大小的 2 倍          |
+| 8-64GB   | 至少 4GB         | 内存大小的 1.5 倍        |
+| 64GB     | 至少 4GB         | 不建议使用休眠           |
 
-## Boot partition (optional)
+## 引导分区（可选）
 
-On most modern systems, a separate `/boot` partition is no longer necessary to
-boot properly. If you choose to use one, note that Void does not remove old
-kernels after updates by default and also that the kernel tends to increase in
-size with each new version, so plan accordingly (e.g. `/boot` with one Linux 5.x
-`x86_64` kernel and GRUB occupies about 60MB).
+在大部分现代系统上，独立的 `/boot` 分区不再必要。如果你想要用一个单独的引导分区，注意，Void 默认不会在更新内核后，自动删除旧的内核。另外，一般每个新版本内核都会比旧版本大一点，因此请灵活分配硬盘空间（比如，安装有 Linux 5.x `x86_64` 内核与 GRUB 的 `/boot` 需要大约 60MB）。
 
-## Other partitions
+## 其他分区
 
-It is fine to install your system with only a large root partition, but you may
-create other partitions if you want. One helpful addition could be a separate
-partition for your `/home` directory. This way if you need to reinstall Void (or
-another distribution) you can save the data and configuration files in your home
-directory for your new system.
+完全可以只用一个大根分区安装系统，但只要你愿意，你也可以创建其他分区。一个例子是为 `/home` 目录分出额外的分区，这样你在重装 Void（或其他发行版）时，你可以保留你用户目录中的数据和配置文件
