@@ -1,16 +1,9 @@
-# Package Documentation
+# 软件包文档
 
-The most common media for documentation in Void Linux are [manual
-pages](./man.md).
+Void Linux 中最常见的文档形式是 [man 手册页](./man.md)。
 
-Many packages contain documentation in other formats, like HTML. This
-documentation can usually be found in a `/usr/share/doc/<package>` directory.
+许多软件包提供其他格式的文档，比如 HTML。这些文档一般可以在 `/usr/share/doc/<package>` 目录下找到。
 
-More extensive documentation may be split into separate `*-doc` packages, such
-as `julia-doc`. This is often the case for programming languages, databases and
-big software libraries.
+大型的文档可能会被分割为单独的 `*-doc` 软件包，比如 `julia-doc`，这在编程语言、数据和大型的软件库中很常见。
 
-In addition to documentation provided by upstream projects, packages may also
-contain description of initial setup or usage specific to Void, provided by
-distribution contributors. It will be located in
-`/usr/share/doc/<package>/README.voidlinux`.
+除了上游提供的文档，软件包还可能携带由打包者贡献的、针对 Void 的文档，这些文档会被放在 `/usr/share/doc/<package>/README.voidlinux`。
