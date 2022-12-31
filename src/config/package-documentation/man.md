@@ -1,43 +1,34 @@
-# Manual Pages
+# 手册页
 
-Many Void packages come with manual ('man') pages. The default installation
-includes the [mandoc](https://mandoc.bsd.lv/) manpage toolset, via the `mdocml`
-package.
+许多 Void 软件包都提供了手册（'man'）页。`mdocml` 软件包包含了 [mandoc](https://mandoc.bsd.lv/) Man 手册页工具组。
 
-The [man(1)](https://man.voidlinux.org/man.1) command can be used to show man
-pages:
+用 [man(1)](https://man.voidlinux.org/man.1)  命令显示手册页：
 
 ```
 $ man chroot
 ```
+手册页都隶属于下面这些*章节*：
 
-Every man page belongs to a particular *section*:
+1. 用户命令（程序）
+2. 系统调用
+3. 库调用
+4. 特殊文件（设备）
+5. 文件格式与配置文件
+6. 游戏
+7. 概览、惯例以及杂项
+8. 系统管理命令
 
-- 1: User commands (Programs)
-- 2: System calls
-- 3: Library calls
-- 4: Special files (devices)
-- 5: File formats and configuration files
-- 6: Games
-- 7: Overview, conventions, and miscellaneous
-- 8: System management commands
+详情参见 [man-pages(7)](https://man.voidlinux.org/man-pages.7)。
 
-Refer to [man-pages(7)](https://man.voidlinux.org/man-pages.7) for details.
-
-There are some man pages which have the same name, but are used in different
-contexts, and are thus in a different section. You can specify which one to use
-by including the section number in the call to `man`:
+有些内容不同的手册页拥有相同的名字，它们属于不同的章节。你可以在执行 `man` 时指定章节：
 
 ```
 $ man 1 printf
 ```
 
-`man` can be configured via [man.conf(5)](https://man.voidlinux.org/man.conf.5).
+用 [man.conf(5)](https://man.voidlinux.org/man.conf.5) 配置 `man`。
 
-The `mandoc` toolset contains [apropos(1)](https://man.voidlinux.org/apropos.1),
-which can be used to search for manual pages. `apropos` uses a database that can
-be generated and updated with the
-[makewhatis(8)](https://man.voidlinux.org/makewhatis.8) command:
+`mandoc` 工具组包含了用来搜索手册页的 [apropos(1)](https://man.voidlinux.org/apropos.1)。可以用 [makewhatis(8)](https://man.voidlinux.org/makewhatis.8) 命令来生成和更新 `apropos` 的数据库：
 
 ```
 # makewhatis
@@ -48,30 +39,21 @@ xbps-uunshare(1) - XBPS utility to chroot and bind mount with Linux user namespa
 chroot(2) - change root directory
 ```
 
-The `mdocml` package provides a cron job to update the database daily,
-`/etc/cron.daily/makewhatis`. You will need to install and enable a [cron
-daemon](../cron.md) for this functionality to be activated.
+`mdocml` 软件包提供了每天更新 `apropos` 数据库的 cron 任务：`/etc/cron.daily/makewhatis`。要使用这个功能，你需要安装并启用 [cron 守护进程](../cron.md) 。
 
-Development and POSIX manuals are not installed by default, but are available
-via the `man-pages-devel` and `man-pages-posix` packages.
+Void 默认不会安装开发与 POSIX 手册，但可以通过 `man-pages-devel` 与 `man-pages-posix` 软件包获得这些手册。
 
-## Localized manual pages
+## 本地化手册页
 
-It is also possible to use localized man pages from packages which provide their
-own as well as those provided by the `manpages-*` packages. However, this can
-require some configuration.
+`manpages-*` 软件包们提供了本地化的 Man 手册页，但使用这些 Man 手册页可能需要一些额外的配置。
 
-### With mdocml
+### 用 mdocml
 
-If `mdocml` is being used and the settings should be applied for all users, it
-is necessary to add the relevant paths to
-[man.conf(5)](https://man.voidlinux.org/man.conf.5). For example, German
-speakers would add these two lines to their configuration file:
+如果使用了 `mdocml`，且设置应该应用于所有用户，那么必须将相关的路径添加到 [man.conf(5)](https://man.voidlinux.org/man.conf.5)。例如，德语使用者会把这两行加入配置文件：
 
 ```
 /usr/share/man/de
 /usr/share/man/de.UTF-8
 ```
 
-Alternatively, each user can export the `MANPATH` variable in their environment,
-as explained in [man(1)](https://man.voidlinux.org/man.1).
+另外，各用户可以导出 `MANPATH` 变量到自己的环境中，详见 [man(1)](https://man.voidlinux.org/man.1)。
