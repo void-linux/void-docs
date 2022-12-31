@@ -10,12 +10,6 @@ Void 提供两种安装方法：**XBPS 方法**在宿主系统上运行[XBPS 包
 
 ## 准备文件系统
 
-[Partition your disks](../live-images/partitions.md) and format them using
-[mke2fs(8)](https://man.voidlinux.org/mke2fs.8),
-[mkfs.xfs(8)](https://man.voidlinux.org/mkfs.xfs.8),
-[mkfs.btrfs(8)](https://man.voidlinux.org/mkfs.btrfs.8) or whatever tools are
-necessary for your filesystem(s) of choice.
-
 给[硬盘分好区](../live-images/partitions.md)，并用 [mke2fs(8)](https://man.voidlinux.org/mke2fs.8)、[mkfs.xfs(8)](https://man.voidlinux.org/mkfs.xfs.8)、[mkfs.btrfs(8)](https://man.voidlinux.org/mkfs.btrfs.8) 或其他文件系统必须的工具将分区格式化。
 
 也可以用 [mkfs.vfat(8)](https://man.voidlinux.org/mkfs.vfat.8) 创建 FAT32 分区。但是由于 FAT 文件系统的种种缺陷，只应该在没有其他选择时创建 FAT 分区（比如 EFI 系统分区）。
@@ -84,27 +78,23 @@ Live 镜像上可以使用 [cfdisk(8)](https://man.voidlinux.org/cfdisk.8) 和 [
 # XBPS_ARCH=$ARCH xbps-install -S -r /mnt -R "$REPO" base-system
 ```
 
-### The ROOTFS Method
+### ROOTFS 方法
 
-[Download a ROOTFS
-tarball](https://voidlinux.org/download/#download-installable-base-live-images-and-rootfs-tarballs)
-matching your architecture.
+根据你要安装的架构，[下载 ROOTFS 压缩包](https://voidlinux.org/download/#download-installable-base-live-images-and-rootfs-tarballs)。
 
-Unpack the tarball into the newly configured filesystems:
+解压压缩包到新设置的文件系统：
 
 ```
 # tar xvf void-<...>-ROOTFS.tar.xz -C /mnt
 ```
 
-## Configuration
+## 配置
 
-With the exception of the section "Install base-system (ROOTFS method only)",
-the remainder of this guide is common to both the XBPS and ROOTFS installation
-methods.
+除了《安装基础系统（仅限 ROOTFS 方法）》一节，指南剩余的部分都适用于 XBPS 和 ROOTFS 两种方法。
 
-### Entering the Chroot
+### 进入 Chroot
 
-Mount the pseudo-filesystems needed for a chroot:
+挂载 chroot 需要的伪文件系统：
 
 ```
 # mount --rbind /sys /mnt/sys && mount --make-rslave /mnt/sys
@@ -112,24 +102,21 @@ Mount the pseudo-filesystems needed for a chroot:
 # mount --rbind /proc /mnt/proc && mount --make-rslave /mnt/proc
 ```
 
-Copy the DNS configuration into the new root so that XBPS can still download new
-packages inside the chroot:
+为了使 XBPS 在 chroot 中也能下载软件包，拷贝 DNS 配置到新根目录中：
 
 ```
 # cp /etc/resolv.conf /mnt/etc/
 ```
 
-Chroot into the new installation:
+Chroot 到新系统中：
 
 ```
 # PS1='(chroot) # ' chroot /mnt/ /bin/bash
 ```
 
-### Install base-system (ROOTFS method only)
+### 安装基础系统（仅限 ROOTFS 方法）
 
-ROOTFS images generally contain out of date software, due to being a snapshot of
-the time when they were built, and do not come with a complete `base-system`.
-Update the package manager and install `base-system`:
+因为 ROOTFS 镜像是其构建时的快照，其中的软件包一般都有所滞后，而且不包含完整的 `base-system`，需要更新包管理器并安装 `base-system`：
 
 ```
 # xbps-install -Su xbps
@@ -138,90 +125,72 @@ Update the package manager and install `base-system`:
 # xbps-remove base-voidstrap
 ```
 
-### Installation Configuration
+### 安装配置
 
-Specify the hostname in `/etc/hostname`. Go through the options in
-[`/etc/rc.conf`](../../config/rc-files.md#rcconf). If installing a glibc
-distribution, edit `/etc/default/libc-locales`, uncommenting desired
 [locales](../../config/locales.md).
+在 `/etc/hostname` 中指定 hostname。检查一下 [`/etc/rc.conf`]((../../config/rc-files.md#rcconf)) 中的选项。如果安装 glibc 版本，编辑 `/etc/default/libc-locales`，按需取消掉 [locale](../../config/locales.md) 前的注释
 
-[nvi(1)](https://man.voidlinux.org/nvi.1) is available in the chroot, but you
-may wish to install your preferred text editor at this time.
+[nvi(1)](https://man.voidlinux.org/nvi.1) 在 chroot 中可用，但你此时可能希望安装您喜欢的文本编辑器
 
-For glibc builds, generate locale files with:
+对于 glibc 构建，使用以下命令生成语言环境文件： 
 
 ```
 (chroot) # xbps-reconfigure -f glibc-locales
 ```
 
-### Set a Root Password
+### 设置 Root 密码
 
-[Configure at least one super user account](../../config/users-and-groups.md).
-Other user accounts can be configured later, but there should either be a root
-password, or a new user account with [sudo(8)](https://man.voidlinux.org/sudo.8)
-privileges.
+[设置至少一个超级用户](../../config/users-and-groups.md))。其他用户可以稍后配置，但必须设置一个 root 密码，或是设置一个有 [sudo(8)](https://man.voidlinux.org/sudo.8) 权限的新账户。
 
-To set a root password, run:
+要设置 root 密码，请运行： 
 
 ```
 (chroot) # passwd
 ```
 
-### Configure fstab
+### 配置 fstab
 
-The [fstab(5)](https://man.voidlinux.org/fstab.5) file can be automatically
-generated from currently mounted filesystems by copying the file `/proc/mounts`:
+可以通过拷贝 `/proc/mounts` 文件，从当前已挂载的文件系统，自动生成 [fstab(5)](https://man.voidlinux.org/fstab.5) 文件：
 
 ```
 (chroot) # cp /proc/mounts /etc/fstab
 ```
 
-Remove lines in `/etc/fstab` that refer to `proc`, `sys`, `devtmpfs` and `pts`.
+删掉 `/etc/fstab` 中代表 `proc`、`sys`、`devtmpfs`、`pts` 的行。.
 
-Replace references to `/dev/sdXX`, `/dev/nvmeXnYpZ`, etc. with their respective
-UUID, which can be found by running
-[blkid(8)](https://man.voidlinux.org/blkid.8). Referring to filesystems by their
-UUID guarantees they will be found even if they are assigned a different name at
-a later time. In some situations, such as booting from USB, this is absolutely
-essential. In other situations, disks will always have the same name unless
-drives are physically added or removed. Therefore, this step may not be strictly
-necessary, but is almost always recommended.
+分别用对应的 UUID 代替 `fstab` 中的 `/dev/sdXX`、`/dev/nvmeXnYpZ` 等文件系统名称。UUID 可以通过运行 [blkid(8)](https://man.voidlinux.org/blkid.8) 找到。用 UUID 定位文件系统，可以确保系统能找到文件系统；有时，同一个文件系统可能会被赋予不同的名称，比如从 USB 引导启动时，此时就很有必要用 UUID 定位文件系统。有时，除非物理增加或移除硬盘，硬盘总能被被赋予相同的名字，此时就没有必要使用 UUID 定位文件系统。但我们建议在 `fstab` 中，始终用 UUID 代替文件系统的名称定位文件系统。
 
-Change the last zero of the entry for `/` to `1`, and the last zero of every
-other line to `2`. These values configure the behaviour of
-[fsck(8)](https://man.voidlinux.org/fsck.8).
+配置 [fsck(8)](https://man.voidlinux.org/fsck.8) 的行为，把 `/` 一行末尾的 0 改为 `1`。把其他行末尾的 0 改为 `2`。
 
-For example, the partition scheme used throughout previous examples yields the
-following `fstab`:
+比如，之前例子中的分区方案会产生这样的 `fstab`：
 
 ```
 /dev/sda1       /boot/efi   vfat    rw,relatime,[...]       0 0
 /dev/sda2       /           ext4    rw,relatime             0 0
 ```
 
-The information from `blkid` results in the following `/etc/fstab`:
+用 `blkid` 输出的信息，修改 `/etc/fstab` 为：
 
 ```
 UUID=6914[...]  /boot/efi   vfat    rw,relatime,[...]       0 2
 UUID=dc1b[...]  /           ext4    rw,relatime             0 1
 ```
 
-Note: The output of `/proc/mounts` will have a single space between each field.
-The columns are aligned here for readability.
+注意，`/proc/mounts` 的输出结果每列之间只有一个空格。为了方便阅读，示例中的文本经过对齐处理。
 
-Add an entry to mount `/tmp` in RAM:
+增加一行，在内存中挂载 `/tmp`
 
 ```
 tmpfs           /tmp        tmpfs   defaults,nosuid,nodev   0 0
 ```
 
-If using swap space, add an entry for any swap partitions:
+如果要使用交换空间，增加 swap 分区：
 
 ```
 UUID=1cb4[...]  swap        swap    rw,noatime,discard      0 0
 ```
 
-## Installing GRUB
+## 安装 GRUB
 
 Use
 [grub-install](https://www.gnu.org/software/grub/manual/grub/html_node/Installing-GRUB-using-grub_002dinstall.html)
