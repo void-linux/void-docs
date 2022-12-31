@@ -1,4 +1,3 @@
-# Configuration
+# 配置
 
-This section and its subsections provide information about configuring your Void
-system.
+本章及其子章节提供有关配置 Void 系统的信息。
