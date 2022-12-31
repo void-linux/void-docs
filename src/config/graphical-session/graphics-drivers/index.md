@@ -1,9 +1,8 @@
-# Graphics Drivers
+# 显卡驱动
 
-This section covers basic graphics setup depending on the hardware configuration
-of your system.
+本节涵盖了基本的图形设置，取决于你系统的硬件配置。
 
-## Section Contents
+## 章节内容
 
 - [AMD or ATI](./amd.md)
 - [Intel](./intel.md)
