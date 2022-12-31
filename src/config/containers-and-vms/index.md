@@ -1,9 +1,8 @@
-# Containers and Virtual Machines
+# 容器和虚拟化
 
-This section describes how to set up some of the container and virtual machine
-software available on Void.
+本节描述了如何设置 Void 上可用的一些容器和虚拟机软件。
 
-## Section Contents
+## 章节部分
 
 - [Chroots and Containers](./chroot.md)
 - [libvirt](./libvirt.md)
