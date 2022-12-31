@@ -1,28 +1,14 @@
-# Installation via chroot (x86/x86_64/aarch64)
+# 通过 chroot 安装（x86 / x86_64 / aarch64）
 
-This guide details the process of manually installing Void via a chroot on an
-x86, x86_64 or aarch64 architecture. It is assumed that you have a familiarity
-with Linux, but not necessarily with installing a Linux system via a chroot.
-This guide can be used to create a "typical" setup, using a single partition on
-a single SATA/IDE/USB disk. Each step may be modified to create less typical
-setups, such as [full disk encryption](./fde.md).
+本指南详述了通过 chroot 在 x86、x86_64 或 aarch64 架构的平台上安装 Void 的过程。您不必很了解用 chroot 安装 Linux 的过程，但您应该对 Linux 操作系统足够熟悉。本指南可以用来指导一个“典型”的 Void 安装过程，使用一块 SATA / IDE / USB 磁盘上的一个分区。每个步骤都可以按需调整，比如开启[全盘加密](./fde.md)，使得安装过程不那么“典型”。
 
-Void provides two options for bootstrapping the new installation. The **XBPS
-method** uses the [XBPS Package Manager](../../xbps/index.md) running on a host
-operating system to install the base system. The **ROOTFS method** installs the
-base system by unpacking a ROOTFS tarball.
+Void 提供两种安装方法：**XBPS 方法**在宿主系统上运行[XBPS 包管理器](../../xbps/index.md)，安装基础系统；**ROOTFS 方法**通过解压 ROOTFS 压缩包来安装基础系统。
 
-The **XBPS method** requires that the host operating system have XBPS installed.
-This may be an existing installation of Void, an official [live
-image](../live-images/prep.md), or any Linux installation running a [statically
-linked XBPS](../../xbps/troubleshooting/static.md).
+**XBPS 方法**要求宿主系统上安装了 XBPS。宿主系统可以是已经安装好的 Void、一个官方 [live 镜像](../live-images/prep.md)或是安装了[静态连接的 XBPS](../../xbps/troubleshooting/static.md)的任何 Linux。
 
-The **ROOTFS method** requires only a host operating system that can enter a
-Linux chroot and that has both [tar(1)](https://man.voidlinux.org/tar.1) and
-[xz(1)](https://man.voidlinux.org/xz.1) installed. This method may be preferable
-if you wish to install Void using a different Linux distribution.
+**ROOTFS 方法**只要求宿主系统可以进入 Linux chroot，且安装了 [tar(1)](https://man.voidlinux.org/tar.1) 和 [xz(1)](https://man.voidlinux.org/xz.1)。如果你要从其他发行版上安装 Void，推荐这个方法。
 
-## Prepare Filesystems
+## 准备文件系统
 
 [Partition your disks](../live-images/partitions.md) and format them using
 [mke2fs(8)](https://man.voidlinux.org/mke2fs.8),
@@ -30,41 +16,30 @@ if you wish to install Void using a different Linux distribution.
 [mkfs.btrfs(8)](https://man.voidlinux.org/mkfs.btrfs.8) or whatever tools are
 necessary for your filesystem(s) of choice.
 
-[mkfs.vfat(8)](https://man.voidlinux.org/mkfs.vfat.8) is also available to
-create FAT32 partitions. However, due to restrictions associated with FAT
-filesystems, it should only be used when no other filesystem is suitable (such
-as for the EFI System Partition).
+给[硬盘分好区](../live-images/partitions.md)，并用 [mke2fs(8)](https://man.voidlinux.org/mke2fs.8)、[mkfs.xfs(8)](https://man.voidlinux.org/mkfs.xfs.8)、[mkfs.btrfs(8)](https://man.voidlinux.org/mkfs.btrfs.8) 或其他文件系统必须的工具将分区格式化。
 
-[cfdisk(8)](https://man.voidlinux.org/cfdisk.8) and
-[fdisk(8)](https://man.voidlinux.org/fdisk.8) are available on the live images
-for partitioning, but you may wish to use
-[gdisk(8)](https://man.voidlinux.org/gdisk.8) (from the package `gptfdisk`) or
-[parted(8)](https://man.voidlinux.org/parted.8) instead.
+也可以用 [mkfs.vfat(8)](https://man.voidlinux.org/mkfs.vfat.8) 创建 FAT32 分区。但是由于 FAT 文件系统的种种缺陷，只应该在没有其他选择时创建 FAT 分区（比如 EFI 系统分区）。
 
-For a UEFI booting system, make sure to create an EFI System Partition (ESP).
-The ESP should have the partition type "EFI System" (code `EF00`) and be
-formatted as FAT32 using [mkfs.vfat(8)](https://man.voidlinux.org/mkfs.vfat.8).
+Live 镜像上可以使用 [cfdisk(8)](https://man.voidlinux.org/cfdisk.8) 和 [fdisk(8)](https://man.voidlinux.org/fdisk.8) 分区，但你可能会想用 [gdisk(8)](https://man.voidlinux.org/gdisk.8)（在软件包 `gptfdisk` 中）或 [parted(8)](https://man.voidlinux.org/parted.8)。
 
-If you're unsure what partitions to create, create a 1GB partition of type "EFI
-System" (code `EF00`), then create a second partition of type "Linux Filesystem"
-(code `8300`) using the remainder of the drive.
+对于 UEFI 引导系统，一定要创建 EFI 系统分区（ESP）。ESP 的分区类型应该是“EFI System”（代号 `EF00`），用 [mkfs.vfat(8)](https://man.voidlinux.org/mkfs.vfat.8) 格式化为 FAT32 文件系统。
 
-Format these partitions as FAT32 and ext4, respectively:
+如果你不确定要创建什么分区，创建一个 1GB 的 “EFI System”（代号 `EF00`）分区，再用剩余的空间创建一个“Linux Filesystem”（代号 `8300`）分区。
+
+分别把这两个分区格式化为 FAT32 和 ext4：
 
 ```
 # mkfs.vfat /dev/sda1
 # mkfs.ext4 /dev/sda2
 ```
 
-### Create a New Root and Mount Filesystems
+###  创建新根分区并挂载文件系统
 
-This guide will assume the new root filesystem is mounted on `/mnt`. You may
-wish to mount it elsewhere.
+本指南假设新的根文件系统被挂载到 `/mnt`。你可能会想要将它挂载到其他地方。
 
-If using UEFI, mount the EFI System Partition as `/mnt/boot/efi`.
+如果使用 UEFI，将 EFI 系统分区挂载为 `/mnt/boot/efi`。
 
-For example, if `/dev/sda2` is to be mounted as `/` and `dev/sda1` is the EFI
-System Partition:
+例如，如果将 `/dev/sda2` 挂载为 `/`，`/dev/sda1` 是 EFI 系统分区：
 
 ```
 # mount /dev/sda2 /mnt/
@@ -72,50 +47,38 @@ System Partition:
 # mount /dev/sda1 /mnt/boot/efi/
 ```
 
-Initialize swap space, if desired, using
-[mkswap(8)](https://man.voidlinux.org/mkswap.8).
+用 [mkswap(8)](https://man.voidlinux.org/mkswap.8) 按需初始化交换空间。
 
-## Base Installation
+## 基础系统安装
 
-Follow only one of the two following subsections.
+请选择两种方法之一，跟随对应小节的指导。
 
-If on aarch64, it will be necessary to install a kernel package in addition to
-`base-system`. For example, `linux` is a kernel package that points to the
-latest stable kernel packaged by Void.
+如果在 aarch64 平台上安装，除了 `base-system`，还必须安装一个内核软件包，比如 `linux` 是 Void 提供的最新稳定版本的内核软件包。
 
-### The XBPS Method
+### XBPS 方法
 
-Select a [mirror](../../xbps/repositories/mirrors/index.md) and **use the**
-[**appropriate URL**](../../xbps/repositories/index.md#the-main-repository) for
-the type of system you wish to install. For simplicity, save this URL to a shell
-variable. A glibc installation, for example, would use:
+选择一个[镜像](../../xbps/repositories/mirrors/index.md)，根据你想要安装的系统类型,**选择[合适的 URL](../../xbps/repositories/index.md#the-main-repository)**。方便起见可以将这个 URL 保存为一个 shell 变量。比如，如果是安装一个 glibc 系统：
 
 ```
 # REPO=https://repo-default.voidlinux.org/current
 ```
 
-XBPS also needs to know what architecture is being installed. Available options
-are `x86_64`, `x86_64-musl`, `i686` for PC architecture computers and `aarch64`.
-For example:
+同时还需要告诉 XBPS 要安装的系统的架构。可用的选项有 PC 上的 `x86_64`、`x86_64-musl`、`i686` 或者 `aarch64`。例如：
 
 ```
 # ARCH=x86_64
 ```
+这个架构必须与你当前的操作系统兼容，但不需要完全一致。如果你的宿主是 x86_64 操作系统，上述三种架构（无论 musl 还是 glibc）都可以安装，但 i686 宿主只能安装 i686 版本。
 
-This architecture must be compatible with your current operating system, but
-does not need to be the same. If your host is running an x86_64 operating
-system, any of the three architectures can be installed (whether the host is
-musl or glibc), but an i686 host can only install i686 distributions.
-
-Copy the RSA keys from the installation medium to the target root directory:
+将 RSA 密钥从安装介质复制到要安装系统的目录。
 
 ```
 # mkdir -p /mnt/var/db/xbps/keys
 # cp /var/db/xbps/keys/* /mnt/var/db/xbps/keys/
 ```
 
-Use [xbps-install(1)](https://man.voidlinux.org/xbps-install.1) to bootstrap the
-installation by installing the `base-system` metapackage:
+
+用 [xbps-install](https://man.voidlinux.org/xbps-install.1) 安装 `base-system` 元软件包
 
 ```
 # XBPS_ARCH=$ARCH xbps-install -S -r /mnt -R "$REPO" base-system
