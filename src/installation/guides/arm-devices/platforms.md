@@ -1,6 +1,6 @@
-# Supported Platforms
+# 所支持的平台
 
-## Raspberry Pi
+## 树莓派
 
 The `rpi-kernel` packages for all Raspberry Pi variants are built from the
 Raspberry Pi Foundation's kernel tree, which should enable all special
