@@ -77,38 +77,25 @@ manually using [wpa_supplicant](../../config/network/wpa_supplicant.md) and
 
 如果使用 UEFI，建议你选择 GPT 作为分区表，创建一个类型为 `EFI System` 的分区（通常大小是 200MB-1GB），该分区会被挂载到 `/boot/efi`。
 
-If using BIOS, it is recommended you select MBR for the partition table.
-Advanced users may use GPT but will need to [create a special BIOS
-partition](./partitions.md#bios-system-notes) for GRUB to boot.
-
 如果使用 BIOS，建议你选择 MBR 作为分区表。进阶用户可能会想要用 GPT 作为分区表，记得为 GRUB [创建一个特殊的 BIOS 分区](/partitions.md#bios系统笔记)
 
-## Filesystems
+## 文件系统
 
-Create the filesystems for each partition you have created. For each partition
-you will be prompted to choose a filesystem type, whether you want to create a
-new filesystem on the partition, and a mount point, if applicable. When you are
-finished, select `Done` to return to the main menu.
+为每个你创建的分区创建文件系统。你会被要求为每个分区选择文件系统、是否创建文件系统和可用的挂载点。完成后选择 `Done`，返回主菜单。
 
-If using UEFI, create a `vfat` filesystem and mount it at `/boot/efi`.
+如果使用 UEFI，创建一个 `vfat` 文件系统，挂载到 `/boot/efi`。
 
-## Review settings
+## 检查设定
 
-It is a good idea to review your settings before proceeding. Use the right arrow
-key to select the settings button and hit `<enter>`. All your selections will be
-shown for review.
+在继续之前，最好重审一下你的设定。使用右方向键选择设置按钮，按下 `<enter>`。程序会展示你的所有选择，以供检查。
 
-## Install
+## 安装
 
-Selecting `Install` from the menu will start the installer. The installer will
-create all the filesystems selected, and install the base system packages. It
-will then generate an initramfs and install a GRUB2 bootloader to the bootable
-partition.
+在菜单上选择 `Install`，开始安装。安装器会创建所有选择的文件系统、安装基础系统软件包、生成 initramfs 并安装 GRUB2 引导器到引导分区。
 
-These steps will all run automatically, and after the installation is completed
-successfully, you can reboot into your new Void Linux install!
+这些步骤会自动进行，安装结束后你就可以重启进入新 Void Linux 了！
 
-## Post installation
+## 安装之后
 
-After booting into your Void installation for the first time, [perform a system
-update](../../xbps/index.md#updating).
+重启到新 Void 后，[进行系统更新](../../xbps/index.md#updating)。
+
