@@ -192,71 +192,50 @@ UUID=1cb4[...]  swap        swap    rw,noatime,discard      0 0
 
 ## 安装 GRUB
 
-Use
-[grub-install](https://www.gnu.org/software/grub/manual/grub/html_node/Installing-GRUB-using-grub_002dinstall.html)
-to install GRUB onto your boot disk.
+用 [grub-install](https://www.gnu.org/software/grub/manual/grub/html_node/Installing-GRUB-using-grub_002dinstall.html) 在引导磁盘上安装 GRUB。
 
-**On a BIOS computer**, install the package `grub`, then run `grub-install
-/dev/sdX`, where `/dev/sdX` is the drive (not partition) that you wish to
-install GRUB to. For example:
-
+**在 BIOS 电脑上**，安装软件包 `grub`。然后运行 `grub-install /dev/sdX`，`/dev/sdX` 是你要安装 GRUB 的硬盘（不是分区），例如：
 ```
 (chroot) # xbps-install grub
 (chroot) # grub-install /dev/sda
 ```
 
-**On a UEFI computer**, install either `grub-x86_64-efi`, `grub-i386-efi` or
-`grub-arm64-efi`, depending on your architecture, then run `grub-install`,
-optionally specifying a bootloader label (this label may be used by your
-computer's firmware when manually selecting a boot device):
+**在 UEFI 电脑上**，根据你的架构,安装 `grub-x86_64-efi` 或 `grub-i386-efi` 或 `grub-arm64-efi`，然后运行 `grub-install`，可以指定一个引导器标签（手动选择引导设备时，你的电脑固件可能会使用这个标签）：
 
 ```
 (chroot) # xbps-install grub-x86_64-efi
 (chroot) # grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id="Void"
 ```
 
-### Troubleshooting GRUB installation
+### GRUB 安装疑难解答
 
-If EFI variables are not available, add the option `--no-nvram` to the
-`grub-install` command.
+如果不能使用 EFI 变量，执行 `grub-install` 命令时，增加 `--no-nvram` 选项。
 
-#### Installing on removable media or non-compliant UEFI systems
+#### 在可移除介质上安装或不兼容的 UEFI 系统
 
-Unfortunately, not all systems have a fully standards compliant UEFI
-implementation. In some cases, it is necessary to "trick" the firmware into
-booting by using the default fallback location for the bootloader instead of a
-custom one. In that case, or if installing onto a removable disk (such as USB),
-add the option `--removable` to the `grub-install` command.
+并非所有系统都有标准完整的 UEFI 实现。某些情况下，有必要“糊弄”固件，让固件用默认备用地址引导启动。这种情况下，或是在可移除硬盘（比如 USB）上安装系统时，执行 `grub-install` 命令时，增加 `--removable` 选项。
 
-Alternatively, use [mkdir(1)](https://man.voidlinux.org/mkdir.1) to create the
-`/boot/efi/EFI/boot` directory and copy the installed GRUB executable, usually
-located in `/boot/efi/EFI/Void/grubx64.efi` (its location can be found using
-[efibootmgr(8)](https://man.voidlinux.org/efibootmgr.8)), into the new folder:
+另外，用 [mkdir(1)](https://man.voidlinux.org/mkdir.1) 创建 `/boot/efi/EFI/boot` 目录，将安装好的 GRUB 可执行文件拷贝到新创建的目录中，GRUB 可执行文件一般在 `/boot/efi/void/grubx64.efi`（可执行文件的地址可以用 [efibootmgr(8)](https://man.voidlinux.org/efibootmgr.8) 找到）：
 
 ```
 (chroot) # mkdir -p /boot/efi/EFI/boot
 (chroot) # cp /boot/efi/EFI/Void/grubx64.efi /boot/efi/EFI/boot/bootx64.efi
 ```
+## 善后
 
-## Finalization
-
-Use [xbps-reconfigure(1)](https://man.voidlinux.org/xbps-reconfigure.1) to
-ensure all installed packages are configured properly:
+用 [xbps-reconfigure(1)](https://man.voidlinux.org/xbps-reconfigure.1) 确保所有安装的软件包都正确配置了：
 
 ```
 (chroot) # xbps-reconfigure -fa
 ```
 
-This will make [dracut(8)](https://man.voidlinux.org/dracut.8) generate an
-initramfs, and will make GRUB generate a working configuration.
+这会使 [dracut(8)](https://man.voidlinux.org/dracut.8) 生成 initramfs，使 GRUB 生成配置。
 
-At this point, the installation is complete. Exit the chroot and reboot your
-computer:
+至此，安装已经完成。退出 chroot 并重启电脑：
 
 ```
 (chroot) # exit
 # shutdown -r now
 ```
+首次引导进入 Void 系统后，[更新系统](../../xbps/index.md#updating)。
 
-After booting into your Void installation for the first time, [perform a system
-update](../../xbps/index.md#updating).
