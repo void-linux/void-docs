@@ -1,8 +1,7 @@
-# Security
+# 安全
 
-There are several ways you can make your installation more secure. This section
-explores some of them.
+有几种方法可以使你的安装更安全。本节探讨了其中的一些方法。
 
-## Section Contents
+## 章节内容
 
 - [AppArmor](./apparmor.md)
