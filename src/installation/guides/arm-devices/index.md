@@ -1,4 +1,4 @@
-# ARM Devices
+# ARM 设备
 
 Void Linux provides packages and images for several ARM devices. Installing Void
 on such devices can be done in several ways:
