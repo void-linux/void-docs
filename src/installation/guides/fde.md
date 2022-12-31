@@ -1,4 +1,4 @@
-# Full Disk Encryption
+# 全盘加密安装
 
 **Warning**: Your drive's block device and other information may be different,
 so make sure it is correct.
