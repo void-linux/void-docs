@@ -1,11 +1,11 @@
-# Graphical Session
+# 图形 Session
 
-In order to configure a graphical session, you need:
+为了配置一个图形 session ，你需要：
 
-- [Graphics drivers](./graphics-drivers/index.md)
-- A basis for your graphical session: [Xorg](./xorg.md) or
+- [显卡驱动](./graphics-drivers/index.md)
+- 为你的图形 session 提供基础: [Xorg](./xorg.md) or
    [Wayland](./wayland.md)
+   
+你可能还需要:
 
-You may also need:
-
-- [Session management tools](../session-management.md)
+- [Session 管理工具](../session-management.md)
