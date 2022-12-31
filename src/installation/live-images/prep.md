@@ -57,5 +57,5 @@ $ sync
 - [Brasero](https://wiki.gnome.org/Apps/Brasero/)
 - [K3B](https://userbase.kde.org/K3b)
 - [Xfburn](https://docs.xfce.org/apps/xfburn/start)
-- 
+
 注意，用 CD 或 DVD 时，live 会话反应会比用 U 盘或硬盘时迟钝一点。
