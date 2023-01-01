@@ -1,51 +1,35 @@
-# Users and Groups
+# 用户和用户组
 
-The [useradd(8)](https://man.voidlinux.org/useradd.8),
-[userdel(8)](https://man.voidlinux.org/userdel.8) and
-[usermod(8)](https://man.voidlinux.org/usermod.8) commands are used to add,
-delete and modify users respectively. The
-[passwd(1)](https://man.voidlinux.org/passwd.1) command is used to change
-passwords.
+[useradd(8)](https://man.voidlinux.org/useradd.8), [userdel(8)](https://man.voidlinux.org/userdel.8) 和 [usermod(8)](https://man.voidlinux.org/usermod.8) 命令分别用来添加、删除和修改用户。passwd(1)命令用来修改密码。
 
-The [groupadd(8)](https://man.voidlinux.org/groupadd.8),
-[groupdel(8)](https://man.voidlinux.org/groupdel.8) and
-[groupmod(8)](https://man.voidlinux.org/groupmod.8) commands are used to add,
-delete and modify groups respectively. The
-[groups(1)](https://man.voidlinux.org/groups.1) command lists all groups a user
-belongs to.
+[groupadd(8)](https://man.voidlinux.org/groupadd.8) 、 [groupdel(8)](https://man.voidlinux.org/groupdel.8) 和 [groupmod(8)](https://man.voidlinux.org/groupmod.8) 命令分别用来添加、删除和修改组。[groups(1)](https://man.voidlinux.org/groups.1) 命令列出一个用户所属的所有组。
 
-## Default shell
+## 默认 shell
 
-The default shell for a user can be changed with
-[chsh(1)](https://man.voidlinux.org/chsh.1):
+用户的默认shell可以用 [chsh(1)](https://man.voidlinux.org/chsh.1) 来更改。
 
 ```
 $ chsh -s <shell> <user_name>
 ```
-
-`<shell>` must be the path to the shell as specified by `/etc/shells` or the
-output of `chsh -l`, which provides a list of installed shells.
+`<shell>` 必须是指定的 shell 的路径 `/etc/shells` 或者输出 `chsh -l`，它提供了已安装 shell 的列表。
 
 ## sudo
 
-[sudo(8)](https://man.voidlinux.org/sudo.8) is installed by default, but might
-not be configured appropriately for your needs. It is only necessary to
-configure sudo if you wish to use it.
+[sudo(8)](https://man.voidlinux.org/sudo.8) 是默认安装的。但可能没有根据您的需要进行适当配置。如果你想使用它，请配置 sudo。。
 
-Use [visudo(8)](https://man.voidlinux.org/visudo.8) as root to edit the
-[sudoers(5)](https://man.voidlinux.org/sudoers.5) file.
+以 root 身份使用 [visudo(8)](https://man.voidlinux.org/visudo.8)  来编辑 [sudoers(5)](https://man.voidlinux.org/sudoers.5) 文件。
 
-To create a superuser, uncomment the line
+请取消注释该行
 
 ```
 #%wheel ALL=(ALL) ALL
 ```
 
-and add users to the `wheel` group.
+然后将用户添加到 `wheel` 用户组.
 
-## Default Groups
+## 默认用户组
 
-Void Linux defines a number of groups by default.
+默认定义的一些组
 
 | Group      | Description                                                   |
 |------------|---------------------------------------------------------------|
