@@ -77,7 +77,7 @@ manually using [wpa_supplicant](../../config/network/wpa_supplicant.md) and
 
 如果使用 UEFI，建议你选择 GPT 作为分区表，创建一个类型为 `EFI System` 的分区（通常大小是 200MB-1GB），该分区会被挂载到 `/boot/efi`。
 
-如果使用 BIOS，建议你选择 MBR 作为分区表。进阶用户可能会想要用 GPT 作为分区表，记得为 GRUB [创建一个特殊的 BIOS 分区](/partitions.md#bios系统说明)
+如果使用 BIOS，建议你选择 MBR 作为分区表。进阶用户可能会想要用 GPT 作为分区表，记得为 GRUB [创建一个特殊的 BIOS 分区](./partitions.md#bios系统说明)
 
 ## 文件系统
 
