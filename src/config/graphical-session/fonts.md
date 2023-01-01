@@ -1,17 +1,12 @@
-# Fonts
+# 字体
 
-To customize font display in your graphical session, you can use configurations
-provided in `/usr/share/fontconfig/conf.avail/`. To do so, create a symlink to
-the relevant `.conf` file in `/etc/fonts/conf.d/`, then use
-[xbps-reconfigure(1)](https://man.voidlinux.org/xbps-reconfigure.1) to
-reconfigure the `fontconfig` package.
+为了在你的图形会话中定制字体显示，您可以使用 `/usr/share/fontconfig/conf.avail/` 中提供的配置。为此，在 `/etc/fonts/conf.d/` 中创建一个指向相关 `.conf` 文件的符号链接，然后使用 [xbps-reconfigure(1)](https://man.voidlinux.org/xbps-reconfigure.1) 来重新配置 `fontconfig` 包。
 
-For example, to disable use of bitmap fonts:
+例如，禁用 bitmap 字体:
 
 ```
 # ln -s /usr/share/fontconfig/conf.avail/70-no-bitmaps.conf /etc/fonts/conf.d/
 # xbps-reconfigure -f fontconfig
 ```
 
-Use [fc-conflist(1)](https://man.voidlinux.org/fc-conflist.1) to list which
-configurations are in effect.
+使用 [fc-conflist(1)](https://man.voidlinux.org/fc-conflist.1) 来列出哪些配置是有效的。
