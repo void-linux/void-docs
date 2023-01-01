@@ -16,22 +16,10 @@ svdir="$HOME/service"
 exec chpst -u "$USER:$groups" runsvdir "$svdir"
 ```
 
-In this example [chpst(8)](https://man.voidlinux.org/chpst.8) is used to start a
-new [runsvdir(8)](https://man.voidlinux.org/runsvdir.8) process as the specified
-user. [chpst(8)](https://man.voidlinux.org/chpst.8) does not read groups on its
-own, but expects the user to list all required groups separated by a `:`. The
-`id` and `tr` pipe is used to create a list of all the user's groups in a way
-[chpst(8)](https://man.voidlinux.org/chpst.8) understands it. Note that we
-export `$USER` and `$HOME` because some user services may not work without them.
+在这个例子中，[chpst(8)](https://man.voidlinux.org/chpst.8)  被用来以指定的用户身份启动一个新的 [runsvdir(8)](https://man.voidlinux.org/runsvdir.8) 进程。[chpst(8)](https://man.voidlinux.org/chpst.8) 不会自己读取组，而是期望用户列出所有由 `:` 隔的所需组。`id` 和 `tr` 管道被用来以 chpst(8) 理解的方式创建一个所有用户组的列表。注意，我们 export 了 `$USER` 和 `$HOME`，因为有些用户服务没有它们可能无法工作。
 
-在这个例子中，[chpst(8)](https://man.voidlinux.org/chpst.8)  被用来以指定的用户身份启动一个新的 [runsvdir(8)](https://man.voidlinux.org/runsvdir.8) 进程。[chpst(8)](https://man.voidlinux.org/chpst.8) 不会自己读取组，而是期望用户列出所有由 `:` 隔的所需组。`id` 和 `tr` 管道被用来以 chpst(8) 理解的方式创建一个所有用户组的列表。注意，我们导出了 `$USER` `$HOME，因为有些用户服务没有它们可能无法工作。
-
-The user can then create new services or symlinks to them in the
-`/home/<username>/service` directory. To control the services using the
-[sv(8)](https://man.voidlinux.org/sv.8) command, the user can specify the
-services by path, or by name if the `SVDIR` environment variable is set to the
-user's services directory. This is shown in the following examples:
-
+然后，用户可以在 `/home/<username>/service` 目录中创建新的服务或它们的符号链接。为了使用 [sv(8)](https://man.voidlinux.org/sv.8) 命令控制服务，用户可以通过路径指定服务，如果 `SVDIR` 环境变量被设置为用户的服务目录，也可以通过名称指定服务。这在下面的例子中显示：
+  
 ```
 $ sv status ~/service/*
 run: /home/duncan/service/gpg-agent: (pid 901) 33102s
@@ -40,5 +28,4 @@ $ SVDIR=~/service sv restart gpg-agent
 ok: run: gpg-agent: (pid 19818) 0s
 ```
 
-It may be convenient to export the `SVDIR=~/service` variable in your shell
-profile.
+在你的 shell 配置文件中 export `SVDIR=~/service` 变量可能比较方便。
