@@ -1,30 +1,21 @@
-# Locales and Translations
+# [本地化与翻译]
 
-For a list of currently enabled locales, run
+要获取当前启用的语言环境列表，请运行 
 
 ```
 $ locale -a
 ```
 
-## Enabling locales
+## 启用语言环境
 
-To enable a certain locale, un-comment or add the relevant lines in
-`/etc/default/libc-locales` and [force-reconfigure](../xbps/index.md) the
-`glibc-locales` package.
+要启用某个地区性语言，请取消注释或在以下文件中添加相关行
+`/etc/default/libc-locales`和[强制重新配置](../xbps/index.md)的相关行。
+`glibc-locales`包。
 
-## Setting the system locale
+## 设置系统语言环境
 
-Set `LANG=xxxx` in `/etc/locale.conf`.
+在 `/etc/locale.conf` 中写 `LANG=xxxx`
 
-## Application locale
+## 应用程序语言环境
 
-Some programs have their translations in a separate package that must be
-installed in order to use them. You can
-[search](../xbps/index.md#finding-files-and-packages) for the desired language
-(e.g. "german" or "portuguese") in the package repositories and install the
-packages relevant to the applications you use. An especially relevant case is
-when installing individual packages from the LibreOffice suite, such as
-`libreoffice-writer`, which require installing at least one of the
-`libreoffice-i18n-*` packages to work properly. This isn't necessary when
-installing the `libreoffice` meta-package, since doing so will install the most
-common translation packages.
+一些程序的翻译在一个单独的软件包中，必须安装才能使用它们。你可以在软件包库中[搜索](../xbps/index.md)所需的语言（如 "德语 "或 "葡萄牙语"），并安装与你使用的应用程序相关的软件包。一个特别相关的情况是在安装 LibreOffice 套件中的单个软件包时，例如 `libreoffic-writer` ，它需要安装至少一个 `libreoffic-i18n-*` 软件包才能正常工作。在安装 `libreoffice` 元包时，会自动安装翻译包。
