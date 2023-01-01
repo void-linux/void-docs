@@ -9,8 +9,7 @@ Void 附带了一些用于多种服务的默认配置文件，例如 `dhcpcd` �
 1. 安装 `apparmor` 软件包。
 2. 在内核 commandline 上写 `apparmor=1 security=apparmor`
 
-要完成第二步请看 [the documentation on how to modify the
-kernel cmdline](./../kernel.md#cmdline).
+要完成第二步请看 [如何更改内核 cmdline](./../kernel.md#cmdline).
 
 The `APPARMOR` variable in `/etc/default/apparmor` controls how profiles will be
 loaded at boot, the value is set to `complain` by default and corresponds to
