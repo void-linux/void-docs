@@ -19,10 +19,10 @@ by modern ZFS drivers. The ZFSBootMenu documentation offers, among other
 content, several [step-by-step
 guides](https://docs.zfsbootmenu.org/en/latest/guides/void-linux.html) for
 installing a Void system from scratch. The [UEFI
-guide](https://docs.zfsbootmenu.org/en/latest/guides/void-linux/single-disk-uefi.html)
+guide](https://docs.zfsbootmenu.org/en/latest/guides/void-linux/uefi.html)
 describes the procedure of bootstrapping a Void system for modern systems. For
 legacy BIOS systems, the [syslinux
-guide](https://docs.zfsbootmenu.org/en/latest/guides/void-linux/single-disk-syslinux-mbr.html)
+guide](https://docs.zfsbootmenu.org/en/latest/guides/void-linux/syslinux-mbr.html)
 provides comparable instructions.
 
 ## Traditional bootloaders
