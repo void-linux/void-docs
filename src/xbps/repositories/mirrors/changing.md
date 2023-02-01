@@ -5,6 +5,17 @@ repositories, these files are installed by the package manager in
 `/usr/share/xbps.d`, but if duplicate files are found in `/etc/xbps.d`, those
 values are used instead.
 
+## xmirror
+
+To easily modify the currently selected mirror,
+[xmirror(1)](https://man.voidlinux.org/xmirror.1) (from the `xmirror` package)
+can be used. This utility takes care of all steps for updating the selected
+mirror.
+
+## Manual Method
+
+Alternatively, this can be done manually:
+
 To modify mirror URLs cleanly, copy all the repository configuration files to
 `/etc/xbps.d` and change the URLs in each copied repository file.
 
