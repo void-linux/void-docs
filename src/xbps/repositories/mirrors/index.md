@@ -20,7 +20,7 @@ map to any tier 1 mirror.
 | <https://repo-fi.voidlinux.org/>               | Europe        | Helsinki, Finland  |
 | <https://repo-de.voidlinux.org/>               | Europe        | Frankfurt, Germany |
 | <https://mirrors.servercentral.com/voidlinux/> | North America | Chicago, USA       |
-| <https://repo-us.voidlinux.org/>               | North America | Kansas City, USA   |
+<!-- | <https://repo-us.voidlinux.org/>               | North America | Kansas City, USA   | -->
 
 ## Tier 2 mirrors
 
