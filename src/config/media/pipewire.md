@@ -32,9 +32,8 @@ manager, PipeWire will not function. The reference
 was originally provided in the Void `pipewire` package and configured to run by
 default to satisfy this requirement. However, `pipewire-media-session` is
 deprecated and the authors recommend using
-[WirePlumber](https://pipewire.pages.freedesktop.org/wireplumber/) in its
-place. Install the `wireplumber` package to use this session manager with
-PipeWire.
+[WirePlumber](https://pipewire.pages.freedesktop.org/wireplumber/) in its place.
+Install the `wireplumber` package to use this session manager with PipeWire.
 
 The standard Void configuration, which causes `pipewire` to launch
 `pipewire-media-session` automatically, must be overridden to use `wireplumber`.
@@ -66,21 +65,21 @@ $ sed '/path.*=.*pipewire-media-session/s/{/#{/' \
 > reconcile any changes with each `pipewire` update.
 
 Now, configure `wireplumber` to start alongside `pipewire`. If your window
-manager or desktop environment auto-start mechanism is used to start
-`pipewire`, it is recommended to use the same mechanism for starting
-`wireplumber`. The `wireplumber` package includes a `wireplumber.desktop`
-Desktop Entry file that may be useful in this situation.
+manager or desktop environment auto-start mechanism is used to start `pipewire`,
+it is recommended to use the same mechanism for starting `wireplumber`. The
+`wireplumber` package includes a `wireplumber.desktop` Desktop Entry file that
+may be useful in this situation.
 
-> Be aware that `wireplumber` must launch *after* the `pipewire` executable.
-> The Desktop Application Autostart Specification makes no provision for
-> ordering of services started via Desktop Entry files. When relying on these
-> files to launch `pipewire` and `wireplumber`, consult the documentation for
-> your window manager or desktop environment to determine whether proper
-> ordering of services can be achieved.
+> Be aware that `wireplumber` must launch *after* the `pipewire` executable. The
+> Desktop Application Autostart Specification makes no provision for ordering of
+> services started via Desktop Entry files. When relying on these files to
+> launch `pipewire` and `wireplumber`, consult the documentation for your window
+> manager or desktop environment to determine whether proper ordering of
+> services can be achieved.
 
 If proper ordering of separate `pipewire` and `wireplumber` services is
-infeasible, it is possible to configure `pipewire` to launch the session
-manager directly. This can be accomplished by running
+infeasible, it is possible to configure `pipewire` to launch the session manager
+directly. This can be accomplished by running
 
 ```
 # mkdir -p /etc/pipewire/pipewire.conf.d
@@ -103,8 +102,8 @@ management.
 In its default configuration, WirePlumber requires an active [D-Bus
 session](../session-management.md#d-bus). If your desktop environment or window
 manager is configured to provide a D-Bus session as well as launch `pipewire`
-and `wireplumber`, no further configuration should be required. Users wishing
-to launch `pipewire` on its own, *e.g.*, in a `.xinitrc` script, may find it
+and `wireplumber`, no further configuration should be required. Users wishing to
+launch `pipewire` on its own, *e.g.*, in a `.xinitrc` script, may find it
 necessary to configure `pipewire` to launch `wireplumber` directly and wrap the
 `pipewire` invocation as
 
