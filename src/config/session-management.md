@@ -41,6 +41,14 @@ There is an alternative D-Bus configuration which takes advantage of elogind for
 features such as seat detection. It requires installing the `dbus-elogind`,
 `dbus-elogind-libs` and `dbus-elogind-x11` packages.
 
+If you will use Sway, you should have installed these packages in your system to work perfectly:
+- `elogind`
+- `polkitd-elogind`
+- `dbus-elogind-libs`
+- `dbus-elogind-x11`
+- `dbus-elogind`
+
+
 ## seatd
 
 [seatd(1)](https://man.voidlinux.org/seatd.1) is a minimal seat management
