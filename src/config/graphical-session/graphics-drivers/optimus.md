@@ -27,21 +27,21 @@ A summary of the methods supported by Void, which are mutually exclusive:
 
 [PRIME Render Offload](#prime-render-offload)
 
-- only available on `nvidia`
+- available on `nvidia` and `nvidia470`
 - allows to switch to the NVIDIA GPU on a per-application basis
 - more flexible but power saving capabilities depend on the hardware (pre-Turing
    devices are not shut down completely)
 
 Offloading Graphics Display with RandR 1.4
 
-- available on `nvidia` and `nvidia390`
+- available on `nvidia`, `nvidia470`, and `nvidia390`
 - allows to choose which GPU to use at the start of the X session
 - less flexible, but allows the user to completely shut down the NVIDIA GPU when
    not in use, thus saving power
 
 [Bumblebee](#bumblebee)
 
-- available on `nvidia` and `nvidia390`
+- available on `nvidia`, `nvidia470`, and `nvidia390`
 - allows to switch to the NVIDIA GPU on a per-application basis
 - unofficial method, offers poor performance
 
