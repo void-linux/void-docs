@@ -51,6 +51,10 @@ For Brother printer support, install the foomatic drivers, which are contained
 in the `foomatic-db` and `foomatic-db-nonfree` packages. Support for various
 laser models is provided by the `brother-brlaser` package.
 
+### Drivers for Epson Inkjet printers
+
+Install the `epson-inkjet-printer-escpr` package for Epson Inkjet printers.
+
 ## Configuring a New Printer
 
 CUPS provides a web interface and command line tools that can be used to
