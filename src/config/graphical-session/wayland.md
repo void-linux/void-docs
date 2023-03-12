@@ -27,6 +27,7 @@ Void Linux currently packages the following Wayland compositors:
 - Hikari: a stacking compositor with some tiling features
 - Cage: a Wayland kiosk
 - River: a dynamic tiling Wayland compositor
+- labwc: a window-stacking compositor, inspired by Openbox
 
 ### Video drivers
 
