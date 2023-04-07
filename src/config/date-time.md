@@ -12,6 +12,10 @@ The default system timezone can be set by linking the timezone file to
 # ln -sf /usr/share/zoneinfo/<timezone> /etc/localtime
 ```
 
+> Note: If the variable `TIMEZONE` is set in `/etc/rc.conf`, it should be
+> removed or commented out, as this will override what has been set with `ln` on
+> reboot.
+
 To change the timezone on a per user basis, the `TZ` variable can be exported
 from your shell's profile:
 
