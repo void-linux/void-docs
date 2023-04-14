@@ -96,9 +96,15 @@ If your root device is on LUKS, add `rd.luks.allow-discards` to
 GRUB_CMDLINE_LINUX_DEFAULT="rd.luks.allow-discards"
 ```
 
+Then update GRUB:
+
+```
+# update-grub
+```
+
 ### Verifying configuration
 
-To verify that you have configured TRIM correctly for LUKS, run:
+To verify that you have configured TRIM correctly for LUKS, reboot and run:
 
 ```
 # dmsetup table /dev/mapper/crypt_dev --showkeys
