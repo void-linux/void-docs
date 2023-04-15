@@ -34,7 +34,7 @@ The following software is included:
 
 - **Window manager:** xfwm4
 - **File manager:** Thunar
-- **Web Browser:** Firefox ESR
+- **Web Browser:** Firefox
 - **Terminal:** xfce4-terminal
 - **Plain text editor:** Mousepad
 - **Image viewer:** Ristretto
@@ -45,3 +45,36 @@ The install process for the xfce image is the same as the base images, except
 that you **must** select the `Local` source when installing. If you select
 `Network` instead, the installer will download and install the latest version of
 the base system, without any additional packages included on the live image.
+
+## Accessibility support
+
+All Void installer images support the console screenreader
+[espeakup](https://man.voidlinux.org/espeakup.8) and the console braille display
+driver [brltty](https://man.voidlinux.org/brltty.1). These services can be
+enabled at boot by pressing `s` in the bootloader menu to enable accessibility
+support. On UEFI-based systems, GRUB is the bootloader, and it will play a
+two-tone chime when the menu is available. On BIOS-based systems and UEFI
+systems in legacy/compatibility mode, SYSLINUX is the bootloader, and no chime
+is played. SYSLINUX also requires pressing the enter key after pressing `s`. The
+hotkey `r` will also boot with accessibility support, but will load the live ISO
+into RAM.
+
+After booting into the installer image with accessibility support enabled, if
+there are multiple soundcards detected, a short audio menu allows for the
+selection of the soundcard for the screenreader. Press enter when the beep for
+the desired soundcard is heard to select it.
+
+If the `Local` installation source is selected in the installer, `espeakup` and
+`brltty` will also be installed and enabled on the installed system if enabled
+in the live environment.
+
+The xfce image also supports the graphical screenreader
+[orca](https://man.voidlinux.org/orca.1). This can be enabled by pressing `Win +
+R` and entering `orca -r`. Orca will also be available on the installed system
+if the `Local` installation source is selected.
+
+## Kernel Command-line Parameters
+
+Void installer images support several kernel command-line arguments that can
+change the behavior of the live system. See [the void-mklive README for a full
+list](https://github.com/void-linux/void-mklive#kernel-command-line-parameters).
