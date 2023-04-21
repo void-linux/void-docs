@@ -34,7 +34,7 @@ environment variable `LIBVA_DRIVER_NAME`:
 The kernels packaged by Void are configured with
 `CONFIG_INTEL_IOMMU_DEFAULT_ON=y`, which can lead to issues with their graphics
 drivers, as reported by the [kernel
-documentation](https://www.kernel.org/doc/html/latest/x86/intel-iommu.html#graphics-problems).
+documentation](https://www.kernel.org/doc/html/latest/x86/iommu.html#graphics-problems).
 To fix this, it is necessary to disable IOMMU for the integrated GPU. This can
 be done by adding `intel_iommu=igfx_off` to your [kernel
 cmdline](../../kernel.md#cmdline). This problem is expected to happen on the
