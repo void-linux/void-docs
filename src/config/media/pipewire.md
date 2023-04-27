@@ -90,7 +90,7 @@ directly. This can be accomplished by running
 for system configurations or, for per-user configurations, running
 
 ```
-$ mkdir -p "${XDG_CONFIG_HOME}/pipewire/pipewire.conf.d
+$ mkdir -p "${XDG_CONFIG_HOME}/pipewire/pipewire.conf.d"
 $ echo 'context.exec = [ { path = "/usr/bin/wireplumber" args = "" } ]' \
     > "${XDG_CONFIG_HOME}/pipewire/pipewire.conf.d/10-wireplumber.conf"
 ```
