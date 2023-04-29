@@ -21,4 +21,15 @@ optional = true
 [output.linkcheck]
 optional = true
 follow-web-links = true
-exclude = [ 'kernel\.org', 'ntp\.org', '\.onion', 'localhost', 'sjtu\.edu\.cn', 'userbase\.kde\.org', 'mirrors\.cnnic\.cn' ]
+exclude = [
+	'kernel\.org',
+	'ntp\.org',
+	'\.onion',
+	'localhost',
+	'userbase\.kde\.org',
+	'sjtu\.edu\.cn',
+	'mirrors\.cnnic\.cn',
+	'void\.webconverger\.org',
+	'mirror\.vofr\.net',
+	'void\.chililinux\.com',
+]
