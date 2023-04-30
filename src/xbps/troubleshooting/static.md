@@ -33,3 +33,11 @@ that can no longer boot, it is recommended to chroot in using a Void
 installation medium and use the static tools from there, as it is unlikely that
 even a shell will work correctly on those systems. When using static XBPS with a
 glibc installation, the environment variable `XBPS_ARCH` needs to be set.
+
+## Repositories not found
+
+In some cases, repositories that were previously installed, and are necessary for reinstalling the xbps package, might no longer be installed. If this happens, you can try installing xbps with the following command.
+
+```
+xbps-install.static -R https://repo-default.voidlinux.org/current -Su xbps
+```
