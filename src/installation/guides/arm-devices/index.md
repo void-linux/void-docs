@@ -125,15 +125,16 @@ For the pre-built images and tarball installations, the `root` user password is
 
 ### fstab
 
-The `/boot` partition should be added to `/etc/fstab`, with an entry similar to
-the one below. It is possible to boot without that entry, but updating the
-kernel package in that situation can lead to breakage, such as being unable to
-find kernel modules, which are essential for functionality such as wireless
-connectivity. If you aren't using an SD card, replace `/dev/mmcblk0p1` with the
-appropriate device path.
+The `/` and `/boot` partition should be added to `/etc/fstab`, with entries
+similar to the ones below. It is possible to boot without these entries, but
+updating the kernel package in that situation can lead to breakage, such as
+being unable to find kernel modules, which are essential for functionality such
+as wireless connectivity. If you aren't using an SD card, replace
+`/dev/mmcblkXpY` with the appropriate device paths.
 
 ```
-/dev/mmcblk0p1 /boot vfat defaults 0 0
+/dev/mmcblk0p1 /boot vfat defaults 0 2
+/dev/mmcblk0p2 / ext4 defaults 0 1
 ```
 
 ### System time
