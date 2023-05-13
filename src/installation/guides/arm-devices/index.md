@@ -142,8 +142,8 @@ Several of the ARM devices supported by Void Linux don't have battery powered
 real time clocks (RTCs), which means they won't keep track of time once powered
 off. This issue can present itself as HTTPS errors when browsing the Web or
 using the package manager. It is possible to set the time manually using the
-[date(1)](https://man.voidlinux.org/date.1) utility. In order to fix this issue
-for subsequent boots, install and enable [an NTP
+[date(1)](https://man.voidlinux.org/date.1) utility. Chrony is configured by
+default, but it's possible to install and enable [aother NTP
 client](../../../config/date-time.md#ntp). Furthermore, it is possible to
 install the `fake-hwclock` package, which provides the `fake-hwclock` service.
 [fake-hwclock(8)](https://man.voidlinux.org/fake-hwclock.8) periodically stores
