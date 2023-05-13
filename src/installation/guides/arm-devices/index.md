@@ -59,7 +59,9 @@ on a drive formatted with an MS-DOS partition table:
    ext4, which will be mounted on `/`. If you're using an SD card, you can
    create the ext4 file system with the `^has_journal` option - this disables
    journaling, which might increase the drive's life, at the cost of a higher
-   chance of data loss.
+   chance of data loss. If e2fsprogs version is >= 1.47.0 (may happen if not
+   using Void), you must use the `^metadata_csum_seed,^orphan_file` option, so
+   `e2fsck` shipped with Void could properly check the disk.
 
 There are a variety of tools available for partitioning, e.g.
 [cfdisk(8)](https://man.voidlinux.org/cfdisk.8).
