@@ -48,6 +48,14 @@ to add `linux` and `linux-headers` to an `ignorepkg` entry in
 [xbps.d(5)](https://man.voidlinux.org/xbps.d.5), since base packages can depend
 on them.
 
+## Switching to another kernel series
+
+If you'd like to use the `linux-lts` or `linux-mainline` kernel series instead
+of the default `linux`, first install the desired series metapackage (and the
+`linux-lts-headers` or `linux-mainline-headers` metapackage if needed). Then you
+can add `linux` and `linux-headers` to an `ignorepkg` entry in
+[xbps.d(5)](https://man.voidlinux.org/xbps.d.5) and uninstall those packages.
+
 ## Changing the default initramfs generator
 
 By default, Void Linux uses [dracut](https://man.voidlinux.org/dracut.8) to
