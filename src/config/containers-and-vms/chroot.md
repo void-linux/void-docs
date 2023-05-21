@@ -21,7 +21,7 @@ used to create the chroot:
 `<other_pkgs>` is only needed if you want to pre-install other packages in the
 chroot.
 
-### Manual Method
+### Manual Creation
 
 Alternatively, this process can be done manually.
 
