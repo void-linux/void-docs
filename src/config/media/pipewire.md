@@ -35,40 +35,21 @@ deprecated and the authors recommend using
 [WirePlumber](https://pipewire.pages.freedesktop.org/wireplumber/) in its place.
 Install the `wireplumber` package to use this session manager with PipeWire.
 
-The standard Void configuration, which causes `pipewire` to launch
-`pipewire-media-session` automatically, must be overridden to use `wireplumber`.
-The only change necessary is to comment out the `pipewire-media-session`
-invocation in the `context.exec` section, which can be done with a single `sed`
-substitution. To make this configuration change visible to all users, place the
-new configuration file in `/etc/pipewire`:
+> If you have installed an earlier version of the Void `pipewire` package, make
+> sure to update your system to eliminate any stale system configuration that
+> may attempt to launch `pipewire-media-session`. Users who previously overrode
+> the system configruation to use `wireplumber`, *e.g.* by placing a custom
+> `pipewire.conf` file in `/etc/pipewire` or `${XDG_CONFIG_HOME}/pipewire`, may
+> wish to reconcile these overrides with `/usr/share/pipewire/pipewire.conf`
+> installed by the most recent `pipewire` package. If the sole purpose of a
+> prior override was to disable `pipewire-media-session`, deleting the custom
+> configuration may be sufficient.
 
-```
-# mkdir -p /etc/pipewire
-# sed '/path.*=.*pipewire-media-session/s/{/#{/' \
-    /usr/share/pipewire/pipewire.conf > /etc/pipewire/pipewire.conf
-```
-
-Alternatively, place the new configuration file in the expected location for a
-single user:
-
-```
-$ : "${XDG_CONFIG_HOME:=${HOME}/.config}"
-$ mkdir -p "${XDG_CONFIG_HOME}/pipewire"
-$ sed '/path.*=.*pipewire-media-session/s/{/#{/' \
-    /usr/share/pipewire/pipewire.conf > "${XDG_CONFIG_HOME}/pipewire/pipewire.conf"
-```
-
-> A custom `pipewire.conf` in either `/etc/pipewire` or
-> `${XDG_CONFIG_HOME}/pipewire` will prevent entirely the use of the default
-> system configuration. Users who override the default configuration to enable
-> `wireplumber` are encouraged to monitor the default configuration and
-> reconcile any changes with each `pipewire` update.
-
-Now, configure `wireplumber` to start alongside `pipewire`. If your window
-manager or desktop environment auto-start mechanism is used to start `pipewire`,
-it is recommended to use the same mechanism for starting `wireplumber`. The
-`wireplumber` package includes a `wireplumber.desktop` Desktop Entry file that
-may be useful in this situation.
+There are several methods for starting `wireplumber` alongside `pipewire`. If
+your window manager or desktop environment auto-start mechanism is used to start
+`pipewire`, it is recommended to use the same mechanism for starting
+`wireplumber`. The `wireplumber` package includes a `wireplumber.desktop`
+Desktop Entry file that may be useful in this situation.
 
 > Be aware that `wireplumber` must launch *after* the `pipewire` executable. The
 > Desktop Application Autostart Specification makes no provision for ordering of
