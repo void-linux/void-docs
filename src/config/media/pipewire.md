@@ -38,7 +38,7 @@ Install the `wireplumber` package to use this session manager with PipeWire.
 > If you have installed an earlier version of the Void `pipewire` package, make
 > sure to update your system to eliminate any stale system configuration that
 > may attempt to launch `pipewire-media-session`. Users who previously overrode
-> the system configruation to use `wireplumber`, *e.g.* by placing a custom
+> the system configuration to use `wireplumber`, *e.g.* by placing a custom
 > `pipewire.conf` file in `/etc/pipewire` or `${XDG_CONFIG_HOME}/pipewire`, may
 > wish to reconcile these overrides with `/usr/share/pipewire/pipewire.conf`
 > installed by the most recent `pipewire` package. If the sole purpose of a
@@ -71,6 +71,7 @@ directly. This can be accomplished by running
 for system configurations or, for per-user configurations, running
 
 ```
+$ true "${XDG_CONFIG_HOME:=${HOME}/.config}"
 $ mkdir -p "${XDG_CONFIG_HOME}/pipewire/pipewire.conf.d"
 $ echo 'context.exec = [ { path = "/usr/bin/wireplumber" args = "" } ]' \
     > "${XDG_CONFIG_HOME}/pipewire/pipewire.conf.d/10-wireplumber.conf"
@@ -113,10 +114,25 @@ Server Name: PulseAudio (on PipeWire 0.3.18)
 ```
 
 Once you confirmed that `pipewire-pulse` works as expected, it's recommended to
-autostart it from the same place where you start PipeWire. It is possible to
-modify [pipewire.conf(5)](https://man.voidlinux.org/pipewire.conf.5) for
-auto-starting the PulseAudio server, but it's not recommended keep the PipeWire
-configuration file unmodified for smoother future upgrades.
+autostart it from the same place where you start PipeWire. Alternatively, the
+`pipewire` configuration can be modified to launch `pipewire-pulse` directly:
+
+```
+# mkdir -p /etc/pipewire/pipewire.conf.d
+# echo 'context.exec = [ { path = "/usr/bin/pipewire" args = "-c pipewire-pulse.conf" } ]' \
+    > /etc/pipewire/pipewire.conf.d/20-pipewire-pulse.conf
+```
+
+for system configurations, or
+
+```
+$ true "${XDG_CONFIG_HOME:=${HOME}/.config}"
+$ mkdir -p "${XDG_CONFIG_HOME}/pipewire/pipewire.conf.d"
+$ echo 'context.exec = [ { path = "/usr/bin/pipewire" args = "-c pipewire-pulse.conf" } ]' \
+    > ${XDG_CONFIG_HOME}/pipewire/pipewire.conf.d/20-pipewire-pulse.conf
+```
+
+for per-user configurations.
 
 ## Bluetooth audio
 
@@ -155,6 +171,6 @@ on glibc-based systems:
 
 ## Troubleshooting
 
-The Pulseaudio replacement requires the
+The PulseAudio replacement requires the
 [`XDG_RUNTIME_DIR`](../session-management.html#xdg_runtime_dir) environment
 variable to work correctly.
