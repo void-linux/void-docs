@@ -7,13 +7,10 @@ with a D-BUS session bus (e.g. via `dbus-run-session`) or a D-BUS system bus
 For applications which use ALSA directly and don't support PulseAudio, the
 `alsa-plugins-pulseaudio` package can make them use PulseAudio through ALSA.
 
-The PulseAudio package comes with a service file, which is not necessary in most
-setups - the PulseAudio maintainers
-[discourage](https://www.freedesktop.org/wiki/Software/PulseAudio/Documentation/User/SystemWide/)
-using a system-wide setup. Instead, PulseAudio will automatically start when
-needed. If it is not starting automatically, it can be started manually by
-invoking [pulseaudio(1)](https://man.voidlinux.org/pulseaudio.1) from the
-terminal as follows:
+PulseAudio will automatically start when needed. If it is not starting
+automatically, it can be started manually by invoking
+[pulseaudio(1)](https://man.voidlinux.org/pulseaudio.1) from the terminal as
+follows:
 
 ```
 $ pulseaudio --daemonize=no --exit-idle-time=-1
