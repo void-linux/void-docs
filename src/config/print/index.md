@@ -55,6 +55,12 @@ laser models is provided by the `brother-brlaser` package.
 
 Install the `epson-inkjet-printer-escpr` package for Epson Inkjet printers.
 
+### Canon PIXMA/MAXIFY drivers
+
+The `cnijfilter2` package contains drivers for various Canon PIXMA and MAXIFY
+models. Please note that installing the driver package requires [enabling the
+"nonfree" repository](../../xbps/repositories/index.md#nonfree).
+
 ## Configuring a New Printer
 
 CUPS provides a web interface and command line tools that can be used to
