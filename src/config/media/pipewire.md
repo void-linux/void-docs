@@ -64,8 +64,7 @@ directly. This can be accomplished by running
 
 ```
 # mkdir -p /etc/pipewire/pipewire.conf.d
-# echo 'context.exec = [ { path = "/usr/bin/wireplumber" args = "" } ]' \
-    > /etc/pipewire/pipewire.conf.d/10-wireplumber.conf
+# ln -s /usr/share/examples/wireplumber/10-wireplumber.conf /etc/pipewire/pipewire.conf.d/
 ```
 
 for system configurations or, for per-user configurations, running
@@ -73,8 +72,7 @@ for system configurations or, for per-user configurations, running
 ```
 $ true "${XDG_CONFIG_HOME:=${HOME}/.config}"
 $ mkdir -p "${XDG_CONFIG_HOME}/pipewire/pipewire.conf.d"
-$ echo 'context.exec = [ { path = "/usr/bin/wireplumber" args = "" } ]' \
-    > "${XDG_CONFIG_HOME}/pipewire/pipewire.conf.d/10-wireplumber.conf"
+# ln -s /usr/share/examples/wireplumber/10-wireplumber.conf "${XDG_CONFIG_HOME}/pipewire/pipewire.conf.d/"
 ```
 
 With either of these configurations, launching `pipewire` should be sufficient
@@ -119,8 +117,7 @@ autostart it from the same place where you start PipeWire. Alternatively, the
 
 ```
 # mkdir -p /etc/pipewire/pipewire.conf.d
-# echo 'context.exec = [ { path = "/usr/bin/pipewire" args = "-c pipewire-pulse.conf" } ]' \
-    > /etc/pipewire/pipewire.conf.d/20-pipewire-pulse.conf
+# ln -s /usr/share/examples/pipewire/20-pipewire-pulse.conf /etc/pipewire/pipewire.conf.d/
 ```
 
 for system configurations, or
@@ -128,8 +125,7 @@ for system configurations, or
 ```
 $ true "${XDG_CONFIG_HOME:=${HOME}/.config}"
 $ mkdir -p "${XDG_CONFIG_HOME}/pipewire/pipewire.conf.d"
-$ echo 'context.exec = [ { path = "/usr/bin/pipewire" args = "-c pipewire-pulse.conf" } ]' \
-    > ${XDG_CONFIG_HOME}/pipewire/pipewire.conf.d/20-pipewire-pulse.conf
+# ln -s /usr/share/examples/pipewire/20-pipewire-pulse.conf "${XDG_CONFIG_HOME}/pipewire/pipewire.conf.d/"
 ```
 
 for per-user configurations.
