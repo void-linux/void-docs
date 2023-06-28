@@ -32,4 +32,5 @@ exclude = [
 	'void\.webconverger\.org',
 	'mirror\.vofr\.net',
 	'void\.chililinux\.com',
+	'voidlinux\.com\.br',
 ]
