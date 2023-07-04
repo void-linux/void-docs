@@ -88,27 +88,14 @@ using [tar(1)](https://man.voidlinux.org/tar.1):
 
 #### Chroot installation
 
-It is also possible to perform a chroot installation, which can require the
-`qemu-user-static` package together with either the `binfmt-support` or `proot`
-package if a computer with an incompatible architecture (such as i686) is being
-used. This guide explains how to use the `qemu-<platform>-static` program from
-`qemu-user-static` with [proot(1)](https://man.voidlinux.org/proot.1).
-
-First, [prepare your storage medium](#custom-partition-layout). Then, follow
-either the [XBPS chroot installation](../chroot.md#the-xbps-method) or the
-[ROOTFS chroot installation](../chroot.md#the-rootfs-method) steps, using the
+It is also possible to perform a [chroot installation](../chroot.md) using the
 appropriate architecture and base packages, some of which are listed in the
-"[Supported Platforms](./platforms.md)" section.
+"[Supported Platforms](./platforms.md)" section. Make sure to [prepare your
+storage medium](#custom-partition-layout) properly for the device.
 
-Finally, follow the [chroot configuration steps](../chroot.md#configuration)
-steps, but instead of using the [chroot(1)](https://man.voidlinux.org/chroot.1)
-command to [enter the chroot](../chroot.md#entering-the-chroot), use the
-following command, replacing `<platform>` with `arm` for armv6l and armv7l
-devices, and with `aarch64` for aarch64 devices:
-
-```
-# proot -q qemu-<platform>-static -r /mnt -w /
-```
+If doing this from a computer with an incompatible archtecture (such as x86_64),
+install the `qemu-user-static` and `binfmt-support` packages and enable the
+`binfmt-support` service before installing.
 
 ## Configuration
 
