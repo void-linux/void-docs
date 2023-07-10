@@ -60,7 +60,6 @@
       - [ALSA](./config/media/alsa.md)
       - [PipeWire](./config/media/pipewire.md)
       - [PulseAudio](./config/media/pulseaudio.md)
-      - [sndio](./config/media/sndio.md)
    - [Bluetooth](./config/bluetooth.md)
    - [TeX Live](./config/texlive.md)
    - [External Applications](./config/external-applications.md)
