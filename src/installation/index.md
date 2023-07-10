@@ -63,23 +63,12 @@ This verifies that the image is not corrupt.
 Prior to using any image you're strongly encouraged to validate the signatures
 on the image to ensure they haven't been tampered with.
 
-Current images are signed using a signify key that is specific to the release.
+Current images are signed using a minisign key that is specific to the release.
 If you're on Void already, you can obtain the keys from the `void-release-keys`
 package, which will be downloaded using your existing XBPS trust relationship
 with your mirror and package signatures. You will also need a copy of
-[signify(1)](https://man.voidlinux.org/signify.1) or
-[minisign(1)](https://man.voidlinux.org/minisign.1); on Void, these are provided
-by the `outils` or `minisign` packages, respectively.
-
-To obtain `signify` when using a Linux distribution or operating system other
-than Void Linux:
-
-- Install the `signify` package in Arch Linux and Arch-based distros.
-- Install the `signify-openbsd` package in Debian and Debian-based distros.
-- Install the package listed
-   [here](https://repology.org/project/signify-openbsd/versions) for your
-   distribution.
-- Install `signify-osx` with homebrew in macOS.
+[minisign(1)](https://man.voidlinux.org/minisign.1); on Void, this is provided
+by the `minisign` package.
 
 The `minisign` executable is usually provided by a package of the same name, and
 can also be installed on Windows, even without WSL or MinGW.
@@ -92,43 +81,35 @@ Once you've obtained the key, you can verify your image with the `sha256sum.sig`
 and `sha256sum.txt` files. First, you need to verify the authenticity of the
 `sha256sum.txt` file.
 
-The following examples demonstrate the verification of the `sha256sum.txt` file
-for the 20210930 images. Firstly, with `signify`:
+The following example demonstrates the verification of the `sha256sum.txt` file
+for the 20230628 images with `minisign`:
 
 ```
-$ signify -V -p /etc/signify/void-release-20210930.pub -x sha256sum.sig -m sha256sum.txt
-Signature Verified
-```
-
-And secondly, with `minisign`:
-
-```
-$ minisign -V -p /etc/signify/void-release-20210930.pub -x sha256sum.sig -m sha256sum.txt
+$ minisign -V -p /usr/share/void-release-keys/void-release-20230628.pub -x sha256sum.sig -m sha256sum.txt
 Signature and comment signature verified
-Trusted comment: timestamp:1634597366	file:sha256sum.txt
+Trusted comment: This key is only valid for images with date 20230628.
 ```
 
 Finally, you need to verify that the checksum for your image matches the one in
 the `sha256sum.txt` file. This can be done with the
-[sha256(1)](https://man.voidlinux.org/md5.1) utility, again from the `outils`
-package, as demonstrated below for the 20210930 `x86_64` image:
+[sha256(1)](https://man.voidlinux.org/md5.1) utility from the `outils` package,
+as demonstrated below for the 20230628 `x86_64` base image:
 
 ```
-$ sha256 -C sha256sum.txt void-live-x86_64-20210930.iso
-(SHA256) void-live-x86_64-20210930.iso: OK
+$ sha256 -C sha256sum.txt void-live-x86_64-20230628-base.iso 
+(SHA256) void-live-x86_64-20230628-base.iso: OK
 ```
 
-Alternatively, if the `sha256` utility isn't available to you, you can compute
-the SHA256 hash of the file, e.g. using
-[sha256sum(1)](https://man.voidlinux.org/sha256sum.1), and compare it to the
-value contained in `sha256sum.txt`:
+Alternatively, if the `sha256` utility isn't available to you, you can use
+[sha256sum(1)](https://man.voidlinux.org/sha256sum.1):
 
 ```
-$ sha256sum void-live-x86_64-20210930.iso
-45b75651eb369484e1e63ba803a34e9fe8a13b24695d0bffaf4dfaac44783294  void-live-x86_64-20210930.iso
-$ grep void-live-x86_64-20210930.iso sha256sum.txt
-SHA256 (void-live-x86_64-20210930.iso) = 45b75651eb369484e1e63ba803a34e9fe8a13b24695d0bffaf4dfaac44783294
+$ sha256sum -c sha256sum.txt --ignore-missing
+void-live-x86_64-20230628-base.iso: OK
 ```
+
+If neither program is available to you, you can compute the SHA256 hash of the
+file and compare it to the value contained in `sha256sum.txt`.
 
 If the verification process does not produce the expected "OK" status, do not
 use it! Please alert the Void Linux team of where you got the image and how you
