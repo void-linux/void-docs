@@ -45,6 +45,7 @@ sub-repository.
 | <https://void.webconverger.org/>                   | Asia          | Singapore              |
 | <http://ftp.dk.xemacs.org/voidlinux/>              | Europe        | Denmark                |
 | <https://mirrors.dotsrc.org/voidlinux/>            | Europe        | Denmark                |
+| <https://ftp.cc.uoc.gr/mirrors/linux/voidlinux/>   | Europe        | Greece                 |
 | <https://quantum-mirror.hu/mirrors/pub/voidlinux/> | Europe        | Hungary                |
 | <https://voidlinux.mirror.garr.it/>                | Europe        | Italy                  |
 | <https://void.cijber.net/>                         | Europe        | Amsterdam, Netherlands |
