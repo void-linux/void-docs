@@ -245,6 +245,12 @@ If using swap space, add an entry for any swap partitions:
 UUID=1cb4[...]  swap        swap    rw,noatime,discard      0 0
 ```
 
+### Enable services
+
+Services can be [enabled](../../config/services/index.md#enabling-services)
+after booting the new system, but you may need to enable some of them (e.g.:
+`dhcpcd`, `sshd`) now in order to access it.
+
 ## Installing GRUB
 
 Use
