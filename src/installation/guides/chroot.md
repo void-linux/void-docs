@@ -272,7 +272,13 @@ computer's firmware when manually selecting a boot device):
 
 ### Troubleshooting GRUB installation
 
-If EFI variables are not available, add the option `--no-nvram` to the
+It may be necessary to mount the `efivarfs` filesystem.
+
+```
+[xchroot /mnt] # mount -t efivarfs none /sys/firmware/efi/efivars
+```
+
+If EFI variables are still not available, add the option `--no-nvram` to the
 `grub-install` command.
 
 #### Installing on removable media or non-compliant UEFI systems
