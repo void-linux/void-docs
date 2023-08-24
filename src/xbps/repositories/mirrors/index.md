@@ -42,6 +42,7 @@ sub-repository.
 | <https://mirrors.cnnic.cn/voidlinux/>              | Asia          | Beijing, China         |
 | <https://mirrors.tuna.tsinghua.edu.cn/voidlinux/>  | Asia          | Beijing, China         |
 | <https://mirror.sjtu.edu.cn/voidlinux/>            | Asia          | Shanghai, China        |
+| <https://repo.jing.rocks/voidlinux/>               | Asia          | Tokyo, Japan           |
 | <https://void.webconverger.org/>                   | Asia          | Singapore              |
 | <http://ftp.dk.xemacs.org/voidlinux/>              | Europe        | Denmark                |
 | <https://mirrors.dotsrc.org/voidlinux/>            | Europe        | Denmark                |
