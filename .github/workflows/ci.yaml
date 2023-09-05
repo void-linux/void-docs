@@ -9,28 +9,53 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  contents:
-    name: Check formatting and links
+  summary:
+    name: Check summary
     runs-on: ubuntu-latest
     container:
-      image: ghcr.io/void-linux/void-linux:latest-full-x86_64-musl
+      image: ghcr.io/void-linux/void-musl-full:latest
     steps:
       - name: Prepare container
         run: |
           xbps-install -Syu || xbps-install -Syu xbps
           xbps-install -yu
-          xbps-install -y mdbook-linkcheck vmdfmt git findutils bash
+          xbps-install -y findutils bash git
       - name: Checkout
         id: checkout
         uses: classabbyamp/treeless-checkout-action@v1
       - name: Check summary
-        if: steps.checkout.conclusion == 'success'
         run: res/ci/check-summary.sh
+  format:
+    name: Check formatting
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/void-linux/void-musl-full:latest
+    steps:
+      - name: Prepare container
+        run: |
+          xbps-install -Syu || xbps-install -Syu xbps
+          xbps-install -yu
+          xbps-install -y vmdfmt bash git
+      - name: Checkout
+        id: checkout
+        uses: classabbyamp/treeless-checkout-action@v1
       - name: Check formatting
-        if: success() || failure()
         run: res/ci/format.sh
+  linkcheck:
+    name: Check links
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/void-linux/void-musl-full:latest
+    steps:
+      - name: Prepare container
+        run: |
+          xbps-install -Syu || xbps-install -Syu xbps
+          xbps-install -yu
+          xbps-install -y mdbook-linkcheck bash git
+      - name: Checkout
+        id: checkout
+        uses: classabbyamp/treeless-checkout-action@v1
       - name: Check links
-        if: success() || failure()
         run: res/ci/linkcheck.sh
   commits:
     name: Check commits
