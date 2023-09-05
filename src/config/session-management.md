@@ -10,13 +10,16 @@ D-Bus is an IPC (inter-process communication) mechanism used by userspace
 software in Linux. D-Bus can provide a system bus and/or a session bus, the
 latter being specific to a user session.
 
-- To provide a system bus, you should [enable](./services/index.md) the `dbus`
-   service. This might require a system reboot to work properly.
+- To provide a system bus, you should
+   [enable](./services/index.md#enabling-services) the `dbus` service. This
+   might require a system reboot to work properly.
 - To provide a session bus, you can start a given program (usually a window
    manager or interactive shell) with
    [dbus-run-session(1)](https://man.voidlinux.org/dbus-run-session.1). Most
    desktop environments, if launched through an adequate display manager, will
-   launch a D-Bus session themselves.
+   launch a D-Bus session themselves. If a D-Bus session is active for the
+   current session, the environment variable `DBUS_SESSION_BUS_ADDRESS` should
+   be defined.
 
 Note that some software assumes the presence of a system bus, while other
 software assumes the presence of a session bus.
