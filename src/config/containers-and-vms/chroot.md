@@ -108,7 +108,7 @@ glibc and musl systems.
 #### Application Containers
 
 If a more integrated and polished solution is desired, Void also [provides OCI
-containers](https://voidlinux.org/download/#containers)
-that work with tools like [docker](https://www.docker.com) and
+containers](https://voidlinux.org/download/#containers) that work with tools
+like [docker](https://www.docker.com) and
 [podman](https://man.voidlinux.org/podman.1). These containers do not require
 the creation of a chroot directory before usage.
