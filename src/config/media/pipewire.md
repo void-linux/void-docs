@@ -1,119 +1,80 @@
 # PipeWire
 
-To use PipeWire, install the `pipewire` package.
+PipeWire is a modern server for handling audio (and video) streams. It is highly
+flexible and can interface with applications designed for ALSA, PulseAudio, and
+JACK audio systems. It is also designed to work well with Flatpak applications
+and provides a method for screenshotting and screensharing on Wayland via
+[xdg-desktop-portal](../graphical-session/portals.md).
 
-[pipewire(1)](https://man.voidlinux.org/pipewire.1) should be started as a user.
-Run the pipewire command in a terminal emulator in your session.
+## Prerequisites
 
-```
-$ pipewire
-```
+PipeWire requires an active [D-Bus user session
+bus](../session-management.md#d-bus). If your desktop environment, window
+manager, or Wayland compositor is configured to provide this, no further
+configuration should be required. If not, the desktop environment, window
+manager, or Wayland compositor may need to be launched with
+[`dbus-run-session(1)`](https://man.voidlinux.org/dbus-run-session.1).
 
-When pipewire works as expected, use the autostarting mechanism of your desktop
-environment or [startx](../graphical-session/xorg.md#startx). The `pipewire`
-package ships [Desktop
-Entry](https://specifications.freedesktop.org/desktop-entry-spec/latest/) files
-for `pipewire` and `pipewire-pulse` in `/usr/share/applications`. If your
-environment supports the [Desktop Application Autostart
-Specification](https://specifications.freedesktop.org/autostart-spec/autostart-spec-latest.html),
-you can enable pipewire by symlinking the desktop files to the autostart
-directory:
+PipeWire also requires the
+[`XDG_RUNTIME_DIR`](../session-management.html#xdg_runtime_dir) environment
+variable to be defined in your environment to work properly.
 
-```
-# ln -s /usr/share/applications/pipewire.desktop /etc/xdg/autostart/pipewire.desktop
-```
+If not using [elogind](../session-management.md), it is necessary to be in the
+`audio` group to access audio devices and the `video` group to access video
+devices.
 
-## Session Management
+## Basic Setup
+
+To use PipeWire, install the `pipewire` package. This will also install a
+PipeWire session manager, `wireplumber`.
+
+### Session Management
 
 In PipeWire, a session manager assumes responsibility for interconnecting media
 sources and sinks as well as enforcing routing policy. Without a session
-manager, PipeWire will not function. The reference
-[`pipewire-media-session`](https://gitlab.freedesktop.org/pipewire/media-session)
-was originally provided in the Void `pipewire` package and configured to run by
-default to satisfy this requirement. However, `pipewire-media-session` is
-deprecated and the authors recommend using
-[WirePlumber](https://pipewire.pages.freedesktop.org/wireplumber/) in its place.
-Install the `wireplumber` package to use this session manager with PipeWire.
+manager, PipeWire will not function.
 
 > If you have installed an earlier version of the Void `pipewire` package, make
 > sure to update your system to eliminate any stale system configuration that
-> may attempt to launch `pipewire-media-session`. Users who previously overrode
-> the system configuration to use `wireplumber`, *e.g.* by placing a custom
-> `pipewire.conf` file in `/etc/pipewire` or `${XDG_CONFIG_HOME}/pipewire`, may
-> wish to reconcile these overrides with `/usr/share/pipewire/pipewire.conf`
-> installed by the most recent `pipewire` package. If the sole purpose of a
-> prior override was to disable `pipewire-media-session`, deleting the custom
-> configuration may be sufficient.
+> may attempt to launch `pipewire-media-session`, the original PipeWire session
+> manager. Users who previously overrode the system configuration to use
+> `wireplumber`, *e.g.* by placing a custom `pipewire.conf` file in
+> `/etc/pipewire` or `${XDG_CONFIG_HOME}/pipewire`, may wish to reconcile these
+> overrides with `/usr/share/pipewire/pipewire.conf` installed by the most
+> recent `pipewire` package. If the sole purpose of a prior override was to
+> disable `pipewire-media-session`, deleting the custom configuration may be
+> sufficient.
 
-There are several methods for starting `wireplumber` alongside `pipewire`. If
-your window manager or desktop environment auto-start mechanism is used to start
-`pipewire`, it is recommended to use the same mechanism for starting
-`wireplumber`. The `wireplumber` package includes a `wireplumber.desktop`
-Desktop Entry file that may be useful in this situation.
-
-> Be aware that `wireplumber` must launch *after* the `pipewire` executable. The
-> Desktop Application Autostart Specification makes no provision for ordering of
-> services started via Desktop Entry files. When relying on these files to
-> launch `pipewire` and `wireplumber`, consult the documentation for your window
-> manager or desktop environment to determine whether proper ordering of
-> services can be achieved.
-
-If proper ordering of separate `pipewire` and `wireplumber` services is
-infeasible, it is possible to configure `pipewire` to launch the session manager
-directly. This can be accomplished by running
+Currently, there is only one session manager available: WirePlumber. To
+configure PipeWire to use this session manager and ensure proper startup
+ordering, PipeWire should be configured to launch the session manager directly.
+This can be accomplished by running
 
 ```
 # mkdir -p /etc/pipewire/pipewire.conf.d
 # ln -s /usr/share/examples/wireplumber/10-wireplumber.conf /etc/pipewire/pipewire.conf.d/
 ```
 
-for system configurations or, for per-user configurations, running
+for system-wide configuration, or
 
 ```
-$ true "${XDG_CONFIG_HOME:=${HOME}/.config}"
+$ : "${XDG_CONFIG_HOME:=${HOME}/.config}"
 $ mkdir -p "${XDG_CONFIG_HOME}/pipewire/pipewire.conf.d"
-# ln -s /usr/share/examples/wireplumber/10-wireplumber.conf "${XDG_CONFIG_HOME}/pipewire/pipewire.conf.d/"
+$ ln -s /usr/share/examples/wireplumber/10-wireplumber.conf "${XDG_CONFIG_HOME}/pipewire/pipewire.conf.d/"
 ```
 
-With either of these configurations, launching `pipewire` should be sufficient
-to establish a working PipeWire session that uses `wireplumber` for session
-management.
+for per-user configuration.
 
-In its default configuration, WirePlumber requires an active [D-Bus
-session](../session-management.md#d-bus). If your desktop environment or window
-manager is configured to provide a D-Bus session as well as launch `pipewire`
-and `wireplumber`, no further configuration should be required. Users wishing to
-launch `pipewire` on its own, *e.g.*, in a `.xinitrc` script, may find it
-necessary to configure `pipewire` to launch `wireplumber` directly and wrap the
-`pipewire` invocation as
+### PulseAudio interface
 
-```
-dbus-run-session pipewire
-```
+The PulseAudio interface is optional but highly recommended. Most applications
+cannot speak directly to PipeWire, but instead speak to PipeWire's PulseAudio
+interface.
 
-## PulseAudio replacement
+If `pulseaudio` is installed, uninstall it and ensure `pulseaudio` is not
+running.
 
-Before starting `pipewire-pulse`, make sure that the PulseAudio service is
-[disabled](../services/index.md#disabling-services) and that no other PulseAudio
-server instance is running.
-
-Start the PulseAudio server by running `pipewire-pulse` in a terminal emulator.
-
-To check if the replacement is working correctly, use
-[pactl(1)](https://man.voidlinux.org/pactl.1) (provided by the
-`pulseaudio-utils` package):
-
-```
-$ pactl info
-
-[...]
-Server Name: PulseAudio (on PipeWire 0.3.18)
-[...]
-```
-
-Once you confirmed that `pipewire-pulse` works as expected, it's recommended to
-autostart it from the same place where you start PipeWire. Alternatively, the
-`pipewire` configuration can be modified to launch `pipewire-pulse` directly:
+Modify the PipeWire configuration to launch `pipewire-pulse`:
 
 ```
 # mkdir -p /etc/pipewire/pipewire.conf.d
@@ -123,18 +84,95 @@ autostart it from the same place where you start PipeWire. Alternatively, the
 for system configurations, or
 
 ```
-$ true "${XDG_CONFIG_HOME:=${HOME}/.config}"
+$ : "${XDG_CONFIG_HOME:=${HOME}/.config}"
 $ mkdir -p "${XDG_CONFIG_HOME}/pipewire/pipewire.conf.d"
-# ln -s /usr/share/examples/pipewire/20-pipewire-pulse.conf "${XDG_CONFIG_HOME}/pipewire/pipewire.conf.d/"
+$ ln -s /usr/share/examples/pipewire/20-pipewire-pulse.conf "${XDG_CONFIG_HOME}/pipewire/pipewire.conf.d/"
 ```
 
 for per-user configurations.
 
-## Bluetooth audio
+### Testing
 
-For bluetooth audio to work, install the `libspa-bluetooth` package.
+[pipewire(1)](https://man.voidlinux.org/pipewire.1) should be started as your
+user. To test that PipeWire works, run the `pipewire` command in a terminal
+emulator in your session:
 
-## ALSA integration
+```
+$ pipewire
+```
+
+Launching `pipewire` should be sufficient to establish a working PipeWire
+session that uses `wireplumber` for session management.
+
+The status of WirePlumber can be checked with:
+
+```
+$ wpctl status
+PipeWire 'pipewire-0' [0.3.82, ...]
+[...]
+```
+
+If the [PulseAudio interface](#pulseaudio-interface) was configured, use
+[pactl(1)](https://man.voidlinux.org/pactl.1) (provided by the
+`pulseaudio-utils` package) to ensure it is working properly:
+
+```
+$ pactl info
+[...]
+Server Name: PulseAudio (on PipeWire 0.3.82)
+[...]
+```
+
+### Launching Automatically
+
+Once `pipewire` works as expected, it can be configured to launch when starting
+a graphical session. There are several ways this can be achieved:
+
+- **Use the autostarting mechanism of your desktop environment**: many desktop
+   environments have a way to configure applications and programs to start
+   automatically.
+- **Use XDG Desktop Application Autostart**: many desktop environments also
+   support the [Desktop Application Autostart
+   Specification](https://specifications.freedesktop.org/autostart-spec/autostart-spec-latest.html).
+   The `pipewire` package ships a Desktop Entry file for `pipewire` in
+   `/usr/share/applications`. If your environment supports the Desktop
+   Application Autostart, you can start `pipewire` by symlinking the desktop
+   file to the system (`/etc/xdg/autostart`) or user
+   (`${XDG_CONFIG_HOME}/autostart` or `~/.config/autostart`) autostart
+   directory. If you are using a desktop environment, window manager, or Wayland
+   compositor that does not support this, a tool like
+   [`dex(1)`](https://man.voidlinux.org/dex.1) can be used to add support for
+   Desktop Application Autostart, for example: `dex --environment <window
+   manager> --autostart --search-paths ~/.config/autostart`.
+- **Use your window manager's startup scripts**: `pipewire` can be launched
+   directly from your window manager or Wayland compositor's startup script.
+
+## Optional Setup
+
+### Command-line and Terminal interfaces
+
+`wpctl` can be used to configure PipeWire when using WirePlumber as [session
+manager](#session-management).
+
+If using the [PulseAudio interface](#pulseaudio-interface), PulseAudio
+configuration tools like `pactl` (from `pulseaudio-utils`) and `ncpamixer` can
+also be used.
+
+### Graphical interfaces
+
+`qpwgraph` and `helvum` provide a node-and-graph-style interface for connecting
+applications and devices.
+
+If using the [PulseAudio interface](#pulseaudio-interface), PulseAudio
+configuration tools like `pavucontrol`, `pavucontrol-qt`, and the widgets and
+applets integrated into many desktop environments can also be used to configure
+PipeWire.
+
+### Bluetooth audio
+
+Install the `libspa-bluetooth` package.
+
+### ALSA integration
 
 Install `alsa-pipewire`, then enable the PipeWire ALSA device and make it the
 default:
@@ -145,7 +183,7 @@ default:
 # ln -s /usr/share/alsa/alsa.conf.d/99-pipewire-default.conf /etc/alsa/conf.d
 ```
 
-## JACK replacement
+### JACK interface
 
 Install `libjack-pipewire`.
 
@@ -165,8 +203,38 @@ on glibc-based systems:
 # ldconfig
 ```
 
+then reboot.
+
 ## Troubleshooting
 
-The PulseAudio replacement requires the
-[`XDG_RUNTIME_DIR`](../session-management.html#xdg_runtime_dir) environment
-variable to work correctly.
+### Common errors
+
+```
+[E][...] mod.rt       | [     module-rt.c:  262 pw_rtkit_bus_get()] Failed to connect to system bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+```
+
+This indicates the system D-Bus is not running.
+[Enable](../services/index.md#enabling-services) the `dbus` service.
+
+```
+[E][...] mod.rt       | [     module-rt.c:  262 pw_rtkit_bus_get()] Failed to connect to session bus: D-Bus library appears to be incorrectly set up: see the manual page for dbus-uuidgen to correct this issue. (Failed to open "/var/lib/dbus/machine-id": No such file or directory; Failed to open "/etc/machine-id": No such file or directory)
+```
+
+This indicates the [user session D-Bus](../session-management.md#d-bus) is not
+running.
+
+```
+[E][...] mod.protocol-native | [module-protocol-:  710 init_socket_name()] server 0x55e09658e9d0: name pipewire-0 is not an absolute path and no runtime dir found. Set one of PIPEWIRE_RUNTIME_DIR, XDG_RUNTIME_DIR or USERPROFILE in the environment
+```
+
+This indicates [`XDG_RUNTIME_DIR`](../session-management.html#xdg_runtime_dir)
+is not set up properly.
+
+### Only a "dummy" output is found
+
+If a session manager (like `wireplumber`) is not running, [configure
+it](#session-management) and restart PipeWire.
+
+If a session manager is running, check if your user is in the `audio` and
+`video` groups. If not using `elogind`, this is necessary for PipeWire to access
+devices.
