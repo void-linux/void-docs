@@ -2,10 +2,16 @@
 
 Sometimes it can be nice to have user-specific runit services. For example, you
 might want to open an ssh tunnel as the current user, run a virtual machine, or
-regularly run daemons on your behalf. The most common way to do this is to
-create a system-level service that runs
+regularly run daemons on your behalf.
+
+## runsvdir
+
+The most basic way to do this is to create a system-level service that runs
 [runsvdir(8)](https://man.voidlinux.org/runsvdir.8) as your user, in order to
-start and monitor the services in a personal services directory.
+start and monitor the services in a personal services directory. This does have
+limitations and downsides, though, as per-user services are started at boot and
+do not have access to things like the user's graphical session or D-Bus session
+bus.
 
 For example, you could create a service called `/etc/sv/runsvdir-<username>`
 with the following `run` script, which should be executable:
@@ -46,3 +52,48 @@ ok: run: gpg-agent: (pid 19818) 0s
 
 It may be convenient to export the `SVDIR=~/service` variable in your shell
 profile.
+
+## turnstile
+
+[Turnstile](https://github.com/chimera-linux/turnstile) supports running
+per-user services that start with the user session using either runit or
+[dinit(8)](https://man.voidlinux.org/man8/dinit.8).
+
+If using the runit service backend, user services should be placed in
+`~/.config/service/`.
+
+To ensure that a subset of services are started before login can proceed, these
+services can be listed in `~/.config/service/turnstile-ready/conf`, for example:
+
+```
+core_services="dbus foo"
+```
+
+The `turnstile-ready` service is created by turnstile on first login.
+
+To give user services access to important environment variables,
+[chpst(8)](https://man.voidlinux.org/chpst.8)'s envdir functionality can be
+used. Inside user services, the convenience variable `TURNSTILE_ENV_DIR` can be
+used to refer to this directory.
+
+To make a service aware of these variables, wrap the `exec` line with `chpst -e
+"$TURNSTILE_ENV_DIR"`:
+
+```
+exec chpst -e "$TURNSTILE_ENV_DIR" foo
+```
+
+The helper script `turnstile-update-runit-env` can be used to update variables
+in this shared envdir:
+
+```
+$ turnstile-update-runit-env DISPLAY XAUTHORITY FOO=bar BAZ=
+```
+
+To run the [D-Bus session bus](../session-management.md#d-bus) using a
+turnstile-managed user service:
+
+```
+$ mkdir -p ~/.config/service/dbus
+$ ln -s /usr/share/examples/turnstile/dbus.run ~/.config/service/dbus/run
+```
