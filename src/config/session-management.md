@@ -37,8 +37,31 @@ to consider before installing elogind.
 To make use of its features, install the `elogind` package and make sure the
 [system D-Bus](#d-bus) is enabled. You might need to log out and in again.
 
-If you're having any issues with elogind, [enable](./services/index.md) its
-service, as waiting for a D-Bus activation can lead to issues.
+If you're having any issues with elogind,
+[enable](./services/index.md#enabling-services) its service, as waiting for a
+D-Bus activation can lead to issues.
+
+## turnstile
+
+[turnstile](https://github.com/chimera-linux/turnstile) is an alternative
+session manager, and can be used with or without [elogind](#elogind).
+
+If using turnstile with elogind, disable rundir (`XDG_RUNTIME_DIR`) management
+in `/etc/turnstile/turnstiled.conf` by setting `manage_rundir` to `no`. Note
+that while elogind and turnstile currently can coexist, this may change in the
+future.
+
+If using turnstile without elogind, consider installing and enabling
+[seatd](#seatd) for seat management and [acpid](./power-management.md#acpid) for
+power management.
+
+To use it, [enable](./services/index.md#enabling-services) the `turnstiled`
+service and re-log in.
+
+Turnstile can also manage [per-user
+services](./services/user-services.md#turnstile) (including running a [D-Bus
+session bus](#d-bus)), removing the need for wrapping graphical sessions with
+`dbus-run-session`.
 
 ## seatd
 
@@ -59,8 +82,8 @@ Specification](https://specifications.freedesktop.org/basedir-spec/basedir-spec-
 Its value sets the path to the base directory where programs should store
 user-specific runtime files.
 
-Install [elogind](#elogind) as your session manager to automatically set up
-`XDG_RUNTIME_DIR`.
+Install [elogind](#elogind) or [turnstile](#turnstile) as your session manager
+to automatically set up `XDG_RUNTIME_DIR`.
 
 Alternatively, manually set the environment variable through the shell. Make
 sure to create a dedicated user directory and set its permissions to `700`. A
