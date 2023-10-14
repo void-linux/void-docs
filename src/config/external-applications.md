@@ -58,8 +58,8 @@ security and/or privacy-violating features of proprietary software.
 
 Some apps may not function properly (e.g. not being able to access the host
 system's files). Some of these issues can be fixed by installing one or more of
-the `xdg-desktop-portal`, `xdg-desktop-portal-gtk`, `xdg-user-dirs`,
-`xdg-user-dirs-gtk` or `xdg-utils` packages.
+the `xdg-user-dirs`, `xdg-user-dirs-gtk` or `xdg-utils` packages, and setting up
+[XDG Desktop Portals](./graphical-session/portals.md).
 
 Some Flatpaks require [D-Bus](./session-management.md#d-bus) and/or
 [Pulseaudio](./media/pulseaudio.md).
