@@ -53,6 +53,7 @@
       - [Wayland](./config/graphical-session/wayland.md)
       - [Fonts](./config/graphical-session/fonts.md)
       - [Icons](./config/graphical-session/icons.md)
+      - [XDG Desktop Portals](./config/graphical-session/portals.md)
       - [GNOME](./config/graphical-session/gnome.md)
       - [KDE](./config/graphical-session/kde.md)
    - [Multimedia](./config/media/index.md)
