@@ -29,6 +29,13 @@ documentation](https://www.raspberrypi.org/documentation/configuration/cmdline-t
 > these images is that the armv7l image provides a 32-bit system while the
 > aarch64 image provides a 64-bit system.
 
+### USB mass storage boot on Raspberry Pi 4
+
+To boot an RPi 4 from a USB mass storage device, the [install process is the
+same](./index.md), but after installation, the USB drive needs to be mounted on
+the host and the `root=` argument in `/boot/cmdline.txt` needs to be changed to,
+for example, `root=/dev/sda2`.
+
 ### Enabling hardware RNG device
 
 By default, the
