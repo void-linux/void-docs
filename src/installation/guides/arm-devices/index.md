@@ -27,9 +27,9 @@ thoroughly.
 
 ### Pre-built images
 
-After [downloading and verifying](../../index.md#downloading-installation-media)
-an image, it can be written to the relevant media with
-[cat(1)](https://man.voidlinux.org/cat.1),
+The pre-built images provided are prepared for 2GB SD cards. After [downloading
+and verifying](../../index.md#downloading-installation-media) an image, it can
+be written to the relevant media with [cat(1)](https://man.voidlinux.org/cat.1),
 [pv(1)](https://man.voidlinux.org/pv.1), or
 [dd(1)](https://man.voidlinux.org/dd.1). For example, to flash it onto an SD
 card located at `/dev/mmcblk0`:
@@ -37,6 +37,12 @@ card located at `/dev/mmcblk0`:
 ```
 # dd if=<image>.img of=/dev/mmcblk0 bs=4M status=progress
 ```
+
+After flashing, the root partition can optionally be expanded to fit the storage
+device with [cfdisk(8)](https://man.voidlinux.org/cfdisk.8),
+[fdisk(8)](https://man.voidlinux.org/fdisk.8), or another partitioning tool, and
+the filesystem can be resized to fit the expanded partition with
+[resize2fs(8)](https://man.voidlinux.org/resize2fs.8).
 
 ### Custom partition layout
 
