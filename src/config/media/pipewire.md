@@ -151,7 +151,12 @@ a graphical session. There are several ways this can be achieved:
 
 ### Command-line and Terminal interfaces
 
-`wpctl` can be used to configure PipeWire when using WirePlumber as [session
+A variety of tools for interacting with PipeWire are included in the `pipewire`
+package, including [pw-cli(1)](https://man.voidlinux.org/pw-cli.1),
+[pw-top(1)](https://man.voidlinux.org/pw-top.1), and
+[pw-cat(1)](https://man.voidlinux.org/pw-cat.1).
+
+`wpctl` can be used to control the WirePlumber [session
 manager](#session-management).
 
 If using the [PulseAudio interface](#pulseaudio-interface), PulseAudio
