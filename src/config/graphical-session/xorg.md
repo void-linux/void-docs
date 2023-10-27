@@ -105,13 +105,13 @@ be used to start X sessions from the console. For example, to start
 
 To start arbitrary programs together with an X session, add them in `~/.xinitrc`
 before the last line. For example, to start
-[pipewire(1)](https://man.voidlinux.org/pipewire.1) before starting i3, add
-`pipewire &` before the last line.
+[xscreensaver(1)](https://man.voidlinux.org/xscreensaver.1) before starting i3,
+add `xscreensaver &` before the last line.
 
-A `~/.xinitrc` file which starts `pipewire` and `i3` is shown below:
+A `~/.xinitrc` file which starts `xscreensaver` and `i3` is shown below:
 
 ```
-pipewire &
+xscreensaver &
 exec /bin/i3
 ```
 
