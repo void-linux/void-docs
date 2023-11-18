@@ -36,4 +36,6 @@ exclude = [
 	'mirror\.vofr\.net',
 	'void\.chililinux\.com',
 	'voidlinux\.com\.br',
+	'reddit\.com',
+	'raspberrypi\.com',
 ]

@@ -12,9 +12,9 @@ packages should be installed if you want to use any DKMS packages. Void ships
 functionality.
 
 The [command line](../../../config/kernel.md#cmdline) parameters passed to the
-kernel are in the `rootfs/boot/cmdline.txt` file. Some of the relevant
-parameters are documented in the [official
-documentation](https://www.raspberrypi.org/documentation/configuration/cmdline-txt.md).
+kernel are in the `/boot/cmdline.txt` file. Some of the relevant parameters are
+documented in the [official
+documentation](https://www.raspberrypi.com/documentation/computers/configuration.html#the-kernel-command-line).
 
 ### Supported Models
 
@@ -22,19 +22,23 @@ documentation](https://www.raspberrypi.org/documentation/configuration/cmdline-t
 |---------------------------------------------|--------------|
 | 1 A, 1 B, 1 A+, 1 B+, Zero, Zero W, Zero WH | armv6l       |
 | 2 B                                         | armv7l       |
-| 3 B, 3 A+, 3 B+, Zero 2W, 4 B, 400          | aarch64      |
+| 3 B, 3 A+, 3 B+, Zero 2W, 4 B, 400, CM4, 5  | aarch64      |
 
 > It is possible to run the armv7l images on an RPi 3, as the RPi 3's CPU
 > supports both the Armv8 and Armv7 instruction sets. The difference between
 > these images is that the armv7l image provides a 32-bit system while the
 > aarch64 image provides a 64-bit system.
 
-### USB mass storage boot on Raspberry Pi 4
+### Raspberry Pi 5 Kernel
 
-To boot an RPi 4 from a USB mass storage device, the [install process is the
-same](./index.md), but after installation, the USB drive needs to be mounted on
-the host and the `root=` argument in `/boot/cmdline.txt` needs to be changed to,
-for example, `root=/dev/sda2`.
+The `rpi5-kernel` and `rpi5-kernel-headers` packages provide a kernel and
+headers optimized for the Raspberry Pi 5 with 16KB pages. To switch from the
+generic `rpi-kernel`, install `rpi5-kernel`. This will remove `rpi-kernel` and
+replace it with `rpi5-kernel`.
+
+> Not all software is compatible with larger page-size kernels. View and report
+> any compatibility problems in the [tracking
+> issue](https://github.com/void-linux/void-packages/issues/48260).
 
 ### Enabling hardware RNG device
 
@@ -59,8 +63,8 @@ driver](../../../config/graphical-session/xorg.md#modesetting) or
 
 More configuration information can be found in the Raspberry Pi Foundation's
 [official
-documentation](https://www.raspberrypi.org/documentation/configuration/). The
-`raspi-config` utility isn't available for Void Linux, so editing the
+documentation](https://www.raspberrypi.com/documentation/computers/configuration.html).
+The `raspi-config` utility isn't available for Void Linux, so editing the
 `/boot/config.txt` file is usually required.
 
 #### Audio
