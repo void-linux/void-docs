@@ -28,6 +28,7 @@ Void Linux currently packages the following Wayland compositors:
 - Cage: a Wayland kiosk
 - River: a dynamic tiling Wayland compositor
 - labwc: a window-stacking compositor, inspired by Openbox
+- Qtile: a dynamic tiling Wayland compositor (via qtile-wayland)
 
 ### Video drivers
 
