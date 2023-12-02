@@ -159,7 +159,7 @@ Update the package manager and install `base-system`:
 [xchroot /mnt] # xbps-install -Su xbps
 [xchroot /mnt] # xbps-install -u
 [xchroot /mnt] # xbps-install base-system
-[xchroot /mnt] # xbps-remove base-voidstrap
+[xchroot /mnt] # xbps-remove base-container-full
 ```
 
 ### Installation Configuration
