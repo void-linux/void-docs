@@ -15,7 +15,7 @@ used to create the chroot:
 
 ```
 # mkdir <chroot_dir>
-# XBPS_ARCH=<chroot_arch> xvoidstrap <chroot_dir> base-voidstrap <other_pkgs>
+# XBPS_ARCH=<chroot_arch> xvoidstrap <chroot_dir> base-container <other_pkgs>
 ```
 
 `<other_pkgs>` is only needed if you want to pre-install other packages in the
@@ -26,12 +26,12 @@ chroot.
 Alternatively, this process can be done manually.
 
 Create a directory that will contain the chroot, then install a base system in
-it via the `base-voidstrap` package:
+it via the `base-container` package:
 
 ```
 # mkdir -p "<chroot_dir>/var/db/xbps/keys"
 # cp -a /var/db/xbps/keys/* "<chroot_dir>/var/db/xbps/keys"
-# XBPS_ARCH=<chroot_arch> xbps-install -S -r <chroot_dir> -R <repository> base-voidstrap <other_pkgs>
+# XBPS_ARCH=<chroot_arch> xbps-install -S -r <chroot_dir> -R <repository> base-container <other_pkgs>
 ```
 
 The `<repository>` may [vary depending on
