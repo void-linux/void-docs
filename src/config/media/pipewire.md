@@ -13,7 +13,8 @@ bus](../session-management.md#d-bus). If your desktop environment, window
 manager, or Wayland compositor is configured to provide this, no further
 configuration should be required. If not, the desktop environment, window
 manager, or Wayland compositor may need to be launched with
-[`dbus-run-session(1)`](https://man.voidlinux.org/dbus-run-session.1).
+[`dbus-run-session(1)`](https://man.voidlinux.org/dbus-run-session.1) or a [dbus
+user-service](../services/user-services.md#d-bus-session) should be setup.
 
 PipeWire also requires the
 [`XDG_RUNTIME_DIR`](../session-management.html#xdg_runtime_dir) environment
