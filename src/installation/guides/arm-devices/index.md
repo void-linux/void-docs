@@ -29,12 +29,14 @@ thoroughly.
 
 The pre-built images provided are prepared for 2GB SD cards. After [downloading
 and verifying](../../index.md#downloading-installation-media) an image, it can
-be written to the relevant media with [cat(1)](https://man.voidlinux.org/cat.1),
+be uncompressed with [unxz(1)](https://man.voidlinux.org/unxz.1) and written to
+the relevant media with [cat(1)](https://man.voidlinux.org/cat.1),
 [pv(1)](https://man.voidlinux.org/pv.1), or
 [dd(1)](https://man.voidlinux.org/dd.1). For example, to flash it onto an SD
 card located at `/dev/mmcblk0`:
 
 ```
+$ unxz -k <image>.img.xz
 # dd if=<image>.img of=/dev/mmcblk0 bs=4M status=progress
 ```
 
