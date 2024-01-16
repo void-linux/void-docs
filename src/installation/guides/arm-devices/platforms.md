@@ -101,7 +101,7 @@ i2c-1i2c          bcm2835 I2C adapter                 I2C adapter
 ### Memory cgroup
 
 The kernel from the `rpi-kernel` package [disables the memory cgroup by
-default](https://github.com/raspberrypi/linux/commit/9b0efcc1ec497b2985c6aaa60cd97f0d2d96d203#diff-f1d702fa7c504a2b38b30ce6bb098744).
+default](https://github.com/raspberrypi/linux/commit/28aec65bb1743c9bfa53b036999f9835c889704e).
 
 This breaks workloads which use containers. Therefore, if you want to use
 containers on your Raspberry Pi, you need to enable memory cgroups by adding
