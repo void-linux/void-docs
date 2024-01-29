@@ -62,6 +62,15 @@ user-specific runtime files.
 Install [elogind](#elogind) as your session manager to automatically set up
 `XDG_RUNTIME_DIR`.
 
+Install the `pam_rundir` package and add the following line to
+`/etc/pam.d/system-login` in the sessions block:
+
+`session optional pam_rundir.so`
+
+This will automatically create and destroy `XDG_RUNTIME_DIR` as
+`/run/user/<UID>` upon user login and logout. Please note that this does not set
+the `XDG_RUNTIME_DIR` environment variable automatically.
+
 Alternatively, manually set the environment variable through the shell. Make
 sure to create a dedicated user directory and set its permissions to `700`. A
 good default location is `/run/user/$(id -u)`.
