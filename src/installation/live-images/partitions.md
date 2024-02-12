@@ -31,9 +31,10 @@ should then install itself successfully.
 
 UEFI users are recommended to create a GPT partition table. UEFI booting with
 GRUB also requires a special partition of the type `EFI System` with a `vfat`
-filesystem mounted at `/boot/efi`. A reasonable size for this partition could be
-between 200MB and 1GB. With this partition setup during the live image
-installation, the installer should successfully set up the bootloader
+filesystem mounted at `/boot/efi`. As this is where the bootloader is stored,
+you will need to choose its size accordingly. A reasonable size for this
+partition could be between 200MB and 1GB. With this partition setup during the
+live image installation, the installer should successfully set up the bootloader
 automatically.
 
 ## Swap partitions

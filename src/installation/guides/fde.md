@@ -274,6 +274,12 @@ Next, install the boot loader to the disk.
 [xchroot /mnt] # grub-install /dev/sda
 ```
 
+Or, for UEFI systems.
+
+```
+[xchroot /mnt] # grub-install --target=x86_64-efi 
+```
+
 Ensure an initramfs is generated:
 
 ```
