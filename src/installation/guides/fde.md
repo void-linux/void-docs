@@ -5,7 +5,7 @@ so make sure it is correct.
 
 ## Partitioning
 
-Boot a live image and login.
+Boot a current Void Linux live image and login.
 
 Create a single physical partition on the disk using
 [cfdisk](https://man.voidlinux.org/cfdisk), marking it as bootable. For an MBR
