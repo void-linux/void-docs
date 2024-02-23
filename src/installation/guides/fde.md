@@ -151,14 +151,14 @@ manually](../../config/containers-and-vms/chroot.md#manual-method).
 # xchroot /mnt
 [xchroot /mnt] # chmod 0755 /
 [xchroot /mnt] # passwd root
-[xchroot /mnt] # echo voidlinux > /etc/hostname
+[xchroot /mnt] # echo voidlinux >/etc/hostname
 ```
 
 and, for glibc systems only:
 
 ```
-[xchroot /mnt] # echo "LANG=en_US.UTF-8" > /etc/locale.conf
-[xchroot /mnt] # echo "en_US.UTF-8 UTF-8" >> /etc/default/libc-locales
+[xchroot /mnt] # echo "LANG=en_US.UTF-8" >/etc/locale.conf
+[xchroot /mnt] # echo "en_US.UTF-8 UTF-8" >>/etc/default/libc-locales
 [xchroot /mnt] # xbps-reconfigure -f glibc-locales
 ```
 
@@ -198,24 +198,30 @@ find the UUID of the device.
 ```
 
 Edit the `GRUB_CMDLINE_LINUX_DEFAULT=` line and the `GRUB_CMDLINE_LINUX=` line 
-in `/etc/default/grub` and add
+in `/etc/default/grub` and add/change
 GRUB_CMDLINE_LINUX_DEFAULT="cryptdevice=UUID=135f3c06-26a0-437f-a05e-287b036440a4:voidlx cryptkey=rootfs:/boot/volume.key rd.luks.key=/boot/volume.key:/ rw"
 GRUB_CMDLINE_LINUX="rd.auto=1"
  to it. Make sure the UUID matches the one for the `sda1` device found in the output of the
 [blkid(8)](https://man.voidlinux.org/blkid.8) command above. This will be
 `/dev/sda2` on EFI systems. No "root=..." nessecary. Grub takes care about this.
+This is working with both initrd systems: dracut and mkinitcpio with no change.
 
 ## LUKS key setup
 
-And now to avoid having to enter the password twice on boot, a key will be
+And now to avoid having to enter the password twice on boot, a keyfile will be
 configured to automatically unlock the encrypted volume on boot. First, generate
-a random key.
+a random keyfile.
 
 ```
 [xchroot /mnt] # dd bs=1 count=64 if=/dev/urandom of=/boot/volume.key
 64+0 records in
 64+0 records out
 64 bytes copied, 0.000662757 s, 96.6 kB/s
+```
+Change the permissions to protect the generated key.
+
+```
+[xchroot /mnt] # chmod 0400 /boot/volume.key
 ```
 
 Next, add the key to the encrypted volume.
@@ -225,25 +231,11 @@ Next, add the key to the encrypted volume.
 Enter any existing passphrase:
 ```
 
-Change the permissions to protect the generated key.
-
-```
-[xchroot /mnt] # chmod 000 /boot/volume.key
-[xchroot /mnt] # chmod -R g-rwx,o-rwx /boot
-```
-
-This keyfile also needs to be added to `/etc/crypttab`. Again, this will be
-`/dev/sda2` on EFI systems.
-
-```
-voidvm   /dev/sda1   /boot/volume.key   luks
-```
-
-And then the keyfile and `crypttab` need to be included in the initramfs. Create
+The keyfile and need to be included in the initramfs. Create
 a new file at `/etc/dracut.conf.d/10-crypt.conf` with the following line:
 
 ```
-install_items+=" /boot/volume.key /etc/crypttab "
+install_items+=" /boot/volume.key "
 ```
 
 ## Complete system installation
@@ -254,7 +246,7 @@ Next, install the boot loader to the disk.
 [xchroot /mnt] # grub-install /dev/sda
 ```
 
-Ensure an initramfs is generated:
+Ensure a fresh initramfs is generated:
 
 ```
 [xchroot /mnt] # xbps-reconfigure -fa
