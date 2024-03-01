@@ -161,7 +161,7 @@ Change `/etc/crypttab`
 # <name>       <device>         <password>              <options>
 swap            /dev/sda1       /boot/volume.key        luks
 ```
-The keyfile and need to be included in the initramfs. Create
+The keyfile and crypttab need to be included in the initramfs. Create
 a new file at `/etc/dracut.conf.d/10-crypt.conf` with the following line:
 
 ```
