@@ -102,13 +102,13 @@ Configure all the settings.
   
      "Do you want to create a filesystem on /dev/mapper/voidlx ?"
   
-     ***No***
+     **No**
 
-      Change /dev/sda1 to vfat.  Mount point /boot/efi
+    Change /dev/sda1 to vfat.  Mount point /boot/efi
   
      "Do you want to create a filesystem on /dev/sda1 ?"
   
-     ***No***
+     **No**
 
   
 * Install
