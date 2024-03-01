@@ -169,7 +169,7 @@ GRUB_CMDLINE_LINUX_DEFAULT="cryptdevice=UUID=135f3c06-26a0-437f-a05e-287b036440a
 ```
 GRUB_CMDLINE_LINUX="rd.auto=1"
 ```
-to it. Make sure the UUID matches the one for the `vda2` device found in the output of the
+to it. Make sure the UUID matches the one for the `vda3` device found in the output of the
 [blkid(8)](https://man.voidlinux.org/blkid.8) command above.
 No "root=..." nessecary. Grub takes care about this.
 This is working with both initrd systems: dracut and mkinitcpio with no change.
