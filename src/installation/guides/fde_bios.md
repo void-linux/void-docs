@@ -5,9 +5,9 @@ so make sure it is correct.
 
 ## Partitioning
 
-Boot a current Void Linux live image and login.
+Boot the right (base/xfce i686/amd64) [Void Linux live image](https://voidlinux.org/download/) and login.
 
-Create two physical partition on the disk using
+Create two physical (msdos) partition on the disk using
 [cfdisk](https://man.voidlinux.org/cfdisk).
 The partition layout should look like the following.
 ```
