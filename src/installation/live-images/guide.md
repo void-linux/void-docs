@@ -78,7 +78,7 @@ Choose a login (default `void`) and a descriptive name for that login. Then
 enter and confirm the password for the new user. You will then be prompted to
 verify the groups for this new user. They are added to the `wheel` group by
 default and will have `sudo` access. Default groups and their descriptions are
-listed [here](../../config/users-and-groups.html#default-groups).
+listed [here](../../config/users-and-groups.md#default-groups).
 
 Login names have some restrictions, as described in
 [useradd(8)](https://man.voidlinux.org/useradd.8#CAVEATS).

@@ -85,7 +85,7 @@ compositors, and is installed as a dependency for most of them. Its package is
 ## Configuration
 
 The Wayland library requires the
-[`XDG_RUNTIME_DIR`](../session-management.html#xdg_runtime_dir) environment
+[`XDG_RUNTIME_DIR`](../session-management.md#xdg_runtime_dir) environment
 variable to determine the directory for the Wayland socket.
 
 It is also possible that some applications use the `XDG_SESSION_TYPE`

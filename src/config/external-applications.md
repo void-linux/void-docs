@@ -93,7 +93,7 @@ Steam can be installed either via a native package, which requires [enabling the
 "nonfree" repository](../xbps/repositories/index.md#nonfree), or via
 [Flatpak](#flatpak). The list of dependencies for different platforms and
 troubleshooting information for the native package can be found in its
-[Void-specific documentation](./package-documentation/index.html), while this
+[Void-specific documentation](./package-documentation/index.md), while this
 section deals with potential issues faced by Flatpak users.
 
 If you are using a different drive to store your game library, the

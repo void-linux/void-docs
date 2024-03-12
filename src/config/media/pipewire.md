@@ -16,7 +16,7 @@ manager, or Wayland compositor may need to be launched with
 [`dbus-run-session(1)`](https://man.voidlinux.org/dbus-run-session.1).
 
 PipeWire also requires the
-[`XDG_RUNTIME_DIR`](../session-management.html#xdg_runtime_dir) environment
+[`XDG_RUNTIME_DIR`](../session-management.md#xdg_runtime_dir) environment
 variable to be defined in your environment to work properly.
 
 If not using [elogind](../session-management.md), it is necessary to be in the
@@ -232,8 +232,8 @@ running.
 [E][...] mod.protocol-native | [module-protocol-:  710 init_socket_name()] server 0x55e09658e9d0: name pipewire-0 is not an absolute path and no runtime dir found. Set one of PIPEWIRE_RUNTIME_DIR, XDG_RUNTIME_DIR or USERPROFILE in the environment
 ```
 
-This indicates [`XDG_RUNTIME_DIR`](../session-management.html#xdg_runtime_dir)
-is not set up properly.
+This indicates [`XDG_RUNTIME_DIR`](../session-management.md#xdg_runtime_dir) is
+not set up properly.
 
 ### Only a "dummy" output is found
 
