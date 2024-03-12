@@ -36,9 +36,9 @@ headers optimized for the Raspberry Pi 5 with 16KB pages. To switch from the
 generic `rpi-kernel`, install `rpi5-kernel`. This will remove `rpi-kernel` and
 replace it with `rpi5-kernel`.
 
-> Not all software is compatible with larger page-size kernels. View and report
-> any compatibility problems in the [tracking
-> issue](https://github.com/void-linux/void-packages/issues/48260).
+> Note: not all software is compatible with kernels that have larger page-sizes.
+> View any known issues and report any compatibility problems found in the
+> [tracking issue](https://github.com/void-linux/void-packages/issues/48260).
 
 ### Enabling hardware RNG device
 
