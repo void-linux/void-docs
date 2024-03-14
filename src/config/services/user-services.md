@@ -46,3 +46,47 @@ ok: run: gpg-agent: (pid 19818) 0s
 
 It may be convenient to export the `SVDIR=~/service` variable in your shell
 profile.
+
+## Example services
+
+A common pattern when setting up services used by other applications is to setup
+the socket / port in a fixed location and then create an environmental variable
+for the user session that refers to it.
+
+### SSH Agent
+
+In this example, ssh-agent puts information into ~/.ssh/ssh-agent-env to be
+read.
+
+```
+#!/bin/sh
+
+exec > ~/.ssh/ssh-agent-env
+exec ssh-agent -D
+```
+
+For example, if using bash, adding `source ~/.ssh/ssh-agent-env` to `~/.bashrc`
+will populate the environmental variables to be picked up by ssh.
+
+### D-Bus Session
+
+Instead of the system D-Bus, applications sometimes require a session D-Bus. A
+session D-Bus sets `DBUS_SESSION_BUS_ADDRESS` in the user environment for
+applications. In this example, we set the socket to be the service directory and
+then setup `.profile` to populate it for the user session.
+
+```
+#!/bin/sh
+set -eu
+exec 2>&1
+
+exec dbus-daemon --nofork --nopidfile --nosyslog --session --address="unix:path=`pwd`/sock"
+```
+
+To make this socket available in the user session, it needs to be loaded on the
+start of the users session. For example, when using lightdm the following could
+be added to `~/.profile`.
+
+```
+export DBUS_SESSION_BUS_ADDRESS="unix:path=$HOME/<path_to_user_dbus_service/sock"
+```
