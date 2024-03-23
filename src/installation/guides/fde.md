@@ -52,7 +52,7 @@ LUKS2 is only partially supported by GRUB; specifically, only the PBKDF2 key
 derivation function is
 [implemented](https://git.savannah.gnu.org/cgit/grub.git/commit/?id=365e0cc3e7e44151c14dd29514c2f870b49f9755),
 which is *not* the default KDF used with LUKS2, that being Argon2i ([GRUB Bug
-59409](https://savannah.gnu.org/bugs/?59409)). LUKS encrypted partitions using
+55093](https://savannah.gnu.org/bugs/?55093)). LUKS encrypted partitions using
 Argon2i (as well as the other KDF) can *not* be decrypted. For that reason, this
 guide only recommends LUKS1 be used.
 
