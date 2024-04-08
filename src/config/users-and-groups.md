@@ -70,7 +70,7 @@ Void Linux defines a number of groups by default.
 | `mail`     | Used by some mail packages, e.g. `dma`.                                                                                                |
 | `storage`  | Access to removable storage devices.                                                                                                   |
 | `scanner`  | Ability to access scanners.                                                                                                            |
-| `network`  | Unused - present for historical reasons.                                                                                               |
+| `network`  | Used by some networking-related packages, e.g. `connman`, `NetworkManager`, `wicd`.                                                    |
 | `kvm`      | Ability to use KVM for virtual machines, e.g. via QEMU.                                                                                |
 | `input`    | Access to input devices: `/dev/mouse*`, `/dev/event*`.                                                                                 |
 | `plugdev`  | Access to pluggable devices.                                                                                                           |
