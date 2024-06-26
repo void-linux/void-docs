@@ -25,7 +25,8 @@ the `dbus` service, `libvirtd` will grant necessary privileges to any user added
 to the `libvirt` group.
 
 An alternative to `virsh` is provided by the `virt-manager` and
-`virt-manager-tools` packages.
+`virt-manager-tools` packages. The default QEMU/KVM system connection requires
+the `qemu` package.
 
 For general information on libvirt, refer to [the libvirt
 wiki](https://wiki.libvirt.org/page/Main_Page) and [the wiki's
