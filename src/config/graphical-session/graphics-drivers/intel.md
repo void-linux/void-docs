@@ -46,3 +46,19 @@ For newer Intel chipsets, the [DDX](../xorg.md#ddx) drivers may interfere with
 correct operation. This is characterized by graphical acceleration not working
 and general graphical instability. If this is the case, try removing all
 `xf86-video-*` packages.
+
+On chromium based browsers, even with flags `--enable-features=VaapiVideoDecoder
+--disable-features=UseChromeOSDirectVideoDecoder`, and hardware acceleration
+reported to be enabled in `chrome://gpu` you might be able to see that the
+iGPU is not being selected/used with "VDA Error 4" on `chrome://media-internals`
+and `VpxVideoDecoder` is being selected instead. In that case, you have to build
+the `intel-media-driver` package with `nonfree` option from the
+[void-packages](https://github.com/void-linux/void-packages) source repository.
+Check the Media panel in the inspector while playing a video on the web
+to confirm that hardware decoding is working.
+
+Note that for video with less resolution than 480p on youtube you may not see use of
+hardware acceleration and CPU might bump the load instead, to fix this you might
+be interested in using
+[enhanced-h264ify](https://chrome.google.com/webstore/detail/enhanced-h264ify/omkfmpieigblcllmkgbflkikinpkodlk)
+extension, for disabling VPx/AV1 video codecs.
