@@ -125,7 +125,7 @@ Server Name: PulseAudio (on PipeWire 0.3.82)
 
 ### Launching Automatically
 
-Once `pipewire` works as expected, it can be configured to launch when starting
+Once `pipewire` works as expected, `pipewire` and `wireplumber` can be configured to launch when starting
 a graphical session. There are several ways this can be achieved:
 
 - **Use the autostarting mechanism of your desktop environment**: many desktop
@@ -134,7 +134,7 @@ a graphical session. There are several ways this can be achieved:
 - **Use XDG Desktop Application Autostart**: many desktop environments also
    support the [Desktop Application Autostart
    Specification](https://specifications.freedesktop.org/autostart-spec/autostart-spec-latest.html).
-   The `pipewire` package ships a Desktop Entry file for `pipewire` in
+   The `pipewire` and `wireplumber` packages ships a Desktop Entry file for `pipewire` and `wireplumber` in
    `/usr/share/applications`. If your environment supports the Desktop
    Application Autostart, you can start `pipewire` by symlinking the desktop
    file to the system (`/etc/xdg/autostart`) or user
@@ -144,7 +144,7 @@ a graphical session. There are several ways this can be achieved:
    [`dex(1)`](https://man.voidlinux.org/dex.1) can be used to add support for
    Desktop Application Autostart, for example: `dex --environment <window
    manager> --autostart --search-paths ~/.config/autostart`.
-- **Use your window manager's startup scripts**: `pipewire` can be launched
+- **Use your window manager's startup scripts**: `pipewire` and `wireplumber` can be launched
    directly from your window manager or Wayland compositor's startup script.
 
 ## Optional Setup
