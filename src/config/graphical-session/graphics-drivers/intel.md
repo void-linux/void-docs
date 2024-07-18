@@ -46,3 +46,6 @@ For newer Intel chipsets, the [DDX](../xorg.md#ddx) drivers may interfere with
 correct operation. This is characterized by graphical acceleration not working
 and general graphical instability. If this is the case, try removing all
 `xf86-video-*` packages.
+
+On some Intel chipsets, the [DDX](../xorg.md#ddx) drivers may be required. If
+this is the case, install `xf86-video-intel`.
