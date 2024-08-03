@@ -30,6 +30,9 @@ Void Linux currently packages the following Wayland compositors:
 - labwc: a window-stacking compositor, inspired by Openbox
 - Qtile: a dynamic tiling Wayland compositor (via qtile-wayland)
 
+Some compositors don't depend on any [fonts](./fonts.md), so you have to install
+them manually for most applications to work.
+
 ### Video drivers
 
 Both GNOME and KDE Plasma have EGLStreams backends for Wayland, which means they
