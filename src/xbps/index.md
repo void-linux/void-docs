@@ -30,9 +30,13 @@ Most general package management is done with the following commands:
 Most questions can be answered by consulting the man pages for these tools,
 together with the [xbps.d(5)](https://man.voidlinux.org/xbps.d.5) man page.
 
-To learn how to build packages from source, refer to [the README for the
+To learn how to build packages from source, refer to [the README of the
 void-packages
 repository](https://github.com/void-linux/void-packages/blob/master/README.md).
+
+To learn how to create new package templates, refer to [the Manual of the
+void-packages
+repository](https://github.com/void-linux/void-packages/blob/master/Manual.md).
 
 ## Updating
 
