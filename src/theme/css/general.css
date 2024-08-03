@@ -204,6 +204,9 @@ svg {
 #sidebar a.active {
 	color: var(--sidebar-active);
 }
+#sidebar a.active::after {
+	content: ' •' / ' selected';
+}
 
 #sidebar-toggle {
  	display: none;
