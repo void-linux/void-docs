@@ -202,7 +202,14 @@ svg {
 	text-decoration: none;
 }
 #sidebar a.active {
-	color: var(--sidebar-active);
+	display: block;
+	padding: 0.5em;
+	width: 100%;
+	background-color: var(--sidebar-active);
+	color: var(--bg);
+}
+#sidebar a.active::after {
+	content: "" / " selected";
 }
 
 #sidebar-toggle {
