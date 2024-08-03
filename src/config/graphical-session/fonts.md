@@ -1,5 +1,8 @@
 # Fonts
 
+[xbps-query(1)](../../xbps/index.md#finding-files-and-packages) can be used to
+list font-related packages. Many fonts are packaged with the `font-` prefix.
+
 To customize font display in your graphical session, you can use configurations
 provided in `/usr/share/fontconfig/conf.avail/`. To do so, create a symlink to
 the relevant `.conf` file in `/etc/fonts/conf.d/`, then use
