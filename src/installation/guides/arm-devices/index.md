@@ -102,8 +102,11 @@ appropriate architecture and base packages, some of which are listed in the
 storage medium](#custom-partition-layout) properly for the device.
 
 If doing this from a computer with an incompatible archtecture (such as x86_64),
-install the `qemu-user-static` and `binfmt-support` packages and enable the
-`binfmt-support` service before installing.
+install `binfmt-support`, enable the `binfmt-support` service, and install the
+relevant QEMU user emulator (like `qemu-user-aarch64` for aarch64 or
+`qemu-user-arm` for 32-bit ARM) before installing. If `binfmt-support` was
+installed after the QEMU user emulator, use `xbps-reconfigure -f
+qemu-user-<arch>` to enable the relevant binfmts.
 
 ## Configuration
 
