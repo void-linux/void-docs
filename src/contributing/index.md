@@ -20,7 +20,6 @@ If you would like to contribute usage reports, the
 [PopCorn](https://github.com/the-maldridge/popcorn) program reports installation
 statistics back to the Void project. These statistics are purely opt-in -
 PopCorn is *not* installed or enabled by default on any Void systems.
-Additionally, PopCorn requires that port 8001 not be blocked on your system.
 
 *PopCorn* only reports which packages are installed, their version, and the host
 CPU architecture (the output of `xuname`). This does not report which services
