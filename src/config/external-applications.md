@@ -32,10 +32,10 @@ not built or distributed. As such, they must be built locally. For more
 information see the page on [restricted
 packages](../xbps/repositories/restricted.md).
 
-## Non-x86_64 Arch
+## Non-x86_64 Architectures
 
-The Void build system runs on x86_64 servers, both for compiling and cross
-compiling packages. However, some packages (e.g. `libreoffice`) do not support
+The Void build system runs on x86_64 servers, both for compiling and
+cross-compiling packages. However, some packages (e.g. `pandoc`) do not support
 cross-compilation. These packages have to be built locally on a computer running
 the same architecture and libc as the system on which the package is to be used.
 To learn how to build packages, refer to [the README for the void-packages
