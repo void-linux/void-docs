@@ -23,6 +23,39 @@ instead.
 | Ruby     | gem                            | `ruby-devel`    |
 | lua      | luarocks                       | `lua-devel`     |
 
+### Java
+
+Void provides LTS versions of the OpenJDK development kits and runtimes.
+Currently, versions 8, 11, 17, and 21 are available. To run Java-based
+applications, install the Java Runtime Environment of the desired version. To
+build Java-based programs, install the Java Development Kit of the desired
+version (and optionally other components listed below).
+
+| Void Package           | Description              |
+|------------------------|--------------------------|
+| `openjdkX`             | Java Development Kit     |
+| `openjdkX-jre`         | Java Runtime Environment |
+| `openjdkX-doc`         | Developer documentation  |
+| `openjdkX-src`         | Java source code         |
+| `openjdkX-jmods`       | Java modules             |
+| `openjdkX-static-libs` | Java static libraries    |
+
+To facilitate installing multiple Java versions in parallel, Void's OpenJDK
+packages use
+[`xbps-alternatives(1)`](https://man.voidlinux.org/man1/xbps-alternatives.1) to
+select the default JDK and JRE. Each `openjdkX` package provides the `jdk`
+alternative group, and each `openjdkX-jre` package provides the `java`
+alternative group.
+
+These alternative groups manage the symlinks at `/usr/lib/jvm/default-jdk` and
+`/usr/lib/jvm/default-jre`. These are used to set the `JAVA_HOME` environment
+variables and add Java utilities to your `PATH` via a profile script
+(`/etc/profile.d/jdk.sh`).
+
+When installing a Java package for the first time, you may need to re-login or
+run `source /etc/profile.d/jdk.sh` in your terminal session to update these
+variables.
+
 ## Restricted Packages
 
 Some packages have legal restrictions on their distribution (e.g. Discord), may
