@@ -1,11 +1,16 @@
 # LXC
 
-The [Linux Containers project](https://linuxcontainers.org/) includes three
-subprojects: [LXC](https://linuxcontainers.org/lxc/introduction/),
-[LXD](https://linuxcontainers.org/lxd/introduction/) and
-[LXCFS](https://linuxcontainers.org/lxcfs/introduction/). The project also
-included the CGManager project, which has been deprecated in favor of the CGroup
-namespace in recent kernels.
+The [Linux Containers project](https://linuxcontainers.org/) includes four
+subprojects: [Incus](https://linuxcontainers.org/incus/introduction/),
+[LXC](https://linuxcontainers.org/lxc/introduction/),
+[LXCFS](https://linuxcontainers.org/lxcfs/introduction/) and
+[distrobuilder](https://linuxcontainers.org/distrobuilder/introduction/).
+
+The project also formerly included the CGManager and
+[LXD](https://canonical.com/lxd) projects. CGManager has been deprecated in
+favor of the CGroup namespace in recent kernels. LXD has become a Canonical
+project. Incus was forked from LXD to be a community driven alternative, and is
+oled and maintained by many of the original creators.
 
 ## Configuring LXC
 
@@ -114,6 +119,40 @@ access to other containers. To isolate containers from each other, alter the
 create each container. Trying to fix permissions on a container created with the
 wrong map is possible, but inconvenient.
 
+## Incus
+
+Incus provides an alternative interface to LXC's `lxc-*` utilities. However, it
+does not require the configuration described in [the previous section](#lxc).
+
+Edit `/etc/rc.conf` and set the `CGROUP_MODE` variable to `unified`. Install the
+`incus` package, and [enable](../services/index.md#enabling-services) the
+`incus` service.
+
+Incus users must be belong to the `_incus-admin` group.
+
+Optionally enable some users to have limited acces to incus as described
+[here](https://linuxcontainers.org/incus/docs/main/howto/projects_confine/#confine-projects-to-specific-incus-users).
+Add users to the `_incus` group, and enable the `incus-user` service
+
+Note that `incus-user` will initialize the default incus profile when it is
+started. To avoid default configuration initialize incus for youself with `incus
+admin init` before enabling `incus-user`.
+
+**WARNING:** `incus-user` will also replace the networking config of the default
+profile if it appears invalid. runit does not have socket activation so this
+happens when when the machine boots instead of when a user attempts to access
+it. If the default profile uses a [bridge
+interface](../network/index.md#bridge-interfaces) `incus-user` may replace it on
+boot.
+
+To migrate existing LXD setups to incus use the 'lxd-to-incus' binary from the
+`incus-tools` package as described
+[here](https://linuxcontainers.org/incus/docs/main/howto/server_migrate_lxd/).
+
+To migrate existing LXC containers to incus use the 'lxc-to-incus' binary from
+the `incus-tools` package as described
+[here](https://linuxcontainers.org/incus/docs/main/howto/migrate_from_lxc/).
+
 ## LXD
 
 LXD provides an alternative interface to LXC's `lxc-*` utilities. However, it
@@ -125,4 +164,4 @@ the `lxd` service.
 LXD users must belong to the `lxd` group.
 
 Use the `lxc` command to manage instances, as described
-[here](https://linuxcontainers.org/lxd/getting-started-cli/#lxd-client).
+[here](https://documentation.ubuntu.com/lxd/en/latest/howto/).
