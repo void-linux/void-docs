@@ -69,8 +69,7 @@ Transaction aborted due to unresolved shlibs
 
 the repositories are in the staging state, which can happen due to large builds.
 The solution is to wait for the builds to finish. You can view the builds'
-progress in the [Buildbot's Waterfall
-Display](https://build.voidlinux.org/waterfall).
+progress in the [Buildbot's web interface](https://build.voidlinux.org).
 
 ### repodata errors
 
