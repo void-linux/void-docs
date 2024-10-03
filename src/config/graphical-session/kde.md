@@ -2,13 +2,15 @@
 
 ## Installation
 
-Install the `kde5` package, and optionally, the `kde5-baseapps` package.
+Install the `kde-plasma` package, and optionally, the `kde-baseapps` package.
 
-To use the "Networks" widget, enable the `dbus` and `NetworkManager` services.
+To use the "Networks" widget, install `NetworkManager` and enable the `dbus` and
+`NetworkManager` services. To use the "Volume" widget, set up
+[PipeWire](../media/pipewire.md) or [PulseAudio](../media/pulseaudio.md).
 
-Installing the `kde5` package also installs the `sddm` package, which provides
-the `sddm` service for the Simple Desktop Display Manager. This service depends
-on the `dbus` service being enabled; [test the
+Installing the `kde-plasma` package also installs the `sddm` package, which
+provides the `sddm` service for the Simple Desktop Display Manager. This service
+depends on the `dbus` service being enabled; [test the
 service](../services/index.md#testing-services) before enabling it. If you are
 not intending to run SDDM via a remote X server, you will need to install either
 the `xorg-minimal` package or the `xorg` package. By default, SDDM will start an
@@ -23,7 +25,7 @@ session, run `startplasma-wayland` directly.
 
 Dolphin is the default file manager of the KDE desktop environment. It can be
 installed on its own by installing the `dolphin` package, or it can be installed
-as part of the `kde5-baseapps` meta-package.
+as part of the `kde-baseapps` meta-package.
 
 ### Thumbnail Previews
 
