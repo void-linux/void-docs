@@ -130,7 +130,7 @@ matching your architecture.
 Unpack the tarball into the newly configured filesystems:
 
 ```
-# tar xvf void-<...>-ROOTFS.tar.xz -C /mnt
+# tar xpvf void-<...>-ROOTFS.tar.xz --xattrs-include='*.*' --numeric-owner -C /mnt
 ```
 
 ## Configuration
