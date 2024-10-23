@@ -125,7 +125,7 @@ directory in `/var/service/`:
 # ln -s /etc/sv/<service> /var/service/
 ```
 
-If the system is not currently running, the service can be linked directly into
+If the service is not currently running, the service can be linked directly into
 the `default` [runsvdir](#runsvdirs):
 
 ```
