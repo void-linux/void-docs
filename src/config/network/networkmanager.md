@@ -25,9 +25,9 @@ The `NetworkManager` package includes a command line tool,
 [nmcli(1)](https://man.voidlinux.org/nmcli.1), and a text-based user interface,
 [nmtui(1)](https://man.voidlinux.org/nmtui.1), to control network settings.
 
-There are many other front-ends to NetworkManager, including `nm-applet` for
-system trays, `nm-plasma` for KDE Plasma, and a built-in network configuration
-tool in GNOME.
+There are many other front-ends to NetworkManager, including `nm-applet` (from
+`network-manager-applet`) or `nm-tray` for system trays, `plasma-nm` for KDE
+Plasma, and a built-in network configuration tool in GNOME.
 
 ## Eduroam with NetworkManager
 
