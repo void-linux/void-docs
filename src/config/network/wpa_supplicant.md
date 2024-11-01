@@ -17,6 +17,10 @@ pre-shared keys for use in configuration files.
 [wpa_cli(8)](https://man.voidlinux.org/wpa_cli.8) provides a CLI for managing
 the `wpa_supplicant` daemon.
 
+You must be a member of the group assigned as the `ctrl_interface_group` in the
+configuration file to interact with `wpa_supplicant`. On Void, this defaults to
+`wheel`.
+
 ## WPA-PSK
 
 To use WPA-PSK, generate a pre-shared key with
