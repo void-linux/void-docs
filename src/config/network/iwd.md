@@ -20,14 +20,11 @@ operate `iwctl`.
 
 ## Configuration
 
-Configuration options and examples are described below. Consult
-[iwd.network(5)](https://man.voidlinux.org/iwd.network.5) for further
-information.
-
 ### Daemon configuration
 
 The main configuration file is located in `/etc/iwd/main.conf`. If it does not
-exist, you may create it.
+exist, you may create it. It is documented in
+[iwd.config(5)](https://man.voidlinux.org/iwd.config.5).
 
 ### Network configuration
 
