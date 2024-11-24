@@ -1,6 +1,11 @@
 # Locales and Translations
 
-For a list of currently enabled locales, run
+`glibc` supports setting the system locale whereas `musl` does not; both support
+setting the language for applications.
+
+## Listing locales
+
+For a list of currently enabled locales, run:
 
 ```
 $ locale -a
@@ -12,7 +17,7 @@ To enable a certain locale, un-comment or add the relevant lines in
 `/etc/default/libc-locales` and [force-reconfigure](../xbps/index.md) the
 `glibc-locales` package.
 
-## Setting the system locale
+## Setting the system language
 
 Set `LANG=xxxx` in `/etc/locale.conf`.
 
