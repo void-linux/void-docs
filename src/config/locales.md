@@ -1,6 +1,8 @@
 # Locales and Translations
 
-For a list of currently enabled locales, run
+This section is specific to `glibc` installations of Void.
+
+For a list of currently enabled locales, run:
 
 ```
 $ locale -a
