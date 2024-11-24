@@ -1,6 +1,7 @@
 # Locales and Translations
 
-This section is specific to `glibc` installations of Void.
+This section is specific to `glibc` installations of Void given that `musl` does
+not support locales.
 
 For a list of currently enabled locales, run:
 
