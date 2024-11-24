@@ -202,6 +202,17 @@ generated from currently mounted filesystems by copying the file `/proc/mounts`:
 
 Remove lines in `/etc/fstab` that refer to `proc`, `sys`, `devtmpfs` and `pts`.
 
+The partition scheme used throughout previous examples yields the following
+`fstab`:
+
+```
+/dev/sda2       /           ext4    rw,relatime,[...]       0 0
+/dev/sda1       /boot/efi   vfat    rw,relatime,[...]       0 0
+```
+
+Note: The output of `/proc/mounts` will have a single space between each field.
+The columns are aligned here for readability.
+
 Replace references to `/dev/sdXX`, `/dev/nvmeXnYpZ`, etc. with their respective
 UUID, which can be found by running
 [blkid(8)](https://man.voidlinux.org/blkid.8). Referring to filesystems by their
@@ -211,27 +222,20 @@ essential. In other situations, disks will always have the same name unless
 drives are physically added or removed. Therefore, this step may not be strictly
 necessary, but is almost always recommended.
 
+Customize the mount options if desired. A list of available options can be found
+in [mount(8)](https://man.voidlinux.org/mount.8) and in filesystem-specific
+manual pages.
+
 Change the last zero of the entry for `/` to `1`, and the last zero of every
 other line to `2`. These values configure the behaviour of
 [fsck(8)](https://man.voidlinux.org/fsck.8).
 
-For example, the partition scheme used throughout previous examples yields the
-following `fstab`:
+For example:
 
 ```
-/dev/sda1       /boot/efi   vfat    rw,relatime,[...]       0 0
-/dev/sda2       /           ext4    rw,relatime             0 0
+UUID=dc1b[...]  /           ext4    defaults                0 1
+UUID=6914[...]  /boot/efi   vfat    defaults                0 2
 ```
-
-The information from `blkid` results in the following `/etc/fstab`:
-
-```
-UUID=6914[...]  /boot/efi   vfat    rw,relatime,[...]       0 2
-UUID=dc1b[...]  /           ext4    rw,relatime             0 1
-```
-
-Note: The output of `/proc/mounts` will have a single space between each field.
-The columns are aligned here for readability.
 
 Add an entry to mount `/tmp` in RAM:
 
@@ -242,7 +246,7 @@ tmpfs           /tmp        tmpfs   defaults,nosuid,nodev   0 0
 If using swap space, add an entry for any swap partitions:
 
 ```
-UUID=1cb4[...]  swap        swap    rw,noatime,discard      0 0
+UUID=1cb4[...]  none        swap    defaults                0 0
 ```
 
 ### Enable services
