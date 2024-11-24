@@ -1,9 +1,8 @@
 # Locales and Translations
 
-This section is specific to `glibc` installations of Void given that `musl` does
-not support locales.
-
-For a list of currently enabled locales, run:
+You can use the following command, which is specific to `glibc` installations of
+Void (given that `musl` does not support locales), to see a list of currently
+enabled locales:
 
 ```
 $ locale -a
@@ -17,7 +16,8 @@ To enable a certain locale, un-comment or add the relevant lines in
 
 ## Setting the system locale
 
-Set `LANG=xxxx` in `/etc/locale.conf`.
+Set `LANG=xxxx` in `/etc/locale.conf`, this applies to `glibc` and `musl`
+although it's not required by the latter.
 
 ## Application locale
 
