@@ -1,8 +1,11 @@
 # Locales and Translations
 
-You can use the following command, which is specific to `glibc` installations of
-Void (given that `musl` does not support locales), to see a list of currently
-enabled locales:
+`glibc` supports setting the system locale whereas `musl` does not, both support
+setting the language for applications.
+
+## Listing locales
+
+For a list of currently enabled locales, run:
 
 ```
 $ locale -a
