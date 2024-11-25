@@ -14,7 +14,7 @@ To enable a certain locale, un-comment or add the relevant lines in
 `/etc/default/libc-locales` and [force-reconfigure](../xbps/index.md) the
 `glibc-locales` package.
 
-## Setting the system locale
+## Setting the system language
 
 Set `LANG=xxxx` in `/etc/locale.conf`, this applies to `glibc` and `musl`
 although it's not required by the latter.
