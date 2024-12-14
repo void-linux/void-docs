@@ -24,7 +24,7 @@ To use WPA-PSK, generate a pre-shared key with
 output to the relevant `wpa_supplicant.conf` file:
 
 ```
-# wpa_passphrase <MYSSID> <passphrase> >> /etc/wpa_supplicant/wpa_supplicant-<device_name>.conf
+# wpa_passphrase <MYSSID> <passphrase> >> /etc/wpa_supplicant/wpa_supplicant.conf
 ```
 
 ## WPA-EAP
