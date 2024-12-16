@@ -58,8 +58,8 @@ package. EFL-based applications require setting the environment variable
 `ELM_DISPLAY=wl`, and can have issues without it, due to not supporting XWayland
 properly. [SDL](https://libsdl.org)-based applications require setting the
 environment variable `SDL_VIDEODRIVER=wayland`.
-[GTK+](https://wiki.gnome.org/Initiatives/Wayland/GTK%2B)-based applications
-should use the Wayland backend automatically.
+[GTK+](https://wiki.gnome.org/Initiatives(2f)Wayland(2f)GTK(2b).html)-based
+applications should use the Wayland backend automatically.
 
 Media applications, such as [mpv(1)](https://man.voidlinux.org/mpv.1),
 [vlc(1)](https://man.voidlinux.org/vlc.1) and `imv` work natively on Wayland.
