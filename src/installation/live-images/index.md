@@ -59,6 +59,14 @@ is played. SYSLINUX also requires pressing the enter key after pressing `s`. The
 hotkey `r` will also boot with accessibility support, but will load the live ISO
 into RAM.
 
+Other hotkeys also exist in the bootloader:
+
+- `g` will boot with screenreader enabled and graphics disabled
+- `m` will enter `Memtest86+` (if supported)
+- `f` will enter the UEFI firmware setup interface (if supported)
+- `b` will reboot the computer
+- `p` will power off the computer
+
 After booting into the installer image with accessibility support enabled, if
 there are multiple soundcards detected, a short audio menu allows for the
 selection of the soundcard for the screenreader. Press enter when the beep for
