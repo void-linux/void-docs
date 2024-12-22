@@ -115,6 +115,7 @@ meta-data=/dev/voidvm/home       isize=512    agcount=4, agsize=2359040 blks
 ...
 # mkswap /dev/voidvm/swap
 Setting up swapspace version 1, size = 2 GiB (2147479552 bytes)
+# swapon /dev/voidvm/swap
 ```
 
 ## System installation
@@ -162,9 +163,23 @@ command for a UEFI system will be as follows.
 # xbps-install -Sy -R https://repo-default.voidlinux.org/current -r /mnt base-system cryptsetup grub-x86_64-efi lvm2
 ```
 
-When it's done, we can enter the chroot with
-[`xchroot(1)`](https://man.voidlinux.org/xchroot.1) (from `xtools`) and finish
-up the configuration. Alternatively, entering the chroot can be [done
+## Configuration
+
+### Filesystem Configuration
+
+The [fstab(5)](https://man.voidlinux.org/fstab.5) file can be automatically
+generated from currently mounted filesystems using
+[xgenfstab(1)](https://man.voidlinux.org/xgenfstab.1) (from `xtools`).
+
+```
+# xgenfstab /mnt > /mnt/etc/fstab
+```
+
+### Entering the Chroot
+
+We can enter the chroot with [`xchroot(1)`](https://man.voidlinux.org/xchroot.1)
+(from `xtools`) and finish up the configuration. Alternatively, entering the
+chroot can be [done
 manually](../../config/containers-and-vms/chroot.md#manual-method).
 
 ```
@@ -175,31 +190,14 @@ manually](../../config/containers-and-vms/chroot.md#manual-method).
 [xchroot /mnt] # echo voidvm > /etc/hostname
 ```
 
-and, for glibc systems only:
+### System Locale (glibc only)
+
+For glibc systems only, generate locale files with:
 
 ```
 [xchroot /mnt] # echo "LANG=en_US.UTF-8" > /etc/locale.conf
 [xchroot /mnt] # echo "en_US.UTF-8 UTF-8" >> /etc/default/libc-locales
 [xchroot /mnt] # xbps-reconfigure -f glibc-locales
-```
-
-### Filesystem configuration
-
-The next step is editing `/etc/fstab`, which will depend on how you configured
-and named your filesystems. For this example, the file should look like this:
-
-```
-# <file system>   <dir> <type>  <options>             <dump>  <pass>
-tmpfs             /tmp  tmpfs   defaults,nosuid,nodev 0       0
-/dev/voidvm/root  /     xfs     defaults              0       0
-/dev/voidvm/home  /home xfs     defaults              0       0
-/dev/voidvm/swap  swap  swap    defaults              0       0
-```
-
-UEFI systems will also have an entry for the EFI system partition.
-
-```
-/dev/sda1	/boot/efi	vfat	defaults	0	0
 ```
 
 ### GRUB configuration

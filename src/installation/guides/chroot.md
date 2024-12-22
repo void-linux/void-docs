@@ -73,7 +73,8 @@ System Partition:
 ```
 
 Initialize swap space, if desired, using
-[mkswap(8)](https://man.voidlinux.org/mkswap.8).
+[mkswap(8)](https://man.voidlinux.org/mkswap.8), and enable it with
+[swapon(8)](https://man.voidlinux.org/swapon.8).
 
 ## Base Installation
 
@@ -133,11 +134,31 @@ Unpack the tarball into the newly configured filesystems:
 # tar xvf void-<...>-ROOTFS.tar.xz -C /mnt
 ```
 
+ROOTFS images generally contain out of date software, due to being a snapshot of
+the time when they were built, and do not come with a complete `base-system`.
+Update the package manager and install `base-system`:
+
+```
+# xbps-install -r /mnt -Su xbps
+# xbps-install -r /mnt -u
+# xbps-install -r /mnt base-system
+# xbps-remove -r /mnt -R base-container-full
+```
+
 ## Configuration
 
-With the exception of the section "Install base-system (ROOTFS method only)",
-the remainder of this guide is common to both the XBPS and ROOTFS installation
+The remainder of this guide is common to both the XBPS and ROOTFS installation
 methods.
+
+### Configure Filesystems
+
+The [fstab(5)](https://man.voidlinux.org/fstab.5) file can be automatically
+generated from currently mounted filesystems using
+[xgenfstab(1)](https://man.voidlinux.org/xgenfstab.1) (from `xtools`).
+
+```
+# xgenfstab -U /mnt > /mnt/etc/fstab
+```
 
 ### Entering the Chroot
 
@@ -147,19 +168,6 @@ manually](../../config/containers-and-vms/chroot.md#manual-method).
 
 ```
 # xchroot /mnt /bin/bash
-```
-
-### Install base-system (ROOTFS method only)
-
-ROOTFS images generally contain out of date software, due to being a snapshot of
-the time when they were built, and do not come with a complete `base-system`.
-Update the package manager and install `base-system`:
-
-```
-[xchroot /mnt] # xbps-install -Su xbps
-[xchroot /mnt] # xbps-install -u
-[xchroot /mnt] # xbps-install base-system
-[xchroot /mnt] # xbps-remove base-container-full
 ```
 
 ### Installation Configuration
@@ -191,60 +199,6 @@ To set a root password, run:
 [xchroot /mnt] # passwd
 ```
 
-### Configure fstab
-
-The [fstab(5)](https://man.voidlinux.org/fstab.5) file can be automatically
-generated from currently mounted filesystems by copying the file `/proc/mounts`:
-
-```
-[xchroot /mnt] # cp /proc/mounts /etc/fstab
-```
-
-Remove lines in `/etc/fstab` that refer to `proc`, `sys`, `devtmpfs` and `pts`.
-
-Replace references to `/dev/sdXX`, `/dev/nvmeXnYpZ`, etc. with their respective
-UUID, which can be found by running
-[blkid(8)](https://man.voidlinux.org/blkid.8). Referring to filesystems by their
-UUID guarantees they will be found even if they are assigned a different name at
-a later time. In some situations, such as booting from USB, this is absolutely
-essential. In other situations, disks will always have the same name unless
-drives are physically added or removed. Therefore, this step may not be strictly
-necessary, but is almost always recommended.
-
-Change the last zero of the entry for `/` to `1`, and the last zero of every
-other line to `2`. These values configure the behaviour of
-[fsck(8)](https://man.voidlinux.org/fsck.8).
-
-For example, the partition scheme used throughout previous examples yields the
-following `fstab`:
-
-```
-/dev/sda1       /boot/efi   vfat    rw,relatime,[...]       0 0
-/dev/sda2       /           ext4    rw,relatime             0 0
-```
-
-The information from `blkid` results in the following `/etc/fstab`:
-
-```
-UUID=6914[...]  /boot/efi   vfat    rw,relatime,[...]       0 2
-UUID=dc1b[...]  /           ext4    rw,relatime             0 1
-```
-
-Note: The output of `/proc/mounts` will have a single space between each field.
-The columns are aligned here for readability.
-
-Add an entry to mount `/tmp` in RAM:
-
-```
-tmpfs           /tmp        tmpfs   defaults,nosuid,nodev   0 0
-```
-
-If using swap space, add an entry for any swap partitions:
-
-```
-UUID=1cb4[...]  swap        swap    rw,noatime,discard      0 0
-```
-
 ### Enable services
 
 Services can be [enabled](../../config/services/index.md#enabling-services)
@@ -262,7 +216,7 @@ to install GRUB onto your boot disk.
 install GRUB to. For example:
 
 ```
-[xchroot /mnt] # xbps-install grub
+[xchroot /mnt] # xbps-install -S grub
 [xchroot /mnt] # grub-install /dev/sda
 ```
 
@@ -272,7 +226,7 @@ optionally specifying a bootloader label (this label may be used by your
 computer's firmware when manually selecting a boot device):
 
 ```
-[xchroot /mnt] # xbps-install grub-x86_64-efi
+[xchroot /mnt] # xbps-install -S grub-x86_64-efi
 [xchroot /mnt] # grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id="Void"
 ```
 
