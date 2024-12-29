@@ -7,7 +7,7 @@ named `linux<x>.<y>`: for example, `linux4.19`. You can query for all available
 kernel series by running:
 
 ```
-$ xbps-query --regex -Rs '^linux[0-9.]+-[0-9._]+'
+$ xbps-query --regex -Rs '^linux[0-9.]+-[0-9._]+' | sort -Vrk2
 ```
 
 The `linux` meta package, installed by default, depends on one of the kernel
