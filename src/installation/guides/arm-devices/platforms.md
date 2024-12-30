@@ -117,19 +117,26 @@ For some time, the kernel, mesa, and uboot packages will have Asahi Linux as
 upstream. Their [documentation](https://github.com/AsahiLinux/docs/wiki) is an
 excellent source. Here we discuss Void Linux specific aspects only.
 
-Use Asahi Linux install scripts with `UEFI environment only`, then proceed with
-usual Void installation. The default is EFI partition at `/boot/efi`, other
-choices can be made by editing m1n1 kernel hook config.
+Use Asahi Linux install scripts with `UEFI environment only`. U-boot should pick
+up the external USB by default, in case it does not the commands
 
-At the very least, install `base-system`, `asahi-base`, and an initramfs
-generator. By default, `asahi-uboot`, `grub-arm64-efi`, and `asahi-scripts` are
-also required, unless one changes initramfs or payload for m1n1.
+```
+setenv boot_targets "usb"
+setenv bootmeths "efi"
+boot
+```
 
-Void ships a kernel hook for m1n1, modeled on Asahi upstream. This allows you to
-either just use m1n1, or use it in combination with uboot and grub (default) by
-setting the `PAYLOAD` variable (requires `asahi-uboot` and `grub-arm64-efi`). We
-ship tinyramfs config and hooks (to use, add `asahi` to `hooks`). The default is
-dracut, its hooks are provided by `asahi-scripts` together with mkinitcpio ones.
+will instruct it to do so. Then proceed with the usual Void installation. At the
+very least, install `base-system`, `asahi-base`, and an initramfs generator. By
+default, `grub-arm64-efi` and `asahi-scripts` are also required. The latter
+provides hooks for dracut and mkinitcpio. Void also ships tinyramfs config and
+hooks (to use, add `asahi` to `hooks`). The grub option `--removable` is known
+to work.
+
+Optionally, you can install `m1n1`. Void ships a kernel hook for m1n1, modeled
+upon Asahi upstream. This allows you to either just use m1n1, or use it in
+combination with uboot and grub (default) by setting the `PAYLOAD` variable
+(requires `asahi-uboot` and `grub-arm64-efi`).
 
 If using audio, you must install `asahi-audio`, ensure the speakersafetyd
 service is [enabled](/config/services/index.md#enabling-services), and set up
