@@ -11,9 +11,16 @@ on such devices can be done in several ways:
    that can be extracted to a previously prepared partition scheme; and
 - [Chroot installation](#chroot-installation): follows most of the steps
    outlined in [the chroot guide](../chroot.md).
+- [Live images](../../live-images/index.md) (for aarch64 UEFI devices only).
 
 This guide also outlines [configuration steps](#configuration) that are mostly
 specific to such devices.
+
+Platform-specific documentation is available for:
+
+- [Lenovo ThinkPad X13s](./thinkpad-x13s.md)
+- [Pinebook Pro](./pinebook-pro.md)
+- [Raspberry Pi](./raspberry-pi.md)
 
 Since most of the commands in this guide will be run on external storage, it is
 important to run [sync(1)](https://man.voidlinux.org/sync.1) before removing the
@@ -21,9 +28,8 @@ device.
 
 ## Installation
 
-If you are installing Void Linux on one of the ARM devices covered in the
-"[Supported platforms](./platforms.md)" page, make sure to read its section
-thoroughly.
+If you are installing Void Linux on one of the officially supported ARM devices,
+make sure to read its page thoroughly.
 
 ### Pre-built images
 
@@ -103,9 +109,8 @@ using [tar(1)](https://man.voidlinux.org/tar.1):
 #### Chroot installation
 
 It is also possible to perform a [chroot installation](../chroot.md) using the
-appropriate architecture and base packages, some of which are listed in the
-"[Supported Platforms](./platforms.md)" section. Make sure to [prepare your
-storage medium](#custom-partition-layout) properly for the device.
+appropriate architecture and base packages. Make sure to [prepare your storage
+medium](#custom-partition-layout) properly for the device.
 
 If doing this from a computer with an incompatible archtecture (such as x86_64),
 install `binfmt-support`, enable the `binfmt-support` service, and install the

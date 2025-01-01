@@ -7,6 +7,10 @@ function properly.
 
 There are `x86_64` images for both `glibc` and `musl` based systems. There are
 also images for `i686`, but only `glibc` is supported for this architecture.
+Live images are provided for `aarch64` in both `glibc` and `musl` variants, but
+they only support UEFI-capable devices. Live images for `aarch64` do not support
+`void-installer`.
+
 Live installers are not provided for other architectures. Users of other
 architectures will need to use rootfs tarballs, or perform an installation
 manually.
