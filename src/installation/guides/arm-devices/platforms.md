@@ -135,8 +135,8 @@ to work.
 
 Optionally, you can install `m1n1`. Void ships a kernel hook for m1n1, modeled
 upon Asahi upstream. This allows you to either just use m1n1, or use it in
-combination with uboot and grub (default) by setting the `PAYLOAD` variable
-(requires `asahi-uboot` and `grub-arm64-efi`).
+combination with uboot and grub by setting the `PAYLOAD` variable (requires
+`asahi-uboot` and `grub-arm64-efi`).
 
 If using audio, you must install `asahi-audio`, ensure the speakersafetyd
 service is [enabled](/config/services/index.md#enabling-services), and set up
