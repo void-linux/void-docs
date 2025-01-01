@@ -7,8 +7,11 @@ more information.
 
 ## Installation
 
-First, install [tow-boot](https://tow-boot.org/devices/pine64-pinephonePro.html)
-to the internal SPI flash to enable UEFI support.
+The live ISO provided by Void is generic and does not have U-Boot integrated.
+You need to provide your own firmware installed on the internal SPI flash, eMMC,
+or an SD card, such as
+[Tow-Boot](https://tow-boot.org/devices/pine64-pinebookPro.html) or
+[rk2aw](https://xnux.eu/rk2aw/).
 
 Boot an aarch64 Void Linux live ISO using one of the "Void Linux for Pinebook
 Pro" menu entries in GRUB.
