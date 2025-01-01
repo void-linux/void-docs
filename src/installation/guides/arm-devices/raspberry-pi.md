@@ -1,6 +1,4 @@
-# Supported Platforms
-
-## Raspberry Pi
+# Raspberry Pi
 
 The `rpi-kernel` packages for all Raspberry Pi variants are built from the
 Raspberry Pi Foundation's kernel tree, which should enable all special
@@ -16,20 +14,20 @@ kernel are in the `/boot/cmdline.txt` file. Some of the relevant parameters are
 documented in the [official
 documentation](https://www.raspberrypi.com/documentation/computers/configuration.html#the-kernel-command-line).
 
-### Supported Models
+## Supported Models
 
-| Model                                       | Architecture |
-|---------------------------------------------|--------------|
-| 1 A, 1 B, 1 A+, 1 B+, Zero, Zero W, Zero WH | armv6l       |
-| 2 B                                         | armv7l       |
-| 3 B, 3 A+, 3 B+, Zero 2W, 4 B, 400, CM4, 5  | aarch64      |
+| Model                                                | Architecture |
+|------------------------------------------------------|--------------|
+| 1 A, 1 B, 1 A+, 1 B+, Zero, Zero W, Zero WH          | armv6l       |
+| 2 B                                                  | armv7l       |
+| 3 B, 3 A+, 3 B+, Zero 2W, 4 B, 400, CM4, 5, 500, CM5 | aarch64      |
 
 > It is possible to run the armv7l images on an RPi 3, as the RPi 3's CPU
 > supports both the Armv8 and Armv7 instruction sets. The difference between
 > these images is that the armv7l image provides a 32-bit system while the
 > aarch64 image provides a 64-bit system.
 
-### Raspberry Pi 5 Kernel
+## Raspberry Pi 5 Kernel
 
 The `rpi5-kernel` and `rpi5-kernel-headers` packages provide a kernel and
 headers optimized for the Raspberry Pi 5 with 16KB pages. To switch from the
@@ -40,7 +38,7 @@ replace it with `rpi5-kernel`.
 > View any known issues and report any compatibility problems found in the
 > [tracking issue](https://github.com/void-linux/void-packages/issues/48260).
 
-### Enabling hardware RNG device
+## Enabling hardware RNG device
 
 By default, the
 [HWRNG](https://en.wikipedia.org/wiki/Hardware_random_number_generator) device
@@ -52,14 +50,17 @@ In order to fix this, install the `rng-tools` package and
 [enable](../../../config/services/index.md#enabling-services) the `rngd`
 service, which uses the `/dev/hwrng` device to seed `/dev/random`.
 
-### Graphical session
+## Graphical session
 
 The `mesa-dri` package contains drivers for all the Raspberry Pi variants, and
 can be used with the [modesetting Xorg
 driver](../../../config/graphical-session/xorg.md#modesetting) or
 [Wayland](../../../config/graphical-session/wayland.md).
 
-### Hardware
+You may also need to uncomment the `dtoverlay=vc4-kms-v3d` line in
+`/boot/config.txt`.
+
+## Hardware
 
 More configuration information can be found in the Raspberry Pi Foundation's
 [official
@@ -67,11 +68,12 @@ documentation](https://www.raspberrypi.com/documentation/computers/configuration
 The `raspi-config` utility isn't available for Void Linux, so editing the
 `/boot/config.txt` file is usually required.
 
-#### Audio
+### Audio
 
-To enable the soundchip, add `dtparam=audio=on` to `/boot/config.txt`.
+To enable audio, you may need to uncomment `dtparam=audio=on` in
+`/boot/config.txt`.
 
-#### Serial
+### Serial
 
 To enable serial console logins,
 [enable](../../../config/services/index.md#enabling-services) the
@@ -101,12 +103,3 @@ configuration. It should show:
 $ i2cdetect -l
 i2c-1i2c          bcm2835 I2C adapter                 I2C adapter
 ```
-
-### Memory cgroup
-
-The kernel from the `rpi-kernel` package [disables the memory cgroup by
-default](https://github.com/raspberrypi/linux/commit/28aec65bb1743c9bfa53b036999f9835c889704e).
-
-This breaks workloads which use containers. Therefore, if you want to use
-containers on your Raspberry Pi, you need to enable memory cgroups by adding
-`cgroup_enable=memory` to `/boot/cmdline.txt`.
