@@ -11,9 +11,16 @@ on such devices can be done in several ways:
    that can be extracted to a previously prepared partition scheme; and
 - [Chroot installation](#chroot-installation): follows most of the steps
    outlined in [the chroot guide](../chroot.md).
+- [Live images](../../live-images/index.md) (for aarch64 UEFI devices only).
 
 This guide also outlines [configuration steps](#configuration) that are mostly
 specific to such devices.
+
+Platform-specific documentation is available for:
+
+- [Lenovo ThinkPad X13s](./thinkpad-x13s.md)
+- [Pinebook Pro](./pinebook-pro.md)
+- [Raspberry Pi](./raspberry-pi.md)
 
 Since most of the commands in this guide will be run on external storage, it is
 important to run [sync(1)](https://man.voidlinux.org/sync.1) before removing the
