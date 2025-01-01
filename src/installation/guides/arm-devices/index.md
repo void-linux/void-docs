@@ -28,9 +28,8 @@ device.
 
 ## Installation
 
-If you are installing Void Linux on one of the ARM devices covered in the
-"[Supported platforms](./platforms.md)" page, make sure to read its section
-thoroughly.
+If you are installing Void Linux on one of the officially supported ARM devices,
+make sure to read its section thoroughly.
 
 ### Pre-built images
 
@@ -104,9 +103,8 @@ using [tar(1)](https://man.voidlinux.org/tar.1):
 #### Chroot installation
 
 It is also possible to perform a [chroot installation](../chroot.md) using the
-appropriate architecture and base packages, some of which are listed in the
-"[Supported Platforms](./platforms.md)" section. Make sure to [prepare your
-storage medium](#custom-partition-layout) properly for the device.
+appropriate architecture and base packages. Make sure to [prepare your storage
+medium](#custom-partition-layout) properly for the device.
 
 If doing this from a computer with an incompatible archtecture (such as x86_64),
 install `binfmt-support`, enable the `binfmt-support` service, and install the
