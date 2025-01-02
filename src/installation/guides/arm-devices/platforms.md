@@ -128,15 +128,14 @@ boot
 
 will instruct it to do so. Then proceed with the usual Void installation. At the
 very least, install `base-system`, `asahi-base`, and an initramfs generator. By
-default, `grub-arm64-efi` and `asahi-scripts` are also required. The latter
-provides hooks for dracut and mkinitcpio. Void also ships tinyramfs config and
-hooks (to use, add `asahi` to `hooks`). The grub option `--removable` is known
-to work.
+default, `asahi-ubooot`, `grub-arm64-efi` and `asahi-scripts` are also required.
+The latter provides hooks for dracut and mkinitcpio. Void also ships tinyramfs
+config and hooks (to use, add `asahi` to `hooks`). The grub option `--removable`
+is known to work.
 
-Optionally, you can install `m1n1`. Void ships a kernel hook for m1n1, modeled
-upon Asahi upstream. This allows you to either just use m1n1, or use it in
-combination with uboot and grub by setting the `PAYLOAD` variable (requires
-`asahi-uboot` and `grub-arm64-efi`).
+Void ships a kernel hook for m1n1, modeled upon Asahi upstream. This allows you
+to either just use m1n1, or use it in combination with uboot and grub (default)
+by setting the `PAYLOAD` variable (requires `asahi-uboot` and `grub-arm64-efi`).
 
 If using audio, you must install `asahi-audio`, ensure the speakersafetyd
 service is [enabled](/config/services/index.md#enabling-services), and set up
