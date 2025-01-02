@@ -110,3 +110,36 @@ default](https://github.com/raspberrypi/linux/commit/28aec65bb1743c9bfa53b036999
 This breaks workloads which use containers. Therefore, if you want to use
 containers on your Raspberry Pi, you need to enable memory cgroups by adding
 `cgroup_enable=memory` to `/boot/cmdline.txt`.
+
+## Apple Silicon
+
+For some time, the kernel, mesa, and uboot packages will have Asahi Linux as
+upstream. Their [documentation](https://github.com/AsahiLinux/docs/wiki) is an
+excellent source. Here we discuss Void Linux specific aspects only.
+
+Use Asahi Linux install scripts with `UEFI environment only`. U-boot should pick
+up the external USB by default, in case it does not the commands
+
+```
+setenv boot_targets "usb"
+setenv bootmeths "efi"
+boot
+```
+
+will instruct it to do so. Then proceed with the usual Void installation. At the
+very least, install `base-system`, `asahi-base`, and an initramfs generator. By
+default, `asahi-ubooot`, `grub-arm64-efi` and `asahi-scripts` are also required.
+The latter provides hooks for dracut and mkinitcpio. Void also ships tinyramfs
+config and hooks (to use, add `asahi` to `hooks`). The grub option `--removable`
+is known to work.
+
+Void ships a kernel hook for m1n1, modeled upon Asahi upstream. This allows you
+to either just use m1n1, or use it in combination with uboot and grub (default)
+by setting the `PAYLOAD` variable (requires `asahi-uboot` and `grub-arm64-efi`).
+
+If using audio, you must install `asahi-audio`, ensure the speakersafetyd
+service is [enabled](/config/services/index.md#enabling-services), and set up
+[pipewire and wireplumber](/config/media/pipewire.md).
+
+Firmware can be updated with `asahi-fwupdate` from `asahi-scripts`. It is
+recommended to do so whenever the asahi-firmware package is updated.
