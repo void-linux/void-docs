@@ -18,6 +18,7 @@ specific to such devices.
 
 Platform-specific documentation is available for:
 
+- [Apple Silicon](./apple-silicon.md)
 - [Lenovo ThinkPad X13s](./thinkpad-x13s.md)
 - [Pinebook Pro](./pinebook-pro.md)
 - [Raspberry Pi](./raspberry-pi.md)
