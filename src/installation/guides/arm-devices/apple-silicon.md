@@ -33,7 +33,7 @@ For the base installation, install `base-system`, `asahi-base`, and
 necessary dependencies. When running `grub-install`, add the `--removable` flag.
 
 To use another bootloader with `m1n1`, ensure it installs the bootloader EFI
-executable at `EFI\BOOT\BOOTAA64.EFI` within the EFI system partition. `m1n1`
+executable at `EFI/BOOT/BOOTAA64.EFI` within the EFI system partition. `m1n1`
 can also be configured to boot a kernel and initramfs directly, without a
 bootloader. To do this, change the `PAYLOAD` in `/etc/default/m1n1-kernel-hook`
 to `kernel`.
