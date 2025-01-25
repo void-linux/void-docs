@@ -1,7 +1,7 @@
 [book]
 authors = ["The Void Linux Team"]
 src = "src"
-title = "Void Linux Handbook"
+title = "The Void Linux Handbook"
 
 [output.html]
 theme = "src/theme"
@@ -15,8 +15,42 @@ edit-url-template = "https://github.com/void-linux/void-docs/edit/master/{path}"
 "/config/gnupg.html" = "/config/openpgp.html#gnupg"
 "/installation/guides/arm-devices/platforms.html" = "/installation/guides/arm-devices/raspberry-pi.html"
 
-[output.latex]
+[output.typst]
 optional = true
+
+[output.typst.output]
+format = "pdf"
+
+[output.typst.style]
+paper = "us-letter"
+text-font = "Libertinus Serif"
+link-color = "black"
+
+[output.typst.advanced]
+typst-markup-header = """
+#let voidgreen = rgb("#478061")
+#set page(paper: "us-letter")
+#align(center + horizon)[
+    #image("handbook-cover.svg")
+    #title()
+]
+#pagebreak()
+#set page(
+    header: [_The Void Linux Handbook_],
+    numbering: "1",
+)
+#set par(justify: true)
+#set table(
+    stroke: (x, y) => if y != 0 { 0.5pt } else { voidgreen },
+    fill: (x, y) => if y == 0 { voidgreen },
+)
+#show table.cell.where(y: 0): it => {
+    set text(white)
+    strong(it)
+}
+#show raw.where(block: false): box.with(fill: luma(240), inset: (x: 3pt, y: 0pt), outset: (y: 3pt), radius: 2pt)
+#show raw.where(block: true): box.with(fill: luma(240), inset: 8pt, radius: 3pt)
+"""
 
 [output.gemini]
 optional = true
