@@ -81,7 +81,7 @@ Wayland natively.
 If an application doesn't support Wayland, it can still be used in a Wayland
 context. XWayland is an X server that bridges this gap for most Wayland
 compositors, and is installed as a dependency for most of them. Its package is
-`xorg-server-xwayland`. For Weston, the correct package is `weston-xwayland`.
+`xorg-server-xwayland`.
 
 ## Configuration
 
