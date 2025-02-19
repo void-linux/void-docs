@@ -20,7 +20,7 @@ reconfigure the `fontconfig` package.
 For example, to disable use of bitmap fonts:
 
 ```
-# ln -s /usr/share/fontconfig/conf.avail/70-no-bitmaps.conf /etc/fonts/conf.d/
+# ln -s /usr/share/fontconfig/conf.avail/70-no-bitmaps-except-emoji.conf /etc/fonts/conf.d/
 # xbps-reconfigure -f fontconfig
 ```
 
