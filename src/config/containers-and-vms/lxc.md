@@ -143,8 +143,8 @@ started. To avoid default configuration initialize Incus for yourself with
 
 > Warning: `incus-user` will also replace the networking config of the default
 > profile if it appears invalid. runit does not have socket activation so this
-> happens when when the machine boots instead of when a user calls `incus`. If
-> the default profile uses a [bridge
+> happens when the machine boots instead of when a user calls `incus`. If the
+> default profile uses a [bridge
 > interface](../network/index.md#bridge-interfaces), `incus-user` may replace it
 > on boot.
 
