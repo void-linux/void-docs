@@ -163,8 +163,9 @@ generated from currently mounted filesystems using
 ### Entering the Chroot
 
 [xchroot(1)](https://man.voidlinux.org/xchroot.1) (from `xtools`) can be used to
-set up and enter the chroot. Alternatively, this can be [done
-manually](../../config/containers-and-vms/chroot.md#manual-method).
+set up and enter the chroot. Make sure that a
+[network connection](../../config/network/index.md) is established. Alternatively,
+this can be [done manually](../../config/containers-and-vms/chroot.md#manual-method).
 
 ```
 # xchroot /mnt /bin/bash
