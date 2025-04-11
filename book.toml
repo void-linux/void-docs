@@ -1,6 +1,5 @@
 [book]
 authors = ["The Void Linux Team"]
-multilingual = false
 src = "src"
 title = "Void Linux Handbook"
 
