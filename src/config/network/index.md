@@ -54,6 +54,8 @@ $ ip link show
 # ln -s /etc/sv/dhcpcd-enp3s0 /var/service/
 ```
 
+**Note**: Simply copying the dhcpcd-eth0 service for another interface may not work as expected. If supervise or related symlink files exist in the copied directory, they must be removed—these files can cause conflicts due to shared runtime resources.
+
 For more information on configuring `dhcpcd`, refer to
 [dhcpcd.conf(5)](https://man.voidlinux.org/dhcpcd.conf.5)
 
