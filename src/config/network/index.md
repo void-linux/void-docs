@@ -54,6 +54,10 @@ $ ip link show
 # ln -s /etc/sv/dhcpcd-enp3s0 /var/service/
 ```
 
+**Note**: Simply copying the dhcpcd-eth0 service for additional interfaces may not work as expected.
+Internally, dhcpcd may still treat them as the same instance due to shared resources like PID files or control sockets. For multiple interfaces, it's recommended to either let the main dhcpcd service handle all interfaces,
+or manage separate configurations carefully to avoid conflicts.
+
 For more information on configuring `dhcpcd`, refer to
 [dhcpcd.conf(5)](https://man.voidlinux.org/dhcpcd.conf.5)
 
