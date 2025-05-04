@@ -1,15 +1,14 @@
 
 #sidebar,
 #menu-bar,
-#void-nav,
 .nav-chapters,
 .mobile-nav-chapters {
     display: none;
 }
 
 #page-wrapper.page-wrapper {
-    transform: none;
-    margin-left: 0px;
+    transform: none !important;
+    margin-inline-start: 0px;
     overflow-y: initial;
 }
 
@@ -24,19 +23,7 @@
 }
 
 code {
-    background-color: #ddd;
-    border-radius: 5px;
-
-    /* Force background to be printed in Chrome */
-    -webkit-print-color-adjust: exact;
-}
-
-
-pre {
-    background-color: #ddd;
-
-    /* Force background to be printed in Chrome */
-    -webkit-print-color-adjust: exact;
+    direction: ltr !important;
 }
 
 pre > .buttons {
@@ -58,22 +45,6 @@ pre, code {
     white-space: pre-wrap;
 }
 
-svg {
+.fa {
     display: none !important;
 }
-
-table {
-    color: black;
-    border-color: black;
-    background-color: unset;
-}
-
-table thead tr {
-    color: black;
-    background-color: unset;
-}
-
-table tbody tr {
-    background-color: unset;
-}
-
