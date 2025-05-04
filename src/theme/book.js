@@ -23,6 +23,7 @@ window.onunload = function () { };
     var sidebar = document.getElementById("sidebar");
     var sidebarLinks = document.querySelectorAll('#sidebar a');
     var sidebarToggleButton = document.getElementById("sidebar-toggle");
+    var sidebarResizeHandle = document.getElementById("sidebar-resize-handle");
     var firstContact = null;
 
     function showSidebar() {
@@ -50,6 +51,11 @@ window.onunload = function () { };
     // Toggle sidebar
     sidebarToggleButton.addEventListener('click', function sidebarToggle() {
         if (body.classList.contains("sidebar-hidden")) {
+            var current_width = parseInt(
+                document.documentElement.style.getPropertyValue('--sidebar-width'), 10);
+            if (current_width < 150) {
+                document.documentElement.style.setProperty('--sidebar-width', '150px');
+            }
             showSidebar();
         } else if (body.classList.contains("sidebar-visible")) {
             hideSidebar();
@@ -61,6 +67,32 @@ window.onunload = function () { };
             }
         }
     });
+
+    sidebarResizeHandle.addEventListener('mousedown', initResize, false);
+
+    function initResize(e) {
+        window.addEventListener('mousemove', resize, false);
+        window.addEventListener('mouseup', stopResize, false);
+        body.classList.add('sidebar-resizing');
+    }
+    function resize(e) {
+        var pos = (e.clientX - sidebar.offsetLeft);
+        if (pos < 20) {
+            hideSidebar();
+        } else {
+            if (body.classList.contains("sidebar-hidden")) {
+                showSidebar();
+            }
+            pos = Math.min(pos, window.innerWidth - 100);
+            document.documentElement.style.setProperty('--sidebar-width', pos + 'px');
+        }
+    }
+    //on mouseup remove windows functions mousemove & mouseup
+    function stopResize(e) {
+        body.classList.remove('sidebar-resizing');
+        window.removeEventListener('mousemove', resize, false);
+        window.removeEventListener('mouseup', stopResize, false);
+    }
 
     document.addEventListener('touchstart', function (e) {
         firstContact = {

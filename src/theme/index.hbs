@@ -27,6 +27,8 @@
             var path_to_root = "{{ path_to_root }}";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "{{ preferred_dark_theme }}" : "{{ default_theme }}";
         </script>
+        <!-- Start loading toc.js asap -->
+        <script src="{{ path_to_root }}toc.js"></script>
     </head>
     <body>
     <div id="body-container">
@@ -58,6 +60,29 @@
         </script>
 
         <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="{{ path_to_root }}toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
 
         <header>
             <nav id="void-nav">
@@ -124,22 +149,6 @@
         </header>
 
         <div id="content">
-            <!-- Hide / unhide sidebar before it is displayed -->
-            <script type="text/javascript">
-                var html = document.querySelector('html');
-                var sidebar = 'hidden';
-                if (document.body.clientWidth >= 1080) {
-                    try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
-                    sidebar = sidebar || 'visible';
-                }
-                html.classList.remove('sidebar-visible');
-                html.classList.add("sidebar-" + sidebar);
-            </script>
-
-            <nav id="sidebar" aria-label="Table of contents">
-                {{#toc}}{{/toc}}
-            </nav>
-
             <div id="page-wrapper" class="page-wrapper">
 
                 {{#if search_enabled}}
