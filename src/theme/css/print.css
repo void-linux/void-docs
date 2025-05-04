@@ -1,6 +1,7 @@
 
 #sidebar,
 #menu-bar,
+#void-nav,
 .nav-chapters,
 .mobile-nav-chapters {
     display: none;
@@ -24,6 +25,14 @@
 
 code {
     direction: ltr !important;
+    background-color: #ddd;
+}
+
+pre {
+    background-color: #ddd;
+
+    /* Force background to be printed in Chrome */
+    -webkit-print-color-adjust: exact;
 }
 
 pre > .buttons {
@@ -45,6 +54,21 @@ pre, code {
     white-space: pre-wrap;
 }
 
-.fa {
+svg {
     display: none !important;
+}
+
+table {
+    color: black;
+    border-color: black;
+    background-color: unset;
+}
+
+table thead tr {
+    color: black;
+    background-color: unset;
+}
+
+table tbody tr {
+    background-color: unset;
 }

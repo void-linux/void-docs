@@ -153,8 +153,7 @@ html:not(.js) .left-buttons button {
 
 .nav-chapters:hover {
     text-decoration: none;
-    background-color: var(--theme-hover);
-    transition: background-color 0.15s, color 0.15s;
+    transition: color 0.15s, color 0.15s;
 }
 
 .nav-wrapper {
@@ -293,10 +292,6 @@ pre > .buttons button.clip-button:hover::before {
         /* Hide resize indicator on devices with limited accuracy */
         display: none;
     }
-}
-pre > code {
-    display: block;
-    padding: 1rem;
 }
 
 /* FIXME: ACE editors overlap their buttons because ACE does absolute
@@ -449,7 +444,7 @@ html:not(.sidebar-resizing) .sidebar {
 .sidebar code {
     line-height: 2em;
 }
-.sidebar .sidebar-scrollbox {
+/*.sidebar .sidebar-scrollbox {
     overflow-y: auto;
     position: absolute;
     top: 0;
@@ -457,7 +452,7 @@ html:not(.sidebar-resizing) .sidebar {
     left: 0;
     right: 0;
     padding: 10px 10px;
-}
+}*/
 .sidebar .sidebar-resize-handle {
     position: absolute;
     cursor: col-resize;
