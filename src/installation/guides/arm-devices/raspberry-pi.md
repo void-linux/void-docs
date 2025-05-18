@@ -60,6 +60,18 @@ driver](../../../config/graphical-session/xorg.md#modesetting) or
 You may also need to uncomment the `dtoverlay=vc4-kms-v3d` line in
 `/boot/config.txt`.
 
+For Xorg, an [Xorg configuration file](https://man.voidlinux.org/xorg.conf.5)
+may be needed, with the contents:
+
+```
+Section "OutputClass"
+	Identifier "vc4"
+	MatchDriver "vc4"
+	Driver "modesetting"
+	Option "PrimaryGPU" "true"
+EndSection
+```
+
 ## Hardware
 
 More configuration information can be found in the Raspberry Pi Foundation's
