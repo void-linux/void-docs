@@ -11,9 +11,17 @@ on such devices can be done in several ways:
    that can be extracted to a previously prepared partition scheme; and
 - [Chroot installation](#chroot-installation): follows most of the steps
    outlined in [the chroot guide](../chroot.md).
+- [Live images](../../live-images/index.md) (for aarch64 UEFI devices only).
 
 This guide also outlines [configuration steps](#configuration) that are mostly
 specific to such devices.
+
+Platform-specific documentation is available for:
+
+- [Apple Silicon](./apple-silicon.md)
+- [Lenovo ThinkPad X13s](./thinkpad-x13s.md)
+- [Pinebook Pro](./pinebook-pro.md)
+- [Raspberry Pi](./raspberry-pi.md)
 
 Since most of the commands in this guide will be run on external storage, it is
 important to run [sync(1)](https://man.voidlinux.org/sync.1) before removing the
@@ -21,16 +29,16 @@ device.
 
 ## Installation
 
-If you are installing Void Linux on one of the ARM devices covered in the
-"[Supported platforms](./platforms.md)" page, make sure to read its section
-thoroughly.
+If you are installing Void Linux on one of the officially supported ARM devices,
+make sure to read its page thoroughly.
 
 ### Pre-built images
 
-The pre-built images provided are prepared for 2GB SD cards. After [downloading
-and verifying](../../index.md#downloading-installation-media) an image, it can
-be uncompressed with [unxz(1)](https://man.voidlinux.org/unxz.1) and written to
-the relevant media with [cat(1)](https://man.voidlinux.org/cat.1),
+The pre-built images provided are prepared for 1GB storage devices. After
+[downloading and verifying](../../index.md#downloading-installation-media) an
+image, it can be uncompressed with [unxz(1)](https://man.voidlinux.org/unxz.1)
+and written to the relevant media with
+[cat(1)](https://man.voidlinux.org/cat.1),
 [pv(1)](https://man.voidlinux.org/pv.1), or
 [dd(1)](https://man.voidlinux.org/dd.1). For example, to flash it onto an SD
 card located at `/dev/mmcblk0`:
@@ -40,8 +48,13 @@ $ unxz -k <image>.img.xz
 # dd if=<image>.img of=/dev/mmcblk0 bs=4M status=progress
 ```
 
-After flashing, the root partition can optionally be expanded to fit the storage
-device with [cfdisk(8)](https://man.voidlinux.org/cfdisk.8),
+On first boot, the root partition and filesystem will automatically expand to
+fill available contiguous space in the storage device using
+[growpart(1)](https://man.voidlinux.org/man1/growpart.1). This can be disabled
+by commenting out `ENABLE_ROOT_GROWPART=yes` in `/etc/default/growpart`.
+
+This can also be done manually after flashing with
+[cfdisk(8)](https://man.voidlinux.org/cfdisk.8),
 [fdisk(8)](https://man.voidlinux.org/fdisk.8), or another partitioning tool, and
 the filesystem can be resized to fit the expanded partition with
 [resize2fs(8)](https://man.voidlinux.org/resize2fs.8).
@@ -97,9 +110,8 @@ using [tar(1)](https://man.voidlinux.org/tar.1):
 #### Chroot installation
 
 It is also possible to perform a [chroot installation](../chroot.md) using the
-appropriate architecture and base packages, some of which are listed in the
-"[Supported Platforms](./platforms.md)" section. Make sure to [prepare your
-storage medium](#custom-partition-layout) properly for the device.
+appropriate architecture and base packages. Make sure to [prepare your storage
+medium](#custom-partition-layout) properly for the device.
 
 If doing this from a computer with an incompatible archtecture (such as x86_64),
 install `binfmt-support`, enable the `binfmt-support` service, and install the

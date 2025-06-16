@@ -15,7 +15,12 @@
       - [Full Disk Encryption](./installation/guides/fde.md)
       - [Root on ZFS](./installation/guides/zfs.md)
       - [ARM Devices](./installation/guides/arm-devices/index.md)
-         - [Supported Platforms](./installation/guides/arm-devices/platforms.md)
+         - [Apple Silicon
+            (Asahi)](./installation/guides/arm-devices/apple-silicon.md)
+         - [Lenovo Thinkpad
+            X13s](./installation/guides/arm-devices/thinkpad-x13s.md)
+         - [Pinebook Pro](./installation/guides/arm-devices/pinebook-pro.md)
+         - [Raspberry Pi](./installation/guides/arm-devices/raspberry-pi.md)
    - [musl](./installation/musl.md)
 - [Configuration](./config/index.md)
    - [Package Documentation](./config/package-documentation/index.md)

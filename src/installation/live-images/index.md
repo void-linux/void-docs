@@ -7,6 +7,10 @@ function properly.
 
 There are `x86_64` images for both `glibc` and `musl` based systems. There are
 also images for `i686`, but only `glibc` is supported for this architecture.
+Live images are provided for `aarch64` in both `glibc` and `musl` variants, but
+they only support UEFI-capable devices. Live images for `aarch64` do not support
+`void-installer`.
+
 Live installers are not provided for other architectures. Users of other
 architectures will need to use rootfs tarballs, or perform an installation
 manually.
@@ -50,14 +54,22 @@ the base system, without any additional packages included on the live image.
 
 All Void installer images support the console screenreader
 [espeakup](https://man.voidlinux.org/espeakup.8) and the console braille display
-driver [brltty](https://man.voidlinux.org/brltty.1). These services can be
-enabled at boot by pressing `s` in the bootloader menu to enable accessibility
-support. On UEFI-based systems, GRUB is the bootloader, and it will play a
-two-tone chime when the menu is available. On BIOS-based systems and UEFI
-systems in legacy/compatibility mode, SYSLINUX is the bootloader, and no chime
-is played. SYSLINUX also requires pressing the enter key after pressing `s`. The
-hotkey `r` will also boot with accessibility support, but will load the live ISO
-into RAM.
+driver [brltty](https://man.voidlinux.org/brltty.1). On UEFI-based systems, GRUB
+is the bootloader, and it will play a two-tone chime when the menu is available.
+On BIOS-based systems and UEFI systems in legacy/compatibility mode, SYSLINUX is
+the bootloader, and no chime is played.
+
+Several hotkeys exists in the bootloader, which will select different entries:
+
+- `s` will boot with screenreader enabled
+- `r` will boot with screenreader enabled and will load the live ISO into RAM
+- `g` will boot with screenreader enabled and graphics disabled
+- `m` will enter `Memtest86+` (if supported)
+- `f` will enter the UEFI firmware setup interface (if supported)
+- `b` will reboot the computer
+- `p` will power off the computer
+
+SYSLINUX requires pressing enter after pressing a hotkey.
 
 After booting into the installer image with accessibility support enabled, if
 there are multiple soundcards detected, a short audio menu allows for the

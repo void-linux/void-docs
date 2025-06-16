@@ -14,6 +14,7 @@ edit-url-template = "https://github.com/void-linux/void-docs/edit/master/{path}"
 "/about-this-handbook.html" = "/about/about-this-handbook.html"
 "/config/man.html" = "/config/package-documentation/man.html"
 "/config/gnupg.html" = "/config/openpgp.html#gnupg"
+"/installation/guides/arm-devices/platforms.html" = "/installation/guides/arm-devices/raspberry-pi.html"
 
 [output.latex]
 optional = true
