@@ -221,9 +221,10 @@ install GRUB to. For example:
 ```
 
 **On a UEFI computer**, install either `grub-x86_64-efi`, `grub-i386-efi` or
-`grub-arm64-efi`, depending on your architecture, then run `grub-install`,
-optionally specifying a bootloader label (this label may be used by your
-computer's firmware when manually selecting a boot device):
+`grub-arm64-efi`, depending on your architecture. Then run `grub-install` with
+the correct `--target` argument for your architecture (`x86_64-efi`, `i386-efi`,
+or `arm64-efi`), and optionally specifying a bootloader label (this label may be
+used by your computer's firmware when manually selecting a boot device):
 
 ```
 [xchroot /mnt] # xbps-install -S grub-x86_64-efi
