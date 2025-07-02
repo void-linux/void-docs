@@ -188,16 +188,18 @@ For glibc builds, generate locale files with:
 
 ### Set a Root Password
 
-[Configure at least one super user account](../../config/users-and-groups.md).
-Other user accounts can be configured later, but there should either be a root
-password, or a new user account with [sudo(8)](https://man.voidlinux.org/sudo.8)
-privileges.
+[Configure at least one user account](../../config/users-and-groups.md). Other
+user accounts can be configured later, but there should either be a root
+password or a user account with [superuser
+privileges](../../config/users-and-groups.md#superuser-access).
 
 To set a root password, run:
 
 ```
 [xchroot /mnt] # passwd
 ```
+
+Otherwise, install and configure a superuser access tool.
 
 ### Enable services
 
