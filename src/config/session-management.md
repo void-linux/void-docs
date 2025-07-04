@@ -24,6 +24,14 @@ latter being specific to a user session.
 Note that some software assumes the presence of a system bus, while other
 software assumes the presence of a session bus.
 
+When using a session bus, it might be necessary to export display environment
+variables, such as `DISPLAY` (for [X](./graphical-session/xorg.md) or XWayland)
+and `WAYLAND_DISPLAY` (for [Wayland](./graphical-session/wayland.md)) to the
+D-Bus activation environment. This is used, for example, by programs that expect
+to be able to launch a prompt for user interaction.
+[dbus-update-activation-environment(1)](https://man.voidlinux.org/dbus-update-activation-environment.1)
+can be used to export variables from your environment.
+
 ## elogind
 
 [elogind(8)](https://man.voidlinux.org/elogind.8) manages user logins and system
