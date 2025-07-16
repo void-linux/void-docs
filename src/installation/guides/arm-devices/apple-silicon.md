@@ -2,7 +2,7 @@
 
 Void's Apple Silicon support is based on Asahi Linux. See their
 [website](https://asahilinux.org) and
-[documentation](https://github.com/AsahiLinux/docs/wiki) for more information.
+[documentation](https://asahilinux.org/docs) for more information.
 
 ## Installation
 
@@ -13,6 +13,12 @@ environment only" from macOS:
 macos $ curl https://alx.sh > alx.sh
 macos $ sh ./alx.sh
 ```
+
+When selecting the minimal UEFI environment installation option, the Asahi
+Installer can be directed to create free space for a future root filesystem. You
+must use this facility to prepare your disk for Void Linux, rather than
+attempting to manually shrink or alter APFS containers via the Void Linux live
+ISO.
 
 Then, [create a Live USB](../../live-images/prep.md) using an [Apple Silicon
 Void Linux ISO](https://voidlinux.org/download/#arm%20platforms). U-Boot
@@ -28,9 +34,13 @@ U-Boot> boot
 To install, follow the [chroot install guide](../chroot.md), using the "XBPS
 method", observing the following modifications:
 
-For the base installation, install `base-system`, `asahi-base`, and
-`asahi-scripts`. These packages provide important configurations and install the
-necessary dependencies. When running `grub-install`, add the `--removable` flag.
+Do not alter or rearrange any disk structure other than the free space left by
+Asahi Installer. For our purposes, the EFI System Partition is the one created
+by Asahi Linux install script, and it should be mounted at `/mnt/boot/efi`.
+
+For the base installation, install `base-system` and `asahi-base`. This package
+provides important configurations and installs the necessary dependencies. When
+running `grub-install`, add the `--removable` flag.
 
 To use another bootloader with `m1n1`, ensure it installs the bootloader EFI
 executable at `EFI/BOOT/BOOTAA64.EFI` within the EFI system partition. `m1n1`
