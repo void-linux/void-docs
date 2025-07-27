@@ -4,12 +4,12 @@
 
 ### Mounting an NFS Share
 
-To mount an NFS share, start by installing the `nfs-utils` and `sv-netmount`
-packages.
-
-Before mounting an NFS share, [enable](./services/index.md#enabling-services)
-the `statd`, `rpcbind`, and `netmount` services. If the server supports `nfs4`,
-the `statd` service isn't necessary.
+To mount an NFS share, install the `nfs-utils` package. If desired, the
+`sv-netmount` package provides a simple service that will automatically mount
+network filesystems at boot. Clients and servers using NFSv3 or older protocols
+require that the `rpcbind` and `statd` service be
+[enabled](./services/index.md#enabling-services). Clients and servers using
+NFSv4 exclusively do not require these services.
 
 To mount an NFS share:
 
@@ -68,4 +68,16 @@ server status:
 ```
 
 You can use [nfs.conf(5)](https://man.voidlinux.org/nfs.conf.5) to configure
-your server.
+your server. In particular, to disable legacy protocol versions and support only
+NFSv4, add the following section:
+
+```
+[nfsd]
+vers3=n
+vers4=y
+vers4.1=y
+vers4.2=y
+```
+
+You can verify the configured list of supported versions by inspecting the
+contents of the file `/proc/fs/nfsd/versions`.
