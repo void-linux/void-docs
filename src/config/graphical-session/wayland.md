@@ -52,13 +52,14 @@ which can be either elogind or seatd. Enabling them is explained in the
 
 ### Native applications
 
-Qt5-based applications require installing the `qt5-wayland` package and setting
-the environment variable `QT_QPA_PLATFORM=wayland-egl` to enable their Wayland
-backend. Some KDE specific applications also require installing the `kwayland`
-package. EFL-based applications require setting the environment variable
-`ELM_DISPLAY=wl`, and can have issues without it, due to not supporting XWayland
-properly. [SDL](https://libsdl.org)-based applications require setting the
-environment variable `SDL_VIDEODRIVER=wayland`.
+Qt5- and Qt6-based applications require installing the `qt5-wayland` or
+`qt6-wayland` package and setting the environment variable
+`QT_QPA_PLATFORM=wayland` to enable their Wayland backend. Some KDE specific
+applications also require installing the `kwayland` package. EFL-based
+applications require setting the environment variable `ELM_DISPLAY=wl`, and can
+have issues without it, due to not supporting XWayland properly.
+[SDL](https://libsdl.org)-based applications require setting the environment
+variable `SDL_VIDEODRIVER=wayland`.
 [GTK+](https://wiki.gnome.org/Initiatives(2f)Wayland(2f)GTK(2b).html)-based
 applications should use the Wayland backend automatically.
 
