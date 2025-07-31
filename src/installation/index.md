@@ -17,7 +17,12 @@ following minimums for most installations:
 
 Note that xfce image installations require more resources.
 
-Void is not available for the i386, i486, or i586 architectures.
+Void provides build profiles for the architectures listed at
+<https://github.com/void-linux/void-packages/tree/master/common/build-profiles>.
+Out of those, currently
+
+- `x86_64*`, `i686` are natively compiled and their test suite run in CI
+- `aarch64*`, `armv7l*`, `armv6l*` are cross-compiled, with no tests run in CI.
 
 Before installing musl Void, please read [the "musl" section](./musl.md) of this
 Handbook, so that you are aware of software incompatibilities.
