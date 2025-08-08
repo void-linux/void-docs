@@ -100,10 +100,13 @@ below, replacing the device names with the appropriate ones for your setup:
 
 First, [download and verify](../../index.md#downloading-installation-media) a
 PLATFORMFS or ROOTFS tarball for your desired platform and [prepare your storage
-medium](#custom-partition-layout). Then, unpack the tarball onto the file system
+medium](#custom-partition-layout). If booted from a live image, 
+[xbps-fetch](https://man.voidlinux.org/xbps-fetch) can download the image to the
+current directory. Then, unpack the tarball onto the file system
 using [tar(1)](https://man.voidlinux.org/tar.1):
 
 ```
+# xbps-fetch <URL>
 # tar xvfp <image>.tar.xz -C /mnt
 ```
 
