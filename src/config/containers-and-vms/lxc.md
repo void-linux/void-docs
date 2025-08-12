@@ -157,8 +157,7 @@ the `incus-tools` package as described
 [here](https://linuxcontainers.org/incus/docs/main/howto/migrate_from_lxc/).
 
 Some Incus features have additional dependencies. To run virtual machines,
-install `qemu` and `edk2-ovmf`. To run OCI containers, install `skopeo` and
-`umoci`.
+install `qemu` and `edk2-ovmf`. To run OCI containers, install `skopeo`.
 
 ## LXD
 
