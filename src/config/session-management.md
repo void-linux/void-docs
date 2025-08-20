@@ -63,6 +63,10 @@ services](./services/user-services.md#turnstile) (including running a [D-Bus
 session bus](#d-bus)), removing the need for wrapping graphical sessions with
 `dbus-run-session`.
 
+By default `turnstiled.conf` is set to enable lingering per user. To do so, an
+empty file named after the user needs to be created in the linger directory like
+this `# touch /var/lib/turnstiled/linger/<username>`.
+
 ## seatd
 
 [seatd(1)](https://man.voidlinux.org/seatd.1) is a minimal seat management
