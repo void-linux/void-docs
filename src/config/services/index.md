@@ -6,9 +6,10 @@ run system services and daemons.
 Some advantages of using runit include:
 
 - a small code base, making it easier to audit for bugs and security issues.
-- each service is given a clean process state, regardless of how the service was
-   started or restarted: it will be started with the same environment, resource
-   limits, open file descriptors, and controlling terminals.
+- each service is given a clean process environment, regardless of how the
+   service was started or restarted: it will be started with the same
+   environment variables, resource limits, open file descriptors, and
+   controlling terminals.
 - a reliable logging facility for services, where the log service stays up as
    long as the relevant service is running and possibly writing to the log.
 
