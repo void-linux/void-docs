@@ -96,4 +96,5 @@ turnstile-managed user service:
 ```
 $ mkdir -p ~/.config/service/dbus
 $ ln -s /usr/share/examples/turnstile/dbus.run ~/.config/service/dbus/run
+$ ln -s /usr/share/examples/turnstile/dbus.check ~/.config/service/dbus/check
 ```
