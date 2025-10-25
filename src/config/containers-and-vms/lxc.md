@@ -12,17 +12,7 @@ favor of the CGroup namespace in recent kernels. LXD has become a Canonical
 project. Incus was forked from LXD to be a community driven alternative, and is
 led and maintained by many of the original creators.
 
-## Configuring LXC
-
-Install the `lxc` package.
-
-Creating and running privileged containers as `root` does not require any
-configuration; simply use the various `lxc-*` commands, such as
-[lxc-create(1)](https://man.voidlinux.org/lxc-create.1),
-[lxc-start(1)](https://man.voidlinux.org/lxc-start.1),
-[lxc-attach(1)](https://man.voidlinux.org/lxc-attach.1), etc.
-
-### Creating unprivileged containers
+## Creating unprivileged containers
 
 User IDs (UIDs) and group IDs (GIDs) normally range from 0 to 65535.
 Unprivileged containers enhance security by mapping UID and GID ranges inside
@@ -56,6 +46,16 @@ the starting value is not important, except to ensure that the various ranges
 defined in the file do not overlap. In this example, `root` controls UIDs (or,
 from `subgid`, GIDs) ranging from 1000000 to 1065535, inclusive; `user` controls
 IDs ranging from 2000000 to 2065535.
+
+## Configuring LXC
+
+Install the `lxc` package.
+
+Creating and running privileged containers as `root` does not require any
+configuration; simply use the various `lxc-*` commands, such as
+[lxc-create(1)](https://man.voidlinux.org/lxc-create.1),
+[lxc-start(1)](https://man.voidlinux.org/lxc-start.1),
+[lxc-attach(1)](https://man.voidlinux.org/lxc-attach.1), etc.
 
 Before creating a container, the user owning the container will need an
 [lxc.conf(5)](https://man.voidlinux.org/lxc.conf.5) file specifying the subuid
@@ -127,9 +127,6 @@ does not require the configuration described in [the previous section](#lxc).
 In `/etc/rc.conf`, set the `CGROUP_MODE` variable to `unified`. Install the
 `incus` package, and [enable](../services/index.md#enabling-services) the
 `incus` service.
-
-Some parts of Incus require optional dependencies, see
-[README.voidlinux](../package-documentation/index.md).
 
 Add users who should have full control over Incus to the `_incus-admin` group.
 
