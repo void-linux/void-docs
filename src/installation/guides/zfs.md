@@ -159,7 +159,7 @@ the EFI system partition:
 # mkdir -p /mnt/boot
 # mount /dev/sda2 /mnt/boot
 # mkdir -p /mnt/boot/efi
-# mount /dev/sda1 /mnnt/boot/efi
+# mount /dev/sda1 /mnt/boot/efi
 ```
 
 ### Installation
