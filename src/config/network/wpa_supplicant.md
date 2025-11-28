@@ -39,7 +39,7 @@ $ echo -n <passphrase> | iconv -t utf16le | openssl md4
 ## WEP
 
 For WEP configuration, add the following lines to your device's
-`wpa-supplicant.conf`:
+`wpa_supplicant.conf`:
 
 ```
 network={
@@ -48,6 +48,19 @@ network={
     wep_key0="YOUR AP WEP KEY"
     wep_tx_keyidx=0
     auth_alg=SHARED
+}
+```
+
+## WPA3-SAE
+
+SAE (used for WPA3) can be configured in `wpa_supplicant.conf` as follows:
+
+```
+network={
+    ssid="MYSSID"
+    key_mgmt=SAE
+    sae_password="YOUR AP PASSWORD"
+    ieee80211w=2
 }
 ```
 
