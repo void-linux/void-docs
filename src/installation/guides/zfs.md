@@ -58,7 +58,7 @@ guide apply to ZFS installations as well, except that
    no benefit to creating separate ZFS pools on a single disk.
 
 As needed, format the EFI system partition using
-[mkfs.vfat(8)](https://man.voidlinux.org/mkfs.vfat.8) and the the boot partition
+[mkfs.vfat(8)](https://man.voidlinux.org/mkfs.vfat.8) and the boot partition
 using [mke2fs(8)](https://man.voidlinux.org/mke2fs.8) or
 [mkfs.xfs(8)](https://man.voidlinux.org/mkfs.xfs.8). Initialize any swap space
 using [mkswap(8)](https://man.voidlinux.org).
