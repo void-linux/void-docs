@@ -113,5 +113,5 @@ configuration. It should show:
 
 ```
 $ i2cdetect -l
-i2c-1i2c          bcm2835 I2C adapter                 I2C adapter
+i2c-1          i2c          bcm2835 I2C adapter          I2C adapter
 ```
