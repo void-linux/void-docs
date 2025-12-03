@@ -59,7 +59,7 @@ is the bootloader, and it will play a two-tone chime when the menu is available.
 On BIOS-based systems and UEFI systems in legacy/compatibility mode, SYSLINUX is
 the bootloader, and no chime is played.
 
-Several hotkeys exists in the bootloader, which will select different entries:
+Several hotkeys exist in the bootloader, which will select different entries:
 
 - `s` will boot with screenreader enabled
 - `r` will boot with screenreader enabled and will load the live ISO into RAM
