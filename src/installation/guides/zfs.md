@@ -165,7 +165,7 @@ the EFI system partition:
 ### Installation
 
 At this point, ordinary installation can proceed from the ["Base Installation"
-section](./chroot.md#base-installation). of the standard chroot installation
+section](./chroot.md#base-installation) of the standard chroot installation
 guide. However, before following the ["Finalization"
 instructions](./chroot.md#finalization), make sure that the `zfs` package has
 been installed and `dracut` is configured to identify a ZFS root filesystem:
