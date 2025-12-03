@@ -17,7 +17,7 @@ The following features are not supported by the installer script:
 ## Booting
 
 Boot your machine from the install media you created. If you have enough RAM,
-there is an option on the boot screen to load the entire image into ram, which
+there is an option on the boot screen to load the entire image into RAM, which
 will take some time but speed up the rest of the install process.
 
 Once the live image has booted, log in as `root` with password `voidlinux` and
