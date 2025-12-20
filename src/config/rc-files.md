@@ -1,8 +1,8 @@
-# rc.conf, rc.local and rc.shutdown
+# rc.conf, rc.local, rc.shutdown, and core-services
 
-The files `/etc/rc.conf`, `/etc/rc.local` and `/etc/rc.shutdown` can be used to
-configure certain parts of your Void system. `rc.conf` is often configured by
-`void-installer`.
+The files `/etc/rc.conf`, `/etc/rc.local`, `/etc/rc.shutdown`, and the directory
+`/etc/runit/core-services` can be used to configure certain parts of your Void
+system. `rc.conf` is often configured by `void-installer`.
 
 ## rc.conf
 
@@ -51,3 +51,9 @@ configuration to be done prior to login.
 
 Sourced in runit stage 3. A shell script which can be used to specify tasks to
 be done during shutdown.
+
+## core-services
+
+Sourced in runit stage 1. A directory containing shell scripts that are run in
+alphabetical order when the machine boots up, before services are started.
+Useful for startup oneshots.
