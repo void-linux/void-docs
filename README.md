@@ -7,20 +7,15 @@ the same protocol as the packages tree. For details, please read
 
 ## Building
 
-The [res/build.sh](./res/build.sh) script builds HTML, roff and PDF versions of
-the Void documentation and the `void-docs.1` man page. It requires the following
-Void packages:
+The `Makefile` builds HTML, roff and PDF versions of the Void documentation and
+the `void-docs.1` man page. It requires the following Void packages:
 
 - `mdBook`
 - `findutils`
 - `lowdown` (version 0.8.1 or greater)
-- `texlive`
-- `perl`
-- `perl-File-Which`
-- `perl-JSON`
-- `librsvg-utils`
+- `mdbook-typst`
+- `mdbook-linkcheck`
 - `python3-md2gemini`
 
 In order to build and install these files, set the `PREFIX` and `DESTDIR`
-environment variables to appropriate values and run `res/build.sh` followed by
-`res/install.sh`.
+variables to appropriate values and run `make` to build, and `make install` to install.
