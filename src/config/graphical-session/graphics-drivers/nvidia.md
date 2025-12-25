@@ -21,9 +21,9 @@ which is primarily useful on older cards with specialized fixed function
 hardware (the `modesetting` driver will accelerate 2D using OpenGL via GLAMOR).
 When in doubt, it's a good idea to try `xf86-video-nouveau` first.
 
-Note: `xf86-video-nouveau` is usually installed by default if you use the `xorg`
-metapackage. If you use `xorg-minimal`, you will need to install it manually,
-either directly or through `xorg-video-drivers`.
+> Note: `xf86-video-nouveau` is usually installed by default if you use the
+> `xorg` metapackage. If you use `xorg-minimal`, you will need to install it
+> manually, either directly or through `xorg-video-drivers`.
 
 ## nvidia (Proprietary Driver)
 
