@@ -25,6 +25,8 @@ format = "pdf"
 paper = "us-letter"
 text-font = "Libertinus Serif"
 link-color = "black"
+# XXX: needs fix for zeros showing up
+# heading-numbering = "1.1"
 
 [output.typst.advanced]
 typst-markup-header = """
@@ -50,6 +52,11 @@ typst-markup-header = """
 }
 #show raw.where(block: false): box.with(fill: luma(240), inset: (x: 3pt, y: 0pt), outset: (y: 3pt), radius: 2pt)
 #show raw.where(block: true): box.with(fill: luma(240), inset: 8pt, radius: 3pt)
+// XXX: needs fix for zeros showing up
+#let skip_zeros(..args) = {
+    numbering("1.1", ..args.pos().filter((i) => i != 0))
+}
+#set heading(numbering: skip_zeros)
 """
 
 [output.gemini]
@@ -60,16 +67,13 @@ optional = true
 follow-web-links = true
 exclude = [
 	'kernel\.org',
-	'ntp\.org',
 	'\.onion',
 	'localhost',
-	'userbase\.kde\.org',
-	'sjtu\.edu\.cn',
-	'mirrors\.cnnic\.cn',
-	'void\.webconverger\.org',
-	'mirror\.vofr\.net',
-	'void\.chililinux\.com',
-	'voidlinux\.com\.br',
 	'reddit\.com',
 	'raspberrypi\.com',
+	'xnux\.eu',
+	'canonical\.com',
+	'freedesktop\.org',
+	'libressl\.org',
 ]
+user-agent = "Mozilla/5.0"

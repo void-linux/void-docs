@@ -12,7 +12,7 @@ functionality.
 The [command line](../../../config/kernel.md#cmdline) parameters passed to the
 kernel are in the `/boot/cmdline.txt` file. Some of the relevant parameters are
 documented in the [official
-documentation](https://www.raspberrypi.com/documentation/computers/configuration.html#the-kernel-command-line).
+documentation](https://www.raspberrypi.com/documentation/computers/configuration.html#kernel-command-line-cmdline-txt).
 
 ## Supported Models
 
