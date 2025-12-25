@@ -113,9 +113,9 @@ It is also possible to perform a [chroot installation](../chroot.md) using the
 appropriate architecture and base packages. Make sure to [prepare your storage
 medium](#custom-partition-layout) properly for the device.
 
-If doing this from a computer with an incompatible architecture (such as x86_64),
-install `binfmt-support`, enable the `binfmt-support` service, and install the
-relevant QEMU user emulator (like `qemu-user-aarch64` for aarch64 or
+If doing this from a computer with an incompatible architecture (such as
+x86_64), install `binfmt-support`, enable the `binfmt-support` service, and
+install the relevant QEMU user emulator (like `qemu-user-aarch64` for aarch64 or
 `qemu-user-arm` for 32-bit ARM) before installing. If `binfmt-support` was
 installed after the QEMU user emulator, use `xbps-reconfigure -f
 qemu-user-<arch>` to enable the relevant binfmts.
