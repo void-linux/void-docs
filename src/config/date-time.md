@@ -54,7 +54,7 @@ service](../config/services/index.md#managing-services) for it, either through
 its own service or the `ntpd` service managed by
 [xbps-alternatives(1)](https://man.voidlinux.org/xbps-alternatives.1).
 
-### NTP
+### ISC NTP
 
 NTP is the official reference implementation of the Network Time Protocol.
 
