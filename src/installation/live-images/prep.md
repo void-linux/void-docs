@@ -39,8 +39,8 @@ umount: /dev/sdX: not mounted.
 The [dd(1)](https://man.voidlinux.org/man1/dd.1) command can be used to copy a
 live image to a storage device. Using `dd`, write the live image to the device:
 
-**Warning**: this will destroy any data currently on the referenced device.
-Exercise caution.
+> **Warning**: this will destroy any data currently on the referenced device.
+> Exercise caution.
 
 ```
 # dd bs=4M if=/path/to/void-live-ARCH-DATE-VARIANT.iso of=/dev/sdX
