@@ -7,23 +7,41 @@ some documentation provided by Nvidia. It tends to perform well on older
 hardware, and is required to use a large portion of the available Wayland
 compositors.
 
-At the time of writing, graphics cards starting with second generation Maxwell
-(GTX 9xx) are unable to perform at their full potential with `nouveau`. This is
-because the `linux-firmware` collection is missing signed firmware blobs needed
-to reclock these cards past their boot frequencies.
+### OpenGL
 
-To use `nouveau` with Wayland, you only need the `mesa-dri` package, which
-provides the accelerated OpenGL driver. On X11, you also need an appropriate
-Xorg driver. You can either install `xf86-video-nouveau` or use the universal
-`modesetting` driver bundled with Xorg (this is the only option on Tegra based
-ARM boards). The former can make use of GPU-specific 2D acceleration paths,
-which is primarily useful on older cards with specialized fixed function
-hardware (the `modesetting` driver will accelerate 2D using OpenGL via GLAMOR).
-When in doubt, it's a good idea to try `xf86-video-nouveau` first.
+The accelerated OpenGL driver is provided by `mesa-dri`. This is a dependency of
+the `xorg` metapackage, but must be manually installed when using `xorg-minimal`
+or Wayland.
 
-Note: `xf86-video-nouveau` is usually installed by default if you use the `xorg`
-metapackage. If you use `xorg-minimal`, you will need to install it manually,
-either directly or through `xorg-video-drivers`.
+### Vulkan
+
+> **Warning**: The NVK driver is relatively new and may be unstable and/or
+> underperformant. Expect instability on cards below Turing (GTX 16xx).
+
+Cards starting with Kepler (GTX 6xx) are supported by the Vulkan nouveau driver.
+Install `vulkan-loader` and `mesa-vulkan-nouveau`.
+
+### Xorg
+
+The `xorg` metapackage pulls in the `xf86-video-nouveau` video driver. This will
+need to be manually installed if using `xorg-minimal`. You can also use the
+universal `modesetting` driver bundled with Xorg (this is the only option on
+Tegra-based ARM boards).
+
+The former can make use of card-specific 2D acceleration paths, which is
+primarily useful on older cards with specialized fixed function hardware (the
+`modesetting` driver will accelerate 2D using OpenGL via GLAMOR). When in doubt,
+it's a good idea to try `xf86-video-nouveau` first.
+
+### Reclocking
+
+At the time of writing, only first generation Maxwell, Kepler, and some Tesla
+cards support manual reclocking. Cards past Turing (GTX 16xx) support automatic
+reclocking.
+
+Graphics cards starting with second generation Maxwell (GTX 9xx) do not support
+reclocking because the `linux-firmware` collection is missing signed firmware
+blobs needed to reclock these cards past their boot frequencies.
 
 ## nvidia (Proprietary Driver)
 
