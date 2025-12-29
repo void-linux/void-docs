@@ -30,10 +30,6 @@ Most general package management is done with the following commands:
 Most questions can be answered by consulting the man pages for these tools,
 together with the [xbps.d(5)](https://man.voidlinux.org/xbps.d.5) man page.
 
-To learn how to build packages from source, refer to [the README for the
-void-packages
-repository](https://github.com/void-linux/void-packages/blob/master/README.md).
-
 ## Updating
 
 Like any other system, it is important to keep Void up-to-date. Use
@@ -125,3 +121,13 @@ To get a list of all installed packages, without their version:
 ```
 $ xbps-query -l | awk '{ print $2 }' | xargs -n1 xbps-uhelper getpkgname
 ```
+
+## Building Packages
+
+To learn how to build packages from source, refer to the [void-packages
+repository](https://github.com/void-linux/void-packages). In that repository,
+the [README](https://github.com/void-linux/void-packages/blob/master/README.md)
+provides a general overview of the `xbps-src` tool and instructions for building
+packages locally from existing package templates. For information about how to
+add new templates or modify existing ones, refer to the
+[Manual](https://github.com/void-linux/void-packages/blob/master/Manual.md).
