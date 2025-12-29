@@ -116,10 +116,16 @@ This requires `xbps-query` to download parts of every package to find the file.
 `xlocate`, however, queries a locally cached index of all files, so no network
 access is required.
 
-To get a list of all installed packages, without their version:
+To get a list of all installed packages, without their versions:
 
 ```
-$ xbps-query -l | awk '{ print $2 }' | xargs -n1 xbps-uhelper getpkgname
+$ xbps-query -l | awk '{ print $2 }' | xargs xbps-uhelper getpkgname
+```
+
+or, if `xtools` is installed:
+
+```
+$ xpkg
 ```
 
 ## Building Packages
