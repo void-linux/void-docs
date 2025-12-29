@@ -13,7 +13,7 @@ multilib sub-repo.
 
 ## Incompatible software
 
-musl practices very strict and minimal standard compliance. Many commonly used
+musl practices very strict standards compliance. Many commonly used
 platform-specific extensions are not present. Because of this, it is common for
 software to need modification to compile and/or function properly. Void
 developers work to patch such software and hopefully get portability/correctness
