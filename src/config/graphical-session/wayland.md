@@ -68,14 +68,10 @@ Media applications, such as [mpv(1)](https://man.voidlinux.org/mpv.1),
 
 #### Web browsers
 
-Mozilla Firefox ships with a Wayland backend which is disabled by default. To
-enable the Wayland backend, either set the environment variable
-`MOZ_ENABLE_WAYLAND=1` before running `firefox` or use the provided
-`firefox-wayland` script.
-
-Browsers based on GTK+ or Qt5, such as Midori and
-[qutebrowser(1)](https://man.voidlinux.org/qutebrowser.1), should work on
-Wayland natively.
+Mozilla Firefox and Google Chromium support Wayland by default. Browsers based
+on GTK+ or Qt (e.g. [qutebrowser(1)](https://man.voidlinux.org/qutebrowser.1))
+should work on Wayland natively, given their toolkit is [configured
+properly](#native-applications).
 
 #### Running X applications inside Wayland
 
