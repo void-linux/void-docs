@@ -1,7 +1,7 @@
 # Full Disk Encryption
 
-**Warning**: Your drive's block device and other information may be different,
-so make sure it is correct.
+> **Warning**: Your drive's block devices and other information may be
+> different, so make sure it is correct instead of copying and pasting directly.
 
 ## Partitioning
 

@@ -1,7 +1,7 @@
-# Installation via chroot (x86/x86_64/aarch64)
+# Installation via chroot (x86_64/i686/aarch64)
 
 This guide details the process of manually installing Void via a chroot on an
-x86, x86_64 or aarch64 architecture. It is assumed that you have a familiarity
+x86_64, i686, or aarch64 architecture. It is assumed that you have a familiarity
 with Linux, but not necessarily with installing a Linux system via a chroot.
 This guide can be used to create a "typical" setup, using a single partition on
 a single SATA/IDE/USB disk. Each step may be modified to create less typical
@@ -41,9 +41,9 @@ for partitioning, but you may wish to use
 [gdisk(8)](https://man.voidlinux.org/gdisk.8) (from the package `gptfdisk`) or
 [parted(8)](https://man.voidlinux.org/parted.8) instead.
 
-For a UEFI booting system, make sure to create an EFI System Partition (ESP).
-The ESP should have the partition type "EFI System" (code `EF00`) and be
-formatted as FAT32 using [mkfs.vfat(8)](https://man.voidlinux.org/mkfs.vfat.8).
+For a UEFI system, make sure to create an EFI System Partition (ESP). The ESP
+should have the partition type "EFI System" (code `EF00`) and be formatted as
+FAT32 using [mkfs.vfat(8)](https://man.voidlinux.org/mkfs.vfat.8).
 
 If you're unsure what partitions to create, create a 1GB partition of type "EFI
 System" (code `EF00`), then create a second partition of type "Linux Filesystem"
@@ -96,8 +96,7 @@ variable. A glibc installation, for example, would use:
 ```
 
 XBPS also needs to know what architecture is being installed. Available options
-are `x86_64`, `x86_64-musl`, `i686` for PC architecture computers and `aarch64`.
-For example:
+are `x86_64`, `x86_64-musl`, `i686`, `aarch64`, and `aarch64-musl`. For example:
 
 ```
 # ARCH=x86_64
@@ -105,8 +104,8 @@ For example:
 
 This architecture must be compatible with your current operating system, but
 does not need to be the same. If your host is running an x86_64 operating
-system, any of the three architectures can be installed (whether the host is
-musl or glibc), but an i686 host can only install i686 distributions.
+system, x86_64, x86_64-musl, or i686 architectures can be installed (whether the
+host is musl or glibc), but an i686 host can only install i686 distributions.
 
 Copy the RSA keys from the installation medium to the target root directory:
 
@@ -233,7 +232,7 @@ used by your computer's firmware when manually selecting a boot device):
 
 ### Troubleshooting GRUB installation
 
-It may be necessary to mount the `efivarfs` filesystem.
+On UEFI systems, it may be necessary to mount the `efivarfs` filesystem.
 
 ```
 [xchroot /mnt] # mount -t efivarfs none /sys/firmware/efi/efivars
@@ -244,7 +243,7 @@ If EFI variables are still not available, add the option `--no-nvram` to the
 
 #### Installing on removable media or non-compliant UEFI systems
 
-Unfortunately, not all systems have a fully standards compliant UEFI
+Unfortunately, not all systems have a fully standards-compliant UEFI
 implementation. In some cases, it is necessary to "trick" the firmware into
 booting by using the default fallback location for the bootloader instead of a
 custom one. In that case, or if installing onto a removable disk (such as USB),
@@ -259,6 +258,9 @@ located in `/boot/efi/EFI/Void/grubx64.efi` (its location can be found using
 [xchroot /mnt] # mkdir -p /boot/efi/EFI/boot
 [xchroot /mnt] # cp /boot/efi/EFI/Void/grubx64.efi /boot/efi/EFI/boot/bootx64.efi
 ```
+
+On i686, these files should be called `grubia32.efi` and `bootia32.efi`. On
+aarch64, these files should be called `grubaa64.efi` and `bootaa64.efi`.
 
 ## Finalization
 

@@ -17,8 +17,8 @@ manually.
 
 ## Installer images
 
-Void releases two types of images: base images and xfce images. Linux beginners
-are encouraged to try one of the more full-featured xfce images, but more
+Void releases two types of images: base images and Xfce images. Linux beginners
+are encouraged to try one of the more full-featured Xfce images, but more
 advanced users may often prefer to start from a base image to install only the
 packages they need.
 
@@ -30,7 +30,7 @@ update the system, and install additional packages from repositories.
 
 ### Xfce image
 
-The xfce image includes a full desktop environment, web browser, and basic
+The Xfce image includes a full desktop environment, web browser, and basic
 applications configured for that environment. The only difference from the base
 images is the additional packages and services installed.
 
@@ -45,7 +45,7 @@ The following software is included:
 - **Other:** Bulk rename, Orage Globaltime, Orage Calendar, Task Manager, Parole
    Media Player, Audio Mixer, MIME type editor, Application finder
 
-The install process for the xfce image is the same as the base images, except
+The install process for the Xfce image is the same as the base images, except
 that you **must** select the `Local` source when installing. If you select
 `Network` instead, the installer will download and install the latest version of
 the base system, without any additional packages included on the live image.
@@ -80,7 +80,7 @@ If the `Local` installation source is selected in the installer, `espeakup` and
 `brltty` will also be installed and enabled on the installed system if enabled
 in the live environment.
 
-The xfce image also supports the graphical screenreader
+The Xfce image also supports the graphical screenreader
 [orca](https://man.voidlinux.org/orca.1). This can be enabled by pressing `Win +
 R` and entering `orca -r`. Orca will also be available on the installed system
 if the `Local` installation source is selected.
