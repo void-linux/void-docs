@@ -327,7 +327,7 @@ You can then edit the repository files as appropriate.
 
 ### Making changes
 
-To serve the docs locally and view your changes, run `mdbook serve` from the
+To serve the docs locally and view your changes, run `mdbook-legacy serve` from the
 root of the repository.
 
 Once you're satisfied with your changes, run the `check.sh` script provided in

@@ -1,5 +1,6 @@
 PREFIX := /usr/local
 
+MDBOOK := /usr/bin/mdbook-legacy
 SOURCES = $(shell find src -not -path 'src/theme*' -type f -name '*.md')
 MANPAGES = $(subst src/,book/mandoc/,$(patsubst %.md,%.7,$(SOURCES)))
 UTILS = book/void-docs book/void-docs.1
@@ -25,7 +26,7 @@ $(UTILS): book/%: res/%.in book
 	sed -e "s,@PREFIX@,$(PREFIX)," $< >$@
 
 void-book: $(SOURCES) book/typst/handbook-cover.svg
-	mdbook build
+	$(MDBOOK) build
 
 book/typst/handbook-cover.svg: res/handbook-cover.svg book/typst
 	cp -a $< $@

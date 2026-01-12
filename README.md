@@ -10,7 +10,7 @@ the same protocol as the packages tree. For details, please read
 The `Makefile` builds HTML, roff and PDF versions of the Void documentation and
 the `void-docs.1` man page. It requires the following Void packages:
 
-- `mdBook`
+- `mdBook-legacy`
 - `findutils`
 - `lowdown` (version 0.8.1 or greater)
 - `mdbook-typst`
