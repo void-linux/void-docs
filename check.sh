@@ -60,9 +60,9 @@ fi
 
 vmdfmt -l -w src/
 
-if command -v mdbook >/dev/null 2>&1; then
+if command -v mdbook-legacy >/dev/null 2>&1; then
     echo "Building book and checking links with mdbook ..."
-    mdbook build
+    mdbook-legacy build
 else
     echo "Checking links with mdbook-linkcheck ..."
     mdbook-linkcheck -s

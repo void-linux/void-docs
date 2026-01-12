@@ -51,7 +51,7 @@ jobs:
         run: |
           xbps-install -Syu || xbps-install -Syu xbps
           xbps-install -yu
-          xbps-install -y mdbook-linkcheck bash git
+          xbps-install -y mdBook-legacy mdbook-linkcheck bash git
       - name: Checkout
         id: checkout
         uses: classabbyamp/treeless-checkout-action@v1
