@@ -172,10 +172,3 @@ chrony:x:997
 
 In order to fix this, it is necessary to reconfigure the `chrony` package using
 [xbps-reconfigure(1)](https://man.voidlinux.org/xbps-reconfigure).
-
-### Graphical session
-
-The `xf86-video-fbturbo` package ships a modified version of the [DDX Xorg
-driver](../../../config/graphical-session/xorg.md#ddx) found in the
-`xf86-video-fbdev` package, which is optimized for ARM devices. This can be used
-for devices which lack more specific drivers.
