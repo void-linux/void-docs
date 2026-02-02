@@ -43,6 +43,23 @@ To create a superuser, uncomment the line
 
 and add users to the `wheel` group.
 
+## OpenDoas
+
+As an alternative to sudo, Void also has
+[doas(1)](https://man.voidlinux.org/doas.1) available in the repositories as
+`opendoas`.
+
+To enable basic superuser access, create `/etc/doas.conf` as root, add the line
+
+```
+permit :wheel
+```
+
+and add users to the `wheel` group.
+
+For more advanced configuration options, refer to
+[doas.conf(5)](https://man.voidlinux.org/doas.conf.5).
+
 ## Default Groups
 
 Void Linux defines a number of groups by default.
