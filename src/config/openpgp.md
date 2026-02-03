@@ -29,6 +29,6 @@ If you need to use pcscd for other reasons, run `echo disable-ccid >>
 As an alternative to GnuPG with smartcards, Void also ships
 `openpgp-card-tools`, a Rust based utility not reliant on GnuPG. It requires
 using `pcscd` for interacting with smart cards, so if you want to use it in
-parallel with GnuPG, ou need to configure `scdaemon` to use the pcscd backend,
+parallel with GnuPG, you need to configure `scdaemon` to use the pcscd backend,
 as described above in "[scdaemon with pcscd
 backend](#scdaemon-with-pcscd-backend)".
