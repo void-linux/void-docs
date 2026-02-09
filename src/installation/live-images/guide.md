@@ -40,9 +40,10 @@ Select your primary network interface. If you do not choose to use DHCP, you
 will be prompted to provide an IP address, gateway, and DNS servers.
 
 If you choose a wireless network interface, you will be prompted to provide the
-SSID, encryption type (`wpa` or `wep`), and password. If `void-installer` fails
-to connect to your network, you may need to exit the installer and configure it
-manually using [wpa_supplicant](../../config/network/wpa_supplicant.md) and
+SSID, encryption type (`wpa`, `wep`, or `sae`), and password. If
+`void-installer` fails to connect to your network, you may need to exit the
+installer and configure it manually using
+[wpa_supplicant](../../config/network/wpa_supplicant.md) and
 [dhcpcd](../../config/network/index.md#dhcpcd) before continuing.
 
 ## Source
