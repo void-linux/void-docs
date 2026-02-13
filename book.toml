@@ -76,5 +76,6 @@ exclude = [
 	'freedesktop\.org',
 	'libressl\.org',
 	'gnu\.org',
+	'kde\.org',
 ]
 user-agent = "Mozilla/5.0"
