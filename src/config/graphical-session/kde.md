@@ -34,3 +34,15 @@ package. If you want video thumbnails, the `ffmpegthumbs` package is also
 necessary. Enable previews in "Control" -> "Configure Dolphin" -> "General" ->
 "Previews" by checking the corresponding boxes. File previews will be shown for
 the selected file types after clicking "Preview" in Dolphin's toolbar.
+
+### System Sound Themes
+
+The `kde-plasma` package does not include the default KDE Plasma system sounds.
+If you wish to install the default system sounds theme, install the
+`ocean-sound-theme` package. Legacy sounds can be installed with the
+`oxygen-sounds` package.
+
+### Browser Integration
+
+If you wish to enable browser integration, install the
+`plasma-browser-integration` package.
