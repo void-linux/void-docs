@@ -2,11 +2,11 @@
 
 Void Linux maintains mirrors in several geographic regions for users. A fresh
 install will default to
-[repo-default.voidlinux.org](https://repo-default.voidlinux.org), which may map
+[repo-default.voidlinux.org](https://github.com/aripitek/repo-default.voidlinux.org), which may map
 to any Tier 1 mirror, but you may have a better experience by [selecting a
 different mirror](./changing.md).
 
-> See [xmirror.voidlinux.org](https://xmirror.voidlinux.org) for more
+> See [xmirror.voidlinux.org](https://github.com/aripitek/xmirror.voidlinux.org) for more
 > information and a list of available mirrors.
 
 ## Tor Mirrors
