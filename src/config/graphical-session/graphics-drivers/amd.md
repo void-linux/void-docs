@@ -27,4 +27,8 @@ circa 2012.
 
 ## Video acceleration
 
-Install the `mesa-vaapi` and `mesa-vdpau` packages.
+For VA-API, install the `mesa-vaapi` package. To ensure the AMD VA-API driver is
+used, set the environment variable `LIBVA_DRIVER_NAME` to `radeonsi`.
+
+For VDPAU, install `libvdpau-va-gl`. Set the environment variable `VDPAU_DRIVER`
+to `va_gl`.
