@@ -18,16 +18,18 @@ respectively `vulkan-loader` and `mesa-vulkan-intel`.
 
 ## Video acceleration
 
-Install the `intel-video-accel` meta-package:
-
-This will install all the Intel VA-API drivers. `intel-media-driver` will be
-used by default, but this choice can be overridden at runtime via the
-environment variable `LIBVA_DRIVER_NAME`:
+For VA-API, install the `intel-video-accel` meta-package, which will install all
+the Intel VA-API drivers. `intel-media-driver` will be used by default, but this
+choice can be overridden at runtime via the environment variable
+`LIBVA_DRIVER_NAME`:
 
 | Driver Package       | Supported GPU Gen | Explicit selection       |
 |----------------------|-------------------|--------------------------|
 | `libva-intel-driver` | up to Coffee Lake | `LIBVA_DRIVER_NAME=i965` |
 | `intel-media-driver` | from Broadwell    | `LIBVA_DRIVER_NAME=iHD`  |
+
+For VDPAU, install `libvdpau-va-gl`. Set the environment variable `VDPAU_DRIVER`
+to `va_gl`.
 
 ## Troubleshooting
 
