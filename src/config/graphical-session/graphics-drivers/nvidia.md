@@ -27,6 +27,14 @@ also use the universal `modesetting` driver bundled with Xorg (this is the only
 option on Tegra-based ARM boards). When in doubt, it's a good idea to try
 `xf86-video-nouveau` first. This driver will likely perform better.
 
+### Video Acceleration
+
+For VA-API, install `mesa-vaapi`. To ensure the nouveau VA-API driver is used,
+set the environment variable `LIBVA_DRIVER_NAME` to `nouveau`.
+
+For VDPAU, install `libvdpau-va-gl`. Set the environment variable `VDPAU_DRIVER`
+to `va_gl`.
+
 ### Reclocking
 
 Only first generation Maxwell, Kepler, and some Tesla cards support manual
