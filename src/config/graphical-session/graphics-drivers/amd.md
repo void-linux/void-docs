@@ -27,4 +27,12 @@ circa 2012.
 
 ## Video acceleration
 
-Install the `mesa-vaapi` and `mesa-vdpau` packages.
+Install the `mesa-vaapi` package for VAAPI support.
+
+VDPAU support was removed from Mesa in version 25.3.0. Applications that 
+require VDPAU can use the `va_gl` translation layer, which routes VDPAU 
+calls through VAAPI. To enable this, add the following to 
+`/etc/profile.d/vdpau.sh`:
+```sh
+export VDPAU_DRIVER=va_gl
+```
