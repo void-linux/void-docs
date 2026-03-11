@@ -243,3 +243,5 @@ it](#session-management) and restart PipeWire.
 If a session manager is running, check if your user is in the `audio` and
 `video` groups. If not using `elogind`, this is necessary for PipeWire to access
 devices.
+
+On some platforms, the `sof-firmware` package may be required.
