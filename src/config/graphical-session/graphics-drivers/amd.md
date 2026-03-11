@@ -28,3 +28,8 @@ circa 2012.
 ## Video acceleration
 
 Install the `mesa-vaapi` and `mesa-vdpau` packages.
+
+## System Management Interface
+
+The `ROCm-SMI` package is required by some programs (`btop`) in order to monitor
+the GPU.
