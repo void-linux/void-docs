@@ -55,11 +55,16 @@ An "unresolvable shlib" error, such as:
 libllvm8-8.0.1_2: broken, unresolvable shlib `libffi.so.6'
 ```
 
-is probably due to outdated or orphan packages. To check for outdated packages,
-simply try to [update your system](../index.md#updating). Orphan packages, on
-the other hand, have been removed from the Void repos, but are still installed
-on your system; they can be removed by running
-[xbps-remove(1)](https://man.voidlinux.org/xbps-remove.1) with the `-o` option.
+is probably due to outdated or removed packages installed on your system. It can
+also stem from the removal of a repository in
+[xbps.d(5)](https://man.voidlinux.org/xbps.d.5). To check for outdated packages,
+try to [update your system](../index.md#updating). To uninstall removed
+packages, using [xbps-remove(1)](https://man.voidlinux.org/xbps-remove.1) with
+the `-o` option is sufficient in most cases; it will delete packages that were
+installed as dependencies but are no longer required. These are a common cause
+of this issue. However, if the removed package is not a dependency, you will
+need to remove it manually using
+[xbps-remove(1)](https://man.voidlinux.org/xbps-remove.1).
 
 If you get an error message saying:
 
@@ -67,7 +72,7 @@ If you get an error message saying:
 Transaction aborted due to unresolved shlibs
 ```
 
-the repositories are in the staging state, which can happen due to large builds.
+the repositories are in the staged state, which can happen due to large builds.
 The solution is to wait for the builds to finish. You can view the builds'
 progress in the [Buildbot's web interface](https://build.voidlinux.org).
 
