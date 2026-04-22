@@ -1,6 +1,6 @@
 # NVIDIA
 
-## nouveau (Open Source Driver)
+## nouveau (Kernel-Provided Driver)
 
 This is a reverse engineered driver largely developed by the community, with
 some documentation provided by Nvidia. It tends to perform well on older
@@ -43,29 +43,32 @@ cards starting with second generation Maxwell (GTX 9xx) do not support
 reclocking because the `linux-firmware` collection is missing signed firmware
 blobs needed to reclock these cards past their boot frequencies.
 
-## nvidia (Proprietary Driver)
+## nvidia (Nvidia-Provided Driver)
 
-The proprietary drivers are available in the [nonfree
-repository](../../../xbps/repositories/index.md#nonfree).
+The drivers provided by Nvidia offer better performance and power handling, and
+are recommended where performance is needed.
 
-Check if your graphics card belongs to the [legacy
-branch](https://www.nvidia.com/en-us/drivers/unix/legacy-gpu/). If it does not,
-install the `nvidia` package. Otherwise you should install the appropriate
-legacy driver, `nvidia470` or `nvidia390`. The older legacy driver, `nvidia340`,
-is no longer available, and users are encouraged to [switch to
-nouveau](#reverting-from-nvidia-to-nouveau).
+They are available in the [nonfree
+repository](../../../xbps/repositories/index.md#nonfree) and integrate in the
+kernel through [DKMS](../../kernel.md#dynamic-kernel-module-support-dkms).
 
-| Brand  | Type        | Model          | Driver Package |
-|--------|-------------|----------------|----------------|
-| NVIDIA | Proprietary | 800+           | `nvidia`       |
-| NVIDIA | Proprietary | 600/700        | `nvidia470`    |
-| NVIDIA | Proprietary | 400/500 Series | `nvidia390`    |
+To determine the correct driver package to install, first find the family of
+your card by running
 
-The proprietary driver integrates in the kernel through
-[DKMS](../../kernel.md#dynamic-kernel-module-support-dkms).
+```
+$ lspci -k -d ::03xx
+```
 
-This driver offers better performance and power handling, and is recommended
-where performance is needed.
+and matching the reported model to the [list of Nvidia GPU
+codenames](https://nouveau.freedesktop.org/CodeNames.html).
+
+| Family                           | Type        | Driver Package                             |
+|----------------------------------|-------------|--------------------------------------------|
+| Turing (NV160) and newer         | Open        | `nvidia`                                   |
+| Maxwell (NV110) to Volta (NV140) | Proprietary | `nvidia580`                                |
+| Kepler (NVE0)                    | Proprietary | `nvidia470`                                |
+| Fermi (NVC0)                     | Proprietary | `nvidia390`                                |
+| Tesla (NV50) and older           | Unsupported | use [nouveau](#nouveau-open-source-driver) |
 
 ## 32-bit program support (glibc only)
 
@@ -75,8 +78,8 @@ additional packages.
 If using the `nouveau` driver, install the `mesa-dri-32bit` package.
 
 If using the `nvidia` driver, install the `nvidia<x>-libs-32bit` package. `<x>`
-represents the legacy driver version (`470` or `390`) or can be left empty for
-the main driver.
+represents the legacy driver version (`580`, `470`, or `390`) or can be left
+empty for the main driver.
 
 ## Reverting from nvidia to nouveau
 
@@ -84,7 +87,8 @@ the main driver.
 
 In order to revert to the `nouveau` driver, install the [`nouveau`
 driver](#nouveau-open-source-driver) (if it was not installed already), then
-remove the `nvidia`, `nvidia470`, or `nvidia390` package, as appropriate.
+remove the `nvidia`, `nvidia580`, `nvidia470`, or `nvidia390` package, as
+appropriate.
 
 If you were using the obsolete `nvidia340` driver, you might need to install the
 `libglvnd` package after removing the `nvidia340` package.
