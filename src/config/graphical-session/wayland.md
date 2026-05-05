@@ -50,6 +50,40 @@ accessing input devices. In Void systems, this requires a seat manager service,
 which can be either elogind or seatd. Enabling them is explained in the
 ["Session and Seat Management"](../session-management.md) session.
 
+### Display Managers
+
+#### SDDM
+
+To run SDDM itself under wayland, create the file
+`/etc/sddm.conf.d/10-wayland.conf` (see
+[sddm.conf(5)](https://man.voidlinux.org/sddm.conf.5)), with the contents:
+
+```
+[General]
+DisplayServer=wayland
+```
+
+The above configuration requires installing the `weston` compositor.
+
+Alternatively, if SDDM is being used as part of a KDE installation, it may be
+preferable to use the `kwin` compositor:
+
+```
+[General]
+DisplayServer=wayland
+GreeterEnvironment=QT_WAYLAND_SHELL_INTEGRATION=layer-shell
+
+[Wayland]
+CompositorCommand=kwin_wayland --drm --no-lockscreen --no-global-shortcuts --locale1
+```
+
+In either case, to avoid a conflict, disable `agetty` on the first virtual
+terminal:
+
+```
+touch /etv/sv/agetty-tty1/down
+```
+
 ### Native applications
 
 Qt5- and Qt6-based applications require installing the `qt5-wayland` or
