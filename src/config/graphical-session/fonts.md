@@ -17,10 +17,10 @@ the relevant `.conf` file in `/etc/fonts/conf.d/`, then use
 [xbps-reconfigure(1)](https://man.voidlinux.org/xbps-reconfigure.1) to
 reconfigure the `fontconfig` package.
 
-For example, to disable use of bitmap fonts:
+For example, to enable use of bitmap fonts:
 
 ```
-# ln -s /usr/share/fontconfig/conf.avail/70-no-bitmaps-except-emoji.conf /etc/fonts/conf.d/
+# ln -s /usr/share/fontconfig/conf.avail/70-yes-bitmaps.conf /etc/fonts/conf.d/
 # xbps-reconfigure -f fontconfig
 ```
 
