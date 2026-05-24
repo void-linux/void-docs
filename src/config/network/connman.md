@@ -11,6 +11,8 @@ network managing services like [dhcpcd](./index.md#dhcpcd),
 [wpa_supplicant](./wpa_supplicant.md), or `wicd`. These services all control
 network interface configuration, and interfere with each other.
 
+Then, provide a system bus by enabling the `dbus` service. See [D-Bus](../session-management.md#d-bus) for more information.
+
 Finally, enable the `connmand` service.
 
 ## Configuring ConnMan
