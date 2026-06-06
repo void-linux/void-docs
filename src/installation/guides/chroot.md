@@ -95,6 +95,17 @@ variable. A glibc installation, for example, would use:
 # REPO=https://repo-default.voidlinux.org/current
 ```
 
+Note that aarch64 and other non-x86 architectures may require an 
+architecture-specific repository URL. For example:
+
+```
+# REPO=https://repo-default.voidlinux.org/current/aarch64
+```
+
+Ensure that the repository URL matches the target architecture being installed
+otherwise, the installation may fail due to missing repository metadata.
+
+
 XBPS also needs to know what architecture is being installed. Available options
 are `x86_64`, `x86_64-musl`, `i686`, `aarch64`, and `aarch64-musl`. For example:
 
