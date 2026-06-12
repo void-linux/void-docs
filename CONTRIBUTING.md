@@ -1,5 +1,8 @@
 # Contributing
 
+> [!IMPORTANT]
+> Void's [global contributing policy](https://github.com/void-linux/.github/blob/master/CONTRIBUTING.md) applies to this repository
+
 To contribute to the Void documentation, please read the following. Pull
 requests that do not meet the criteria described below will not be merged.
 Before submitting a PR:
