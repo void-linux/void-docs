@@ -55,7 +55,7 @@ at `/`:
 /dev/sda1  /           ext4  defaults,discard   0  1
 ```
 
-Then run `mount -a` to mount every drive and show any issues with fstab. If you have for example forgotten a comma, your system will boot in a limited recovery mode that allows to fix it on reboot.
+Verify fstab using `findmnt --verify`. If you reboot with errors, your system will enter rescue mode.
 
 ## LVM
 
