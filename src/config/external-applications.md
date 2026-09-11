@@ -26,7 +26,7 @@ instead.
 ### Java
 
 Void provides LTS versions of the OpenJDK development kits and runtimes.
-Currently, versions 8, 11, 17, and 21 are available. To run Java-based
+Currently, versions 8, 11, 17, 21, and 25 are available. To run Java-based
 applications, install the Java Runtime Environment of the desired version. To
 build Java-based programs, install the Java Development Kit of the desired
 version (and optionally other components listed below).
