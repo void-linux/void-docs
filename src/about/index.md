@@ -32,4 +32,4 @@ considered stable enough for daily use. We do this for fun and hope that our
 work will be useful to others.
 
 The name "Void" comes from the C literal `void`. It was chosen rather randomly,
-and is void of any meaning.
+and is devoid of any meaning.
