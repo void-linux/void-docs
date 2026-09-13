@@ -21,9 +21,10 @@ attempting to manually shrink or alter APFS containers via the Void Linux live
 ISO.
 
 Then, [create a Live USB](../../live-images/prep.md) using an [Apple Silicon
-Void Linux ISO](https://voidlinux.org/download/#arm%20platforms). U-Boot
-(installed by the Asahi installer) should show the external USB as a boot
-option. If it does not, run these commands in the U-Boot prompt to boot:
+Void Linux ISO](https://voidlinux.org/download/#arm%20platforms). (You may need
+to generate a new one if it is too old.) U-Boot (installed by the Asahi
+installer) should show the external USB as a boot option. If it does not, run
+these commands in the U-Boot prompt to boot:
 
 ```
 U-Boot> setenv boot_targets "usb"
@@ -53,8 +54,3 @@ to `kernel`.
 The `asahi-audio` package is required for audio. Ensure the speakersafetyd
 service is [enabled](../../../config/services/index.md#enabling-services), and
 set up [pipewire and wireplumber](../../../config/media/pipewire.md).
-
-## Firmware
-
-Firmware can be updated with `asahi-fwupdate` from `asahi-scripts`. It is
-recommended to do so whenever the `asahi-firmware` package is updated.
