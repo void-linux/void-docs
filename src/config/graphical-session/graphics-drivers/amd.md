@@ -32,3 +32,8 @@ used, set the environment variable `LIBVA_DRIVER_NAME` to `radeonsi`.
 
 For VDPAU, install `libvdpau-va-gl`. Set the environment variable `VDPAU_DRIVER`
 to `va_gl`.
+
+## System Management Interface
+
+The `ROCm-SMI` package is required by some programs (like `btop`) in order to monitor
+the GPU.
