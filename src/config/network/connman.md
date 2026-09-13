@@ -48,3 +48,33 @@ Create `/etc/sv/connmand/conf` with the following content:
 ```
 OPTS="--nodnsproxy"
 ```
+
+## Prevent ConnMan from updating hostname
+
+[`connman.conf`](https://man.voidlinux.org/connman.conf) will by default allow
+ConnMan to update the system hostname, for example when a hostname is received
+from DHCP.
+
+ConnMan will update the value in `/proc/sys/kernel/hostname`. This can lead to a
+situation where ConnMan receives a stale hostname value from a DHCP server but
+`/etc/hostname`, `/etc/rc.conf`, etc contain the user configured hostname,
+conflicting with the value in `/proc/sys/kernel/hostname`. Applications and
+processes may obtain a hostname from different sources leading to
+inconsistencies.
+
+To disallow ConnMan from updating the system hostname, create
+`/etc/connman/main.conf` with the following configuration.
+
+```
+[General]
+AllowHostnameUpdates = false
+AllowDomainnameUpdates = false
+```
+
+If ConnMan set an undesired value in `/proc/sys/kernel/hostname`, ensure the
+configuration above is applied and the service restarted. And update to the
+preferred value.
+
+```
+# echo "<hostname>" > /proc/sys/kernel/hostname
+```
