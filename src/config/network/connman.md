@@ -15,6 +15,8 @@ Finally, enable the `connmand` service.
 
 ## Configuring ConnMan
 
+Users of ConnMan must belong to the `network` group.
+
 ### ConnMan CLI
 
 The `connman` package includes a command line tool,
