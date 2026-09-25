@@ -60,11 +60,11 @@ Keep in mind the encrypted volume will be `/dev/sda2` on EFI systems, since
 `/dev/sda1` is taken up by the EFI partition.
 
 ```
-# cryptsetup luksFormat --type luks1 /dev/sda1
+# cryptsetup luksFormat --type luks1 /dev/sda2
 
 WARNING!
 ========
-This will overwrite data on /dev/sda1 irrevocably.
+This will overwrite data on /dev/sda2 irrevocably.
 
 Are you sure? (Type uppercase yes): YES
 Enter passphrase:
@@ -75,8 +75,8 @@ Once the volume is created, it needs to be opened. Replace `voidvm` with an
 appropriate name. Again, this will be `/dev/sda2` on EFI systems.
 
 ```
-# cryptsetup luksOpen /dev/sda1 voidvm
-Enter passphrase for /dev/sda1:
+# cryptsetup luksOpen /dev/sda2 voidvm
+Enter passphrase for /dev/sda2:
 ```
 
 Once the LUKS container is opened, create the LVM volume group using that

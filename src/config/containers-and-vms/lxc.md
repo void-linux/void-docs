@@ -146,8 +146,7 @@ started. To avoid default configuration initialize Incus for yourself with
 > on boot.
 
 To migrate existing LXD setups to Incus, use the `lxd-to-incus` tool from the
-`incus-tools` package as described
-[here](https://linuxcontainers.org/incus/docs/main/howto/server_migrate_lxd/).
+`incus-tools` package.
 
 To migrate existing LXC containers to Incus, use the `lxc-to-incus` script from
 the `incus-tools` package as described
