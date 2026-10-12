@@ -76,7 +76,7 @@ the repositories are in the staged state, which can happen due to large builds.
 The solution is to wait for the builds to finish. You can view the builds'
 progress in the [Buildbot's web interface](https://build.voidlinux.org).
 
-### repodata errors
+### repodata compression errors
 
 In March 2020, the compression format used for the repository data (repodata)
 was changed from gzip to zstd. If XBPS wasn't updated to version `0.54`
@@ -91,6 +91,23 @@ this error is shown below.
 
 In this situation, it is necessary to follow the steps in
 [xbps-static](./static.md).
+
+### truncated tar archive detected
+
+When doing an operation that synchronizes repositories, an error like below can
+occur in some rare cases:
+
+```
+ERROR: failed to read archive entry: index.plist: Truncated tar archive detected while reading data
+```
+
+To fix this, the cached repodata should be removed and the repository should be
+re-synchronized:
+
+```
+# rm /var/db/xbps/http*/*-repodata
+# xbps-install -S
+```
 
 ## Broken systems
 
