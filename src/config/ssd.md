@@ -55,6 +55,8 @@ at `/`:
 /dev/sda1  /           ext4  defaults,discard   0  1
 ```
 
+Verify fstab using `findmnt --verify`. If you reboot with errors, your system will enter rescue mode.
+
 ## LVM
 
 To enable TRIM for LVM's commands (`lvremove`, `lvreduce`, etc.), open
