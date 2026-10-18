@@ -15,8 +15,8 @@ as arguments; when run without arguments, it provides an interactive session. To
 list available commands, run `iwctl help`, or run `iwctl` and enter `help` at
 the interactive prompt.
 
-By default, only the root user and those in the `wheel` group have permission to
-operate `iwctl`.
+By default, only the root user and those in the `wheel` or `netdev` groups have
+permission to operate `iwctl`.
 
 ## Configuration
 
