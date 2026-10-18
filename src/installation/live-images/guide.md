@@ -70,18 +70,26 @@ Select your timezone based on standard timezone options.
 ## Root password
 
 Enter and confirm your `root` password for the new installation. The password
-will not be shown on screen.
+will not be shown on screen. This is not required if configuring superuser
+access with `sudo` or `opendoas`.
 
 ## User account
 
 Choose a login (default `void`) and a descriptive name for that login. Then
 enter and confirm the password for the new user. You will then be prompted to
-verify the groups for this new user. They are added to the `wheel` group by
-default and will have `sudo` access. Default groups and their descriptions are
-listed [here](../../config/users-and-groups.md#default-groups).
+verify the groups for this new user. This user will be given superuser access if
+`sudo` or `opendoas` is selected for superuser access. Default groups and their
+descriptions are listed [here](../../config/users-and-groups.md#default-groups).
 
 Login names have some restrictions, as described in
 [useradd(8)](https://man.voidlinux.org/useradd.8#CAVEATS).
+
+## Superuser Access
+
+Choose a tool to use for [superuser
+access](../../config/users-and-groups.md#superuser-access). Choosing `su` (the
+default), requires setting the root password. Choosing `sudo` or `opendoas`
+requires setting up a user account.
 
 ## Bootloader
 

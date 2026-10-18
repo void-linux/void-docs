@@ -26,22 +26,43 @@ $ chsh -s <shell> <user_name>
 `<shell>` must be the path to the shell as specified by `/etc/shells` or the
 output of `chsh -l`, which provides a list of installed shells.
 
-## sudo
+## Superuser Access
 
-[sudo(8)](https://man.voidlinux.org/sudo.8) is installed by default, but might
-not be configured appropriately for your needs. It is only necessary to
-configure sudo if you wish to use it.
+By default, Void includes the [`su(1)`](https://man.voidlinux.org/man1/su.1)
+privilege escalation tool. Users may wish to install and configure a more
+featureful alternative.
 
-Use [visudo(8)](https://man.voidlinux.org/visudo.8) as root to edit the
-[sudoers(5)](https://man.voidlinux.org/sudoers.5) file.
+### sudo
 
-To create a superuser, uncomment the line
+[sudo(8)](https://man.voidlinux.org/sudo.8) is commonly used, and is highly
+complex. The default configuration only allows the `root` user to run privileged
+commands.
+
+To configure sudo, use [visudo(8)](https://man.voidlinux.org/visudo.8) as root
+to edit the [sudoers(5)](https://man.voidlinux.org/sudoers.5) file.
+
+To create a superuser, uncomment the line:
 
 ```
-#%wheel ALL=(ALL) ALL
+# %wheel ALL=(ALL) ALL
 ```
 
 and add users to the `wheel` group.
+
+### opendoas
+
+[doas(1)](https://man.voidlinux.org/man1/doas.1) is an alternative privilege
+escalation tool, developed for OpenBSD and ported to Linux.
+
+To configure basic superuser access, create `/etc/doas.conf` as root with the
+contents:
+
+```
+permit :wheel
+```
+
+and add users to the `wheel` group. For more complex configuration, see
+[doas.conf(5)](https://man.voidlinux.org/man5/doas.conf.5).
 
 ## Default Groups
 
