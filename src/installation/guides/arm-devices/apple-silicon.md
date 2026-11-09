@@ -53,8 +53,3 @@ to `kernel`.
 The `asahi-audio` package is required for audio. Ensure the speakersafetyd
 service is [enabled](../../../config/services/index.md#enabling-services), and
 set up [pipewire and wireplumber](../../../config/media/pipewire.md).
-
-## Firmware
-
-Firmware can be updated with `asahi-fwupdate` from `asahi-scripts`. It is
-recommended to do so whenever the `asahi-firmware` package is updated.
