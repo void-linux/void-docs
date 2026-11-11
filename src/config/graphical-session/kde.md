@@ -2,7 +2,13 @@
 
 ## Installation
 
-Install the `kde-plasma` package, and optionally, the `kde-baseapps` package.
+For desktop environments, install the `kde-plasma` package.
+
+For media center environments, install the `kde-bigscreen` package.
+
+### Optional Components
+
+For a selection of core applications, install the `kde-baseapps` package.
 
 To use the "Networks" widget, install `NetworkManager` and enable the `dbus` and
 `NetworkManager` services. To use the "Volume" widget, set up
@@ -17,9 +23,11 @@ the `xorg-minimal` package or the `xorg` package. By default, SDDM will start an
 X-based Plasma session, but you can request a Wayland-based Plasma session
 instead.
 
-If you wish to start an X-based session from the console, use
-[startx](./xorg.md#startx) to run `startplasma-x11`. For a Wayland-based
+If you wish to start an X-based desktop session from the console, use
+[startx](./xorg.md#startx) to run `startplasma-x11`. For a Wayland-based desktop
 session, run `startplasma-wayland` directly.
+
+To start the bigscreen session, run `plasma-bigscreen-wayland`.
 
 ## Dolphin
 
