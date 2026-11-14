@@ -66,11 +66,10 @@ using [mkswap(8)](https://man.voidlinux.org).
 > It is possible to put Linux swap space on a ZFS zvol, although there may be a
 > risk of deadlocking the kernel when under high memory pressure. This guide
 > takes no position on the matter of swap space on a zvol. However, if you wish
-> to use suspension-to-disk (hibernation), note that the kernel is not capable
-> of resuming from memory images stored on a zvol. You will need a dedicated
-> swap partition to use hibernation. Apart from this caveat, there are no
-> special considerations required to resume a suspended image when using a ZFS
-> root.
+> to use suspend-to-disk (hibernation), note that the kernel is not capable of
+> resuming from memory images stored on a zvol. You will need a dedicated swap
+> partition to use hibernation. Apart from this caveat, there are no special
+> considerations required to resume a suspended image when using a ZFS root.
 
 ### Create a ZFS pool
 

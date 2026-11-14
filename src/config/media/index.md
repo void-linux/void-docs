@@ -2,7 +2,7 @@
 
 ## Audio setup
 
-To setup audio on your Void Linux system you have to decide if you want to use
+To set up audio on your Void Linux system you have to decide if you want to use
 [PulseAudio](./pulseaudio.md), [PipeWire](./pipewire.md) or just
 [ALSA](./alsa.md). Sndio is also available, but is neither supported nor
 recommended.

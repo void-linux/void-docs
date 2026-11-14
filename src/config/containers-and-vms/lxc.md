@@ -39,7 +39,7 @@ In each colon-delimited entry:
 - the third field is the number of consecutive IDs in the range.
 
 The [usermod(8)](https://man.voidlinux.org/usermod.8) program may also be used
-to manipulate suborinated IDs.
+to manipulate subordinated IDs.
 
 Generally, the number of consecutive IDs should be an integer multiple of 65536;
 the starting value is not important, except to ensure that the various ranges

@@ -15,8 +15,8 @@ implementations are available, including
 Once you have chosen and installed an implementation,
 [enable](./services/index.md#enabling-services) the corresponding service. There
 is also a generic `crond` service which is maintained by the alternatives
-system, but there is no real benefit in using it and just makes your setup
-harder to follow.
+system, but there is no real benefit in using it because it just makes your
+setup harder to follow.
 
 As an alternative to the standard cron implementations, you can use
 [snooze(1)](https://man.voidlinux.org/snooze.1) together with the

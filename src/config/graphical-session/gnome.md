@@ -3,7 +3,7 @@
 ## Pre-installation
 
 GNOME supports both X and Wayland sessions. Follow the "[Wayland](./wayland.md)"
-or "[Xorg](./xorg.md)" sections to setup your preferred environment.
+or "[Xorg](./xorg.md)" sections to set up your preferred environment.
 
 Install the `dbus` package, ensure the `dbus` service is enabled, and reboot for
 the changes to take effect.

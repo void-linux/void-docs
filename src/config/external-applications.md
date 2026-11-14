@@ -12,7 +12,7 @@ request for it. The contribution instructions can be found
 To keep packages smaller, Void has separate `devel` packages for header files
 and development tools. If you install a library or application via a language's
 package manager (e.g. `pip`, `gem`), or compile one from source, you may need to
-install the programming language's `-devel` package. This is specially relevant
+install the programming language's `-devel` package. This is especially relevant
 for `musl` libc users, due to pre-built binaries usually targeting `glibc`
 instead.
 

@@ -27,7 +27,7 @@ ip route add default via 192.168.1.1
 
 To configure bridge interfaces at boot, the `/etc/rc.local` file can be used to
 run [ip(8)](https://man.voidlinux.org/ip.8) commands to add the bridge `br0` and
-set it as the master for the `eth0` interface as example:
+set it as the master for the `eth0` interface, for example:
 
 ```
 ip link add name br0 type bridge

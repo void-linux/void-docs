@@ -21,6 +21,6 @@ desired. To inhibit this behavior, the `autospawn` directive from
 [pulse-client.conf(5)](https://man.voidlinux.org/pulse-client.conf.5) can be set
 to `no`.
 
-There are several methods of allowing PulseAudio to access to audio devices. The
+There are several methods of allowing PulseAudio to access audio devices. The
 simplest one is to add your user to the `audio` group. Alternatively, you can
 use a session manager, like `elogind`.

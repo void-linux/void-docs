@@ -4,7 +4,7 @@ Void supports user-created repositories, both local and remote. This is only
 recommended for serving custom packages created personally, or packages from
 another trusted source. The Void project does not support *any* third-party
 package repositories - the use of third-party software packages poses very
-serious security concerns, and risks serious damage your system.
+serious security concerns, and risks serious damage to your system.
 
 ## Adding custom repositories
 

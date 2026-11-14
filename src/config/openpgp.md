@@ -15,7 +15,7 @@ its internal CCID driver. For this to work, your smartcard needs to be one of
 the smartcards in the udev rules
 [here](https://github.com/void-linux/void-packages/blob/master/srcpkgs/gnupg/files/60-scdaemon.rules)
 and you need to either be using elogind or be a member of the plugdev group. If
-these two condition are fulfilled and you don't have pcscd running, `gpg
+these two conditions are fulfilled and you don't have pcscd running, `gpg
 --card-status` should successfully print your current card status.
 
 ## scdaemon with pcscd backend
