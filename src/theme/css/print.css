@@ -8,8 +8,8 @@
 }
 
 #page-wrapper.page-wrapper {
-    transform: none;
-    margin-left: 0px;
+    transform: none !important;
+    margin-inline-start: 0px;
     overflow-y: initial;
 }
 
@@ -24,13 +24,9 @@
 }
 
 code {
+    direction: ltr !important;
     background-color: #ddd;
-    border-radius: 5px;
-
-    /* Force background to be printed in Chrome */
-    -webkit-print-color-adjust: exact;
 }
-
 
 pre {
     background-color: #ddd;
@@ -76,4 +72,3 @@ table thead tr {
 table tbody tr {
     background-color: unset;
 }
-
