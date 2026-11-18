@@ -23,6 +23,16 @@ ip addr add 192.168.1.2/24 brd + dev eth0
 ip route add default via 192.168.1.1
 ```
 
+It is advisable to manually specify a nameserver in the `/etc/resolv.conf` file
+to able to perform address resolution in DNS:
+
+```
+echo "nameserver 192.168.1.1" >> /etc/resolv.conf
+```
+
+For more information on `resolv.conf`, refer to
+[resolvconf(8)](https://man.voidlinux.org/resolvconf.8)
+
 ## Bridge Interfaces
 
 To configure bridge interfaces at boot, the `/etc/rc.local` file can be used to
