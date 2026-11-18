@@ -69,6 +69,7 @@
    - [TeX Live](./config/texlive.md)
    - [External Applications](./config/external-applications.md)
    - [Printing](./config/print/index.md)
+   - [Scanning](./config/scan/index.md)
    - [Containers and Virtual Machines](./config/containers-and-vms/index.md)
       - [Chroots and Containers](./config/containers-and-vms/chroot.md)
       - [libvirt](./config/containers-and-vms/libvirt.md)
