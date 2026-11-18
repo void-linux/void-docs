@@ -15,11 +15,21 @@ Also ensure that the `dbus` service is [enabled](../services/index.md) and
 running. NetworkManager uses `dbus` to expose networking information and a
 control interface to clients, and will fail to start without it.
 
+NetworkManager uses `resolvconf` from the `openresolv` package to manage DNS
+configuration by default. If `/etc/resolv.conf` is already a symlink or is
+managed by another service, NetworkManager may not manage it as expected. Check
+and remove or adjust the existing resolver configuration before switching to
+NetworkManager.
+
 Finally, enable the `NetworkManager` service.
 
 ## Configuring NetworkManager
 
-Users of NetworkManager must belong to the `network` group.
+NetworkManager uses polkit to authorize network management operations performed
+by unprivileged users. The `NetworkManager` package provides a polkit rule that
+grants these permissions to members of the `network` group. Install the `polkit`
+package, [enable](../services/index.md) the `polkitd` service, and add the user
+to the `network` group.
 
 The `NetworkManager` package includes a command line tool,
 [nmcli(1)](https://man.voidlinux.org/nmcli.1), and a text-based user interface,
